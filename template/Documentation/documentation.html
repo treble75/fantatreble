@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Alchemists HTML Documentation</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- Syntax Highlighter -->
+    <link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shCore.css" media="all">
+    <link rel="stylesheet" type="text/css" href="syntax-highlighter/styles/shThemeDefault.css" media="all">
+
+  </head>
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Alchemists</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#h-intro">Introduction</a></li>
+            <li><a href="#h-html">HTML Structure</a></li>
+            <li><a href="#h-css">CSS Files</a></li>
+            <li><a href="#h-js">JavaScript</a></li>
+            <li><a href="#h-customization">Customization</a></li>
+            <li><a href="#h-psd">PSD files</a></li>
+            <li><a href="#h-fonts">Fonts</a></li>
+            <li><a href="#h-credits">Credits</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <section class="top">
+        <div class="starter-template masthead">
+          <h1>Alchemists</h1>
+          <p class="marketing-byline">Sports Club and News HTML Template</p>
+          <p class="lead">Documentation for Alchemists - Sports Club and News HTML Template</p>
+          <div class="text-center">
+            <a href="http://themeforest.net/user/dan_fisher?ref=dan_fisher#contact" class="btn btn-primary">Item Support</a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8 col-md-push-2">
+            <div class="jumbotron">
+               Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/dan_fisher?ref=dan_fisher">here</a>. Thanks so much!
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduction -->
+      <section class="section" id="h-intro">
+        <div class="page-header">
+          <h3>Introduction <small>template features</small></h3>
+        </div>
+        <p>Thank you so much for purchasing this template called <strong>Alchemists</strong>. Please feel free to contact us if you have question or problem about this template. No guarantees, but we will do our best to provide you with the best possible assistance.</p>
+        <br>
+        <h4>Features</h4>
+        <ul>
+          <li>100% Responsive Layout Design</li>
+          <li>HTML5 and CSS3</li>
+          <li>Bootstrap 3</li>
+          <li>SASS</li>
+          <li>116 HTML files</li>
+          <li>CSS3 Animation</li>
+          <li>Custom SVG icons</li>
+          <li>Simple Line Icons</li>
+          <li>Font Awesome Icons</li>
+          <li>BEM syntax</li>
+          <li>KIT language</li>
+          <li>700+ Google Fonts Usable</li>
+          <li>34 widgets including Instagram and Twitter widgets</li>
+          <li>4 Blog Pages</li>
+          <li>3 Post Pages</li>
+          <li>Shop Pages</li>
+          <li>8 Team Pages</li>
+          <li>5 Player Pages</li>
+          <li>89 PSDs files included</li>
+          <li>Documentation</li>
+          <li>and much more...</li>
+        </ul>
+      </section>
+      <!-- Introduction / End -->
+
+      <!-- Structure -->
+      <section class="section" id="h-structure">
+        <div class="page-header">
+          <h3>Structure <small>files structure</small></h3>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <p>Once downloaded, unzip the compressed folder to see the structure of the <strong>Alchemists</strong>. You'll see next structure:</p>
+            <p>If you're developer you can work with source folder where you can find .kit and .sass files. Also you can easily work with .html and .css to customize the template.</p>
+          </div>
+          <div class="col-md-8">
+            <div class="highlight"><pre><code class="bash">alchemists/
+├── assets/
+│   └── css/
+│   └── fonts/
+│   └── images/
+│   └── js/
+│   └── vendor/
+├── php/
+│   └── twitteroauth/
+├── source/
+│   └── kit/
+│   └── sass/
+└─── *.html
+</code></pre></div>
+          </div>
+        </div>
+      </section>
+      <!-- Structure / End -->
+
+
+
+
+      <!-- HTML Structure -->
+      <section class="section" id="h-html">
+        <div class="page-header">
+          <h3>HTML Structure <small>markup customization and highlights</small></h3>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            This template based on a responsive layout. All of the information within the main content area is nested within a body tag. The general template structure is the same throughout the template. Here is the general structure.
+          </div>
+          <div class="col-md-8">
+<pre class="brush: html">
+<div class="site-wrapper clearfix">
+  <div class="site-overlay"></div>
+
+
+
+  <!-- Header
+  ================================================== -->
+
+  <!-- Header Mobile -->
+  <div class="header-mobile clearfix" id="header-mobile">
+    ...
+  </div>
+
+  <!-- Header Desktop -->
+  <header class="header">
+
+    <!-- Header Top Bar -->
+    <div class="header__top-bar clearfix">
+      ...
+    </div>
+    <!-- Header Top Bar / End -->
+
+    <!-- Header Secondary -->
+    <div class="header__secondary">
+      ...
+    </div>
+    <!-- Header Secondary / End -->
+
+    <!-- Header Primary -->
+    <div class="header__primary">
+      ...
+    </div>
+    <!-- Header Primary / End -->
+
+  </header>
+  <!-- Header / End -->
+
+  <!-- Pushy Panel -->
+  <aside class="pushy-panel">
+    ...
+  </aside>
+  <!-- Pushy Panel / End -->
+
+  <!-- Hero Unit
+  ================================================== -->
+  <div class="hero-unit">
+    ...
+  </div>
+
+  <!-- Content
+  ================================================== -->
+  <div class="site-content">
+    ...
+  </div>
+
+  <!-- Content / End -->
+
+  <!-- Footer
+  ================================================== -->
+  <footer id="footer" class="footer">
+
+    <!-- Footer Widgets -->
+    <div class="footer-widgets">
+      ...
+    </div>
+    <!-- Footer Widgets / End -->
+
+    <!-- Footer Secondary -->
+    <div class="footer-secondary">
+      ...
+    </div>
+    <!-- Footer Secondary / End -->
+  </footer>
+  <!-- Footer / End -->
+
+</div>
+</pre>
+          </div>
+        </div>
+
+
+        <hr>
+
+
+        <h4>Logo</h4>
+        <div class="row">
+          <div class="col-md-4">
+            <p>As you can see we have separated mobile and desktop logos. This is a mobile logo</p>
+          </div>
+          <div class="col-md-8">
+<pre class="brush:html">
+<div class="header-mobile clearfix" id="header-mobile">
+  <div class="header-mobile__logo">
+    <a href="index.html"><img src="assets/images/logo.png" srcset="assets/images/logo@2x.png 2x" alt="Alchemists" class="header-mobile__logo-img"></a>
+  </div>
+  <div class="header-mobile__inner">
+    <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
+    <span class="header-mobile__search-icon" id="header-mobile__search-icon"></span>
+  </div>
+</div>
+</pre>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <p>and this a logo for desktop devices.</p>
+          </div>
+          <div class="col-md-8">
+<pre class="brush:html">
+<!-- Header Logo -->
+<div class="header-logo">
+  <a href="index.html"><img src="assets/images/logo.png" alt="Alchemists" srcset="assets/images/logo@2x.png 2x" class="header-logo__img"></a>
+</div>
+<!-- Header Logo / End -->
+</pre>
+          </div>
+        </div>
+
+        <div class="alert alert-info">For highres displays (retina) you need to add additional 2 times bigger logo (<code>srcset</code> parameter). For example if your logo is 100x100 for retina display it should be 200x200</div>
+
+        <hr>
+
+        <h4>Main Navigation</h4>
+        <div class="row">
+          <div class="col-md-4">
+            The page navigation links such as Home, News, Team has next structure:
+          </div>
+          <div class="col-md-8">
+<pre class="brush:html">
+<!-- Main Navigation -->
+<nav class="main-nav clearfix">
+  <ul class="main-nav__list">
+    <li class="active"><a href="index.html">Home</a>
+      <ul class="main-nav__sub">
+        <li class="active"><a href="index.html">Home - version 1</a></li>
+        <li class=""><a href="index-2.html">Home - version 2</a></li>
+        <li class=""><a href="index-3.html">Home - version 3</a></li>
+      </ul>
+    </li>
+    <li class=""><a href="#">Features</a>
+      <div class="main-nav__megamenu clearfix">
+        <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
+          <li class="main-nav__title">Features</li>
+          <li><a href="features-shortcodes.html">Shortcodes</a></li>
+          <li><a href="features-typography.html">Typography</a></li>
+        </ul>
+        <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
+          <li class="main-nav__title">Main Features</li>
+          <li><a href="team-overview.html">Team Overview</a></li>
+          <li><a href="team-roster-2.html">Team Roster</a></li>
+          <li><a href="player-stats.html">Player Stats</a></li>
+          <li><a href="shop-list.html">Shop Page V1</a></li>
+          <li><a href="shop-grid.html">Shop Page V2</a></li>
+          <li><a href="shop-cart.html">Shopping Cart</a></li>
+          <li><a href="shop-wishlist.html">Wishlist</a></li>
+          <li><a href="shop-checkout.html">Checkout</a></li>
+        </ul>
+        <div class="col-lg-4 col-md-3 col-xs-12">
+
+          <div class="posts posts--simple-list posts--simple-list--lg">
+            <div class="posts__item posts__item--category-1">
+              <div class="posts__inner">
+                <div class="posts__cat">
+                  <span class="label posts__cat-label">The Team</span>
+                </div>
+                <h6 class="posts__title"><a href="#">The team is starting a new power breakfast regimen</a></h6>
+                <time datetime="2017-08-23" class="posts__date">August 23rd, 2017</time>
+                <div class="posts__excerpt">
+                  Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </div>
+              </div>
+              <footer class="posts__footer card__footer">
+                <div class="post-author">
+                  <figure class="post-author__avatar">
+                    <img src="assets/images/samples/avatar-1.jpg" alt="Post Author Avatar">
+                  </figure>
+                  <div class="post-author__info">
+                    <h4 class="post-author__name">James Spiegel</h4>
+                  </div>
+                </div>
+                <ul class="post__meta meta">
+                  <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 530</a></li>
+                  <li class="meta__item meta__item--comments"><a href="#">18</a></li>
+                </ul>
+              </footer>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-4 col-md-3 col-xs-12">
+          <ul class="posts posts--simple-list">
+            <li class="posts__item posts__item--category-1">
+              <figure class="posts__thumb">
+                <a href="#"><img src="assets/images/samples/post-img3-xs.jpg" alt=""></a>
+              </figure>
+              <div class="posts__inner">
+                <div class="posts__cat">
+                  <span class="label posts__cat-label">The Team</span>
+                </div>
+                <h6 class="posts__title"><a href="#">The new eco friendly stadium won a Leafy Award in 2016</a></h6>
+                <time datetime="2016-08-21" class="posts__date">August 21st, 2016</time>
+              </div>
+            </li>
+            <li class="posts__item posts__item--category-2">
+              <figure class="posts__thumb">
+                <a href="#"><img src="assets/images/samples/post-img1-xs.jpg" alt=""></a>
+              </figure>
+              <div class="posts__inner">
+                <div class="posts__cat">
+                  <span class="label posts__cat-label">Injuries</span>
+                </div>
+                <h6 class="posts__title"><a href="#">Mark Johnson has a Tibia Fracture and is gonna be out</a></h6>
+                <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
+              </div>
+            </li>
+            <li class="posts__item posts__item--category-1">
+              <figure class="posts__thumb">
+                <a href="#"><img src="assets/images/samples/post-img4-xs.jpg" alt=""></a>
+              </figure>
+              <div class="posts__inner">
+                <div class="posts__cat">
+                  <span class="label posts__cat-label">The Team</span>
+                </div>
+                <h6 class="posts__title"><a href="#">The team is starting a new power breakfast regimen</a></h6>
+                <time datetime="2016-08-21" class="posts__date">August 21st, 2016</time>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </li>
+    <li class=""><a href="#">The Team</a>
+      <ul class="main-nav__sub">
+        <li><a href="team-overview.html">Overview</a></li>
+        <li><a href="team-roster-2.html">Roster</a>
+          <ul class="main-nav__sub-2">
+            <li><a href="team-roster-1.html">Roster - 1</a></li>
+            <li><a href="team-roster-2.html">Roster - 2</a></li>
+          </ul>
+        </li>
+        <li><a href="team-standings.html">Standings</a></li>
+        <li><a href="team-last-results.html">Latest Results</a></li>
+        <li><a href="team-schedule.html">Schedule</a></li>
+        <li><a href="team-gallery.html">Gallery</a>
+          <ul class="main-nav__sub-2">
+            <li><a href="team-gallery-album.html">Single Album</a></li>
+          </ul>
+        </li>
+        <li><a href="player-overview.html">Player Pages</a>
+          <ul class="main-nav__sub-2">
+            <li><a href="player-overview.html">Overview</a></li>
+            <li><a href="player-stats.html">Full Statistics</a></li>
+            <li><a href="player-bio.html">Biography</a></li>
+            <li><a href="player-news.html">Related News</a></li>
+            <li><a href="player-gallery.html">Gallery</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class=""><a href="#">News</a>
+      <ul class="main-nav__sub">
+        <li><a href="blog-1.html">News - version 1</a></li>
+        <li><a href="blog-2.html">News - version 2</a></li>
+        <li><a href="blog-3.html">News - version 3</a></li>
+        <li><a href="blog-4.html">News - version 4</a></li>
+        <li><a href="#">Post</a>
+          <ul class="main-nav__sub-2">
+            <li><a href="blog-post-1.html">Single Post - version 1</a></li>
+            <li><a href="blog-post-2.html">Single Post - version 2</a></li>
+            <li><a href="blog-post-3.html">Single Post - version 3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class=""><a href="shop-grid.html">Shop</a>
+      <ul class="main-nav__sub">
+        <li><a href="shop-grid.html">Shop - Grid</a></li>
+        <li><a href="shop-list.html">Shop - List</a></li>
+        <li><a href="shop-fullwidth.html">Shop - Full Width</a></li>
+        <li><a href="shop-product.html">Single Product</a></li>
+        <li><a href="shop-cart.html">Shopping Cart</a></li>
+        <li><a href="shop-checkout.html">Checkout</a></li>
+        <li><a href="shop-wishlist.html">Wishlist</a></li>
+        <li><a href="shop-account.html">Account</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <!-- Social Links -->
+  <ul class="social-links social-links--inline social-links--main-nav">
+    <li class="social-links__item">
+      <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i class="fa fa-facebook"></i></a>
+    </li>
+    <li class="social-links__item">
+      <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fa fa-twitter"></i></a>
+    </li>
+    <li class="social-links__item">
+      <a href="#" class="social-links__link" data-toggle="tooltip" data-placement="bottom" title="Google+"><i class="fa fa-google-plus"></i></a>
+    </li>
+  </ul>
+  <!-- Social Links / End -->
+
+  <!-- Pushy Panel Toggle -->
+  <a href="#" class="pushy-panel__toggle">
+    <span class="pushy-panel__line"></span>
+  </a>
+  <!-- Pushy Panel Toggle / Eng -->
+</nav>
+<!-- Main Navigation / End -->
+</pre>
+          </div>
+        </div>
+
+
+      </section>
+      <!-- HTML Structure / End -->
+
+      <!-- CSS Structure -->
+      <section class="section" id="h-css">
+        <div class="page-header">
+          <h3>CSS Structure <small>styles customization and highlights</small></h3>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h4>Stylesheets</h4>
+            This is a list of the stylesheet files we've used in this template, you can find more information opening each file:
+          </div>
+          <div class="col-md-8">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>File Name</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>components.css</code></td>
+                  <td>Styles for components.</td>
+                </tr>
+
+                <tr>
+                  <td><code>content.css</code></td>
+                  <td>Styles for content.</td>
+                </tr>
+
+                <tr>
+                  <td><code>custom.css</code></td>
+                  <td>Use this file if you want to customize the template.</td>
+                </tr>
+
+                <tr>
+                  <td><code>preloader.css</code></td>
+                  <td>Styles for page preloader.</td>
+                </tr>
+
+                <tr>
+                  <td><code>style.css</code></td>
+                  <td>The main template styles.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h4>assets/css/styles.css</h4>
+            <p>This file includes all variables used in this template. If you want to change style and colors of the template you should start from this file.</p>
+          </div>
+          <div class="col-md-8">
+<pre class="brush:css">
+/* Table of Content
+==================================================
+
+  #Common
+
+  #Base
+    - Header
+    - Header Navigation
+    - Hero Unit
+    - Pushy Panel
+    - Page Header
+    - Content
+    - Footer
+
+  #Blog
+    - Blog
+    - Posts
+    - Single Post
+    - Post Author
+    - Post Meta
+    - Related Posts
+    - Post Comments
+    - Blog Filter
+    - Blog Load More
+
+  #Widgets
+    - List
+    - Instagram
+    - Contact Info
+    - Social
+    - Tag Cloud
+    - Banner
+    - Tabbed
+    - Newsletter
+    - Match Preview
+    - Comments
+    - Twitter
+    - Featured
+    - Standings
+    - Player
+    - Game Result
+    - Poll
+    - Results
+    - Awards
+    - Games History
+    - Newslog
+    - Team Leaders
+    - Team Stats
+    - Filter Color
+    - Filter Size
+    - Filter Price
+    - Products
+
+  #Team
+    - Team Filter
+    - Team Roster
+    - Team Standings
+    - Team Glossary
+    - Team Results
+    - Team Schedule
+
+  #Player
+    - Player Heading
+    - Player Gamelog
+    - Player Season Average
+
+  #Shop
+    - Checkout Review Order
+    - Checkout Payment
+    - Account Navigation
+    - Shop Table
+    - Shop Banner
+    - Shop Filter
+    - Products
+    - Filter Color
+    - Product Tabs
+
+  #Partials
+    - Info Block
+    - Social Counter
+    - Social Links
+    - Match Preview
+    - Game Result
+    - Main News Banner
+    - Featured Carousel
+    - Content Filter
+    - Gallery
+    - Album
+    - Modal Login
+*/
+</pre>
+
+          </div>
+        </div>
+
+      </section>
+      <!-- CSS Structure / End -->
+
+      <!-- JavaScript -->
+      <section class="section" id="h-js">
+        <div class="page-header">
+          <h3>JavaScript <small>list of scripts</small></h3>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h4>JavaScript Files</h4>
+            <p>Here is a list of javascript files used in this template.</p>
+          </div>
+          <div class="col-md-8">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>File</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>jquery.min.js</code></td>
+                  <td>jQuery is a Javascript library that greatly reduces the amount of code that you must write.</td>
+                </tr>
+                <tr>
+                  <td><code>bootstrap.min.js</code></td>
+                  <td>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</td>
+                </tr>
+                <tr>
+                  <td><code>chart.min.js</code></td>
+                  <td>Simple yet flexible JavaScript charting for designers & developers.</td>
+                </tr>
+                <tr>
+                  <td><code>jquery.countdown.js</code></td>
+                  <td>Simple countdown script.</td>
+                </tr>
+                <tr>
+                  <td><code>selectFx.js</code></td>
+                  <td>Custom select script.</td>
+                </tr>
+                <tr>
+                  <td><code>jquery.easypiechart.js</code></td>
+                  <td>Easy pie chart is a jQuery plugin that uses the canvas element to render simple pie charts for single values.</td>
+                </tr>
+                <tr>
+                  <td><code>isotope.pkgd.min.js</code></td>
+                  <td>Filter & sort magical layouts.</td>
+                </tr>
+                <tr>
+                  <td><code>jpreloader.js</code></td>
+                  <td>jPreLoader is a jQuery plugin to create preloading screen to preload all the images in website and attached with customizable splash screen.</td>
+                </tr>
+                <tr>
+                  <td><code>jquery.magnific-popup.min.js</code></td>
+                  <td>Magnific Popup is a responsive lightbox & dialog script with focus on performance and providing best experience for user with any device
+(for jQuery or Zepto.js)</td>
+                </tr>
+                <tr>
+                  <td><code>nouislider.js</code></td>
+                  <td>Lightweight JavaScript range slider with full touch support.</td>
+                </tr>
+                <tr>
+                  <td><code>slick.js</code></td>
+                  <td>slick is a responsive carousel jQuery plugin that supports multiple breakpoints.</td>
+                </tr>
+                <tr>
+                  <td><code>init.js</code></td>
+                  <td>Most of the animation in this site is carried out from the customs scripts. There are a few functions worth looking over.</td>
+                </tr>
+                <tr>
+                  <td><code>custom.js</code></td>
+                  <td>Empty file for custom JavaScript</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+      <!-- JavaScript / End -->
+
+      <!-- Customization -->
+      <section class="section" id="h-customization">
+        <div class="page-header">
+          <h3>Customization <small>template customization and styling</small></h3>
+        </div>
+
+        <h4>How to compile Sass files</h4>
+        <div class="row">
+          <div class="col-md-4">
+             <p>First, if you don’t know what is Sass you may want to take a look at <a href="http://sass-lang.com">http://sass-lang.com</a></p>
+          </div>
+          <div class="col-md-8">
+            <p>To compile Sass files to CSS you can use next apps:</p>
+            <ol>
+              <li>Codekit <a href="https://codekitapp.com">https://codekitapp.com</a> (Mac)</li>
+              <li>Prepros <a href="https://prepros.io">https://prepros.io</a> (Mac/Windows)</li>
+              <li>Koala <a href="http://koala-app.com">http://koala-app.com</a> (Mac/Windows)</li>
+              <li>Scout <a href="https://mhs.github.io/scout-app/">https://mhs.github.io/scout-app/</a> (Mac/Windows)</li>
+            </ol>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h4>How to change template variables</h4>
+            <p>It's recommended to use Sass to generate your own color skin.</p>
+          </div>
+          <div class="col-md-8">
+            <h5>Sass</h5>
+            <p>We've prepared 3 sets of variables: Basketball, Soccer and American Football versions. You can find them here:</p>
+            <ul>
+              <li><code>source/sass/config/_variables-basketball.scss</code></li>
+              <li><code>source/sass/config/_variables-soccer.scss</code></li>
+            </ul>
+            <p>Open <code>source/sass/config/_imports.scss</code> and set which version you want to use. Please check next variations:</p>
+
+'Basketball'
+<pre>@import "variables-basketball";
+@import "mixins";</pre>
+
+'Basketball - Dark'
+<pre>@import "variables-basketball";
+@import "variables-basketball-dark";
+@import "mixins";</pre>
+
+'Soccer'
+<pre>@import "variables-soccer";
+@import "mixins";</pre>
+
+'Soccer - Dark'
+<pre>@import "variables-soccer";
+@import "variables-soccer-dark";
+@import "mixins";</pre>
+
+'American Football'
+<pre>@import "variables-football";
+@import "mixins";</pre>
+
+            <p>After that you can change any variables, including color variables:</p>
+            <ol>
+              <li>Open <code>source/sass/config/_variables-basketball.scss</code> in your favorite code editor.</li>
+              <li>Change the value of color variable: <code>$color-primary: #ffdc11 !default;</code> with your own.</li>
+              <li>Compile your Sass to CSS.</li>
+            </ol>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-md-4">
+            <h4>How to switch light version to dark without SCSS?</h4>
+            <p>If don't want to use SCSS and compile your styles you still able to change your color skin. We added already compiled light and dark CSS files for Basketball and Soccer versions. If you want to change light skin to dark one, please do the next steps:</p>
+          </div>
+          <div class="col-md-8">
+            <p>It's very easy to change your color skin. Open your HTML file and in the head section replace this</p>
+<pre class="brush:html"><link href="assets/css/style.css" rel="stylesheet"></pre>
+with this
+<pre class="brush:html"><link href="assets/css/style-dark.css" rel="stylesheet"></pre>
+<p>And that's it! Just make sure you've done this for each HTML file you use.</p>
+<div class="alert alert-warning"><p>Keep in mind that light/dark version available only for Basketball and Soccer versions.</p></div>
+          </div>
+        </div>
+
+        <hr>
+
+        <h4>How to remove Page Loader on particular page</h4>
+        <div class="row">
+          <div class="col-md-4">
+             <p>Page Loader is a splash screen with percents counter before content becomes visible.</p>
+          </div>
+          <div class="col-md-8">
+            <p>To remove Page Loader on particular page please follow next steps:</p>
+            <ol>
+              <li>Add <code>page-loader-disable</code> class to body tag.</li>
+              <li>Remove next css file
+<pre class="brush:html"><!-- Preloader CSS -->
+<link href="assets/css/preloader.css" rel="stylesheet"></pre>
+</li>
+            </ol>
+          </div>
+        </div>
+
+        <hr>
+
+        <h4>How to change icon in the Header?</h4>
+        <div class="row">
+          <div class="col-md-4">
+             <p>We use SVG icons in the Header email links but you can easily change it with font icons or image.</p>
+             <img src="images/header-icon.png" alt="">
+          </div>
+          <div class="col-md-8">
+            <div class="alert alert-warning">Before replacing SVG Icons please check correct classes for <a href="http://simplelineicons.com">SimpleLine Icons</a> and <a href="http://fontawesome.io/cheatsheet/">FontAwesome Icons</a>.</div> 
+            <p>To replace current SVG icon follow next steps:</p>
+            <ol>
+              <li>Remove SVG icon markup in Header email link:
+<pre class="brush:html"><svg role="img" class="df-icon df-icon--jersey">
+  <use xlink:href="assets/images/icons-basket.svg#jersey"/>
+</svg></pre>
+</li>
+              <li>Add span tag with <code>df-icon df-icon--custom</code> classes and insert your icon inside it:
+<pre class="brush:html"><span class="df-icon df-icon--custom">
+  <i class="icon-social-steam"></i>
+</span></pre>
+<p>After this you should see the next:</p>
+<p>
+  <img src="images/header-icon-custom.png" alt="">
+</p>
+<p>If you want to replace default SVG icon with an image just put your image inside it:</p>
+<pre class="brush:html"><span class="df-icon df-icon--custom">
+  <img src="assets/images/logo.png" alt="">
+</span></pre>
+<p>
+  <img src="images/header-icon-img.png" alt="">
+</p>
+</li>
+            </ol>
+          </div>
+        </div>
+
+        <hr>
+
+        <h4>Instagram Widget</h4>
+        <div class="row">
+          <div class="col-md-4">
+            <p>Instagram widget allows you to add your Instagram photos to your website.</p>
+          </div>
+          <div class="col-md-8">
+            <p>To fetch images specifically from your account, set the get and userId options:</p>
+<pre class="brush:js">
+var insta_feed = new Instafeed({
+  get: 'user',
+  target: 'instagram-feed',
+  userId: 'YOUR_USER_ID',
+  accessToken: 'YOUR_ACCESS_TOKEN',
+  limit: 6,
+  template: '<li class="widget-instagram__item"><a href="{{link}}" id="{{id}}" class="widget-instagram__link-wrapper" target="_blank"><span class="widget-instagram__plus-sign"><img src="{{image}}" alt="" class="widget-instagram__img" /></span></a></li>'
+});</pre>
+            <div class="alert alert-info">
+              Note: <strong>YOUR_USER_ID</strong> option corresponds to your Instagram account ID (eg: 4385108), not your username. If you do not know your account ID, do a quick google search for <a href="https://google.com/search?q=What%20is%20my%20Instagram%20account%20ID%3F">"What is my Instagram account ID?"</a>. There a several free tools available online that will look it up for you, for example <a href="https://smashballoon.com/instagram-feed/find-instagram-user-id/">this one</a>.
+            </div>
+
+            <div class="alert alert-info">
+              Note: <strong>YOUR_ACCESS_TOKEN</strong> (Instagram Access Token) is a long string of characters unique to your account that grants other applications access to your Instagram feed. In order to display your Instagram photos on your own website, you are required to provide an Instagram Access Token. There a several free tools available online that will look it up for you, for example <a href="http://instagram.pixelunion.net">this one</a>.
+            </div>
+
+            <p></p>
+          </div>
+        </div>
+
+        <hr>
+
+        <h4>Social Counters Widget</h4>
+        <div class="row">
+          <div class="col-md-4">
+            <p>Social Counters widget display number of your social media fans.</p>
+          </div>
+          <div class="col-md-8">
+            <div class="alert alert-warning">The Twitter counter require PHP to work, all other counters only require jQuery.</div>
+            <p>To fetch your social media fans, followers etc. you need to setup the widget. Open assets/js/init.js and Social Counter init.</p>
+<pre class="brush:js">
+// Facebook
+facebook_user: 'FACEBOOK_USER_ID',
+facebook_token: 'FACEBOOK_TOKEN',
+
+// Google+
+google_plus_id: 'GOOGLE_PLUS_ID',
+google_plus_key: 'GOOGLE_PLUS_KEY',
+
+// Instagram
+instagram_user: 'INSTAGRAM_USER_ID',
+instagram_token: 'INSTAGRAM_TOKEN',
+
+// Twitter
+twitter_user: 'danfisher_dev',</pre>
+            <p>
+              <strong>Facebook</strong>. Please read next article how to setup Facebook counter <a href="https://smashballoon.com/custom-facebook-feed/access-token/">https://smashballoon.com/custom-facebook-feed/access-token/</a>
+            </p>
+            <p>
+              <strong>Google+</strong>. Please read next article how to setup Google+ counter <a href="https://developers.google.com/identity/protocols/OAuth2">https://developers.google.com/identity/protocols/OAuth2</a>
+            </p>
+            <p>
+              <strong>Instagram</strong>. See above.
+            </p>
+
+            <p></p>
+          </div>
+        </div>
+
+
+
+
+
+      </section>
+      <!-- Customization / End -->
+
+      <!-- PSD Files -->
+      <section class="section" id="h-psd">
+        <div class="page-header">
+          <h3>PSD Files <small>psd files included</small></h3>
+        </div>
+
+        <p>Alchemists package includes 36 PSD files:</p>
+        <ol>
+          <li>01- Home.psd</li>
+          <li>02- Home V2.psd</li>
+          <li>03- Home V3.psd</li>
+          <li>04- News V1.psd</li>
+          <li>05- News V2.psd</li>
+          <li>06- News V3.psd</li>
+          <li>07- News V4.psd</li>
+          <li>08- Post Page V1.psd</li>
+          <li>09- Post Page V2.psd</li>
+          <li>10- Post Page V3.psd</li>
+          <li>11- Team Page - Overview.psd</li>
+          <li>12- Team Page - Roster V1.psd</li>
+          <li>13- Team Page - Roster V2.psd</li>
+          <li>14- Player Page - Overview.psd</li>
+          <li>15- Player Page - Full Statistics.psd</li>
+          <li>16- Player Page - Biography.psd</li>
+          <li>17- Player Page - Related News.psd</li>
+          <li>18- Player Page - Gallery.psd</li>
+          <li>19- Team Page - Standings.psd</li>
+          <li>20- Team Page - Latest Results.psd</li>
+          <li>21- Team Page - Schedule - Tickets.psd</li>
+          <li>22- Team Page - Gallery - Album.psd</li>
+          <li>23- Team Page - Gallery - Inside Album.psd</li>
+          <li>24- Shop Page V1 - Grid View.psd</li>
+          <li>25- Shop Page V1 - List View.psd</li>
+          <li>26- Shop Page V2.psd</li>
+          <li>27- Product Page - Description.psd</li>
+          <li>28- Product Page - Reviews.psd</li>
+          <li>29- Shopping Cart.psd</li>
+          <li>30- Checkout.psd</li>
+          <li>31- Wishlist.psd</li>
+          <li>32- Your Account.psd</li>
+          <li>46- Menu and Dropdowns.psd</li>
+          <li>47- Login and Register.psd</li>
+          <li>48- Basketball Shortcodes.psd</li>
+          <li>50- Typography.psd</li>
+        </ol>
+      </section>
+      <!-- PSD Files / End -->
+
+      <!-- Fonts -->
+      <section class="section" id="h-fonts">
+        <div class="page-header">
+          <h3>Fonts <small>Fonts included</small></h3>
+        </div>
+
+        <p>We've used various types of fonts in this template.</p>
+        <h6>Web Fonts</h6>
+        <ul>
+          <li><strong>Source Sans Pro</strong> (Google Web Font: <a href="https://fonts.google.com/specimen/Source+Sans+Pro">https://fonts.google.com/specimen/Source+Sans+Pro</a>)</li>
+          <li><strong>Montserrat</strong> (Google Web Font: <a href="https://fonts.google.com/specimen/Montserrat">https://fonts.google.com/specimen/Montserrat</a>)</li>
+        </ul>
+        <h6>Icons</h6>
+        <ul>
+          <li><strong>Simple Line Icons</strong> <a href="http://simplelineicons.com">http://simplelineicons.com</a></li>
+          <li><strong>FontAwesome</strong> <a href="https://fortawesome.github.io/Font-Awesome">https://fortawesome.github.io/Font-Awesome</a></li>
+        </ul>
+
+      </section>
+      <!-- Fonts / End -->
+
+      <!-- Fonts -->
+      <section class="section" id="h-credits">
+        <div class="page-header">
+          <h3>Credits <small>Some of your credits and sources</small></h3>
+        </div>
+
+        <h5>JavaScript</h5>
+        <ul>
+          <li>jQuery <a href="https://jquery.com">https://jquery.com</a></li>
+          <li>Bootstrap <a href="http://getbootstrap.com">http://getbootstrap.com</a></li>
+          <li>SVG for Everybody <a href="https://github.com/jonathantneal/svg4everybody">https://github.com/jonathantneal/svg4everybody</a></li>
+          <li>Countdown <a href="https://github.com/rendro/countdown">https://github.com/rendro/countdown</a></li>
+          <li>Easy Pie Chart <a href="http://rendro.github.io/easy-pie-chart/">http://rendro.github.io/easy-pie-chart/</a></li>
+          <li>Isotope <a href="http://isotope.metafizzy.co">http://isotope.metafizzy.co</a></li>
+          <li>Slick <a href="http://kenwheeler.github.io/slick/">http://kenwheeler.github.io/slick/</a></li>
+        </ul>
+
+        <h5>Images</h5>
+        <ul>
+          <li>Unsplash - <a href="https://unsplash.com">https://unsplash.com</a></li>
+          <li>Logos - <a href="http://www.shutterstock.com/pic-283305122/stock-vector-modern-professional-baseball-logo-set-for-sport-team.html">http://www.shutterstock.com/pic-283305122/stock-vector-modern-professional-baseball-logo-set-for-sport-team.html</a></li>
+          <li>Logos 2 - <a href="http://www.shutterstock.com/pic-283305098/stock-vector-modern-professional-sharks-logo-for-a-club-or-sport-team.html?src=pp-same_artist-283305122-7&ws=1">http://www.shutterstock.com/pic-283305098/stock-vector-modern-professional-sharks-logo-for-a-club-or-sport-team.html?src=pp-same_artist-283305122-7&ws=1</a></li>
+          <li>Logos 3 - <a href="http://www.shutterstock.com/pic-270996836/stock-vector-modern-professional-vector-logo-set-for-a-basketball-team.html?src=x_0WGht8Y_98kXlWs1Tplw-1-20">http://www.shutterstock.com/pic-270996836/stock-vector-modern-professional-vector-logo-set-for-a-basketball-team.html?src=x_0WGht8Y_98kXlWs1Tplw-1-20</a></li>
+          <li>Basketball Photos - <a href="https://www.flickr.com/photos/chadcooperphotos/">https://www.flickr.com/photos/chadcooperphotos/</a></li>
+        </ul>
+
+      </section>
+      <!-- Fonts / End -->
+
+
+      <hr>
+
+      <section class="section">
+        <p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
+
+        <p>
+          <strong>Dan Fisher</strong>
+        </p>
+        <br><br>
+      </section>
+
+    </div><!-- /.container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shCore.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushXml.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushCss.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushJScript.js"></script>
+    <script type="text/javascript" src="syntax-highlighter/scripts/shBrushPhp.js"></script>
+    <script type="text/javascript">
+    SyntaxHighlighter.all()
+    </script>
+  </body>
+</html>
