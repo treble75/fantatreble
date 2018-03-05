@@ -46,7 +46,7 @@
                         <!-- Team Roster: Table -->
                         <div class="card card--has-table">
                             <div class="card__header">
-                                    <h4>Formazioni schierate</h4>
+                                <h4>Formazioni schierate</h4>
                             </div>
                             <div class="card__content" style="overflow-x:auto;">
                                 <div class="table-responsive" style="min-width:768px;">
@@ -58,8 +58,14 @@
                                     else
                                         $risultati = $risultati_supercoppa;
 
-                                    if (count($risultati) < 1)
-                                        echo "<p align='center'>Non viene disputata nessuna partita di coppa in questa giornata</p>";
+                                    if (count($risultati) < 1) { ?>
+                                        <div align="center" style="width:50%" style="text-align: center;">
+                                            <div class="alert alert-info"">
+                                                Non viene disputata nessuna partita di coppa in questa giornata
+                                            </div>
+                                        </div>
+                                    <?php
+                                    } 
                                     
                                     foreach ($risultati as $row) {
                                         //Inizializzo variabili

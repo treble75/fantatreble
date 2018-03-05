@@ -284,7 +284,7 @@
                                                     <?php if (isset($_SESSION['id_utente'])) { ?>
                                                         <li class=""><a href="#">My Team</a>
                                                                 <ul class="main-nav__sub">
-                                                                        <li><a href="_soccer_game-overview.html">Rosa Giocatori</a></li>
+                                                                        <li><a href="<?= base_url('/') ?>index.php/utente/myteam">Rosa Giocatori</a></li>
                                                                         <li><a href="_soccer_team-overview.html">Schiera Formazione</a></li>
                                                                         <li><a href="_soccer_team-roster.html">Rigoristi</a>
                                                                                 <ul class="main-nav__sub-2">
