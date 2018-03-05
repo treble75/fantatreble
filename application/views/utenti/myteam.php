@@ -135,7 +135,7 @@
                                 }
                             ?>
                             
-                                <tr <?= $bgcolor ?>>
+                                <tr <?= $bgcolor ?> >
                                     <td class="team-roster-table__number" style="color: <?= $color ?>; font-size: 13px; vertical-align: middle;"><?= $ruolo ?></td>
                                     <td class="team-roster-table__position">
                                     <figure class="team-leader__player-img team-leader__player-img--sm">
@@ -152,8 +152,13 @@
                                     <td class="team-roster-table__height" style="vertical-align: middle;"><?= $ammonizioni ?></td>
                                     <td class="team-roster-table__weight" style="vertical-align: middle;"><?= $espulsioni ?></td>
                                     <td class="team-roster-table__goals" style="vertical-align: middle; color: #1892ED; font-size: 13px;"><?= $gol ?></td>
-                                    <td class="team-roster-table__assists" style="vertical-align: middle;"><?= $assist ?></td>
-                                    <td class="team-roster-table__fouls" style="vertical-align: middle;"><?= $voto ?></td>
+                                    <td class="team-roster-table__assists" style="vertical-align: middle; color: #009900; font-size: 13px;"><?= $assist ?></td>
+                                    <!-- Setto rosso sotto il 6 e verde sopra il 6 -->
+                                    <?php
+                                    if ( $voto >= 6 )  $colorefont = "#009900";
+                                    if ( $voto < 6 )  $colorefont = "#ff3d3d";
+                                    ?>
+                                    <td class="team-roster-table__fouls" style="vertical-align: middle; color: <?= $colorefont ?>;"><?= $voto ?></td>
                                     <td class="team-roster-table__card-y team-leader__avg" style="vertical-align: middle;">
                                         <div class="circular">
                                             <?php $percentuale = number_format(($fantavoto*10), 2); ?>
