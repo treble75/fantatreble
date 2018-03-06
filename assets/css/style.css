@@ -14300,8 +14300,9 @@ td.team-leader__goals {
 
 .lineup-table > thead > tr > th,
 .lineup-table > tbody > tr > td {
-  padding-top: 10px;
-  padding-bottom: 6px;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    height: 30px;
 }
 
 @media (min-width: 1200px) {

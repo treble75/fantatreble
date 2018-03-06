@@ -218,7 +218,15 @@
                                     ?>
                                       
                               </td>
-                              <td class="team-result__game-overview" style="width: 18%"><a href="#" class="btn btn-xs btn-default btn-outline btn-block">Dettaglio giornata</a></td>
+                              <td class="team-result__game-overview" style="width: 18%">
+                                    <?php
+                                    if ( $row['risultato1'] != "" && $row['risultato2'] != "") {
+                                    ?>
+                                        <a href="<?= base_url('/') ?>index.php/home/dettagli/<?= $i ?>" class="btn btn-xs btn-default btn-outline btn-block"> Dettagli partita </a>
+                                    <?php
+                                    }
+                                    ?>
+                              </td>
                             </tr>
                             
                             <!-- Generazione Calendario / END  --->

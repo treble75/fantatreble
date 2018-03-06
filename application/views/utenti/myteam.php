@@ -23,10 +23,10 @@
         <a href="#" class="content-filter__toggle"></a>
         <ul class="content-filter__list">
           <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/myteam" class="content-filter__link"><small>My Team</small>Rosa Giocatori</a></li>
-          <li class="content-filter__item "><a href="_soccer_team-roster.html" class="content-filter__link"><small>My Team</small>Roster</a></li>
-          <li class="content-filter__item "><a href="_soccer_team-standings.html" class="content-filter__link"><small>My Team</small>Standings</a></li>
-          <li class="content-filter__item "><a href="_soccer_team-last-results.html" class="content-filter__link"><small>My Team</small>Latest Results</a></li>
-          <li class="content-filter__item "><a href="_soccer_team-schedule.html" class="content-filter__link"><small>My Team</small>Schedule</a></li>
+          <li class="content-filter__item "><a href="_soccer_team-roster.html" class="content-filter__link"><small>My Team</small>Marcatori</a></li>
+          <li class="content-filter__item "><a href="_soccer_team-standings.html" class="content-filter__link"><small>My Team</small>Statistiche</a></li>
+          <li class="content-filter__item "><a href="_soccer_team-last-results.html" class="content-filter__link"><small>My Team</small>Calendario</a></li>
+          <li class="content-filter__item "><a href="_soccer_team-schedule.html" class="content-filter__link"><small>My Team</small>Prossime Partite</a></li>
           <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>My Team</small>Gallery</a></li>
         </ul>
       </div>
