@@ -92,17 +92,22 @@
 
                     $role = "";
                     $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                    
                     if ($role == "P") {
                         $colRuolo = 'bgcolor="#fafafa"';
+                        $color = "#000000";
                     }
                     if ($role == "D") {
                         $colRuolo = 'bgcolor="#f0fbff"';
+                        $color = "#1486F4";
                     }
                     if ($role == "C") {
                         $colRuolo = 'bgcolor="#fff2f2"';
+                        $color = "#F93469";
                     }
                     if ($role == "A") {
                         $colRuolo = 'bgcolor="#eefaeb"';
+                        $color = "#199D5B";
                     }
                     ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
