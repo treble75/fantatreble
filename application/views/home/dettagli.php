@@ -1626,6 +1626,84 @@
 
                     //Ricavo i due punteggi parziali al netto del bonus modificatore
                     $parzialeA = ( $row['punteggio1'] - $row['bonus_modificatore1']);
+
+                    // SEQUENZA RIGORISTI IN CASA
+
+                    if ($row['rigoristi'] == 1) {
+
+                        //Recupero i rigoristi
+                        $rigoristi = $this->mdl_team->getRigoristiSchierati($row['id1'], $giornata);
+
+                        //Rigoristi in Casa
+                        ?>
+                        <tr style="vertical-align: middle; text-align: center;">
+                            <th colspan="5" class="lineup__subheader">Sequenza calci di rigore <?= $this->mdl_utenti->getSquadra($row['id1']) ?></th>
+                        </tr>
+                        
+                        <?php
+                        
+                        $i = 1;
+                        foreach ($rigoristi as $rig) {
+
+                            $s = "";
+                            $schierato = "";
+                            //Calcolo colore per ruolo
+                            $role = "";
+                            $role = $this->mdl_team->getNomeRuolo($rig['id_giocatore']);
+                            if ($role == "P") {
+                                $colRuolo = "backRuoloP";
+                            }
+                            if ($role == "D") {
+                                $colRuolo = "backRuoloD";
+                            }
+                            if ($role == "C") {
+                                $colRuolo = "backRuoloC";
+                            }
+                            if ($role == "A") {
+                                $colRuolo = "backRuoloA";
+                            }
+
+                            $dettagli = $this->mdl_team->getGiocatore($rig['id_giocatore']);
+                            ?>
+                            <tr <?= $colRuolo ?> height="35px" >
+                                <td class="lineup__num" style="vertical-align: middle;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                <td class="lineup__name" style="vertical-align: middle;"><?= $this->mdl_team->getNomeGiocatore($rig['id_giocatore']) ?></td>
+                                <?php
+                                $v = $this->mdl_team->getVoto($rig['id_giocatore'], $giornata);
+                                $v = (is_Array($v) ? "" : $v);
+                                
+                                $s = $this->mdl_team->getSchieratoCampionato($rig['id_giocatore'], $giornata);
+                                $s = (($s == 1) ? true : false);
+                                if ($s == true) {
+                                    $schierato = "<img src='" . base_url('/') . "images/schierato.png' title='Giocatore schierato' />";
+                                }
+                                if ($s == false || $s == "") {
+                                    $schierato = "";
+                                }
+                                ?>
+                                <td class="lineup__pos" style="vertical-align: middle;"><?= $v ?></td>
+                                <td class="lineup__pos" style="vertical-align: middle;"><?= $schierato ?></td>
+                                <?php
+                                $icon = "";
+                                if ($v != "" && $i <= 5 && $schierato != "") {
+                                    if ($v < 6)
+                                        $icon = "<img src='" . base_url('/') . "images/rig_sbagliato.png' title='Rigore sbagliato' />";
+                                    if ($v >= 6)
+                                        $icon = "<img src='" . base_url('/') . "images/rig_segnato.png' title='Rigore segnato' />";
+                                    $i++;
+                                }
+                                ?>
+                                <td class="lineup__info" style="color: #1892ED; font-size: 12px; vertical-align: middle; text-align: right;">
+                                    <?= $icon ?>
+                                </td>
+                            </tr>
+                                <?php
+                        }
+                        //Fine Rigoristi in Casa
+                    }
+
+                    //SEQUENZA RIGORISTI IN CASA / END 
+
                 }
             }
             ?>
@@ -3229,6 +3307,84 @@
 
                                                                         //Ricavo i due punteggi parziali al netto del bonus modificatore
                                                                         $parzialeB = ( $row['punteggio2'] - $row['bonus_modificatore2']);
+                                                                        
+                                                                        // SEQUENZA RIGORISTI IN CASA
+
+                                                                        if ($row['rigoristi'] == 1) {
+
+                                                                            //Recupero i rigoristi
+                                                                            $rigoristi = $this->mdl_team->getRigoristiSchierati($row['id2'], $giornata);
+
+                                                                            //Rigoristi in Casa
+                                                                            ?>
+                                                                            <tr style="vertical-align: middle; text-align: center;">
+                                                                                <th colspan="5" class="lineup__subheader">Sequenza calci di rigore <?= $this->mdl_utenti->getSquadra($row['id2']) ?></th>
+                                                                            </tr>
+
+                                                                            <?php
+
+                                                                            $i = 1;
+                                                                            foreach ($rigoristi as $rig) {
+
+                                                                                $s = "";
+                                                                                $schierato = "";
+                                                                                //Calcolo colore per ruolo
+                                                                                $role = "";
+                                                                                $role = $this->mdl_team->getNomeRuolo($rig['id_giocatore']);
+                                                                                if ($role == "P") {
+                                                                                    $colRuolo = "backRuoloP";
+                                                                                }
+                                                                                if ($role == "D") {
+                                                                                    $colRuolo = "backRuoloD";
+                                                                                }
+                                                                                if ($role == "C") {
+                                                                                    $colRuolo = "backRuoloC";
+                                                                                }
+                                                                                if ($role == "A") {
+                                                                                    $colRuolo = "backRuoloA";
+                                                                                }
+
+                                                                                $dettagli = $this->mdl_team->getGiocatore($rig['id_giocatore']);
+                                                                                ?>
+                                                                                <tr <?= $colRuolo ?> height="35px" >
+                                                                                    <td class="lineup__num" style="vertical-align: middle;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                                    <td class="lineup__name" style="vertical-align: middle;"><?= $this->mdl_team->getNomeGiocatore($rig['id_giocatore']) ?></td>
+                                                                                    <?php
+                                                                                    $v = $this->mdl_team->getVoto($rig['id_giocatore'], $giornata);
+                                                                                    $v = (is_Array($v) ? "" : $v);
+
+                                                                                    $s = $this->mdl_team->getSchieratoCampionato($rig['id_giocatore'], $giornata);
+                                                                                    $s = (($s == 1) ? true : false);
+                                                                                    if ($s == true) {
+                                                                                        $schierato = "<img src='" . base_url('/') . "images/schierato.png' title='Giocatore schierato' />";
+                                                                                    }
+                                                                                    if ($s == false || $s == "") {
+                                                                                        $schierato = "";
+                                                                                    }
+                                                                                    ?>
+                                                                                    <td class="lineup__pos" style="vertical-align: middle;"><?= $v ?></td>
+                                                                                    <td class="lineup__pos" style="vertical-align: middle;"><?= $schierato ?></td>
+                                                                                    <?php
+                                                                                    $icon = "";
+                                                                                    if ($v != "" && $i <= 5 && $schierato != "") {
+                                                                                        if ($v < 6)
+                                                                                            $icon = "<img src='" . base_url('/') . "images/rig_sbagliato.png' title='Rigore sbagliato' />";
+                                                                                        if ($v >= 6)
+                                                                                            $icon = "<img src='" . base_url('/') . "images/rig_segnato.png' title='Rigore segnato' />";
+                                                                                        $i++;
+                                                                                    }
+                                                                                    ?>
+                                                                                    <td class="lineup__info" style="color: #1892ED; font-size: 12px; vertical-align: middle; text-align: right;">
+                                                                                        <?= $icon ?>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                    <?php
+                                                                            }
+                                                                            //Fine Rigoristi in Casa
+                                                                        }
+
+                                                                        //SEQUENZA RIGORISTI IN CASA / END
+                                                                        
                                                                     }
                                                                 }
                                                                 ?>
