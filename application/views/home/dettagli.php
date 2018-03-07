@@ -66,10 +66,10 @@
                                                     <thead>
                                                         <tr>
                                                             <th class="lineup__num" style="width: 40px; text-align: center;">&nbsp;</th>
-                                                            <th class="lineup__name" style="text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></th>
-                                                            <th class="lineup__pos" style="width: 90px; text-align: right;">&nbsp;</th>
-                                                            <th class="lineup__pos" style="width: 100px; text-align: right;">&nbsp;</th>
-                                                            <th class="lineup__info" style="width: 70px; color: #1892ED; font-size: 14px; text-align: right;"><?= $row['risultato1'] ?></th>
+                                                            <th class="lineup__name" style="width: 130px; text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></th>
+                                                            <th class="lineup__pos" style="width: 55px; text-align: right;">&nbsp;</th>
+                                                            <th class="lineup__pos" style="width: 80px; text-align: center;">&nbsp;</th>
+                                                            <th class="lineup__info" style="width: 50px; color: #1892ED; font-size: 14px; text-align: right;"><?= $row['risultato1'] ?></th>
                                                         </tr>
                                                     </thead>
 
@@ -1675,10 +1675,10 @@
                                                     <thead>
                                                         <tr>
                                                             <th class="lineup__num" style="width: 40px; text-align: center;">&nbsp;</th>
-                                                            <th class="lineup__name" style="text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></th>
-                                                            <th class="lineup__pos" style="width: 90px; text-align: right;">&nbsp;</th>
-                                                            <th class="lineup__pos" style="width: 100px; text-align: right;">&nbsp;</th>
-                                                            <th class="lineup__info" style="width: 70px; text-align: right; color: #1892ED; font-size: 14px;"><?= $row['risultato2'] ?></th>
+                                                            <th class="lineup__name" style="width: 130px; text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></th>
+                                                            <th class="lineup__pos" style="width: 55px; text-align: right;">&nbsp;</th>
+                                                            <th class="lineup__pos" style="width: 80px; text-align: right;">&nbsp;</th>
+                                                            <th class="lineup__info" style="width: 50px; text-align: right; color: #1892ED; font-size: 14px;"><?= $row['risultato2'] ?></th>
                                                         </tr>
                                                     </thead>
 
