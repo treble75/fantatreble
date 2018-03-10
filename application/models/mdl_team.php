@@ -384,6 +384,7 @@ class mdl_team extends CI_Model {
                                                         sum(ammonizioni) as ammo
 							from tb_voti, tb_giocatori
 							where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+                                                        and schierato = 1 
 							and id_utente = ' . $id_utente . '
 							and giornata < ' . $giornata . '
 							group by id_giocatore 
@@ -403,7 +404,8 @@ class mdl_team extends CI_Model {
                                                         sum(espulsioni) as espu,
                                                         sum(ammonizioni) as ammo
 							from tb_voti, tb_giocatori
-							where tb_voti.id_giocatore = tb_giocatori.id_giocatore
+							where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+                                                        and schierato = 1 
 							and id_utente = ' . $id_utente . '
 							group by id_giocatore 
 							order by gol DESC, fv DESC

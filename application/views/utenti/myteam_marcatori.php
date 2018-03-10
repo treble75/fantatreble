@@ -45,7 +45,6 @@
                 <div class="card card--has-table">
                     <div class="card__header">
                         <h4>Classifica Marcatori</h4>
-                        <span style="font-size: 12px;">* Statistiche relative al FantaTreble</span>
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">
@@ -53,15 +52,16 @@
                                 <thead>
                                     <tr>
                                         <th class="team-roster-table__position" style="width: 8%"  align="center">Ruolo</th>
-                                        <th class="team-roster-table__number" style="width: 7%">&nbsp;</th>
-                                        <th class="team-roster-table__name" style="width: 15%">Giocatore</th>
-                                        <th class="team-roster-table__age" style="width: 8%">Gol</th>
-                                        <th class="team-roster-table__foot" style="width: 8%">Presenze</th>
-                                        <th class="team-roster-table__height" style="width: 8%">Voto</th>
-                                        <th class="team-roster-table__weight" style="width: 8%">Media</th>
-                                        <th class="team-roster-table__assists" style="width: 8%">Assist</th>
+                                        <th class="team-roster-table__number" style="width: 8%">&nbsp;</th>
+                                        <th class="team-roster-table__name" style="width: 20%">Giocatore</th>
+                                        <th class="team-roster-table__age" style="width: 8%">GTL</th>
+                                        <th class="team-roster-table__foot" style="width: 8%">PF</th>
+                                        <th class="team-roster-table__height" style="width: 8%">VO</th>
+                                        <th class="team-roster-table__weight" style="width: 8%">FV</th>
+                                        <th class="team-roster-table__assists" style="width: 8%">AS</th>
                                         <th class="team-roster-table__fouls" style="width: 8%"><img src="<?= base_url('/') ?>images/ammo.png"</th>
                                         <th class="team-roster-table__card-y" style="width: 8%"><img src="<?= base_url('/') ?>images/espu.png"</th>
+                                        <th class="team-roster-table__weight" style="width: 8%">G/P F</th>
                                     </tr>
                                 </thead>
                                 <?php
@@ -124,7 +124,11 @@
                                                     <td class="team-roster-table__name" style="vertical-align: middle; width: 15%;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
-                                                    <td class="team-roster-table__height" style="vertical-align: middle; width: 8%;"><?= number_format($row['voto'], 2) ?></td>
+                                                    <?php
+                                                    if ( $row['voto'] >= 6 )  $colorefont = "#009900";
+                                                    if ( $row['voto'] < 6 )  $colorefont = "#ff3d3d";
+                                                    ?>
+                                                    <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
                                                             <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
@@ -136,6 +140,18 @@
                                                     <td class="team-roster-table__assists" style="vertical-align: middle; width: 8%; color:#009900;"><?= $row['assist'] ?></td>
                                                     <td class="team-roster-table__fouls" style="vertical-align: middle; width: 8%; color:#e69500;"><?= $row['ammo'] ?></td>
                                                     <td class="team-roster-table__card-y" style="vertical-align: middle; width: 8%; color:#ff3d3d;"><?= $row['espu'] ?></td>
+                                                    <?php
+                                                    $pg = $row['pg'];
+                                                    $gol_partita = ( $row['gol'] / $pg );
+                                                    ?>
+                                                    <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
+                                                        <div class="circular">
+                                                            <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
+                                                            <div class="circular__bar" data-percent="<?= $percentuale ?>">
+                                                                <span class="circular__percents"><?= number_format($gol_partita, 2) ?></span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 <?php
                                             }
@@ -152,6 +168,26 @@
                     </div>
                 </div>
                 <!-- Team Roster: Table / End -->
+                
+                <!-- Player Glossary -->
+            <div class="card">
+                <div class="card__header">
+                    <h4>Glossario</h4>
+                </div>
+                <div class="card__content">
+                    <div class="glossary">
+                        <div class="glossary__item"><span class="glossary__abbr">GTL :</span> Gol Realizzati in Treble League</div>
+                        <div class="glossary__item"><span class="glossary__abbr">PF :</span> Presenze in Treble League</div>
+                        <div class="glossary__item"><span class="glossary__abbr">VO :</span> Media Voto in Treble League</div>
+                        <div class="glossary__item"><span class="glossary__abbr">FV :</span> Media FantaVoto in Treble League</div>
+                        <div class="glossary__item"><span class="glossary__abbr">AS :</span> Assist Realizzati in Treble League</div>
+                        <div class="glossary__item"><span class="glossary__abbr"><img src="<?= base_url('/') ?>images/ammo.png"> :</span> Numero di Ammonizioni in Treble League</div>
+                        <div class="glossary__item"><span class="glossary__abbr"><img src="<?= base_url('/') ?>images/espu.png"> :</span> Numero di Espulsioni in Treble League</div>
+                        <div class="glossary__item"><span class="glossary__abbr">G/P F :</span> Gol per Partita in Treble League</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Player Glossary / End -->
 
             </div>
         </div>

@@ -62,7 +62,7 @@
                                     <th class="team-roster-table__assists">AS</th>
                                     <th class="team-roster-table__fouls">VO</th>
                                     <th class="team-roster-table__card-y">FV</th>
-                                    <th class="team-roster-table__card-r">R.CRDS</th>
+                                    <th class="team-roster-table__card-r">G/P A</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -167,7 +167,21 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="team-roster-table__card-r" style="vertical-align: middle;">0</td>
+                                        <td class="team-roster-table__card-r team-leader__avg" style="vertical-align: middle;">
+                                            <div class="circular">
+                                                <?php
+                                                if ( $gol > 0 ) {
+                                                    $media_golA = ( $gol / $PG );
+                                                }else{
+                                                    $media_golA = 0;
+                                                }
+                                                $percentuale = number_format(($media_golA*100), 2);
+                                                ?>
+                                                <div class="circular__bar" data-percent="<?= $percentuale ?>">
+                                                  <span class="circular__percents"><?= number_format($media_golA, 2) ?></span>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
 
                                 <?php
@@ -196,6 +210,7 @@
                         <div class="glossary__item"><span class="glossary__abbr">AS :</span> Assist Realizzati in Serie A</div>
                         <div class="glossary__item"><span class="glossary__abbr">VO :</span> Media Voto in Serie A</div>
                         <div class="glossary__item"><span class="glossary__abbr">FV :</span> Media FantaVoto in Serie A</div>
+                        <div class="glossary__item"><span class="glossary__abbr">G/P A :</span> Gol per Partita in Serie A</div>
                     </div>
                 </div>
             </div>
