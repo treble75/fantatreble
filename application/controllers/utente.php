@@ -2953,7 +2953,20 @@ class Utente extends CI_Controller {
             $data['bomber'] = $this->mdl_team->getBomberTeam($_SESSION['id_utente'], $_SESSION['giornata']);
             $this->show('utenti/myteam', $data);
         } else
-            redirect('utente/login');
+            redirect('home/index');
+    }
+    
+    public function myteam_marcatori() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['bomberTotali'] = $this->mdl_team->getBomberTeamTotali($_SESSION['id_utente'], $_SESSION['giornata']);
+            $this->show('utenti/myteam_marcatori', $data);
+        } else
+            redirect('home/index');
     }
 
     public function schiera_formazione() {

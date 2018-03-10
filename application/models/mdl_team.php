@@ -366,6 +366,52 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getBomberTeamTotali($id_utente, $giornata) {
+        //Indicare ultima giornata del FantaTreble
+        if ($giornata != 35) {
+            $query = $this->db->query('SELECT
+							Sum(gol) AS gol,
+                                                        sum(schierato) as pg,
+							tb_giocatori.cognome,
+							tb_giocatori.nome,
+                                                        tb_giocatori.ruolo,
+							tb_voti.id_giocatore,
+							avg(tb_voti.voto) as voto,
+							avg(tb_voti.fantavoto) as fv,
+                                                        sum(assist) as assist,
+                                                        sum(espulsioni) as espu,
+                                                        sum(ammonizioni) as ammo
+							from tb_voti, tb_giocatori
+							where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+							and id_utente = ' . $id_utente . '
+							and giornata < ' . $giornata . '
+							group by id_giocatore 
+							order by gol DESC, fv DESC
+							');
+        } else {
+            $query = $this->db->query('SELECT
+							Sum(gol) AS gol,
+                                                        sum(schierato) as pg,
+							tb_giocatori.cognome,
+							tb_giocatori.nome,
+                                                        tb_giocatori.ruolo,
+							tb_voti.id_giocatore,
+							avg(tb_voti.voto) as voto,
+							avg(tb_voti.fantavoto) as fv,
+                                                        sum(assist) as assist,
+                                                        sum(espulsioni) as espu,
+                                                        sum(ammonizioni) as ammo
+							from tb_voti, tb_giocatori
+							where tb_voti.id_giocatore = tb_giocatori.id_giocatore
+							and id_utente = ' . $id_utente . '
+							group by id_giocatore 
+							order by gol DESC, fv DESC
+							');
+        }
+
+        return $query->result_array();
+    }
 
     public function getGolCampionato($id_giocatore) {
         $query = $this->db->query('select sum(gol) as gol from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_voti.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
