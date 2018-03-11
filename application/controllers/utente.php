@@ -2964,6 +2964,8 @@ class Utente extends CI_Controller {
 
             $data['giornata'] = $_SESSION['giornata'];
             $data['bomberTotali'] = $this->mdl_team->getBomberTeamTotali($_SESSION['id_utente'], $_SESSION['giornata']);
+            $data['bomberTotaliChampions'] = $this->mdl_team->getBomberTeamChampionsTotale($_SESSION['id_utente']);
+            $data['bomberTotaliCoppa'] = $this->mdl_team->getBomberTeamCoppaTotale($_SESSION['id_utente']);
             $this->show('utenti/myteam_marcatori', $data);
         } else
             redirect('home/index');

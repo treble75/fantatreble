@@ -414,6 +414,36 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getBomberTeamChampionsTotale($id_utente) {
+        //Inserire le giornate di Champions
+        $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori.id_giocatore, tb_giocatori.ruolo, tb_giocatori.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_coppa.voto) as voto, avg(tb_voti_coppa.fantavoto) as fv 
+                                                        FROM tb_voti_coppa
+                                                        join tb_giocatori on tb_voti_coppa.id_giocatore = tb_giocatori.id_giocatore
+                                                        where giornata in (2,3,6,9,12,13,16,17,19,22,23,24,27,28,30,33) 
+                                                        and schierato = 1 
+							and id_utente = ' . $id_utente . '
+                                                        group by cognome
+                                                        order by gol desc, fv desc, voto desc
+                                                        ;');
+
+        return $query->result_array();
+    }
+    
+    public function getBomberTeamCoppaTotale($id_utente) {
+        //Inserire le giornate di Coppa Treble
+        $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori.id_giocatore, tb_giocatori.ruolo, tb_giocatori.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_coppa.voto) as voto, avg(tb_voti_coppa.fantavoto) as fv 
+                                                        FROM tb_voti_coppa
+                                                        join tb_giocatori on tb_voti_coppa.id_giocatore = tb_giocatori.id_giocatore
+                                                        where giornata in (4,7,10,11,15,20,26,31) 
+                                                        and schierato = 1 
+							and id_utente = ' . $id_utente . '
+                                                        group by cognome
+                                                        order by gol desc, fv desc, voto desc
+                                                        ;');
+
+        return $query->result_array();
+    }
 
     public function getGolCampionato($id_giocatore) {
         $query = $this->db->query('select sum(gol) as gol from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_voti.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
