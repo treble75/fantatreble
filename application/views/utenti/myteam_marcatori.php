@@ -25,9 +25,9 @@
                 <ul class="content-filter__list">
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam" class="content-filter__link"><small>My Team</small>Rosa Giocatori</a></li>
                     <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/myteam_marcatori" class="content-filter__link"><small>My Team</small>Marcatori</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-standings.html" class="content-filter__link"><small>My Team</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-last-results.html" class="content-filter__link"><small>My Team</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-schedule.html" class="content-filter__link"><small>My Team</small>Prossime Partite</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_statistiche" class="content-filter__link"><small>My Team</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_calendario" class="content-filter__link"><small>My Team</small>Calendario</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_prossimepartite" class="content-filter__link"><small>My Team</small>Prossime Partite</a></li>
                     <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>My Team</small>Gallery</a></li>
                 </ul>
             </div>
@@ -43,20 +43,20 @@
 
                 <!-- Team Roster: Table -->
                 <div class="card card--has-table">
-                    
+
                     <div class="card__header">
                         <h4>Classifica Marcatori</h4>
                     </div>
-                    
+
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-justified nav-product-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#tab-league" role="tab" data-toggle="tab"><span style="line-height: 50px; font-family: Montserrat, sans-serif; font-weight: 600; letter-spacing: -0.02em;">Treble League</span></a></li>
                         <li role="presentation"><a href="#tab-champions" role="tab" data-toggle="tab"><span style="line-height: 50px; font-family: Montserrat, sans-serif; font-weight: 600; letter-spacing: -0.02em;">Champions League</span></a></li>
                         <li role="presentation"><a href="#tab-coppa" role="tab" data-toggle="tab"><span style="line-height: 50px; font-family: Montserrat, sans-serif; font-weight: 600; letter-spacing: -0.02em;">Coppa Treble</span></a></li>
                     </ul>
-                    
+
                     <div class="card__content tab-content">
-                        
+
                         <div role="tabpanel" class="table-responsive tab-pane fade in active" id="tab-league">
                             <table class="table table--lg team-roster-table">
                                 <thead>
@@ -135,13 +135,15 @@
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
                                                     <?php
-                                                    if ( $row['voto'] >= 6 )  $colorefont = "#009900";
-                                                    if ( $row['voto'] < 6 )  $colorefont = "#ff3d3d";
+                                                    if ($row['voto'] >= 6)
+                                                        $colorefont = "#009900";
+                                                    if ($row['voto'] < 6)
+                                                        $colorefont = "#ff3d3d";
                                                     ?>
                                                     <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                                                            <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
+                    <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($row['fv'], 2) ?></span>
                                                             </div>
@@ -156,7 +158,7 @@
                                                     ?>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                                                            <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
+                    <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($gol_partita, 2) ?></span>
                                                             </div>
@@ -175,7 +177,7 @@
                                     ?>
                             </table>
                         </div>
-                        
+
                         <div role="tabpanel" class="table-responsive tab-pane fade" id="tab-champions">
                             <table class="table table--lg team-roster-table">
                                 <thead>
@@ -254,13 +256,15 @@
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
                                                     <?php
-                                                    if ( $row['voto'] >= 6 )  $colorefont = "#009900";
-                                                    if ( $row['voto'] < 6 )  $colorefont = "#ff3d3d";
+                                                    if ($row['voto'] >= 6)
+                                                        $colorefont = "#009900";
+                                                    if ($row['voto'] < 6)
+                                                        $colorefont = "#ff3d3d";
                                                     ?>
                                                     <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                                                            <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
+                    <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($row['fv'], 2) ?></span>
                                                             </div>
@@ -269,13 +273,13 @@
                                                     <td class="team-roster-table__assists" style="vertical-align: middle; width: 8%; color:#009900;"><?= $row['assist'] ?></td>
                                                     <td class="team-roster-table__fouls" style="vertical-align: middle; width: 8%; color:#e69500;"><?= $row['ammo'] ?></td>
                                                     <td class="team-roster-table__card-y" style="vertical-align: middle; width: 8%; color:#ff3d3d;"><?= $row['espu'] ?></td>
-                                                    <?php
-                                                    $pg = $row['pg'];
-                                                    $gol_partita = ( $row['gol'] / $pg );
-                                                    ?>
+                    <?php
+                    $pg = $row['pg'];
+                    $gol_partita = ( $row['gol'] / $pg );
+                    ?>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                                                            <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
+                    <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($gol_partita, 2) ?></span>
                                                             </div>
@@ -288,13 +292,13 @@
                                         }
                                         ?>
                                     </tbody>
-                                    <?php
-                                } else
-                                    echo "<h6>Nessuna partita ancora disputata</h6>"
-                                    ?>
+            <?php
+        } else
+            echo "<h6>Nessuna partita ancora disputata</h6>"
+            ?>
                             </table>
                         </div>
-                        
+
                         <div role="tabpanel" class="table-responsive tab-pane fade" id="tab-coppa">
                             <table class="table table--lg team-roster-table">
                                 <thead>
@@ -312,10 +316,10 @@
                                         <th class="team-roster-table__weight" style="width: 8%">G/P</th>
                                     </tr>
                                 </thead>
-                                <?php
-                                $i = 1;
-                                if ($giornata > 0) {
-                                    ?>
+                                    <?php
+                                    $i = 1;
+                                    if ($giornata > 0) {
+                                        ?>
                                     <tbody>
                                         <?php
                                         foreach ($bomberTotaliCoppa as $row) {
@@ -372,14 +376,16 @@
                                                     <td class="team-roster-table__name" style="vertical-align: middle; width: 15%;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
-                                                    <?php
-                                                    if ( $row['voto'] >= 6 )  $colorefont = "#009900";
-                                                    if ( $row['voto'] < 6 )  $colorefont = "#ff3d3d";
-                                                    ?>
+                    <?php
+                    if ($row['voto'] >= 6)
+                        $colorefont = "#009900";
+                    if ($row['voto'] < 6)
+                        $colorefont = "#ff3d3d";
+                    ?>
                                                     <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                                                            <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
+                    <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($row['fv'], 2) ?></span>
                                                             </div>
@@ -388,56 +394,56 @@
                                                     <td class="team-roster-table__assists" style="vertical-align: middle; width: 8%; color:#009900;"><?= $row['assist'] ?></td>
                                                     <td class="team-roster-table__fouls" style="vertical-align: middle; width: 8%; color:#e69500;"><?= $row['ammo'] ?></td>
                                                     <td class="team-roster-table__card-y" style="vertical-align: middle; width: 8%; color:#ff3d3d;"><?= $row['espu'] ?></td>
-                                                    <?php
-                                                    $pg = $row['pg'];
-                                                    $gol_partita = ( $row['gol'] / $pg );
-                                                    ?>
+                                                            <?php
+                                                            $pg = $row['pg'];
+                                                            $gol_partita = ( $row['gol'] / $pg );
+                                                            ?>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                                                            <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
+                                                <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($gol_partita, 2) ?></span>
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <?php
-                                            }
-                                            $i++;
+                                            <?php
                                         }
-                                        ?>
-                                    </tbody>
-                                    <?php
-                                } else
-                                    echo "<h6>Nessuna partita ancora disputata</h6>"
+                                        $i++;
+                                    }
                                     ?>
+                                    </tbody>
+            <?php
+        } else
+            echo "<h6>Nessuna partita ancora disputata</h6>"
+            ?>
                             </table>
                         </div>
-                        
+
                     </div>
-                    
+
                 </div>
                 <!-- Team Roster: Table / End -->
-                
+
                 <!-- Player Glossary -->
-            <div class="card">
-                <div class="card__header">
-                    <h4>Glossario</h4>
-                </div>
-                <div class="card__content">
-                    <div class="glossary">
-                        <div class="glossary__item"><span class="glossary__abbr">GOL :</span> Gol Realizzati</div>
-                        <div class="glossary__item"><span class="glossary__abbr">PRE :</span> Presenze</div>
-                        <div class="glossary__item"><span class="glossary__abbr">VO :</span> Media Voto</div>
-                        <div class="glossary__item"><span class="glossary__abbr">FV :</span> Media FantaVoto</div>
-                        <div class="glossary__item"><span class="glossary__abbr">AS :</span> Assist Realizzati</div>
-                        <div class="glossary__item"><span class="glossary__abbr"><img src="<?= base_url('/') ?>images/ammo.png"> :</span> Numero di Ammonizioni</div>
-                        <div class="glossary__item"><span class="glossary__abbr"><img src="<?= base_url('/') ?>images/espu.png"> :</span> Numero di Espulsioni</div>
-                        <div class="glossary__item"><span class="glossary__abbr">G/P :</span>Media Gol per Partita</div>
+                <div class="card">
+                    <div class="card__header">
+                        <h4>Glossario</h4>
+                    </div>
+                    <div class="card__content">
+                        <div class="glossary">
+                            <div class="glossary__item"><span class="glossary__abbr">GOL :</span> Gol Realizzati</div>
+                            <div class="glossary__item"><span class="glossary__abbr">PRE :</span> Presenze</div>
+                            <div class="glossary__item"><span class="glossary__abbr">VO :</span> Media Voto</div>
+                            <div class="glossary__item"><span class="glossary__abbr">FV :</span> Media FantaVoto</div>
+                            <div class="glossary__item"><span class="glossary__abbr">AS :</span> Assist Realizzati</div>
+                            <div class="glossary__item"><span class="glossary__abbr"><img src="<?= base_url('/') ?>images/ammo.png"> :</span> Numero di Ammonizioni</div>
+                            <div class="glossary__item"><span class="glossary__abbr"><img src="<?= base_url('/') ?>images/espu.png"> :</span> Numero di Espulsioni</div>
+                            <div class="glossary__item"><span class="glossary__abbr">G/P :</span>Media Gol per Partita</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <!-- Player Glossary / End -->
+                <!-- Player Glossary / End -->
 
             </div>
         </div>
