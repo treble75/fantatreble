@@ -23,9 +23,9 @@ class Utente extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $CI = & get_instance();
-        ini_set('session.gc_maxlifetime', 24000);
-        ini_set('session.cookie_lifetime', 24000);
         @session_start();
+        //ini_set('session.gc_maxlifetime', 24000);
+        //ini_set('session.cookie_lifetime', 24000);
         $CI->load->helper(array('form', 'url'));
         $CI->load->library('form_validation');
         $CI->load->library('session');

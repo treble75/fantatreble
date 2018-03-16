@@ -4,19 +4,26 @@
         ================================================== -->
 
         <?php
-        if ($giornata <= 27) {
+        $labelCoppa = "";
+        
+        if ($giornata == 4 || $giornata == 7) {
 
-            $label = "Giornata " . $giornata;
+            $labelCoppa = "Preliminari";
         }
 
-        if ($giornata >= 28 && $giornata <= 33) {
+        if ($giornata == 10 || $giornata == 11) {
 
-            $label = "Playoff";
+            $labelCoppa = "Quarti";
         }
 
-        if ($giornata >= 34 && $giornata <= 35) {
+        if ($giornata == 15 || $giornata == 20) {
 
-            $label = "Finalissima";
+            $labelCoppa = "Semifinali";
+        }
+        
+        if ($giornata == 26 || $giornata == 31) {
+
+            $labelCoppa = "Finale";
         }
         ?>
 
@@ -24,9 +31,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title"><span class="highlight">Treble </span> League</h1>
+                        <h1 class="page-heading__title">Coppa <span class="highlight">Treble </span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li class="active"><?= $label ?></li>
+                            <li class="active"><?= $labelCoppa ?></li>
                         </ol>
                     </div>
                 </div>
@@ -49,7 +56,7 @@
                         <div class="table-responsive" style="min-width:768px;">
 
         <?php
-        foreach ($risultati as $row) {
+        foreach ($risultati_coppa as $row) {
             ?>
 
                                 <div class="col-md-6 col-sm-6 col-xs-6">
@@ -82,10 +89,10 @@
                 if ($row['id1'] == $player[$c]['id_utente']) {
 
                     //Calcolo numeri difensori per Modificatore difesa
-                    @$num_difensori = $this->mdl_team->getNumeroDifensoriSchierati($row['id1'], $giornata);
+                    @$num_difensori = $this->mdl_team->getNumeroDifensoriSchieratiCoppa($row['id1'], $giornata);
 
                     //Calcolo media voto difensori per Modificatore difesa
-                    @$media_difensori = $this->mdl_team->getDettagliCampionatoTotaleModificatore($row['id1'], $giornata, 1);
+                    @$media_difensori = $this->mdl_team->getDettagliCampionatoTotaleModificatoreCoppa($row['id1'], $giornata, 1, "coppa");
 
                     //INIZIO RIGA GIOCATORI
                     $dettagli = $this->mdl_team->getGiocatore($player[$c]['T1']);
@@ -114,16 +121,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T1'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T1'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T1'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T1'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T1'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T1'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -173,16 +180,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T2'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T2'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T2'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T2'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T2'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T2'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -232,16 +239,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T3'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T3'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T3'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T3'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T3'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T3'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -291,16 +298,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T4'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T4'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T4'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T4'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T4'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T4'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -350,16 +357,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T5'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T5'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T5'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T5'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T5'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T5'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -409,16 +416,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T6'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T6'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T6'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T6'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T6'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T6'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -468,16 +475,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T7'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T7'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T7'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T7'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T7'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T7'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -527,16 +534,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T8'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T8'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T8'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T8'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T8'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T8'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -586,16 +593,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T9'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T9'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T9'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T9'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T9'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T9'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -645,16 +652,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T10'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T10'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T10'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T10'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T10'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T10'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -704,16 +711,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['T11'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['T11'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T11'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T11'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T11'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T11'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -769,16 +776,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P1'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P1'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P1'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P1'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P1'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P1'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -831,16 +838,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P2'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P2'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P2'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P2'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P2'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P2'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -893,16 +900,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P3'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P3'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P3'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P3'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P3'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P3'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -955,16 +962,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P4'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P4'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P4'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P4'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P4'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P4'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1017,16 +1024,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P5'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P5'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P5'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P5'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P5'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P5'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1079,16 +1086,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P6'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P6'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P6'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P6'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P6'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P6'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1141,16 +1148,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P7'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P7'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P7'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P7'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P7'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P7'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1203,16 +1210,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P8'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P8'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P8'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P8'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P8'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P8'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1265,16 +1272,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P9'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P9'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P9'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P9'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P9'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P9'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1327,16 +1334,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P10'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P10'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P10'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P10'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P10'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P10'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1389,16 +1396,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P11'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P11'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P11'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P11'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P11'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P11'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1451,16 +1458,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P12'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P12'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P12'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P12'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P12'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P12'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1513,16 +1520,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P13'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P13'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P13'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P13'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P13'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P13'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1575,16 +1582,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                     <?php
-                    $v = $this->mdl_team->getVoto($player[$c]['P14'], $giornata);
+                    $v = $this->mdl_team->getVotoCoppa($player[$c]['P14'], $giornata);
                     $v = (is_Array($v) ? "S.V." : $v);
                     ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P14'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P14'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P14'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P14'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -1669,7 +1676,7 @@
                                 <td class="lineup__num" style="vertical-align: middle;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                 <td class="lineup__name" style="vertical-align: middle;"><?= $this->mdl_team->getNomeGiocatore($rig['id_giocatore']) ?></td>
                                 <?php
-                                $v = $this->mdl_team->getVoto($rig['id_giocatore'], $giornata);
+                                $v = $this->mdl_team->getVotoCoppa($rig['id_giocatore'], $giornata);
                                 $v = (is_Array($v) ? "" : $v);
                                 
                                 $s = $this->mdl_team->getSchieratoCampionato($rig['id_giocatore'], $giornata);
@@ -1720,7 +1727,7 @@
                                                         </tr>
 
                                                         <tr style="vertical-align: middle;">
-                                                            <th colspan="2" class="lineup__subheader">Punteggio</th>
+                                                            <th colspan="2" class="lineup__subheader">Punteggio ( +2 in casa )</th>
                                                             <th class="lineup__subheader" style="text-align: center"><?= $parzialeA ?> + <?= $row['bonus_modificatore1'] ?></th>
                                                             <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $row['punteggio1'] ?></th>
                                                         </tr>
@@ -1768,10 +1775,10 @@
                 if ($row['id2'] == $player[$c]['id_utente']) {
 
                     //Calcolo numeri difensori per Modificatore difesa
-                    @$num_difensori = $this->mdl_team->getNumeroDifensoriSchierati($row['id2'], $giornata);
+                    @$num_difensori = $this->mdl_team->getNumeroDifensoriSchieratiCoppa($row['id2'], $giornata);
 
                     //Calcolo media voto difensori per Modificatore difesa
-                    @$media_difensori = $this->mdl_team->getDettagliCampionatoTotaleModificatore($row['id2'], $giornata, 2);
+                    @$media_difensori = $this->mdl_team->getDettagliCampionatoTotaleModificatoreCoppa($row['id2'], $giornata, 2, "coppa");
 
                     //INIZIO RIGA GIOCATORI
                     $dettagli = $this->mdl_team->getGiocatore($player[$c]['T1']);
@@ -1795,16 +1802,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T1'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T1'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T1'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T1'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T1'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T1'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -1854,16 +1861,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T2'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T2'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T2'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T2'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T2'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T2'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -1913,16 +1920,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T3'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T3'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T3'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T3'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T3'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T3'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -1972,16 +1979,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T4'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T4'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T4'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T4'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T4'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T4'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2031,16 +2038,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T5'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T5'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T5'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T5'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T5'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T5'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2090,16 +2097,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T6'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T6'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T6'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T6'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T6'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T6'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2149,16 +2156,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T7'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T7'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T7'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T7'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T7'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T7'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2208,16 +2215,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T8'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T8'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T8'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T8'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T8'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T8'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2267,16 +2274,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T9'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T9'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T9'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T9'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T9'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T9'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2326,16 +2333,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T10'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T10'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T10'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T10'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T10'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T10'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2385,16 +2392,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['T11'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['T11'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['T11'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['T11'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['T11'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['T11'], $giornata);
                                                                         if ($detail[0]['gol_subiti'] != 0)
                                                                             echo "<img src='" . base_url('/') . "images/golsub.png' title='Gol subiti: " . $detail[0]['gol_subiti'] . "' />&nbsp;";
                                                                         if ($detail[0]['gol'] != 0)
@@ -2450,16 +2457,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P1'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P1'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P1'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P1'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P1'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P1'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2512,16 +2519,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P2'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P2'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P2'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P2'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P2'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P2'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2574,16 +2581,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P3'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P3'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P3'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P3'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P3'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P3'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2636,16 +2643,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P4'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P4'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P4'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P4'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P4'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P4'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2698,16 +2705,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P5'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P5'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P5'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P5'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P5'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P5'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2760,16 +2767,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P6'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P6'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P6'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P6'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P6'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P6'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2822,16 +2829,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P7'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P7'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P7'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P7'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P7'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P7'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2884,16 +2891,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P8'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P8'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P8'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P8'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P8'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P8'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -2946,16 +2953,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P9'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P9'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P9'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P9'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P9'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P9'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -3008,16 +3015,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P10'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P10'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P10'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P10'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P10'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P10'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -3070,16 +3077,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P11'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P11'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P11'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P11'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P11'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P11'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -3132,16 +3139,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P12'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P12'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P12'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P12'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P12'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P12'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -3194,16 +3201,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P13'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P13'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P13'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P13'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P13'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P13'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -3256,16 +3263,16 @@
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                 <?php
-                                                                $v = $this->mdl_team->getVoto($player[$c]['P14'], $giornata);
+                                                                $v = $this->mdl_team->getVotoCoppa($player[$c]['P14'], $giornata);
                                                                 $v = (is_Array($v) ? "S.V." : $v);
                                                                 ?>
                                                                     <td class="lineup__pos"><?= $v ?></td>
                                                                     <td class="lineup__pos">
                                                                     <?php
-                                                                    $voto = $this->mdl_team->getFV($player[$c]['P14'], $giornata);
+                                                                    $voto = $this->mdl_team->getFVCoppa($player[$c]['P14'], $giornata);
                                                                     $voto = (is_Array($voto) ? "" : $voto);
                                                                     if ($voto != "") {
-                                                                        $detail = $this->mdl_team->getVotiGiornata($player[$c]['P14'], $giornata);
+                                                                        $detail = $this->mdl_team->getVotiGiornataCoppa($player[$c]['P14'], $giornata);
                                                                         if ($detail[0]['schierato'] == 1) {
                                                                             if ($detail[0]['schierato'] == 1)
                                                                                 echo "<img src='" . base_url('/') . "images/sost.png' title='Entrato in sostituzione' />&nbsp;";
@@ -3350,7 +3357,7 @@
                                                                                     <td class="lineup__num" style="vertical-align: middle;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                                     <td class="lineup__name" style="vertical-align: middle;"><?= $this->mdl_team->getNomeGiocatore($rig['id_giocatore']) ?></td>
                                                                                     <?php
-                                                                                    $v = $this->mdl_team->getVoto($rig['id_giocatore'], $giornata);
+                                                                                    $v = $this->mdl_team->getVotoCoppa($rig['id_giocatore'], $giornata);
                                                                                     $v = (is_Array($v) ? "" : $v);
 
                                                                                     $s = $this->mdl_team->getSchieratoCampionato($rig['id_giocatore'], $giornata);
