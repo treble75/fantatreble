@@ -102,7 +102,7 @@
                             <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_squadra'] ?>.png" width="30px">
                         </figure>
                         <div class="team-meta__info">
-                          <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?>
+                            <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/home/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></a>
                             <?php
                             //Inserire ID della squadra scudettata
                             if ($row['id_squadra'] == 10){?>
@@ -138,8 +138,8 @@
                     <td class="team-standings__win"><?= $row['vittorie'] ?></td>
                     <td class="team-standings__lose"><?= $row['pareggi'] ?></td>
                     <td class="team-standings__drawn"><?= $row['sconfitte'] ?></td>
-                    <td class="team-standings__goals-for"><?= $row['gol_fatti'] ?></td>
-                    <td class="team-standings__goals-against"><?= $row['gol_subiti'] ?></td>
+                    <td class="team-standings__goals-for" style="color:#009900;"><?= $row['gol_fatti'] ?></td>
+                    <td class="team-standings__goals-against" style="color:#ff3d3d;"><?= $row['gol_subiti'] ?></td>
                     <td class="team-standings__goals-diff">
                         <?php
                         if ($row['DIFF'] > 0) {
