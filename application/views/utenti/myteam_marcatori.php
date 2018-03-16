@@ -7,7 +7,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title">Rosa <span class="highlight"><?= $_SESSION['squadra'] ?></span></h1>
+                        <h1 class="page-heading__title">Marcatori <span class="highlight"><?= $_SESSION['squadra'] ?></span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
                             <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
                             <li><a href="<?= base_url('/') ?>index.php/utente/myteam">My Team</a></li>
@@ -143,7 +143,7 @@
                                                     <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                    <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
+                                                            <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($row['fv'], 2) ?></span>
                                                             </div>
@@ -158,7 +158,7 @@
                                                     ?>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                    <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
+                                                            <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($gol_partita, 2) ?></span>
                                                             </div>
@@ -264,7 +264,7 @@
                                                     <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                    <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
+                                                            <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($row['fv'], 2) ?></span>
                                                             </div>
@@ -273,13 +273,13 @@
                                                     <td class="team-roster-table__assists" style="vertical-align: middle; width: 8%; color:#009900;"><?= $row['assist'] ?></td>
                                                     <td class="team-roster-table__fouls" style="vertical-align: middle; width: 8%; color:#e69500;"><?= $row['ammo'] ?></td>
                                                     <td class="team-roster-table__card-y" style="vertical-align: middle; width: 8%; color:#ff3d3d;"><?= $row['espu'] ?></td>
-                    <?php
-                    $pg = $row['pg'];
-                    $gol_partita = ( $row['gol'] / $pg );
-                    ?>
+                                                    <?php
+                                                    $pg = $row['pg'];
+                                                    $gol_partita = ( $row['gol'] / $pg );
+                                                    ?>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                    <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
+                                                            <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($gol_partita, 2) ?></span>
                                                             </div>
@@ -292,10 +292,10 @@
                                         }
                                         ?>
                                     </tbody>
-            <?php
-        } else
-            echo "<h6>Nessuna partita ancora disputata</h6>"
-            ?>
+                                    <?php
+                                } else
+                                    echo "<h6>Nessuna partita ancora disputata</h6>"
+                                    ?>
                             </table>
                         </div>
 
@@ -316,10 +316,10 @@
                                         <th class="team-roster-table__weight" style="width: 8%">G/P</th>
                                     </tr>
                                 </thead>
-                                    <?php
-                                    $i = 1;
-                                    if ($giornata > 0) {
-                                        ?>
+                                <?php
+                                $i = 1;
+                                if ($giornata > 0) {
+                                    ?>
                                     <tbody>
                                         <?php
                                         foreach ($bomberTotaliCoppa as $row) {
@@ -376,16 +376,16 @@
                                                     <td class="team-roster-table__name" style="vertical-align: middle; width: 15%;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
-                    <?php
-                    if ($row['voto'] >= 6)
-                        $colorefont = "#009900";
-                    if ($row['voto'] < 6)
-                        $colorefont = "#ff3d3d";
-                    ?>
+                                                    <?php
+                                                    if ($row['voto'] >= 6)
+                                                        $colorefont = "#009900";
+                                                    if ($row['voto'] < 6)
+                                                        $colorefont = "#ff3d3d";
+                                                    ?>
                                                     <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                    <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
+                                                            <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($row['fv'], 2) ?></span>
                                                             </div>
@@ -394,29 +394,29 @@
                                                     <td class="team-roster-table__assists" style="vertical-align: middle; width: 8%; color:#009900;"><?= $row['assist'] ?></td>
                                                     <td class="team-roster-table__fouls" style="vertical-align: middle; width: 8%; color:#e69500;"><?= $row['ammo'] ?></td>
                                                     <td class="team-roster-table__card-y" style="vertical-align: middle; width: 8%; color:#ff3d3d;"><?= $row['espu'] ?></td>
-                                                            <?php
-                                                            $pg = $row['pg'];
-                                                            $gol_partita = ( $row['gol'] / $pg );
-                                                            ?>
+                                                    <?php
+                                                    $pg = $row['pg'];
+                                                    $gol_partita = ( $row['gol'] / $pg );
+                                                    ?>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
-                                                <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
+                                                            <?php $percentuale = number_format(($gol_partita * 100), 2); ?>
                                                             <div class="circular__bar" data-percent="<?= $percentuale ?>">
                                                                 <span class="circular__percents"><?= number_format($gol_partita, 2) ?></span>
                                                             </div>
                                                         </div>
                                                     </td>
                                                 </tr>
-                                            <?php
+                                                <?php
+                                            }
+                                            $i++;
                                         }
-                                        $i++;
-                                    }
-                                    ?>
+                                        ?>
                                     </tbody>
-            <?php
-        } else
-            echo "<h6>Nessuna partita ancora disputata</h6>"
-            ?>
+                                    <?php
+                                } else
+                                    echo "<h6>Nessuna partita ancora disputata</h6>"
+                                    ?>
                             </table>
                         </div>
 

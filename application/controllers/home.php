@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
@@ -8,9 +9,9 @@ class Home extends CI_Controller {
      *
      * Maps to the following URL
      * 		http://example.com/index.php/welcome
-     *	- or -
+     * 	- or -
      * 		http://example.com/index.php/welcome/index
-     *	- or -
+     * 	- or -
      * Since this controller is set as the default controller in
      * config/routes.php, it's displayed at http://example.com/
      *
@@ -18,7 +19,6 @@ class Home extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see https://codeigniter.com/user_guide/general/urls.html
      */
-
     public function __construct() {
         parent::__construct();
         $CI = & get_instance();
@@ -35,16 +35,15 @@ class Home extends CI_Controller {
         $this->load->view($pagina, $dati);
         $this->load->view('include/footer');
     }
-    
-	
+
     public function index() {
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
         $_SESSION['giornata'] = $this->mdl_team->getGiornata();
-        
+
         //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
         $giornata_posizione = ($_SESSION['giornata'] - 1);
-        
+
         $data['risultati'] = $this->mdl_team->getCalendario1A();
         $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
         $data['giornata'] = $_SESSION['giornata'];
@@ -52,23 +51,23 @@ class Home extends CI_Controller {
         $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
         $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
-        
+
         $giornataTop = ($_SESSION['giornata'] - 1);
         $data['top'] = $this->mdl_team->getTop($giornataTop);
         $data['topCampionato'] = $this->mdl_team->getTopCampionato();
         $data['offerte'] = $this->mdl_team->getLastOfferte();
-        
+
         $this->show('home/homepage', $data);
     }
-    
+
     public function homepage() {
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
         $_SESSION['giornata'] = $this->mdl_team->getGiornata();
-        
+
         //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
         $giornata_posizione = ($_SESSION['giornata'] - 1);
-        
+
         $data['risultati'] = $this->mdl_team->getCalendario1A();
         $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
         $data['giornata'] = $_SESSION['giornata'];
@@ -76,12 +75,12 @@ class Home extends CI_Controller {
         $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
         $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
-        
+
         $giornataTop = ($_SESSION['giornata'] - 1);
         $data['top'] = $this->mdl_team->getTop($giornataTop);
         $data['topCampionato'] = $this->mdl_team->getTopCampionato();
         $data['offerte'] = $this->mdl_team->getLastOfferte();
-        
+
         $this->show('home/homepage', $data);
     }
 
@@ -128,9 +127,8 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
 
         $this->show('home/campionato', $data);
-
     }
-    
+
     public function calendario() {
 
         $this->load->model('mdl_team');
@@ -149,9 +147,8 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
 
         $this->show('home/calendario', $data);
-
     }
-    
+
     public function statistiche_treble_league() {
 
         $this->load->model('mdl_team');
@@ -170,9 +167,8 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
 
         $this->show('home/statistiche_treble_league', $data);
-
     }
-    
+
     public function marcatori() {
 
         $this->load->model('mdl_team');
@@ -191,7 +187,6 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberCampionatoTotale($_SESSION['giornata']);
 
         $this->show('home/marcatori', $data);
-
     }
 
     public function dettagli($giornata) {
@@ -254,39 +249,33 @@ class Home extends CI_Controller {
     }
 
     public function regolamento() {
-        
-        $this->show('home/regolamento.php');
 
+        $this->show('home/regolamento.php');
     }
 
     public function albo() {
-        
-            $this->show('home/albo.php');
 
+        $this->show('home/albo.php');
     }
-    
+
     public function albo_champions() {
-        
-            $this->show('home/albo_champions.php');
 
+        $this->show('home/albo_champions.php');
     }
-    
+
     public function albo_coppa() {
-        
-            $this->show('home/albo_coppa.php');
 
+        $this->show('home/albo_coppa.php');
     }
-    
+
     public function albo_supercoppa() {
-        
-            $this->show('home/albo_supercoppa.php');
 
+        $this->show('home/albo_supercoppa.php');
     }
-    
-    public function albo_statistiche() {
-        
-            $this->show('home/albo_statistiche.php');
 
+    public function albo_statistiche() {
+
+        $this->show('home/albo_statistiche.php');
     }
 
     public function bonus() {
@@ -295,7 +284,7 @@ class Home extends CI_Controller {
         } else
             redirect('utente/login');
     }
-    
+
     public function champions() {
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
@@ -308,9 +297,8 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberChampions($_SESSION['giornata']);
 
         $this->show('home/champions.php', $data);
-        
     }
-    
+
     public function calendario_champions() {
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
@@ -323,9 +311,8 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberChampions($_SESSION['giornata']);
 
         $this->show('home/calendario_champions.php', $data);
-        
     }
-    
+
     public function marcatori_champions() {
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
@@ -338,7 +325,6 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberChampionsTotale($_SESSION['giornata']);
 
         $this->show('home/marcatori_champions.php', $data);
-        
     }
 
     public function coppa() {
@@ -351,9 +337,8 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberCoppa($_SESSION['giornata']);
 
         $this->show('home/coppa.php', $data);
-            
     }
-    
+
     public function marcatori_coppa() {
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
@@ -364,9 +349,8 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberCoppaTotale($_SESSION['giornata']);
 
         $this->show('home/marcatori_coppa.php', $data);
-            
     }
-    
+
     public function calendario_coppa() {
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
@@ -377,7 +361,6 @@ class Home extends CI_Controller {
         $data['bomber'] = $this->mdl_team->getBomberCoppa($_SESSION['giornata']);
 
         $this->show('home/calendario_coppa.php', $data);
-            
     }
 
     public function supercoppa() {
@@ -389,21 +372,20 @@ class Home extends CI_Controller {
         $data['risultati_supercoppa'] = $this->mdl_team->getCalendarioSupercoppa();
 
         $this->show('home/supercoppa.php', $data);
-            
     }
 
     public function statistiche($ruolo) {
         $this->load->model('mdl_categories');
         $this->load->model('mdl_team');
-        
+
         $data['ruolo'] = $ruolo;
 
         $this->form_validation->set_rules('order', 'Ordine', 'trim|required');
 
         if ($this->form_validation->run()) {
-            
+
             $order = $this->input->post('order');
-            
+
             if ($order == "cognome")
                 $data['player'] = $this->mdl_team->getGiocatoreRuolo($ruolo, $order);
             else
@@ -417,7 +399,6 @@ class Home extends CI_Controller {
         $data['player'] = $this->mdl_team->getGiocatoreRuolo($ruolo, $order = "cognome");
 
         $this->show('home/statistiche', $data);
-        
     }
 
     public function gestione_rigoristi() {

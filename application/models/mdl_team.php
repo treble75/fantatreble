@@ -182,7 +182,7 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('squadra');
     }
-    
+
     public function getNomeTeam($id) {
         $this->db->select('squadra');
         $this->db->where('id_utente', $id);
@@ -190,12 +190,12 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('squadra');
     }
-    
+
     public function getSquadraBomber($id_giocatore) {
         $this->db->select('id_utente');
         $this->db->where('id_giocatore', $id_giocatore);
         $this->db->from('tb_giocatori');
-        
+
         $squadra = $this->getNomeTeam($this->db->get()->row('id_utente'));
         return $squadra;
     }
@@ -245,7 +245,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getBomberCampionatoTotale($giornata) {
         $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori.id_giocatore, tb_giocatori.ruolo, tb_giocatori.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti.voto) as voto, avg(tb_voti.fantavoto) as fv
                                                         FROM tb_voti
@@ -271,7 +271,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getBomberCoppaTotale($giornata) {
         //Inserire le giornate di Coppa Treble
         $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori.id_giocatore, tb_giocatori.ruolo, tb_giocatori.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_coppa.voto) as voto, avg(tb_voti_coppa.fantavoto) as fv 
@@ -299,7 +299,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getBomberChampionsTotale($giornata) {
         //Inserire le giornate di Champions
         $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori.id_giocatore, tb_giocatori.ruolo, tb_giocatori.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_coppa.voto) as voto, avg(tb_voti_coppa.fantavoto) as fv 
@@ -366,7 +366,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getBomberTeamTotali($id_utente, $giornata) {
         //Indicare ultima giornata del FantaTreble
         if ($giornata != 35) {
@@ -414,7 +414,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getBomberTeamChampionsTotale($id_utente) {
         //Inserire le giornate di Champions
         $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori.id_giocatore, tb_giocatori.ruolo, tb_giocatori.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_coppa.voto) as voto, avg(tb_voti_coppa.fantavoto) as fv 
@@ -429,7 +429,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getBomberTeamCoppaTotale($id_utente) {
         //Inserire le giornate di Coppa Treble
         $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori.id_giocatore, tb_giocatori.ruolo, tb_giocatori.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_coppa.voto) as voto, avg(tb_voti_coppa.fantavoto) as fv 
@@ -717,7 +717,7 @@ class mdl_team extends CI_Model {
 							group by id_giocatore 
 							order by tb_squadre.squadra ASC, tb_giocatori.cognome ASC, tb_voti.voto desc ');
         }
-        
+
         if ($order == "gol") {
             $query = $this->db->query('SELECT
                                                         Sum(' . $order . ') AS ' . $order . ',
@@ -813,7 +813,7 @@ class mdl_team extends CI_Model {
 
         return $totale;
     }
-    
+
     public function getFantaPuntiTotaliChampionsAB($id_squadra) {
         //Limitare la query all'ultima giornata di campionato, in questo caso la 22
         $query1 = $this->db->query('select SUM(punteggio1) as somma1 from tb_champions where id1 = ' . $id_squadra . ' and giornata <= 22;');
@@ -844,8 +844,8 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
-    public function getSchieratoCoppa($id_giocatore,$giornata) {
+
+    public function getSchieratoCoppa($id_giocatore, $giornata) {
         $this->db->select('schierato');
         $this->db->where('id_giocatore', $id_giocatore);
         $this->db->where('giornata', $giornata);
@@ -854,8 +854,8 @@ class mdl_team extends CI_Model {
 
         return $row = $query->row('schierato');
     }
-    
-    public function getSchieratoCampionato($id_giocatore,$giornata) {
+
+    public function getSchieratoCampionato($id_giocatore, $giornata) {
         $this->db->select('schierato');
         $this->db->where('id_giocatore', $id_giocatore);
         $this->db->where('giornata', $giornata);
@@ -864,7 +864,7 @@ class mdl_team extends CI_Model {
 
         return $row = $query->row('schierato');
     }
-    
+
     public function getModulo($id_utente) {
         $this->db->select('tattica');
         $this->db->where('id_utente', $id_utente);
@@ -887,7 +887,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getRigoristiSchierati($id_utente, $giornata) {
         $this->db->select('*');
         $this->db->where('giornata', $giornata);
@@ -969,29 +969,28 @@ class mdl_team extends CI_Model {
         $this->db->where('giornata', $_SESSION['giornata']);
         $this->db->update('tb_voti_coppa', array('schierato' => 1));
     }
-    
+
     public function getArrow($id_squadra, $giornata) {
-        if ($giornata >= 2){
-            $query1 = $this->db->query("SELECT posizione from tb_posizione_classifica WHERE giornata = ". $giornata ." and id_squadra = ". $id_squadra ."");
+        if ($giornata >= 2) {
+            $query1 = $this->db->query("SELECT posizione from tb_posizione_classifica WHERE giornata = " . $giornata . " and id_squadra = " . $id_squadra . "");
             $pos_attuale = $query1->row('posizione');
-            
+
             $precedente = ( $giornata - 1 );
-            $query2 = $this->db->query("SELECT posizione from tb_posizione_classifica WHERE giornata = ". $precedente ." and id_squadra = ". $id_squadra ."");
+            $query2 = $this->db->query("SELECT posizione from tb_posizione_classifica WHERE giornata = " . $precedente . " and id_squadra = " . $id_squadra . "");
             $pos_precedente = $query2->row('posizione');
 
-            if ($pos_attuale < $pos_precedente){
+            if ($pos_attuale < $pos_precedente) {
                 $chk = 1;
             }
-            if ($pos_attuale > $pos_precedente){
+            if ($pos_attuale > $pos_precedente) {
                 $chk = 2;
             }
-            if ($pos_attuale == $pos_precedente){
+            if ($pos_attuale == $pos_precedente) {
                 $chk = "";
             }
 
             return $chk;
         }
-        
     }
 
     public function getClassifica($giornata_posizione) {
@@ -1015,11 +1014,11 @@ class mdl_team extends CI_Model {
         $this->db->order_by('gol_fatti', 'desc');
         $this->db->order_by('id_squadra', 'desc');
         $query = $this->db->get();
-        
+
         //Cancello tabella posizione per la giornata di riferimento
         $this->db->where('giornata', $giornata_posizione);
         $this->db->delete('tb_posizione_classifica');
-        
+
         //Aggiorno tabella posizione classifica
         $i = 1;
         foreach ($query->result_array() as $row) {
@@ -1529,7 +1528,7 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('fantavoto');
     }
-    
+
     public function getVotoS($id_giocatore) {
         $this->db->select('voto');
         $this->db->where('giornata', $_SESSION['giornata']);
@@ -1539,7 +1538,7 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('voto');
     }
-    
+
     public function getVotoSCoppa($id_giocatore) {
         $this->db->select('voto');
         $this->db->where('giornata', $_SESSION['giornata']);
@@ -1549,7 +1548,7 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('voto');
     }
-    
+
     public function getTeamForResetRigori($id_utente) {
         $this->db->select('id_giocatore');
         $this->db->where('id_utente', $id_utente);
@@ -1557,26 +1556,26 @@ class mdl_team extends CI_Model {
         $this->db->order_by('cognome');
         $this->db->from('tb_giocatori');
         $query = $this->db->get();
-        
+
         return $query->result_array();
     }
-    
+
     public function getTrasferimentiSquadra($team, $asta) {
         $this->db->select('*');
-        if ($team != 0){
+        if ($team != 0) {
             $this->db->where('id_squadra_partenza', $team);
             $this->db->or_where('id_squadra_arrivo', $team);
         }
-        if ($asta == 0){
+        if ($asta == 0) {
             $this->db->where('tipologia !=', "Asta Iniziale");
         }
         $this->db->order_by('id');
         $this->db->from('tb_trasferimenti');
         $query = $this->db->get();
-        
+
         return $query->result_array();
     }
-    
+
     public function getTrasferimenti($mese) {
         $this->db->select('*');
         $this->db->where('data <', $mese);
@@ -1617,7 +1616,7 @@ class mdl_team extends CI_Model {
         $this->db->where('id_giocatore', $data['giocatore']);
         $this->db->where('giornata', $data['giornata']);
         $this->db->update('tb_voti', array('voto' => $data['voto'], 'fantavoto' => $data['fanta_voto'], 'gol' => $data['gol'], 'assist' => $data['assist'], 'ammonizioni' => $data['ammonizioni'], 'espulsioni' => $data['espulsioni'], 'rigore_parato' => $data['rigore_parato'], 'rigore_sbagliato' => $data['rigore_sbagliato'], 'autogol' => $data['autogol'], 'gol_subiti' => $data['gol_subiti'], 'schierato' => $data['schierato']));
-        
+
         $this->db->where('id_giocatore', $data['giocatore']);
         $this->db->where('giornata', $data['giornata']);
         $this->db->update('tb_voti_coppa', array('voto' => $data['voto'], 'fantavoto' => $data['fanta_voto'], 'gol' => $data['gol'], 'assist' => $data['assist'], 'ammonizioni' => $data['ammonizioni'], 'espulsioni' => $data['espulsioni'], 'rigore_parato' => $data['rigore_parato'], 'rigore_sbagliato' => $data['rigore_sbagliato'], 'autogol' => $data['autogol'], 'gol_subiti' => $data['gol_subiti'], 'schierato' => $data['schierato']));
@@ -1674,11 +1673,11 @@ class mdl_team extends CI_Model {
     public function insertFormazioneTCoppa($id_utente, $id_giocatore, $ruolo) {
         $this->db->insert('tb_formazionit_coppa', array('id_utente' => $id_utente, 'id_giocatore' => $id_giocatore, 'ruolo' => $ruolo));
     }
-    
+
     public function insertModuloTattico($id_utente, $giornata, $modulo) {
         $this->db->insert('tb_tattica_campionato', array('id_utente' => $id_utente, 'tattica' => $modulo, 'giornata' => $giornata));
     }
-    
+
     public function deleteModuloTattico($id_utente, $giornata) {
         $this->db->where('id_utente', $id_utente);
         $this->db->where('giornata', $giornata);
@@ -1864,7 +1863,7 @@ class mdl_team extends CI_Model {
             $voto_portiere2 = 0;
         else
             $voto_portiere2 = $voto_portiere2;
-        
+
         $query = $this->db->query('select voto from tb_voti, tb_formazioni_schierate where tb_formazioni_schierate.giornata = tb_voti.giornata and tb_voti.id_giocatore = tb_formazioni_schierate.P2 and id_utente = ' . $id_utente . ' and tb_formazioni_schierate.giornata = ' . $giornata . ' and schierato = 1;');
         $voto_portiere3 = $query->row('voto');
         if (is_array($voto_portiere3))
@@ -2023,7 +2022,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getFormazioneTUtente($id_utente) {
         $this->db->select('*');
         $this->db->where('id_utente', $id_utente);
@@ -2042,7 +2041,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getFormazionePUtente($id_utente) {
         $this->db->select('*');
         $this->db->where('id_utente', $id_utente);
@@ -2067,22 +2066,22 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function attivaRigoristi($giornata, $competizione) {
         $this->db->where('giornata', $giornata);
-        
+
         if ($competizione == "Campionato")
             $this->db->update('tb_calendario', array('rigoristi' => 1));
-        
+
         if ($competizione == "Champions League")
             $this->db->update('tb_champions', array('rigoristi' => 1));
-        
+
         if ($competizione == "Coppa Treble")
             $this->db->update('tb_coppa', array('rigoristi' => 1));
-        
+
         if ($competizione == "SuperCoppa Treble")
             $this->db->update('tb_supercoppa', array('rigoristi' => 1));
-        
+
         return true;
     }
 
@@ -2102,34 +2101,34 @@ class mdl_team extends CI_Model {
 
         $this->db->where('id_giocatore', $sostituto);
         $this->db->update('tb_giocatori', array('id_utente' => $squadra));
-        
+
         //Tengo traccia del trasferimento su tb_trasferimenti
         //Prima svincolo il giocatore uscente
         $this->db->insert('tb_trasferimenti', array('id_utente' => $squadra, 'id_giocatore' => $giocatore, 'data' => date("Y-m-d H:i:s"), 'tipologia' => 'Vendita', 'id_squadra_partenza' => $squadra, 'costo' => $costo_uscente));
-        
+
         //Poi traccio l'acquisto e inserisco l'id di correlazione per capire che si tratta di un unico movimento di calciomercato
         $query = $this->db->query('SELECT id FROM tb_trasferimenti ORDER BY id DESC LIMIT 1');
         $last_id = $query->row('id');
-        
+
         $this->db->insert('tb_trasferimenti', array('id_utente' => $squadra, 'id_giocatore' => $sostituto, 'data' => date("Y-m-d H:i:s"), 'tipologia' => 'Acquisto', 'id_squadra_arrivo' => $squadra, 'costo' => $costo_entrante, 'id_correlato' => $last_id));
         return true;
     }
-    
+
     public function updateScambio($squadra1, $giocatore, $squadra2, $sostituto) {
         $this->db->where('id_giocatore', $giocatore);
         $this->db->update('tb_giocatori', array('id_utente' => $squadra2));
 
         $this->db->where('id_giocatore', $sostituto);
         $this->db->update('tb_giocatori', array('id_utente' => $squadra1));
-        
+
         //Tengo traccia del trasferimento su tb_trasferimenti
         //Prima svincolo il giocatore uscente
         $this->db->insert('tb_trasferimenti', array('id_utente' => $squadra1, 'id_giocatore' => $giocatore, 'data' => date("Y-m-d H:i:s"), 'tipologia' => 'Scambio', 'id_squadra_partenza' => $squadra1, 'id_squadra_arrivo' => $squadra2));
-        
+
         //Poi traccio l'acquisto e inserisco l'id di correlazione per capire che si tratta di un unico movimento di calciomercato
         $query = $this->db->query('SELECT id FROM tb_trasferimenti ORDER BY id DESC LIMIT 1');
         $last_id = $query->row('id');
-        
+
         $this->db->insert('tb_trasferimenti', array('id_utente' => $squadra2, 'id_giocatore' => $sostituto, 'data' => date("Y-m-d H:i:s"), 'tipologia' => 'Scambio', 'id_squadra_partenza' => $squadra2, 'id_squadra_arrivo' => $squadra1, 'id_correlato' => $last_id));
         return true;
     }
@@ -2137,7 +2136,7 @@ class mdl_team extends CI_Model {
     public function assegnaGiocatore($data, $costo) {
         $this->db->where('id_giocatore', $data['giocatore']);
         $this->db->update('tb_giocatori', array('id_utente' => $data['squadra']));
-        
+
         //Tengo traccia dell'acquisto su tb_trasferimenti. Come tipologia mettiamo acquisto Asta
         $this->db->insert('tb_trasferimenti', array('id_utente' => $data['squadra'], 'id_giocatore' => $data['giocatore'], 'data' => date("Y-m-d H:i:s"), 'tipologia' => 'Asta Iniziale', 'id_squadra_arrivo' => $data['squadra'], 'costo' => $costo));
     }
@@ -2214,7 +2213,7 @@ class mdl_team extends CI_Model {
             $this->db->where('id_squadra', $row['id_squadra']);
             $this->db->update('tb_classifica_championsA', array('fanta_punteggio' => $totale));
         }
-        
+
         $this->db->select('*');
         $this->db->select('(gol_fatti-gol_subiti) as DIFF');
         $this->db->from('tb_classifica_championsA');
@@ -2242,7 +2241,7 @@ class mdl_team extends CI_Model {
             $this->db->where('id_squadra', $row['id_squadra']);
             $this->db->update('tb_classifica_championsB', array('fanta_punteggio' => $totale));
         }
-        
+
         $this->db->select('*');
         $this->db->select('(gol_fatti-gol_subiti) as DIFF');
         $this->db->from('tb_classifica_championsB');

@@ -6,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title">Rosa <span class="highlight"><?= $_SESSION['squadra'] ?></span></h1>
+                        <h1 class="page-heading__title">Calendario <span class="highlight"><?= $_SESSION['squadra'] ?></span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
                             <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
                             <li><a href="<?= base_url('/') ?>index.php/utente/myteam">My Team</a></li>
@@ -79,6 +79,7 @@
 
                                             <?php
                                             $i = 1;
+                                            
                                             foreach ($partitegiocate as $row) {
                                                 if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                                                     $colore = "";
@@ -94,7 +95,7 @@
                                                         if ($row['risultato2'] < $row['risultato1'])
                                                             $colore = "color: #ff3d3d;";
                                                     }
-                                                    
+
                                                     switch ($row['giornata']) {
                                                         case ($row['giornata'] <= 27):
                                                             $label = $row['giornata'];
@@ -109,9 +110,15 @@
                                                             $label = "Finale";
                                                             break;
                                                     }
+                                                    
+                                                    if ($row['giornata'] % 2 == 0) {
+                                                        $color = 'bgcolor="#ffffff"';
+                                                    } else {
+                                                        $color = 'bgcolor="#f2fff0"';
+                                                    }
                                                     ?>
 
-                                                    <tr >
+                                                    <tr <?= $color ?> >
                                                         <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
                                                         <td class="team-result__status" style="width: 14%"><?= $label ?></td>
                                                         <td class="team-result__status" style="width: 22%">
@@ -143,9 +150,9 @@
                                                         </td>
                                                         <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
 
-                                                            <figure class="team-meta__logoCalendar">
-                                                                <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                            </figure>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
 
                                                         </td>
                                                     </tr>
@@ -155,7 +162,6 @@
                                                 }
                                                 $i++;
                                             }
-
                                             ?>
 
                                         </tbody>
@@ -171,7 +177,7 @@
                         <!-- Tab: Shipping -->
                         <div role="tabpanel" class="tab-pane fade" id="tab-info">
 
-                                <!-- Team Latest Results -->
+                            <!-- Team Latest Results -->
                             <div class="card card--has-table">
 
                                 <div class="table-responsive">
@@ -192,6 +198,7 @@
 
                                             <?php
                                             $i = 1;
+                                            $bgcolor = 'bgcolor="#ffffff"';
                                             foreach ($partitegiocateChampions as $row) {
                                                 if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                                                     $colore = "";
@@ -208,7 +215,7 @@
                                                         if ($row['risultato2'] < $row['risultato1'])
                                                             $colore = "color: #ff3d3d;";
                                                     }
-                                                    
+
                                                     switch ($row['giornata']) {
                                                         case ($row['giornata'] = 2):
                                                             $label = "1";
@@ -259,9 +266,15 @@
                                                             $label = "Finale";
                                                             break;
                                                     }
+                                                    
+                                                    if ($bgcolor == 'bgcolor="#f2fff0"') {
+                                                        $bgcolor = 'bgcolor="#ffffff"';
+                                                    } else {
+                                                        $bgcolor = 'bgcolor="#f2fff0"';
+                                                    }
                                                     ?>
 
-                                                    <tr >
+                                                    <tr <?= $bgcolor ?> >
                                                         <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
                                                         <td class="team-result__status" style="width: 14%"><?= $label ?></td>
                                                         <td class="team-result__status" style="width: 22%">
@@ -293,9 +306,9 @@
                                                         </td>
                                                         <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
 
-                                                            <figure class="team-meta__logoCalendar">
-                                                                <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
-                                                            </figure>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
+                                                                </figure>
 
                                                         </td>
                                                     </tr>
@@ -305,7 +318,6 @@
                                                 }
                                                 $i++;
                                             }
-
                                             ?>
 
                                         </tbody>
@@ -321,7 +333,7 @@
                         <!-- Tab: Reviews -->
                         <div role="tabpanel" class="tab-pane fade" id="tab-reviews">
 
-                                <!-- Team Latest Results -->
+                            <!-- Team Latest Results -->
                             <div class="card card--has-table">
 
                                 <div class="table-responsive">
@@ -340,48 +352,56 @@
 
                                             <!-- Generazione Calendario  --->
 
-                                            <?php
-                                            $i = 1;
-                                            foreach ($partitegiocateCoppa as $row) {
-                                                if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
-                                                    $colore = "";
-                                                    $label = "";
-                                                    if ($row['id1'] == $_SESSION['id_utente']) {
-                                                        if ($row['risultato1'] > $row['risultato2'])
-                                                            $colore = "color: #009900;";
-                                                        if ($row['risultato1'] < $row['risultato2'])
-                                                            $colore = "color: #ff3d3d;";
-                                                    }
-                                                    if ($row['id2'] == $_SESSION['id_utente']) {
-                                                        if ($row['risultato2'] > $row['risultato1'])
-                                                            $colore = "color: #009900;";
-                                                        if ($row['risultato2'] < $row['risultato1'])
-                                                            $colore = "color: #ff3d3d;";
-                                                    }
-                                                    
-                                                    switch ($row['giornata']) {
-                                                        case ($row['giornata'] <= 7):
-                                                            $label = "Preliminari";
-                                                            break;
-                                                        case ($row['giornata'] >= 10 && $row['giornata'] <= 11):
-                                                            $label = "Quarti";
-                                                            break;
-                                                        case ($row['giornata'] >= 15 && $row['giornata'] <= 20):
-                                                            $label = "Semifinali";
-                                                            break;
-                                                        case ($row['giornata'] >= 26 && $row['giornata'] <= 31):
-                                                            $label = "Finale";
-                                                            break;
-                                                    }
-                                                    ?>
+        <?php
+        $bgcolor = 'bgcolor="#ffffff"';
+        $i = 1;
+        foreach ($partitegiocateCoppa as $row) {
+            if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
+                $colore = "";
+                $label = "";
+                if ($row['id1'] == $_SESSION['id_utente']) {
+                    if ($row['risultato1'] > $row['risultato2'])
+                        $colore = "color: #009900;";
+                    if ($row['risultato1'] < $row['risultato2'])
+                        $colore = "color: #ff3d3d;";
+                }
+                if ($row['id2'] == $_SESSION['id_utente']) {
+                    if ($row['risultato2'] > $row['risultato1'])
+                        $colore = "color: #009900;";
+                    if ($row['risultato2'] < $row['risultato1'])
+                        $colore = "color: #ff3d3d;";
+                }
 
-                                                    <tr >
+                switch ($row['giornata']) {
+                    case ($row['giornata'] <= 7):
+                        $label = "Preliminari";
+                        break;
+                    case ($row['giornata'] >= 10 && $row['giornata'] <= 11):
+                        $label = "Quarti";
+                        break;
+                    case ($row['giornata'] >= 15 && $row['giornata'] <= 20):
+                        $label = "Semifinali";
+                        break;
+                    case ($row['giornata'] >= 26 && $row['giornata'] <= 31):
+                        $label = "Finale";
+                        break;
+                }
+                
+                if ($bgcolor == 'bgcolor="#f2fff0"') {
+                    $bgcolor = 'bgcolor="#ffffff"';
+                } else {
+                    $bgcolor = 'bgcolor="#f2fff0"';
+                }
+                
+                ?>
+
+                                                    <tr <?= $bgcolor ?> >
                                                         <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
                                                         <td class="team-result__status" style="width: 14%"><?= $label ?></td>
                                                         <td class="team-result__status" style="width: 22%">
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
-                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                <?php if ($row['id1'] != $row['id2']) { ?>
                                                                         <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
                                                                     <?php } ?>
                                                                 </figure>
@@ -399,7 +419,7 @@
                                                                     <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id2']) ?></span>
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
-                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                <?php if ($row['id1'] != $row['id2']) { ?>
                                                                         <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
                                                                     <?php } ?>
                                                                 </figure>
@@ -407,20 +427,19 @@
                                                         </td>
                                                         <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
 
-                                                            <figure class="team-meta__logoCalendar">
-                                                                <img src="<?= base_url('/') ?>images/coppa.png" width="20px" />
-                                                            </figure>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/coppa.png" width="20px" />
+                                                                </figure>
 
                                                         </td>
                                                     </tr>
 
                                                     <!-- Generazione Calendario / END  --->
-                                                    <?php
-                                                }
-                                                $i++;
-                                            }
-
-                                            ?>
+                <?php
+            }
+            $i++;
+        }
+        ?>
 
                                         </tbody>
                                     </table>
