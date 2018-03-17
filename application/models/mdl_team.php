@@ -2188,12 +2188,33 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
 
-    //Prossime partite di campionato
+    //Prossima partite di campionato
     public function getProssimapartita() {
         $this->db->where('giocata', 0);
         $this->db->where('giornata', $_SESSION['giornata']);
         $this->db->limit(5);
         $query = $this->db->get('tb_calendario');
+        return $query->result_array();
+    }
+    
+    //Prossimi match di campionato
+    public function getProssimiMatch($id_utente) {
+        $query = $this->db->query('select * from tb_calendario as t1 where t1.giocata = 0 and t1.id1 = ' . $id_utente . ' or t1.giocata = 0 and t1.id2 = ' . $id_utente . ';');
+
+        return $query->result_array();
+    }
+    
+    //Prossimi match di coppa treble
+    public function getProssimiMatchCoppa($id_utente) {
+        $query = $this->db->query('select * from tb_coppa as t1 where t1.giocata = 0 and t1.id1 = ' . $id_utente . ' or t1.giocata = 0 and t1.id2 = ' . $id_utente . ';');
+
+        return $query->result_array();
+    }
+    
+    //Prossimi match di champions
+    public function getProssimiMatchChampions($id_utente) {
+        $query = $this->db->query('select * from tb_champions as t1 where t1.giocata = 0 and t1.id1 = ' . $id_utente . ' or t1.giocata = 0 and t1.id2 = ' . $id_utente . ';');
+
         return $query->result_array();
     }
 

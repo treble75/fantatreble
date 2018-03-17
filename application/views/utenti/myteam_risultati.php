@@ -6,11 +6,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title">Calendario <span class="highlight"><?= $_SESSION['squadra'] ?></span></h1>
+                        <h1 class="page-heading__title">Risultati <span class="highlight"><?= $_SESSION['squadra'] ?></span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
                             <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
                             <li><a href="<?= base_url('/') ?>index.php/utente/myteam">My Team</a></li>
-                            <li class="active">Calendario</li>
+                            <li class="active">Risultati</li>
                         </ol>
                     </div>
                 </div>
@@ -25,8 +25,8 @@
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam" class="content-filter__link"><small>My Team</small>Rosa Giocatori</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_marcatori" class="content-filter__link"><small>My Team</small>Marcatori</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_statistiche" class="content-filter__link"><small>My Team</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_risultati" class="content-filter__link"><small>My Team</small>Risultati</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/myteam_calendario" class="content-filter__link"><small>My Team</small>Calendario</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/myteam_calendario" class="content-filter__link"><small>My Team</small>Risultati</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_calendario" class="content-filter__link"><small>My Team</small>Calendario</a></li>
                     <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>My Team</small>Gallery</a></li>
                 </ul>
             </div>
@@ -42,14 +42,14 @@
                 <!-- Single Product Tabbed Content -->
                 <div class="product-tabs card card--xlg">
                     <div class="card__header">
-                        <h4>Calendario</h4>
+                        <h4>Risultati</h4>
                     </div>
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs nav-justified nav-product-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#tab-desciption" role="tab" data-toggle="tab"><small>Calendario</small>Treble League</a></li>
-                        <li role="presentation"><a href="#tab-info" role="tab" data-toggle="tab"><small>Calendario</small>Champions League</a></li>
-                        <li role="presentation"><a href="#tab-reviews" role="tab" data-toggle="tab"><small>Calendario</small>Coppa Treble</a></li>
+                        <li role="presentation" class="active"><a href="#tab-desciption" role="tab" data-toggle="tab"><small>Risultati</small>Treble League</a></li>
+                        <li role="presentation"><a href="#tab-info" role="tab" data-toggle="tab"><small>Risultati</small>Champions League</a></li>
+                        <li role="presentation"><a href="#tab-reviews" role="tab" data-toggle="tab"><small>Risultati</small>Coppa Treble</a></li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -68,7 +68,7 @@
                                                 <th class="team-result__date" style="width: 14%">Data</th>
                                                 <th class="team-result__status" style="width: 14%">Giornata</th>
                                                 <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                <th class="team-result__score" style="width: 12%">&nbsp;</th>
+                                                <th class="team-result__score" style="width: 12%">Risultato</th>
                                                 <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                 <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
                                             </tr>
@@ -80,7 +80,7 @@
                                             <?php
                                             $i = 1;
                                             
-                                            foreach ($prossimiMatch as $row) {
+                                            foreach ($partitegiocate as $row) {
                                                 if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                                                     $colore = "";
                                                     if ($row['id1'] == $_SESSION['id_utente']) {
@@ -187,7 +187,7 @@
                                                 <th class="team-result__date" style="width: 14%">Data</th>
                                                 <th class="team-result__status" style="width: 14%">Giornata</th>
                                                 <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                <th class="team-result__score" style="width: 12%">&nbsp;</th>
+                                                <th class="team-result__score" style="width: 12%">Risultato</th>
                                                 <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                 <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
                                             </tr>
@@ -199,7 +199,7 @@
                                             <?php
                                             $i = 1;
                                             $bgcolor = 'bgcolor="#ffffff"';
-                                            foreach ($prossimiMatchChampions as $row) {
+                                            foreach ($partitegiocateChampions as $row) {
                                                 if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                                                     $colore = "";
                                                     $label = "";
@@ -343,7 +343,7 @@
                                                 <th class="team-result__date" style="width: 14%">Data</th>
                                                 <th class="team-result__status" style="width: 14%">Giornata</th>
                                                 <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                <th class="team-result__score" style="width: 12%">&nbsp;</th>
+                                                <th class="team-result__score" style="width: 12%">Risultato</th>
                                                 <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                 <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
                                             </tr>
@@ -355,7 +355,7 @@
         <?php
         $bgcolor = 'bgcolor="#ffffff"';
         $i = 1;
-        foreach ($prossimiMatchCoppa as $row) {
+        foreach ($partitegiocateCoppa as $row) {
             if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                 $colore = "";
                 $label = "";

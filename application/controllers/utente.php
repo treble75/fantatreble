@@ -50,7 +50,6 @@ class Utente extends CI_Controller {
         $data['panchinari'] = $this->mdl_team->getFormazioneP();
         $data['risultati'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata']);
         $this->show('utenti/formazioni_campionato', $data);
-        
     }
 
     public function formazioni_coppe() {
@@ -64,7 +63,6 @@ class Utente extends CI_Controller {
         $data['risultati_champions'] = $this->mdl_team->getCalendariogiornatachampions($_SESSION['giornata']);
         $data['risultati_supercoppa'] = $this->mdl_team->getCalendariogiornatasupercoppa($_SESSION['giornata']);
         $this->show('utenti/formazioni_coppe', $data);
-
     }
 
     public function inserisci_risultati() {
@@ -2799,7 +2797,7 @@ class Utente extends CI_Controller {
             $blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
 
             if ($orario <= $blocco) {
-                
+
                 $this->form_validation->set_rules('cmbRigorista1', 'cmbRigorista1');
                 $this->form_validation->set_rules('cmbRigorista2', 'cmbRigorista2');
                 $this->form_validation->set_rules('cmbRigorista3', 'cmbRigorista3');
@@ -2825,19 +2823,19 @@ class Utente extends CI_Controller {
                 $this->form_validation->set_rules('cmbRigorista23', 'cmbRigorista23');
                 $this->form_validation->set_rules('cmbRigorista24', 'cmbRigorista24');
                 $this->form_validation->set_rules('cmbRigorista25', 'cmbRigorista25');
-                
-                if ($this->input->post('but_reset_rigoristi')){
+
+                if ($this->input->post('but_reset_rigoristi')) {
                     //Prima svuoto i rigoristi precedenti
                     $deleteRigoristi = $this->mdl_team->deleteRigoristi($giornata, $_SESSION['id_utente']);
-                    
+
                     //Poi inserisco la formazione standard partendo da attaccanti, centrocampisti ecc.
                     $formazione = $this->mdl_team->getTeamForResetRigori($_SESSION['id_utente']);
-                    
+
                     $i = 1;
-                    for ($c = 0 ; $c < 25; $c++) {
+                    for ($c = 0; $c < 25; $c++) {
                         //Inserisco i rigoristi nell'ordine di inserimento
                         $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i);
-                        
+
                         $i++;
                     }
                     $data['formazione'] = "";
@@ -2955,7 +2953,7 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
-    
+
     public function myteam_marcatori() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_utenti');
@@ -2970,8 +2968,8 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
-    
-        public function myteam_calendario() {
+
+    public function myteam_risultati() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_utenti');
             $this->load->model('mdl_team');
@@ -2998,6 +2996,26 @@ class Utente extends CI_Controller {
             $data['prossimapartitacoppa'] = $this->mdl_team->getProssimapartitacoppa();
             $data['prossimapartitachampions'] = $this->mdl_team->getProssimapartitachampions();
             $data['bomber'] = $this->mdl_team->getBomberTeam($_SESSION['id_utente'], $_SESSION['giornata']);
+            $this->show('utenti/myteam_risultati', $data);
+        } else
+            redirect('home/index');
+    }
+    
+    public function myteam_calendario() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            if ($_SESSION['giornata'] != "") {
+                $blocco = $this->mdl_utenti->getBlocco();
+                $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
+                $data['blocco'] = $blocco;
+            }
+            
+            $data['prossimiMatch'] = $this->mdl_team->getProssimiMatch($_SESSION['id_utente']);
+            $data['prossimiMatchCoppa'] = $this->mdl_team->getProssimiMatchCoppa($_SESSION['id_utente']);
+            $data['prossimiMatchChampions'] = $this->mdl_team->getProssimiMatchChampions($_SESSION['id_utente']);
+            
             $this->show('utenti/myteam_calendario', $data);
         } else
             redirect('home/index');
@@ -3073,7 +3091,7 @@ class Utente extends CI_Controller {
 
                     if ($this->form_validation->run()) {
                         $this->load->model('mdl_team');
-                        
+
                         //Setto anche il modulo tattico usato
                         $modulo = $this->input->post('cmbTattica');
 
@@ -3254,7 +3272,7 @@ class Utente extends CI_Controller {
                         $message .= "<br><u>FORMAZIONE IN PANCHINA PER " . $selCampionato . "</u><br><br>";
                         $playerP1 = $this->mdl_team->getGiocatore($this->input->post('cmbPortieriP1'));
                         $playerP2 = $this->mdl_team->getGiocatore($this->input->post('cmbPortieriP2'));
-                        
+
                         $message .= "<u>Portieri</u><br><br>";
                         $message .= "1) " . $playerP1[0]['cognome'] . " " . $playerP1[0]['nome'] . "<br>";
                         $message .= "2) " . $playerP2[0]['cognome'] . " " . $playerP2[0]['nome'] . "<br><br>";
@@ -3271,7 +3289,7 @@ class Utente extends CI_Controller {
                         $playerP12 = $this->mdl_team->getGiocatore($this->input->post('cmbPanchina10'));
                         $playerP13 = $this->mdl_team->getGiocatore($this->input->post('cmbPanchina11'));
                         $playerP14 = $this->mdl_team->getGiocatore($this->input->post('cmbPanchina12'));
-                        
+
                         $message .= "<u>Altri Ruoli</u><br><br>";
                         $message .= "1) " . $playerP3[0]['cognome'] . " " . $playerP3[0]['nome'] . "<br>";
                         $message .= "2) " . $playerP4[0]['cognome'] . " " . $playerP4[0]['nome'] . "<br>";
@@ -3309,7 +3327,7 @@ class Utente extends CI_Controller {
                         $this->email->send();
 
                         $data['message'] = "<p style='color:green;'>Formazione per " . $selEmail . " inserita con successo !</p>";
-                        
+
                         $data['Selezione'] = $this->mdl_team->getModulo($_SESSION['id_utente']);
                         $data['Portieri'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], 1);
                         $data['Difensori'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], 2);
@@ -3356,7 +3374,7 @@ class Utente extends CI_Controller {
                 return;
             } else
                 $data['message'] = "";
-            
+
             $data['Selezione'] = $this->mdl_team->getModulo($_SESSION['id_utente']);
             $data['Portieri'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], 1);
             $data['Difensori'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], 2);
@@ -3365,7 +3383,7 @@ class Utente extends CI_Controller {
             $data['Giocatori'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], "");
             $data['titolari'] = $this->mdl_team->getFormazioneTUtente($_SESSION['id_utente']);
             $data['panchinari'] = $this->mdl_team->getFormazionePUtente($_SESSION['id_utente']);
-            
+
             $this->show('utenti/schiera_formazione', $data);
         } else
             redirect('utente/login');
@@ -3506,17 +3524,17 @@ class Utente extends CI_Controller {
         unset($_SESSION['squadra']);
 
         $this->session->sess_destroy();
-        
+
         //Ricarico homepage
         $data['message'] = 'Logout effettuato con successo';
-        
+
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
         $_SESSION['giornata'] = $this->mdl_team->getGiornata();
-        
+
         //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
         $giornata_posizione = ($_SESSION['giornata'] - 1);
-        
+
         $data['risultati'] = $this->mdl_team->getCalendario1A();
         $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
         $data['giornata'] = $_SESSION['giornata'];
@@ -3524,12 +3542,12 @@ class Utente extends CI_Controller {
         $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
         $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
-        
+
         $giornataTop = ($_SESSION['giornata'] - 1);
         $data['top'] = $this->mdl_team->getTop($giornataTop);
         $data['topCampionato'] = $this->mdl_team->getTopCampionato();
         $data['offerte'] = $this->mdl_team->getLastOfferte();
-        
+
         $this->show('home/homepage', $data);
     }
 
@@ -3560,7 +3578,7 @@ class Utente extends CI_Controller {
                     );
                     $this->load->model('mdl_utenti');
                     $this->mdl_utenti->insertUtente($data);
-                    
+
                     //Configuro l'invio mail
                     $config = Array(
                         'protocol' => 'smtp',
@@ -3576,7 +3594,7 @@ class Utente extends CI_Controller {
                     $this->email->from('info@fantatreble.it', 'FantaTreble');
 
                     $message = "Benvenuto al FantaTreble <b>" . $data['nome'] . "</b><br><br>";
-                    
+
                     $message .= "Ecco le tue credenziali per accedere : <br><br>";
                     $message .= "Username : <b>" . $data['username'] . "</b><br><br>";
                     $message .= "Password  : <b>" . $this->input->post('pwd_utente') . "</b><br>";
@@ -3601,7 +3619,7 @@ class Utente extends CI_Controller {
         } else
             redirect('utente/login');
     }
-    
+
     function profilo() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_categories');
@@ -3620,7 +3638,7 @@ class Utente extends CI_Controller {
                 if ($this->input->post('pwd1') == $this->input->post('pwd_utente')) {
                     $utente = $_SESSION['id_utente'];
 
-                    if ($this->input->post('pwd1') != ""){
+                    if ($this->input->post('pwd1') != "") {
                         $data = array(
                             'nome' => ucwords($this->input->post('nome')),
                             'cognome' => ucwords($this->input->post('cognome')),
@@ -3630,7 +3648,7 @@ class Utente extends CI_Controller {
                             'username' => $this->input->post('username'),
                             'pwd_utente' => md5($this->input->post('pwd_utente'))
                         );
-                    }else{
+                    } else {
                         $data = array(
                             'nome' => ucwords($this->input->post('nome')),
                             'cognome' => ucwords($this->input->post('cognome')),
@@ -3641,7 +3659,7 @@ class Utente extends CI_Controller {
                         );
                     }
                     $this->load->model('mdl_utenti');
-                    $this->mdl_utenti->updateUtente($utente,$data);
+                    $this->mdl_utenti->updateUtente($utente, $data);
 
                     //Configuro l'invio mail
                     $config = Array(
@@ -3677,23 +3695,22 @@ class Utente extends CI_Controller {
                     $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
                     $data['message'] = "<span style='color:green;'>Utente modificato con successo !</span>";
                     $this->show('utenti/profilo', $data);
-                    return; 
+                    return;
                 } else {
                     $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
                     $data['message'] = "<p style='color:red;'>Le password inserite non combaciano</p>";
                     $this->show('utenti/profilo', $data);
-                    return; 
+                    return;
                 }
             } else {
-                
+
                 $utente = $_SESSION['id_utente'];
-                
+
                 $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
                 $this->show('utenti/profilo', $data);
 
-                return;   
+                return;
             }
-            
         } else
             redirect('home/index');
     }
@@ -3887,7 +3904,7 @@ class Utente extends CI_Controller {
                         'squadra' => $this->input->post('cmbSquadra'),
                         'ruoli' => $this->input->post('cmbRuoli')
                     );
-                    
+
                     $costo = $this->input->post('costo');
                     $this->load->model('mdl_team');
                     $this->mdl_team->assegnaGiocatore($data, $costo);
@@ -3927,10 +3944,10 @@ class Utente extends CI_Controller {
         } else
             redirect('utente/login');
     }
-    
+
     public function trasferimenti() {
         if (isset($_SESSION['id_utente'])) {
-            
+
             $this->load->model('mdl_team');
             $this->load->model('mdl_utenti');
             $this->load->model('mdl_categories');
@@ -3941,11 +3958,11 @@ class Utente extends CI_Controller {
             if ($this->form_validation->run()) {
                 $team = $this->input->post('cmbSquadra');
                 $asta = $this->input->post('chkAsta');
-                if ($asta == 1){
+                if ($asta == 1) {
                     $data['checked1'] = "checked='checked'";
                     $data['checked2'] = "";
                 }
-                if ($asta == 0){
+                if ($asta == 0) {
                     $data['checked1'] = "";
                     $data['checked2'] = "checked='checked'";
                 }
@@ -3954,7 +3971,7 @@ class Utente extends CI_Controller {
                 $this->show('utenti/trasferimenti', $data);
                 return;
             }
-            
+
             $mese = date("Y-m-d H:i:s");
             $data['trasferimenti'] = $this->mdl_team->getTrasferimenti($mese);
 
@@ -3965,7 +3982,7 @@ class Utente extends CI_Controller {
         } else
             redirect('utente/login');
     }
-    
+
     public function esegui_scambio() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_categories');

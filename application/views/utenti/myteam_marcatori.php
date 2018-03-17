@@ -26,8 +26,8 @@
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam" class="content-filter__link"><small>My Team</small>Rosa Giocatori</a></li>
                     <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/myteam_marcatori" class="content-filter__link"><small>My Team</small>Marcatori</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_statistiche" class="content-filter__link"><small>My Team</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_risultati" class="content-filter__link"><small>My Team</small>Risultati</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_calendario" class="content-filter__link"><small>My Team</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_prossimepartite" class="content-filter__link"><small>My Team</small>Prossime Partite</a></li>
                     <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>My Team</small>Gallery</a></li>
                 </ul>
             </div>
