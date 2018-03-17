@@ -2953,6 +2953,38 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
+    
+    public function myteam_bacheca() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            if ($_SESSION['giornata'] != "") {
+                $blocco = $this->mdl_utenti->getBlocco();
+                $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
+                $data['blocco'] = $blocco;
+            }
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['myteamT'] = $this->mdl_utenti->getSchieramentoT($_SESSION['id_utente']);
+            $data['myteamTCoppa'] = $this->mdl_utenti->getSchieramentoTCoppa($_SESSION['id_utente']);
+            $data['myteamP'] = $this->mdl_utenti->getSchieramentoP($_SESSION['id_utente']);
+            $data['myteamPCoppa'] = $this->mdl_utenti->getSchieramentoPCoppa($_SESSION['id_utente']);
+            $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
+            $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
+            $data['utente'] = $this->mdl_utenti->getDatiUtente($_SESSION['id_utente']);
+            $data['team'] = $this->mdl_team->getTeam($_SESSION['id_utente']);
+            $data['partitegiocate'] = $this->mdl_team->getPartitegiocate();
+            $data['partitegiocateChampions'] = $this->mdl_team->getPartitegiocateChampions();
+            $data['partitegiocateCoppa'] = $this->mdl_team->getPartitegiocateCoppa();
+            $data['partitegiocateSuperCoppa'] = $this->mdl_team->getPartitegiocateSuperCoppa();
+            $data['prossimapartita'] = $this->mdl_team->getProssimapartita();
+            $data['prossimapartitacoppa'] = $this->mdl_team->getProssimapartitacoppa();
+            $data['prossimapartitachampions'] = $this->mdl_team->getProssimapartitachampions();
+            $data['bomber'] = $this->mdl_team->getBomberTeam($_SESSION['id_utente'], $_SESSION['giornata']);
+            $this->show('utenti/myteam_bacheca', $data);
+        } else
+            redirect('home/index');
+    }
 
     public function myteam_marcatori() {
         if (isset($_SESSION['id_utente'])) {
