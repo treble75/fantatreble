@@ -53,8 +53,6 @@
                                     <?php
                                     foreach ($risultati as $row) {
                                         //Inizializzo variabili
-                                        $totaleA = array();
-                                        $totaleB = array();
                                         $totaleA = 0;
                                         $totaleB = 0;
                                         $z = 1;
@@ -115,7 +113,7 @@
                                                               </td>
                                                             </tr>
                                                             <?php
-                                                            $totaleA = (@$totaleA + $voto);
+                                                            $totaleA = (round($totaleA,2) + round($voto,2));
                                                             $z++;
                                                             ?>
                                                     <?php
@@ -659,7 +657,7 @@
                                                             </td>
                                                         </tr>
                                                         <?php
-                                                            $totaleB = (@$totaleB + $voto);
+                                                            $totaleB = (round($totaleB,2) + round($voto,2));
                                                             $z++;
                                                             }
                                                         }

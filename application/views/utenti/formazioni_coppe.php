@@ -69,9 +69,8 @@
                                     
                                     foreach ($risultati as $row) {
                                         //Inizializzo variabili
-                                        $totaleA = array();
-                                        $totaleB = array();
                                         $totaleA = 2;
+                                        $totaleB = 0;
                                         if ($competizione == "SuperCoppa Treble"){
                                             $totaleA = 0;
                                         }
@@ -134,7 +133,7 @@
                                                               </td>
                                                             </tr>
                                                             <?php
-                                                            $totaleA = (@$totaleA + $voto);
+                                                            $totaleA = ((int)@$totaleA + (int)$voto);
                                                             $z++;
                                                             ?>
                                                     <?php
@@ -678,7 +677,7 @@
                                                             </td>
                                                         </tr>
                                                         <?php
-                                                            $totaleB = (@$totaleB + $voto);
+                                                            $totaleB = ((int)@$totaleB + (int)$voto);
                                                             $z++;
                                                             }
                                                         }

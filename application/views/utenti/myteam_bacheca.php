@@ -75,26 +75,15 @@
 
                                                     <!-- Details -->
                                                     <dl class="alc-staff-details">
-                                                        <dt class="alc-staff-details__label">Born:</dt>
-                                                        <dd class="alc-staff-details__value">Australia</dd>
 
-                                                        <dt class="alc-staff-details__label">Age:</dt>
-                                                        <dd class="alc-staff-details__value">48</dd>
+                                                        <dt class="alc-staff-details__label">Miglior Piazzamento:</dt>
+                                                        <dd class="alc-staff-details__value"><?= $utente[0]['piazzamento'] ?></dd>
 
-                                                        <dt class="alc-staff-details__label">Birthday:</dt>
-                                                        <dd class="alc-staff-details__value">October 26th, 1968</dd>
+                                                        <dt class="alc-staff-details__label">FantaMilioni:</dt>
+                                                        <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getFantamilioni($_SESSION['id_utente']) ?></dd>
 
-                                                        <dt class="alc-staff-details__label">Current Team:</dt>
-                                                        <dd class="alc-staff-details__value">Alchemists</dd>
-
-                                                        <dt class="alc-staff-details__label">Past Teams:</dt>
-                                                        <dd class="alc-staff-details__value">Lucky Clovers</dd>
-
-                                                        <dt class="alc-staff-details__label">Competitions:</dt>
-                                                        <dd class="alc-staff-details__value">Regular Season</dd>
-
-                                                        <dt class="alc-staff-details__label">Seasons:</dt>
-                                                        <dd class="alc-staff-details__value">2011, 2012, 2014, 2016, 2017</dd>
+                                                        <dt class="alc-staff-details__label">Quota residua:</dt>
+                                                        <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getOldDebito($_SESSION['id_utente']) . " €" ?></dd>
 
                                                     </dl>
                                                     <!-- Details / End -->
@@ -207,66 +196,44 @@
                         <!-- Widget: Player Newslog -->
                         <aside class="widget card widget--sidebar widget-newslog">
                             <div class="widget__title card__header">
-                                <h4>Staff Newslog</h4>
+                                <h4>News</h4>
                             </div>
                             <div class="widget__content card__content">
                                 <ul class="newslog">
 
-                                    <li class="newslog__item newslog__item--join">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Jenny Thomps</strong> is now the new <strong>Team Recruiter</strong> for the East Coast Colleges.</div>
-                                            <div class="newslog__date">December 19, 2015</div>
-                                        </div>
-                                    </li>
+                                    <?php
+                                    if (count($news) > 0 ) {
+                                        
+                                        foreach ($news as $row) {
+                                            
+                                            switch ($row['tipologia']) {
+                                                case ($row['tipologia'] == "acquisto"):
+                                                    $type = 'join';
+                                                    $text_news = "Acquistato <strong><span style='color: #1892ED; font-size: 12px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span></strong> per " . $row['costo'] . " FantaMilioni";
+                                                    break;
+                                                case ($row['tipologia'] == "vendita");
+                                                    $type = 'exit';
+                                                    $text_news = "Venduto <strong><span style='color: #1892ED; font-size: 12px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span></strong> per " . $row['costo'] . " FantaMilioni";
+                                                    break;
+                                                case ($row['tipologia'] == "infortunio");
+                                                    $type = 'injury';
+                                                    $text_news = "<strong><span style='color: #1892ED; font-size: 12px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span></strong> " . $row['testo_news'];
+                                                    break;
+                                            }
+                                    ?>
+                                        
+                                        <li class="newslog__item newslog__item--<?= $type ?>">
+                                            <div class="newslog__item-inner">
+                                                <div class="newslog__content"><?= $text_news ?></div>
+                                                <div class="newslog__date"><?= dataSettimanale($row['data']) ?></div>
+                                            </div>
+                                        </li>
 
-                                    <li class="newslog__item newslog__item--injury">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Robert Frankson</strong> will have a surgery and will be out for a month. Interim coach will be <strong>Frank Roberts</strong>.</div>
-                                            <div class="newslog__date">September 26, 2014</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="newslog__item newslog__item--join">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Max Stevens</strong> is now the <strong>2nd Team Doctor</strong> after a succesfull run in the Sharks.</div>
-                                            <div class="newslog__date">September 26, 2014</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="newslog__item newslog__item--exit">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Tommy Flankers</strong> left the team after 2 years as the <strong>2nd Team Doctor</strong>.</div>
-                                            <div class="newslog__date">August 12, 2014</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="newslog__item newslog__item--join">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Patrick Storm</strong> is now the new <strong>Team Recruiter</strong> for the West Coast Colleges.</div>
-                                            <div class="newslog__date">April 19, 2014</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="newslog__item newslog__item--join">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Alexa Polson</strong> is now the new <strong>Athletic Trainer</strong> after a succesfull run in the Pirates.</div>
-                                            <div class="newslog__date">November 27, 2013</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="newslog__item newslog__item--join">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Savannah Lavender</strong> is the new <strong>Team Nutritionist</strong> with more than 500.000 followers.</div>
-                                            <div class="newslog__date">February 15, 2012</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="newslog__item newslog__item--join">
-                                        <div class="newslog__item-inner">
-                                            <div class="newslog__content"><strong>Robert Frankson</strong> is now the new <strong>Alchemist Coach</strong> after a succesfull run in the Lucky Clovers.</div>
-                                            <div class="newslog__date">March 22, 2008</div>
-                                        </div>
-                                    </li>
+                                    <?php
+                                        }
+                                    } 
+                                    ?>
+                                    
                                 </ul>
                             </div>
                         </aside>

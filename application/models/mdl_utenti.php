@@ -124,6 +124,14 @@ class mdl_utenti extends CI_Model {
         $query = $this->db->get("tb_utenti");
         return $query->result_array();
     }
+    
+    public function getNewsTeam($id) {
+        $this->db->where('id_utente', $id);
+        $this->db->order_by('data', 'desc');
+        $this->db->limit(10);
+        $query = $this->db->get("tb_news");
+        return $query->result_array();
+    }
 
     function getOldDebito($utente) {
         $this->db->select('debito');
