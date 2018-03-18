@@ -118,7 +118,7 @@
                                                             ?>
                                                             <tr <?= $colRuolo ?> >
                                                               <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                              <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                              <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                               <?php
                                                               $voto = $this->mdl_team->getFantavotoP($titolari_coppa[$c]['id_giocatore']);
                                                               $voto = (($voto == "") ? "S.V." : $voto);
@@ -662,7 +662,7 @@
                                                         ?>
                                                         <tr <?= $colRuolo ?> >
                                                             <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                            <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                            <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                             <?php
                                                             $voto = $this->mdl_team->getFantavotoP($titolari_coppa[$c]['id_giocatore']);
                                                             $voto = (($voto == "") ? "S.V." : $voto);
