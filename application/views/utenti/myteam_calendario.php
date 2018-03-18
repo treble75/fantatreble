@@ -89,17 +89,21 @@
                                                 foreach ($prossimiMatch as $row) {
                                                     if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                                                         $colore = "";
+                                                        $evidenzia1 = "";
+                                                        $evidenzia2 = "";
                                                         if ($row['id1'] == $_SESSION['id_utente']) {
                                                             if ($row['risultato1'] > $row['risultato2'])
                                                                 $colore = "color: #009900;";
                                                             if ($row['risultato1'] < $row['risultato2'])
                                                                 $colore = "color: #ff3d3d;";
+                                                            $evidenzia1 = "style='color: #1892ED; font-size: 12px;'";
                                                         }
                                                         if ($row['id2'] == $_SESSION['id_utente']) {
                                                             if ($row['risultato2'] > $row['risultato1'])
                                                                 $colore = "color: #009900;";
                                                             if ($row['risultato2'] < $row['risultato1'])
                                                                 $colore = "color: #ff3d3d;";
+                                                            $evidenzia2 = "style='color: #1892ED; font-size: 12px;'";
                                                         }
 
                                                         switch ($row['giornata']) {
@@ -135,7 +139,7 @@
                                                                         <?php } ?>
                                                                     </figure>
                                                                     <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h6>
+                                                                        <h6 class="team-meta__name" <?= $evidenzia1 ?>><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h6>
                                                                         <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id1']) ?></span>
                                                                     </div>
                                                                 </div>
@@ -144,7 +148,7 @@
                                                             <td class="team-result__status" align='right' style="width: 22%">
                                                                 <div class="team-meta" style="text-align: right;">
                                                                     <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
+                                                                        <h6 class="team-meta__name" <?= $evidenzia2 ?>><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
                                                                         <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id2']) ?></span>
                                                                     </div>
                                                                     <figure class="team-meta__logoCalendar">
@@ -225,17 +229,21 @@
                                                     if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                                                         $colore = "";
                                                         $label = "";
+                                                        $evidenzia1 = "";
+                                                        $evidenzia2 = "";
                                                         if ($row['id1'] == $_SESSION['id_utente']) {
                                                             if ($row['risultato1'] > $row['risultato2'])
                                                                 $colore = "color: #009900;";
                                                             if ($row['risultato1'] < $row['risultato2'])
                                                                 $colore = "color: #ff3d3d;";
+                                                            $evidenzia1 = "style='color: #1892ED; font-size: 12px;'";
                                                         }
                                                         if ($row['id2'] == $_SESSION['id_utente']) {
                                                             if ($row['risultato2'] > $row['risultato1'])
                                                                 $colore = "color: #009900;";
                                                             if ($row['risultato2'] < $row['risultato1'])
                                                                 $colore = "color: #ff3d3d;";
+                                                            $evidenzia2 = "style='color: #1892ED; font-size: 12px;'";
                                                         }
 
                                                         switch ($row['giornata']) {
@@ -307,7 +315,7 @@
                                                                         <?php } ?>
                                                                     </figure>
                                                                     <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h6>
+                                                                        <h6 class="team-meta__name" <?= $evidenzia1 ?>><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h6>
                                                                         <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id1']) ?></span>
                                                                     </div>
                                                                 </div>
@@ -316,7 +324,7 @@
                                                             <td class="team-result__status" align='right' style="width: 22%">
                                                                 <div class="team-meta" style="text-align: right;">
                                                                     <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
+                                                                        <h6 class="team-meta__name" <?= $evidenzia2 ?>><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
                                                                         <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id2']) ?></span>
                                                                     </div>
                                                                     <figure class="team-meta__logoCalendar">
@@ -396,17 +404,21 @@
                                                     if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
                                                         $colore = "";
                                                         $label = "";
+                                                        $evidenzia1 = "";
+                                                        $evidenzia2 = "";
                                                         if ($row['id1'] == $_SESSION['id_utente']) {
                                                             if ($row['risultato1'] > $row['risultato2'])
                                                                 $colore = "color: #009900;";
                                                             if ($row['risultato1'] < $row['risultato2'])
                                                                 $colore = "color: #ff3d3d;";
+                                                            $evidenzia1 = "style='color: #1892ED; font-size: 12px;'";
                                                         }
                                                         if ($row['id2'] == $_SESSION['id_utente']) {
                                                             if ($row['risultato2'] > $row['risultato1'])
                                                                 $colore = "color: #009900;";
                                                             if ($row['risultato2'] < $row['risultato1'])
                                                                 $colore = "color: #ff3d3d;";
+                                                            $evidenzia2 = "style='color: #1892ED; font-size: 12px;'";
                                                         }
 
                                                         switch ($row['giornata']) {
@@ -442,7 +454,7 @@
                                                                         <?php } ?>
                                                                     </figure>
                                                                     <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h6>
+                                                                        <h6 class="team-meta__name" <?= $evidenzia1 ?>><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h6>
                                                                         <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id1']) ?></span>
                                                                     </div>
                                                                 </div>
@@ -451,7 +463,7 @@
                                                             <td class="team-result__status" align='right' style="width: 22%">
                                                                 <div class="team-meta" style="text-align: right;">
                                                                     <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
+                                                                        <h6 class="team-meta__name" <?= $evidenzia2 ?>><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
                                                                         <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id2']) ?></span>
                                                                     </div>
                                                                     <figure class="team-meta__logoCalendar">
