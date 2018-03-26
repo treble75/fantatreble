@@ -34,6 +34,18 @@ class mdl_categories extends CI_Model {
         }
         return $return;
     }
+    
+    public function getComboStoricoSquadre($blank = false) {
+        $query = $this->db->query('select distinct(squadra),cognome,nome from tb_all_teams order by squadra;');
+
+        if ($blank)
+            $return[] = '';
+
+        foreach ($query->result_array() as $row) {
+            $return[$row['squadra']] = $row['squadra'] . " / " . $row['nome'] . " " . $row['cognome'];
+        }
+        return $return;
+    }
 
     public function getTattiche($blank = false) {
         $this->db->order_by('id_tattica');

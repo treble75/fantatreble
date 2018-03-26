@@ -61,6 +61,15 @@ class mdl_utenti extends CI_Model {
         return $this->db->get()->row('squadra');
     }
     
+    public function getSquadraPrecedente($id_utente, $stagione) {
+        $this->db->select('squadra');
+        $this->db->where('id_squadra', $id_utente);
+        $this->db->where('stagione', $stagione);
+        $this->db->from('tb_all_teams');
+
+        return $this->db->get()->row('squadra');
+    }
+    
     public function checkRigorista($id_giocatore, $id_utente) {
         $this->db->select('id_utente');
         $this->db->where('id_giocatore', $id_giocatore);
@@ -114,6 +123,22 @@ class mdl_utenti extends CI_Model {
         $this->db->select('cognome');
         $this->db->where('id_utente', $id_utente);
         $this->db->from('tb_utenti');
+        $cognome = $this->db->get()->row('cognome');
+
+        return $nome . " " . $cognome;
+    }
+    
+    public function getNomeUtentePrecedente($id_utente, $stagione) {
+        $this->db->select('nome');
+        $this->db->where('id_squadra', $id_utente);
+        $this->db->where('stagione', $stagione);
+        $this->db->from('tb_all_teams');
+        $nome = $this->db->get()->row('nome');
+        
+        $this->db->select('cognome');
+        $this->db->where('id_squadra', $id_utente);
+        $this->db->where('stagione', $stagione);
+        $this->db->from('tb_all_teams');
         $cognome = $this->db->get()->row('cognome');
 
         return $nome . " " . $cognome;

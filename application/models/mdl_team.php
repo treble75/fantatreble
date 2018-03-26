@@ -2197,6 +2197,64 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
+    //Storico Squadre: Tutte quelle che hanno partecipato almeno una volta
+    public function getStoricoSquadre() {
+        $query = $this->db->query('select distinct(squadra),cognome,nome from tb_all_teams order by squadra;');
+
+        return $query->result_array();
+    }
+    
+    //Storico Squadre: Prendo tutte le partite delle squadre o utenti selezionati
+    public function getPrecedenti($type, $squadra1, $squadra2, $stagione, $db) {
+        if ($type == "squadra"){
+            
+            //Ricavo le squadre selezionate
+            $id1 = $this->getIdSquadra($squadra1, $stagione);
+            $id2 = $this->getIdSquadra($squadra2, $stagione);
+
+            //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
+            if ($id1 != "" && $id2 != "") {
+                $precedenti = $this->getPartitePrecedenti($id1, $id2, $stagione, $db);
+            }else{
+                $precedenti = "";
+            }
+            
+            return $precedenti;
+        }
+        
+        if ($type == "utente"){
+            
+            //Ricavo gli utenti selezionati 
+            $id1 = $this->getIdSquadra($squadra1);
+            $id2 = $this->getIdSquadra($squadra2);
+            
+        }
+        
+    }
+    
+    // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
+    private function getPartitePrecedenti($id1,$id2,$stagione, $db) {
+        //Modificare db per query precedenti stagione in corso
+        if ($db != "2017_18") {
+            $query = $this->db->query('Select * from tb_calendario_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+        }else{
+            $query = $this->db->query('Select * from tb_calendario where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+        }    
+            
+        return $query->result_array();
+    }
+    
+    private function getIdSquadra($squadra, $stagione) {
+        $this->db->select('id_squadra');
+        $this->db->where('squadra', $squadra);
+        $this->db->where('stagione', $stagione);
+        $this->db->from('tb_all_teams');
+
+        $id_squadra = $this->db->get()->row('id_squadra');
+        
+        return $id_squadra;
+    }
+
     //Prossimi match di campionato
     public function getProssimiMatch($id_utente) {
         $query = $this->db->query('select * from tb_calendario as t1 where t1.giocata = 0 and t1.id1 = ' . $id_utente . ' or t1.giocata = 0 and t1.id2 = ' . $id_utente . ';');
@@ -2375,6 +2433,8 @@ class mdl_team extends CI_Model {
         $this->db->order_by('giornata', 'desc');
         if ($giornata < 28)
             $this->db->limit(4);
+        if ($giornata = 28)
+            $this->db->limit(2);
         if ($giornata >= 29 && $giornata <= 30)
             $this->db->limit(2);
         if ($giornata > 30)

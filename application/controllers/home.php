@@ -153,18 +153,65 @@ class Home extends CI_Controller {
 
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
+        $this->load->model('mdl_categories');
         $_SESSION['giornata'] = $this->mdl_team->getGiornata();
 
-        //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
-        $giornata_posizione = ($_SESSION['giornata'] - 1);
+        $this->form_validation->set_rules('cmbStoricoSquadre1', 'Squadra 1', 'trim|required');
+        $this->form_validation->set_rules('cmbStoricoSquadre2', 'Squadra 2', 'trim|required');
+        $this->form_validation->set_rules('SelPrecedente', 'Selettore', 'trim|required');
 
-        $data['risultati'] = $this->mdl_team->getCalendario1A();
-        $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
+        if ($this->form_validation->run()) {
+
+            $squadra1   = $this->input->post('cmbStoricoSquadre1');
+            $squadra2   = $this->input->post('cmbStoricoSquadre2');
+            $type       = $this->input->post('SelPrecedente');
+
+            $data['message'] = "<div class = 'alert alert-warning alert-dismissible'>
+                                    <strong>Nessun precedente fra queste due squadre</strong>
+                                </div>";
+            
+            //Seleziono i precedenti fra 2 squadre o fra 2 utenti
+            $data['precedenti2011_12'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2011-12", "2011_12");
+            if (is_array($data['precedenti2011_12'])) {
+                $data['message'] = "";
+            }
+            $data['precedenti2012_13'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2012-13", "2012_13");
+            if (is_array($data['precedenti2012_13'])) {
+                $data['message'] = "";
+            }
+            $data['precedenti2013_14'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2013-14", "2013_14");
+            if (is_array($data['precedenti2013_14'])) {
+                $data['message'] = "";
+            }
+            $data['precedenti2014_15'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2014-15", "2014_15");
+            if (is_array($data['precedenti2014_15'])) {
+                $data['message'] = "";
+            }
+            $data['precedenti2015_16'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2015-16", "2015_16");
+            if (is_array($data['precedenti2015_16'])) {
+                $data['message'] = "";
+            }
+            $data['precedenti2016_17'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2016-17", "2016_17");
+            if (is_array($data['precedenti2016_17'])) {
+                $data['message'] = "";
+            }
+            $data['precedenti2017_18'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2017-18", "2017_18");
+            if (is_array($data['precedenti2017_18'])) {
+                $data['message'] = "";
+            }
+
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['storico_squadre'] = $this->mdl_team->getStoricoSquadre();
+            $data['combo_storico_squadre'] = $this->mdl_categories->getComboStoricoSquadre();
+            
+            $this->show('home/statistiche_treble_league', $data);
+            return;
+        }
+        
+        $data['message'] = "";
         $data['giornata'] = $_SESSION['giornata'];
-        $data['risultati_giornata'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata'] - 1);
-        $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
-        $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
-        $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
+        $data['storico_squadre'] = $this->mdl_team->getStoricoSquadre();
+        $data['combo_storico_squadre'] = $this->mdl_categories->getComboStoricoSquadre();
 
         $this->show('home/statistiche_treble_league', $data);
     }
