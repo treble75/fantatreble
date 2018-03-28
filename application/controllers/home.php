@@ -170,34 +170,53 @@ class Home extends CI_Controller {
                                     <strong>Nessun precedente fra queste due squadre</strong>
                                 </div>";
             
-            //Seleziono i precedenti fra 2 squadre o fra 2 utenti
-            $data['precedenti2011_12'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2011-12", "2011_12");
-            if (is_array($data['precedenti2011_12'])) {
-                $data['message'] = "";
-            }
-            $data['precedenti2012_13'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2012-13", "2012_13");
-            if (is_array($data['precedenti2012_13'])) {
-                $data['message'] = "";
-            }
-            $data['precedenti2013_14'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2013-14", "2013_14");
-            if (is_array($data['precedenti2013_14'])) {
-                $data['message'] = "";
-            }
-            $data['precedenti2014_15'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2014-15", "2014_15");
-            if (is_array($data['precedenti2014_15'])) {
-                $data['message'] = "";
-            }
-            $data['precedenti2015_16'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2015-16", "2015_16");
-            if (is_array($data['precedenti2015_16'])) {
-                $data['message'] = "";
-            }
-            $data['precedenti2016_17'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2016-17", "2016_17");
-            if (is_array($data['precedenti2016_17'])) {
-                $data['message'] = "";
-            }
-            $data['precedenti2017_18'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2017-18", "2017_18");
-            if (is_array($data['precedenti2017_18'])) {
-                $data['message'] = "";
+            if ($squadra1 != $squadra2) {
+            
+                //Seleziono i precedenti fra 2 squadre o fra 2 utenti
+                $data['precedenti2011_12'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2011-12", "2011_12");
+                if (is_array($data['precedenti2011_12'])) {
+                    $data['message'] = "";
+                }
+                $data['precedenti2012_13'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2012-13", "2012_13");
+                if (is_array($data['precedenti2012_13'])) {
+                    $data['message'] = "";
+                }
+                $data['precedenti2013_14'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2013-14", "2013_14");
+                if (is_array($data['precedenti2013_14'])) {
+                    $data['message'] = "";
+                }
+                $data['precedenti2014_15'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2014-15", "2014_15");
+                if (is_array($data['precedenti2014_15'])) {
+                    $data['message'] = "";
+                }
+                $data['precedenti2015_16'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2015-16", "2015_16");
+                if (is_array($data['precedenti2015_16'])) {
+                    $data['message'] = "";
+                }
+                $data['champions2015_16'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2015-16", "2015_16");
+                if (is_array($data['champions2015_16'])) {
+                    $data['message'] = "";
+                }
+                $data['precedenti2016_17'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2016-17", "2016_17");
+                if (is_array($data['precedenti2016_17'])) {
+                    $data['message'] = "";
+                }
+                $data['champions2016_17'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2016-17", "2016_17");
+                if (is_array($data['champions2016_17'])) {
+                    $data['message'] = "";
+                }
+                $data['precedenti2017_18'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2017-18", "2017_18");
+                if (is_array($data['precedenti2017_18'])) {
+                    $data['message'] = "";
+                }
+                $data['champions2017_18'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2017-18", "2017_18");
+                if (is_array($data['champions2017_18'])) {
+                    $data['message'] = "";
+                }
+            }  else {
+                $data['message'] = "<div class = 'alert alert-danger alert-dismissible'>
+                                    <strong>Selezionare squadre differenti</strong>
+                                </div>";
             }
 
             $data['giornata'] = $_SESSION['giornata'];
