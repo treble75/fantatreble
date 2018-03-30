@@ -218,7 +218,12 @@ class Home extends CI_Controller {
                                     <strong>Selezionare squadre differenti</strong>
                                 </div>";
             }
-
+            
+            $data['check'] = 1;
+            if ($type == "squadra") {
+                $data['squadra1'] = $squadra1;
+                $data['squadra2'] = $squadra2;
+            }
             $data['giornata'] = $_SESSION['giornata'];
             $data['storico_squadre'] = $this->mdl_team->getStoricoSquadre();
             $data['combo_storico_squadre'] = $this->mdl_categories->getComboStoricoSquadre();
@@ -227,6 +232,7 @@ class Home extends CI_Controller {
             return;
         }
         
+        $data['check'] = 0;
         $data['message'] = "";
         $data['giornata'] = $_SESSION['giornata'];
         $data['storico_squadre'] = $this->mdl_team->getStoricoSquadre();

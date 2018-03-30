@@ -118,822 +118,12 @@
                                 </div>
                                 </form>
                                 <!-- Reviews Form / End -->
-                                
-                                <?php
-                                echo @$message;
-                                
-                                if (is_array(@$champions2017_18) && count(@$champions2017_18) > 0) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2017-18 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($champions2017_18 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2017-18</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2017-18  / End -->
-
-                                    <?php
-                                }
-                                
-                                if (is_array(@$precedenti2017_18)) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach (@$precedenti2017_18 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2017-18</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2017-18  / End -->
-
-                                    <?php
-                                }
-                                ?>
-                                    
-                                <?php
-                                if (is_array(@$champions2016_17) && count(@$champions2016_17) > 0) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($champions2016_17 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2016-17</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2016-17  / End -->
-
-                                    <?php
-                                }
-                                ?>
-                                
-                                <?php
-                                if (is_array(@$precedenti2016_17)) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($precedenti2016_17 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2016-17</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2016-17  / End -->
-
-                                    <?php
-                                }
-                                ?>
-                                    
-                                <?php
-                                if (is_array(@$champions2015_16) && count(@$champions2015_16) > 0) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($champions2015_16 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2015-16</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2015-16  / End -->
-
-                                    <?php
-                                }
-                                ?>
-                                
-                                <?php
-                                if (is_array(@$precedenti2015_16)) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($precedenti2015_16 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2015-16</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2015-16  / End -->
-
-                                    <?php
-                                }
-                                ?>
-                                
-                                <?php
-                                if (is_array(@$precedenti2014_15)) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2014-15 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($precedenti2014_15 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2014-15</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2014-15") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2014-15") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2014-15") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2014-15") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
-
-                                    <?php
-                                }
-                                ?>
-                                
-                                <?php
-                                if (is_array(@$precedenti2013_14)) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($precedenti2013_14 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2013-14</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2013-14") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2013-14") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
-
-                                    <?php
-                                }
-                                ?>
-
-                                <?php
-                                if (is_array(@$precedenti2012_13)) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($precedenti2012_13 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2012-13</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
-
-                                    <?php
-                                }
-                                ?>
-                                
-                                <?php
-                                if (is_array(@$precedenti2011_12)) {
-                                    ?>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2011-12 -->
-                                    <div class="card card--has-table">
-
-                                        <div class="table-responsive">
-                                            <table class="table table-hover team-result">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="team-result__date" style="width: 14%">Data</th>
-                                                        <th class="team-result__status" style="width: 14%">Stagione</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__score" style="width: 12%">Risultato</th>
-                                                        <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                        <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <!-- Generazione Calendario  --->
-
-                                                    <?php
-                                                    foreach ($precedenti2011_12 as $row) {
-                                                        ?>
-
-                                                        <tr>
-                                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                            <td class="team-result__status" style="width: 14%">2011-12</td>
-                                                            <td class="team-result__status" style="width: 22%">
-                                                                <div class="team-meta">
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                    <div class="team-meta__info">
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12") ?></span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                                <div class="team-meta" style="text-align: right;">
-                                                                    <div class="team-meta__info" align='right'>
-                                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12") ?></h6>
-                                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12") ?></span>
-                                                                    </div>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                            <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                        <?php } ?>
-                                                                    </figure>
-                                                                </div>
-                                                            </td>
-                                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-
-                                                            </td>
-                                                        </tr>
-
-                                                        <!-- Generazione Calendario / END  --->
-                                                        <?php
-                                                    }
-                                                    ?>
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                    <!-- PARTITE DEI PRECEDENTI STORICI 2011-12  / End -->
-
-                                    <?php
-                                }
-                                ?>
 
                             </section>
 
                         </div>
                         <!-- Tab: Reviews / End -->
-                        
+
                         <!-- Tab: Description -->
                         <div role="tabpanel" class="tab-pane fade" id="tab-desciption">
 
@@ -1024,146 +214,840 @@
 
                         </div>
                         <!-- Tab: Shipping / End -->
-                        
+
                     </div>
 
                 </div>
                 <!-- Single Product Tabbed Content / End -->
 
+                <?php
+                if ($check == 1) {
+                    ?>
 
-                <!-- Related Products -->
-                <div class="card card--clean">
-                    <header class="card__header">
-                        <h4>Related Products</h4>
-                    </header>
-                    <div class="card__content">
+                    <!-- Related Products -->
+                    <div class="card card--clean">
+                        <header class="card__header">
+                            <h4>Precedenti storici fra <span style='color: #1892ED;'><?= @$squadra1 ?></span> e <span style='color: #1892ED;'><?= @$squadra2 ?></span> </h4>
+                        </header>
+                        <div class="card__content">
 
-                        <!-- Products -->
-                        <ul class="products products--grid products--grid-condensed products--grid-light products--grid-4">
+                            <?= @$message; ?>
 
-                            <!-- Product #1 -->
-                            <li class="product__item card">
+                            <?php
+                            if (is_array(@$champions2017_18) && count(@$champions2017_18) > 0) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2017-18 -->
+                                <div class="card card--has-table">
 
-                                <div class="product__img">
-                                    <div class="product__img-holder">
-                                        <a href="_soccer_shop-product.html"><img src="assets/images/soccer/samples/_soccer_product-img1.jpg" alt=""></a>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($champions2017_18 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2017-18</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
                                     </div>
+
                                 </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2017-18  / End -->
 
-                                <div class="product__content card__content">
+                                <?php
+                            }
 
-                                    <header class="product__header">
-                                        <div class="product__header-inner">
-                                            <span class="product__category">Sneakers</span>
-                                            <div class="product__ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star empty"></i>
-                                            </div>
-                                            <h2 class="product__title"><a href="_soccer_shop-product.html">Sundown Sneaker</a></h2>
-                                            <div class="product__price">$28.00</div>
-                                        </div>
-                                    </header>
-                                </div>
-                            </li>
-                            <!-- Product #1 / End -->
+                            if (is_array(@$precedenti2017_18)) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
+                                <div class="card card--has-table">
 
-                            <!-- Product #2 -->
-                            <li class="product__item card">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                <div class="product__img">
-                                    <div class="product__img-holder">
-                                        <a href="_soccer_shop-product.html"><img src="assets/images/soccer/samples/_soccer_product-img2.jpg" alt=""></a>
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach (@$precedenti2017_18 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2017-18</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
                                     </div>
+
                                 </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2017-18  / End -->
 
-                                <div class="product__content card__content">
+                                <?php
+                            }
+                            ?>
 
-                                    <header class="product__header">
-                                        <div class="product__header-inner">
-                                            <span class="product__category">Sneakers</span>
-                                            <div class="product__ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                            <h2 class="product__title"><a href="_soccer_shop-product.html">Atlantic Sneaker</a></h2>
-                                            <div class="product__price">$30.00</div>
-                                        </div>
-                                    </header>
-                                </div>
-                            </li>
-                            <!-- Product #2 / End -->
+                            <?php
+                            if (is_array(@$champions2016_17) && count(@$champions2016_17) > 0) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
+                                <div class="card card--has-table">
 
-                            <!-- Product #3 -->
-                            <li class="product__item card">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                <div class="product__img">
-                                    <div class="product__img-holder">
-                                        <a href="_soccer_shop-product.html"><img src="assets/images/soccer/samples/_soccer_product-img3.jpg" alt=""></a>
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($champions2016_17 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2016-17</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
                                     </div>
+
                                 </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2016-17  / End -->
 
-                                <div class="product__content card__content">
+                                <?php
+                            }
+                            ?>
 
-                                    <header class="product__header">
-                                        <div class="product__header-inner">
-                                            <span class="product__category">Sneakers</span>
-                                            <div class="product__ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star empty"></i>
-                                                <i class="fa fa-star empty"></i>
-                                            </div>
-                                            <h2 class="product__title"><a href="_soccer_shop-product.html">Aquarium Sneaker</a></h2>
-                                            <div class="product__price">$26.00</div>
-                                        </div>
-                                    </header>
-                                </div>
-                            </li>
-                            <!-- Product #3 / End -->
+                            <?php
+                            if (is_array(@$precedenti2016_17)) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
+                                <div class="card card--has-table">
 
-                            <!-- Product #10 -->
-                            <li class="product__item card">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                <div class="product__img">
-                                    <div class="product__img-holder">
-                                        <a href="_soccer_shop-product.html"><img src="assets/images/soccer/samples/_soccer_product-img10.jpg" alt=""></a>
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2016_17 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2016-17</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
                                     </div>
+
                                 </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2016-17  / End -->
 
-                                <div class="product__content card__content">
+                                <?php
+                            }
+                            ?>
 
-                                    <header class="product__header">
-                                        <div class="product__header-inner">
-                                            <span class="product__category">Shirts and Hoodies</span>
-                                            <div class="product__ratings">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star empty"></i>
-                                            </div>
-                                            <h2 class="product__title"><a href="_soccer_shop-product.html">Carbon Fiber Hoodie</a></h2>
-                                            <div class="product__price">$45.00</div>
-                                        </div>
-                                    </header>
+                            <?php
+                            if (is_array(@$champions2015_16) && count(@$champions2015_16) > 0) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($champions2015_16 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2015-16</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/uefa.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
-                            </li>
-                            <!-- Product #10 / End -->
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2015-16  / End -->
 
-                        </ul>
-                        <!-- Products / End -->
+                                <?php
+                            }
+                            ?>
 
+                            <?php
+                            if (is_array(@$precedenti2015_16)) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2015_16 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2015-16</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2015-16  / End -->
+
+                                <?php
+                            }
+                            ?>
+
+                            <?php
+                            if (is_array(@$precedenti2014_15)) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2014-15 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2014_15 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2014-15</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2014-15") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2014-15") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2014-15") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2014-15") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
+
+                                <?php
+                            }
+                            ?>
+
+                            <?php
+                            if (is_array(@$precedenti2013_14)) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2013_14 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2013-14</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2013-14") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2013-14") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
+
+                                <?php
+                            }
+                            ?>
+
+                            <?php
+                            if (is_array(@$precedenti2012_13)) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2012_13 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2012-13</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
+
+                                <?php
+                            }
+                            ?>
+
+                            <?php
+                            if (is_array(@$precedenti2011_12)) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2011-12 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2011_12 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2011-12</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2011-12  / End -->
+
+                                <?php
+                            }
+                            ?>
+
+                        </div>
                     </div>
-                </div>
-                <!-- Related Products / End -->
+                    <!-- Related Products / End -->
 
+                    <?php
+                }
+                ?>
 
             </div>
         </div>
