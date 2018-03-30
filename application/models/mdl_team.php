@@ -2288,6 +2288,34 @@ class mdl_team extends CI_Model {
         
     }
     
+    //Storico Squadre: Prendo tutte le partite delle squadre o utenti selezionati
+    public function getPrecedentiSuperCoppa($type, $squadra1, $squadra2, $stagione, $db) {
+        if ($type == "squadra"){
+            
+            //Ricavo le squadre selezionate
+            $id1 = $this->getIdSquadra($squadra1, $stagione);
+            $id2 = $this->getIdSquadra($squadra2, $stagione);
+
+            //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
+            if ($id1 != "" && $id2 != "") {
+                $precedenti = $this->getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db);
+            }else{
+                $precedenti = "";
+            }
+            
+            return $precedenti;
+        }
+        
+        if ($type == "utente"){
+            
+            //Ricavo gli utenti selezionati 
+            $id1 = $this->getIdSquadra($squadra1);
+            $id2 = $this->getIdSquadra($squadra2);
+            
+        }
+        
+    }
+    
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
     private function getPartitePrecedenti($id1,$id2,$stagione, $db) {
         //Modificare db per query precedenti stagione in corso
@@ -2319,6 +2347,18 @@ class mdl_team extends CI_Model {
             $query = $this->db->query('Select * from tb_coppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         }else{
             $query = $this->db->query('Select * from tb_coppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+        }    
+            
+        return $query->result_array();
+    }
+    
+    // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
+    private function getPartitePrecedentiSuperCoppa($id1,$id2,$stagione, $db) {
+        //Modificare db per query precedenti stagione in corso
+        if ($db != "2017_18") {
+            $query = $this->db->query('Select * from tb_supercoppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+        }else{
+            $query = $this->db->query('Select * from tb_supercoppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         }    
             
         return $query->result_array();

@@ -213,6 +213,10 @@ class Home extends CI_Controller {
                 if (is_array($data['coppa2016_17'])) {
                     $data['message'] = "";
                 }
+                $data['supercoppa2016_17'] = $this->mdl_team->getPrecedentiSuperCoppa($type, $squadra1, $squadra2, "2016-17", "2016_17");
+                if (is_array($data['supercoppa2016_17'])) {
+                    $data['message'] = "";
+                }
                 $data['precedenti2017_18'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2017-18", "2017_18");
                 if (is_array($data['precedenti2017_18'])) {
                     $data['message'] = "";
@@ -223,6 +227,10 @@ class Home extends CI_Controller {
                 }
                 $data['coppa2017_18'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2017-18", "2017_18");
                 if (is_array($data['coppa2017_18'])) {
+                    $data['message'] = "";
+                }
+                $data['supercoppa2017_18'] = $this->mdl_team->getPrecedentiSuperCoppa($type, $squadra1, $squadra2, "2017-18", "2017_18");
+                if (is_array($data['supercoppa2017_18'])) {
                     $data['message'] = "";
                 }
             }  else {
