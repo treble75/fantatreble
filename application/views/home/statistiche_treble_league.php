@@ -234,6 +234,85 @@
                             <?= @$message; ?>
 
                             <?php
+                            if (is_array(@$coppa2017_18) && count(@$coppa2017_18) > 0) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2017-18 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($coppa2017_18 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2017-18</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/coppa.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2017-18  / End -->
+
+                                <?php
+                            }
+
                             if (is_array(@$champions2017_18) && count(@$champions2017_18) > 0) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2017-18 -->
@@ -248,7 +327,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -327,7 +406,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -392,6 +471,87 @@
                                 <?php
                             }
                             ?>
+                                
+                            <?php
+                            if (is_array(@$coppa2016_17) && count(@$coppa2016_17) > 0) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($coppa2016_17 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2016-17</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/coppa.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2016-17  / End -->
+
+                                <?php
+                            }
+                            ?>
 
                             <?php
                             if (is_array(@$champions2016_17) && count(@$champions2016_17) > 0) {
@@ -408,7 +568,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -489,7 +649,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -554,6 +714,87 @@
                                 <?php
                             }
                             ?>
+                                
+                            <?php
+                            if (is_array(@$coppa2015_16) && count(@$coppa2015_16) > 0) {
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($coppa2015_16 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2015-16</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/coppa.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2015-16  / End -->
+
+                                <?php
+                            }
+                            ?>
 
                             <?php
                             if (is_array(@$champions2015_16) && count(@$champions2015_16) > 0) {
@@ -570,7 +811,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -651,7 +892,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -732,7 +973,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -813,7 +1054,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -894,7 +1135,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -975,7 +1216,7 @@
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
                                                     <th class="team-result__score" style="width: 12%">Risultato</th>
                                                     <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                                    <th class="team-result__fouls" style="width: 16%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
                                                 </tr>
                                             </thead>
                                             <tbody>

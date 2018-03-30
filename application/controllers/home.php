@@ -197,6 +197,10 @@ class Home extends CI_Controller {
                 if (is_array($data['champions2015_16'])) {
                     $data['message'] = "";
                 }
+                $data['coppa2015_16'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2015-16", "2015_16");
+                if (is_array($data['coppa2015_16'])) {
+                    $data['message'] = "";
+                }
                 $data['precedenti2016_17'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2016-17", "2016_17");
                 if (is_array($data['precedenti2016_17'])) {
                     $data['message'] = "";
@@ -205,12 +209,20 @@ class Home extends CI_Controller {
                 if (is_array($data['champions2016_17'])) {
                     $data['message'] = "";
                 }
+                $data['coppa2016_17'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2016-17", "2016_17");
+                if (is_array($data['coppa2016_17'])) {
+                    $data['message'] = "";
+                }
                 $data['precedenti2017_18'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2017-18", "2017_18");
                 if (is_array($data['precedenti2017_18'])) {
                     $data['message'] = "";
                 }
                 $data['champions2017_18'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2017-18", "2017_18");
                 if (is_array($data['champions2017_18'])) {
+                    $data['message'] = "";
+                }
+                $data['coppa2017_18'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2017-18", "2017_18");
+                if (is_array($data['coppa2017_18'])) {
                     $data['message'] = "";
                 }
             }  else {
