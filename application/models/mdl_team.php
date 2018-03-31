@@ -2225,8 +2225,17 @@ class mdl_team extends CI_Model {
         if ($type == "utente"){
             
             //Ricavo gli utenti selezionati 
-            $id1 = $this->getIdSquadra($squadra1);
-            $id2 = $this->getIdSquadra($squadra2);
+            $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
+            $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
+            
+            //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
+            if ($id1 != "" && $id2 != "") {
+                $precedenti = $this->getPartitePrecedenti($id1, $id2, $stagione, $db);
+            }else{
+                $precedenti = "";
+            }
+            
+            return $precedenti;
             
         }
         
@@ -2253,8 +2262,17 @@ class mdl_team extends CI_Model {
         if ($type == "utente"){
             
             //Ricavo gli utenti selezionati 
-            $id1 = $this->getIdSquadra($squadra1);
-            $id2 = $this->getIdSquadra($squadra2);
+            $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
+            $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
+            
+            //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
+            if ($id1 != "" && $id2 != "") {
+                $precedenti = $this->getPartitePrecedentiChampions($id1, $id2, $stagione, $db);
+            }else{
+                $precedenti = "";
+            }
+            
+            return $precedenti;
             
         }
         
@@ -2281,8 +2299,17 @@ class mdl_team extends CI_Model {
         if ($type == "utente"){
             
             //Ricavo gli utenti selezionati 
-            $id1 = $this->getIdSquadra($squadra1);
-            $id2 = $this->getIdSquadra($squadra2);
+            $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
+            $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
+            
+            //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
+            if ($id1 != "" && $id2 != "") {
+                $precedenti = $this->getPartitePrecedentiCoppa($id1, $id2, $stagione, $db);
+            }else{
+                $precedenti = "";
+            }
+            
+            return $precedenti;
             
         }
         
@@ -2309,8 +2336,17 @@ class mdl_team extends CI_Model {
         if ($type == "utente"){
             
             //Ricavo gli utenti selezionati 
-            $id1 = $this->getIdSquadra($squadra1);
-            $id2 = $this->getIdSquadra($squadra2);
+            $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
+            $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
+            
+            //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
+            if ($id1 != "" && $id2 != "") {
+                $precedenti = $this->getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db);
+            }else{
+                $precedenti = "";
+            }
+            
+            return $precedenti;
             
         }
         
@@ -2367,6 +2403,23 @@ class mdl_team extends CI_Model {
     private function getIdSquadra($squadra, $stagione) {
         $this->db->select('id_squadra');
         $this->db->where('squadra', $squadra);
+        $this->db->where('stagione', $stagione);
+        $this->db->from('tb_all_teams');
+
+        $id_squadra = $this->db->get()->row('id_squadra');
+        
+        return $id_squadra;
+    }
+    
+    private function getUtenteIdSquadra($squadra, $stagione) {
+        $this->db->select('cognome');
+        $this->db->where('squadra', $squadra);
+        $this->db->from('tb_all_teams');
+
+        $cg_utente = $this->db->get()->row('cognome');
+        
+        $this->db->select('id_squadra');
+        $this->db->where('cognome', $cg_utente);
         $this->db->where('stagione', $stagione);
         $this->db->from('tb_all_teams');
 

@@ -79,13 +79,23 @@
                                             <?php echo form_dropdown('cmbStoricoSquadre2', $combo_storico_squadre, set_value('cmbStoricoSquadre2'), $js) ?>
                                         </div>
                                         <label class="control-label" for="review-title">Seleziona per : </label>
+                                        <?php
+                                        $chk1 = "";
+                                        $chk2 = "";
+                                        if ($radio == "squadra") {
+                                            $chk1 = "checked";
+                                        }
+                                        if ($radio == "utente") {
+                                            $chk2 = "checked";
+                                        }
+                                        ?>
                                         <div class="form-group">
                                             <label class="radio radio-inline">
-                                                <input type="radio" name="SelPrecedente" id="inlineRadio1" value="squadra" checked>Squadra
+                                                <input type="radio" name="SelPrecedente" id="inlineRadio1" value="squadra" <?= $chk1 ?> >Squadra
                                                 <span class="radio-indicator"></span>
                                             </label>
                                             <label class="radio radio-inline">
-                                                <input type="radio" name="SelPrecedente" id="inlineRadio2" value="utente">Utente
+                                                <input type="radio" name="SelPrecedente" id="inlineRadio2" value="utente" <?= $chk2 ?> >Utente
                                                 <span class="radio-indicator"></span>
                                             </label>
                                         </div>
@@ -221,6 +231,12 @@
                 <!-- Single Product Tabbed Content / End -->
 
                 <?php
+                echo @$message;
+                //Inizializzo totali
+                $parzialeSC = 0;
+                $parzialeCO = 0;
+                $parzialeCH = 0;
+                $parzialeTL = 0;
                 if ($check == 1) {
                     ?>
 
@@ -231,10 +247,9 @@
                         </header>
                         <div class="card__content">
 
-                            <?= @$message; ?>
-
                             <?php
                             if (is_array(@$supercoppa2017_18) && count(@$supercoppa2017_18) > 0) {
+                                $parzialeSC += count(@$supercoppa2017_18);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2017-18 -->
                                 <div class="card card--has-table">
@@ -471,7 +486,7 @@
                                 <?php
                             }
 
-                            if (is_array(@$precedenti2017_18)) {
+                            if (is_array(@$precedenti2017_18) && count(@$precedenti2017_18) > 0) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
                                 <div class="card card--has-table">
@@ -551,6 +566,7 @@
                             }
 
                             if (is_array(@$supercoppa2016_17) && count(@$supercoppa2016_17) > 0) {
+                                $parzialeSC += count(@$supercoppa2016_17);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
                                 <div class="card card--has-table">
@@ -791,7 +807,7 @@
                             ?>
 
                             <?php
-                            if (is_array(@$precedenti2016_17)) {
+                            if (is_array(@$precedenti2016_17) && count(@$precedenti2016_17)) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
                                 <div class="card card--has-table">
@@ -870,7 +886,7 @@
                                 <?php
                             }
                             ?>
-                                
+
                             <?php
                             if (is_array(@$coppa2015_16) && count(@$coppa2015_16) > 0) {
                                 ?>
@@ -1034,7 +1050,7 @@
                             ?>
 
                             <?php
-                            if (is_array(@$precedenti2015_16)) {
+                            if (is_array(@$precedenti2015_16) && count(@$precedenti2015_16)) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
                                 <div class="card card--has-table">
@@ -1115,7 +1131,7 @@
                             ?>
 
                             <?php
-                            if (is_array(@$precedenti2014_15)) {
+                            if (is_array(@$precedenti2014_15) && count(@$precedenti2014_15)) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2014-15 -->
                                 <div class="card card--has-table">
@@ -1196,7 +1212,7 @@
                             ?>
 
                             <?php
-                            if (is_array(@$precedenti2013_14)) {
+                            if (is_array(@$precedenti2013_14) && count(@$precedenti2013_14)) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
                                 <div class="card card--has-table">
@@ -1277,7 +1293,7 @@
                             ?>
 
                             <?php
-                            if (is_array(@$precedenti2012_13)) {
+                            if (is_array(@$precedenti2012_13) && count(@$precedenti2012_13)) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
                                 <div class="card card--has-table">
@@ -1358,7 +1374,7 @@
                             ?>
 
                             <?php
-                            if (is_array(@$precedenti2011_12)) {
+                            if (is_array(@$precedenti2011_12) && count(@$precedenti2011_12)) {
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2011-12 -->
                                 <div class="card card--has-table">
@@ -1442,11 +1458,381 @@
                     </div>
                     <!-- Related Products / End -->
 
-                    <?php
-                }
-                ?>
 
+                    <!-- Statistiche precedenti -->
+
+                    <!-- Content -->
+                    <div class="content col-md-8">
+
+                        <!-- Game Scoreboard -->
+                        <div class="card">
+                            <header class="card__header card__header--has-btn">
+                                <h4>Statistiche precedenti storici</h4>
+                            </header>
+                            <div class="card__content">
+
+                                <!-- Game Result -->
+                                <div class="game-result">
+                                    <section class="game-result__section pt-0">
+                                        <div class="game-result__content">
+
+                                            <!-- 1st Team -->
+                                            <div class="game-result__team game-result__team--first">
+                                                <figure class="game-result__team-logo">
+                                                    <img src="<?= base_url('/') ?>images/albo/utenti/Frioni.png" alt="">
+                                                </figure>
+                                                <div class="game-result__team-info">
+                                                    <h5 class="game-result__team-name" style="color: #1892ED;"><?= $squadra1 ?></h5>
+                                                </div>
+                                            </div>
+                                            <!-- 1st Team / End -->
+
+                                            <!-- 2nd Team -->
+                                            <div class="game-result__team game-result__team--second">
+                                                <figure class="game-result__team-logo">
+                                                    <img src="<?= base_url('/') ?>images/albo/utenti/Guerrieri.png" alt="">
+                                                </figure>
+                                                <div class="game-result__team-info">
+                                                    <h5 class="game-result__team-name" style="color: #9edb00;"><?= $squadra2 ?></h5>
+                                                </div>
+                                            </div>
+                                            <!-- 2nd Team / End -->
+                                        </div>
+                                    </section>
+                                    <?php
+                                    //Calcolo totali incontri precedenti
+                                    $totaleSC = @$parzialeSC;
+                                    ?>
+                                    <section class="game-result__section">
+                                        <header class="game-result__subheader card__subheader">
+                                        </header>
+                                        <div class="game-result__content mb-0">
+                                            <div class="game-result__stats">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-6 col-md-push-3">
+                                                        <div class="game-result__table-stats game-result__table-stats--soccer">
+                                                            <table class="table table-wrap-bordered table-thead-color">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th colspan="3">Precedenti</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>25(14)</td>
+                                                                        <td>Totali</td>
+                                                                        <td>16(6)</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>9</td>
+                                                                        <td>Treble League</td>
+                                                                        <td>7</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>0</td>
+                                                                        <td>Champions League</td>
+                                                                        <td>2</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>Coppa Treble</td>
+                                                                        <td>0</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><?= $totaleSC ?></td>
+                                                                        <td>SuperCoppa Treble</td>
+                                                                        <td><?= $totaleSC ?></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-md-pull-6 game-result__stats-team-1">
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <div class="circular__bar" data-percent="84.5">
+                                                                        <span class="circular__percents">84.5<small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Shot<br> Accuracy</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <div class="circular__bar" data-percent="62.3">
+                                                                        <span class="circular__percents">62.3<small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Pass<br> Accuracy</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="spacer"></div>
+
+                                                        <!-- Progress: Assists -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">Sho</div>
+                                                            <div class="progress">
+                                                                <div class="progress__bar progress__bar-width-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number">25</div>
+                                                        </div>
+                                                        <!-- Progress: Assists / End -->
+
+                                                        <!-- Progress: Fouls -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">Fou</div>
+                                                            <div class="progress">
+                                                                <div class="progress__bar progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number">12</div>
+                                                        </div>
+                                                        <!-- Progress: Fouls / End -->
+
+                                                        <!-- Progress: OFF -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">OFF</div>
+                                                            <div class="progress">
+                                                                <div class="progress__bar progress__bar-width-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number">10</div>
+                                                        </div>
+                                                        <!-- Progress: OFF / End -->
+
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 game-result__stats-team-2">
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <div class="circular__bar" data-percent="74.6" data-bar-color="#9fe900">
+                                                                        <span class="circular__percents">74.6<small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Shot<br> Accuracy</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <div class="circular__bar" data-percent="53.9" data-bar-color="#9fe900">
+                                                                        <span class="circular__percents">53.9<small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Pass<br> Accuracy</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="spacer"></div>
+
+                                                        <!-- Progress: Assists -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">Sho</div>
+                                                            <div class="progress">
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number">25</div>
+                                                        </div>
+                                                        <!-- Progress: Assists / End -->
+
+                                                        <!-- Progress: Fouls -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">Fou</div>
+                                                            <div class="progress">
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number">14</div>
+                                                        </div>
+                                                        <!-- Progress: Fouls / End -->
+
+                                                        <!-- Progress: OFF -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">OFF</div>
+                                                            <div class="progress">
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number">12</div>
+                                                        </div>
+                                                        <!-- Progress: OFF / End -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <!-- Ball Posession -->
+                                    <section class="game-result__section">
+                                        <header class="game-result__subheader card__subheader">
+                                            <h5 class="game-result__subtitle">Percentuale Vittorie</h5>
+                                        </header>
+                                        <div class="game-result__content">
+
+                                            <div class="spacer-sm"></div>
+
+                                            <!-- Progress: Ball Posession -->
+                                            <div class="progress-double-wrapper">
+                                                <div class="progress-inner-holder">
+                                                    <div class="progress__digit progress__digit--left progress__digit--highlight">62%</div>
+                                                    <div class="progress__double">
+                                                        <div class="progress progress--lg">
+                                                            <div class="progress__bar progress__bar-width-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <div class="progress progress--lg">
+                                                            <div class="progress__bar progress__bar--success progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress__digit progress__digit--right progress__digit--highlight">38%</div>
+                                                </div>
+                                            </div>
+                                            <!-- Progress: Ball Posession / End -->
+
+                                        </div>
+                                    </section>
+                                    <!-- Ball Posession / End -->
+
+                                </div>
+                                <!-- Game Timeline / End -->
+
+                            </div>
+                        </div>
+                        <!-- Game Scoreboard / End -->
+
+                    </div>
+                    <!-- Content / End -->
+
+                    <!-- Sidebar -->
+                    <div class="sidebar col-md-4">
+
+                        <!-- Widget: Lineup -->
+                        <aside class="widget card widget--sidebar widget-lineup">
+                            <div class="widget__title card__header">
+                                <h4>Lineup and Tactic</h4>
+                            </div>
+                            <div class="widget__content card__content">
+
+                                <canvas id="soccer-lineup" class="soccer-lineup" width="316" height="460">
+                                    <!-- Fallback Image -->
+                                    <img src="<?= base_url('/') ?>assets/images/soccer/_soccer_field-lineup.jpg" alt="">
+                                    <!-- Fallback Image / End -->
+                                </canvas>
+
+                                <script>
+                                    var canvas = document.getElementById('soccer-lineup');
+                                    var context = canvas.getContext('2d');
+
+                                    function loadImages(sources, callback) {
+                                        var images = {};
+                                        var loadedImages = 0;
+                                        var numImages = 0;
+                                        // get num of sources
+                                        for (var src in sources) {
+                                            numImages++;
+                                        }
+                                        for (var src in sources) {
+                                            images[src] = new Image();
+                                            images[src].onload = function () {
+                                                if (++loadedImages >= numImages) {
+                                                    callback(images);
+                                                }
+                                            };
+                                            images[src].src = sources[src];
+                                        }
+                                    }
+
+                                    // Players Shirt
+                                    var sources = {
+                                        player1: 'assets/images/soccer/lineup_01.png',
+                                        player2: 'assets/images/soccer/lineup_04.png',
+                                        player3: 'assets/images/soccer/lineup_03.png',
+                                        player4: 'assets/images/soccer/lineup_22.png',
+                                        player5: 'assets/images/soccer/lineup_05.png',
+                                        player6: 'assets/images/soccer/lineup_02.png',
+                                        player7: 'assets/images/soccer/lineup_08.png',
+                                        player8: 'assets/images/soccer/lineup_26.png',
+                                        player9: 'assets/images/soccer/lineup_07.png',
+                                        player10: 'assets/images/soccer/lineup_18.png',
+                                        player11: 'assets/images/soccer/lineup_09.png',
+                                    };
+
+                                    loadImages(sources, function (images) {
+                                        context.drawImage(images.player1, 142, 26);
+                                        context.drawImage(images.player2, 79, 72);
+                                        context.drawImage(images.player3, 207, 72);
+                                        context.drawImage(images.player4, 37, 137);
+                                        context.drawImage(images.player5, 247, 137);
+                                        context.drawImage(images.player6, 142, 198);
+                                        context.drawImage(images.player7, 63, 230);
+                                        context.drawImage(images.player8, 221, 230);
+                                        context.drawImage(images.player9, 37, 314);
+                                        context.drawImage(images.player10, 247, 314);
+                                        context.drawImage(images.player11, 142, 358);
+                                    });
+
+                                    // Player Names
+                                    var players = {
+                                        player1: 'Rodgers',
+                                        player2: 'Ironson',
+                                        player3: 'Kingster',
+                                        player4: 'Girobilli',
+                                        player5: 'Black',
+                                        player6: 'Arrowhead',
+                                        player7: 'Grass',
+                                        player8: 'Peterson',
+                                        player9: 'Messinal',
+                                        player10: 'Hawkins',
+                                        player11: 'Stevens',
+                                    };
+
+                                    drawTextBG(context, players.player1, 135, 64);
+                                    drawTextBG(context, players.player2, 77, 110);
+                                    drawTextBG(context, players.player3, 205, 110);
+                                    drawTextBG(context, players.player4, 33, 174);
+                                    drawTextBG(context, players.player5, 249, 174);
+                                    drawTextBG(context, players.player6, 130, 238);
+                                    drawTextBG(context, players.player7, 64, 269);
+                                    drawTextBG(context, players.player8, 215, 269);
+                                    drawTextBG(context, players.player9, 33, 353);
+                                    drawTextBG(context, players.player10, 242, 353);
+                                    drawTextBG(context, players.player11, 137, 398);
+
+                                    /// expand with color, background etc.
+                                    function drawTextBG(context, txt, x, y, padding) {
+                                        padding = padding || 6;
+
+                                        context.save();
+                                        context.font = '10px Montserrat';
+                                        context.textBaseline = 'top';
+                                        context.fillStyle = 'rgba(35,43,49,0.6)';
+
+                                        var width = context.measureText(txt).width;
+                                        context.fillRect(x - padding, y - padding + 4, width + (padding * 2), parseInt(context.font, 10) + (padding * 1.1));
+
+
+                                        context.fillStyle = '#fff';
+                                        context.fillText(txt, x, y);
+
+                                        context.restore();
+                                    }
+
+                                </script>
+
+                            </div>
+                        </aside>
+                        <!-- Widget: Lineup / End -->
+
+                    </div>
+                    <!-- Sidebar / End -->
+                </div>
             </div>
+            </div>
+
+            <!-- Content / End -->
+
+            <?php
+        }
+        ?>
+
+        </div>
         </div>
 
         <!-- Content / End -->

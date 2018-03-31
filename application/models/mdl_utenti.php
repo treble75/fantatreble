@@ -128,6 +128,20 @@ class mdl_utenti extends CI_Model {
         return $nome . " " . $cognome;
     }
     
+    public function getNomeUtenteDaSquadra($squadra) {
+        $this->db->select('nome');
+        $this->db->where('squadra', $squadra);
+        $this->db->from('tb_all_teams');
+        $nome = $this->db->get()->row('nome');
+        
+        $this->db->select('cognome');
+        $this->db->where('squadra', $squadra);
+        $this->db->from('tb_all_teams');
+        $cognome = $this->db->get()->row('cognome');
+
+        return $nome . " " . $cognome;
+    }
+    
     public function getNomeUtentePrecedente($id_utente, $stagione) {
         $this->db->select('nome');
         $this->db->where('id_squadra', $id_utente);

@@ -166,12 +166,14 @@ class Home extends CI_Controller {
             $squadra2   = $this->input->post('cmbStoricoSquadre2');
             $type       = $this->input->post('SelPrecedente');
 
+            $data['check'] = 0;
             $data['message'] = "<div class = 'alert alert-warning alert-dismissible'>
                                     <strong>Nessun precedente fra queste due squadre</strong>
                                 </div>";
             
             if ($squadra1 != $squadra2) {
             
+                $data['check'] = 1;
                 //Seleziono i precedenti fra 2 squadre o fra 2 utenti
                 $data['precedenti2011_12'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2011-12", "2011_12");
                 if (is_array($data['precedenti2011_12'])) {
@@ -233,17 +235,35 @@ class Home extends CI_Controller {
                 if (is_array($data['supercoppa2017_18'])) {
                     $data['message'] = "";
                 }
-            }  else {
-                $data['message'] = "<div class = 'alert alert-danger alert-dismissible'>
-                                    <strong>Selezionare squadre differenti</strong>
-                                </div>";
-            }
-            
-            $data['check'] = 1;
+            }   else {
+                    if ($type == "squadra") {
+                        $data['message'] = "<div class = 'alert alert-danger alert-dismissible'>
+                                            <strong>Selezionare squadre differenti</strong>
+                                        </div>";
+                    }
+                    if ($type == "utente") {
+                        $data['message'] = "<div class = 'alert alert-danger alert-dismissible'>
+                                            <strong>Selezionare utenti differenti</strong>
+                                        </div>";
+                    }
+                    $data['check'] = 0;
+                }
+
             if ($type == "squadra") {
                 $data['squadra1'] = $squadra1;
                 $data['squadra2'] = $squadra2;
             }
+            if ($type == "utente") {
+                $data['squadra1'] = $this->mdl_utenti->getNomeUtenteDaSquadra($squadra1);
+                $data['squadra2'] = $this->mdl_utenti->getNomeUtenteDaSquadra($squadra2);
+                if ($data['squadra1'] == $data['squadra2']){
+                    $data['check'] = 0;
+                    $data['message'] = "<div class = 'alert alert-danger alert-dismissible'>
+                                            <strong>Selezionare utenti differenti</strong>
+                                        </div>";
+                }
+            }
+            $data['radio'] = $type;
             $data['giornata'] = $_SESSION['giornata'];
             $data['storico_squadre'] = $this->mdl_team->getStoricoSquadre();
             $data['combo_storico_squadre'] = $this->mdl_categories->getComboStoricoSquadre();
@@ -252,6 +272,7 @@ class Home extends CI_Controller {
             return;
         }
         
+        $data['radio'] = "squadra";
         $data['check'] = 0;
         $data['message'] = "";
         $data['giornata'] = $_SESSION['giornata'];
