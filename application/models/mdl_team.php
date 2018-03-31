@@ -2358,7 +2358,7 @@ class mdl_team extends CI_Model {
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_calendario_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         }else{
-            $query = $this->db->query('Select * from tb_calendario where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+            $query = $this->db->query('Select * from tb_calendario where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
         }    
             
         return $query->result_array();
@@ -2370,7 +2370,7 @@ class mdl_team extends CI_Model {
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_champions_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         }else{
-            $query = $this->db->query('Select * from tb_champions where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+            $query = $this->db->query('Select * from tb_champions where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
         }    
             
         return $query->result_array();
@@ -2382,7 +2382,7 @@ class mdl_team extends CI_Model {
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_coppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         }else{
-            $query = $this->db->query('Select * from tb_coppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+            $query = $this->db->query('Select * from tb_coppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
         }    
             
         return $query->result_array();
@@ -2394,7 +2394,7 @@ class mdl_team extends CI_Model {
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_supercoppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         }else{
-            $query = $this->db->query('Select * from tb_supercoppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
+            $query = $this->db->query('Select * from tb_supercoppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
         }    
             
         return $query->result_array();

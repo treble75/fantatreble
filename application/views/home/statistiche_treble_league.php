@@ -233,10 +233,26 @@
                 <?php
                 echo @$message;
                 //Inizializzo totali
-                $parzialeSC = 0;
-                $parzialeCO = 0;
-                $parzialeCH = 0;
-                $parzialeTL = 0;
+                $parzialeSC     = 0;
+                $parzialeCO     = 0;
+                $parzialeCH     = 0;
+                $parzialeTL     = 0;
+                $parzVSC1       = 0;
+                $parzNSC1       = 0;
+                $parzPSC1       = 0;
+                $parzVSC2       = 0;
+                $parzNSC2       = 0;
+                $parzPSC2       = 0;
+                $parzVCO        = 0;
+                $parzNCO        = 0;
+                $parzPCO        = 0;
+                $parzVCH        = 0;
+                $parzNCH        = 0;
+                $parzPCH        = 0;
+                $parzVTL        = 0;
+                $parzNTL        = 0;
+                $parzPTL        = 0;
+              
                 if ($check == 1) {
                     ?>
 
@@ -291,6 +307,55 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        //Parziali riferiti sempre a squadra1, per squadra2 li ribalto
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -329,6 +394,7 @@
                             }
 
                             if (is_array(@$coppa2017_18) && count(@$coppa2017_18) > 0) {
+                                $parzialeCO += count(@$coppa2017_18);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2017-18 -->
                                 <div class="card card--has-table">
@@ -408,6 +474,7 @@
                             }
 
                             if (is_array(@$champions2017_18) && count(@$champions2017_18) > 0) {
+                                $parzialeCH += count(@$champions2017_18);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2017-18 -->
                                 <div class="card card--has-table">
@@ -487,6 +554,7 @@
                             }
 
                             if (is_array(@$precedenti2017_18) && count(@$precedenti2017_18) > 0) {
+                                $parzialeTL += count(@$precedenti2017_18);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
                                 <div class="card card--has-table">
@@ -608,6 +676,55 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        //Parziali riferiti sempre a squadra1, per squadra2 li ribalto
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -646,6 +763,7 @@
                             }
 
                             if (is_array(@$coppa2016_17) && count(@$coppa2016_17) > 0) {
+                                $parzialeCO += count(@$coppa2016_17);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
                                 <div class="card card--has-table">
@@ -727,6 +845,7 @@
 
                             <?php
                             if (is_array(@$champions2016_17) && count(@$champions2016_17) > 0) {
+                                $parzialeCH += count(@$champions2016_17);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
                                 <div class="card card--has-table">
@@ -808,6 +927,7 @@
 
                             <?php
                             if (is_array(@$precedenti2016_17) && count(@$precedenti2016_17)) {
+                                $parzialeTL += count(@$precedenti2016_17);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2016-17 -->
                                 <div class="card card--has-table">
@@ -889,6 +1009,7 @@
 
                             <?php
                             if (is_array(@$coppa2015_16) && count(@$coppa2015_16) > 0) {
+                                $parzialeCO += count(@$coppa2015_16);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
                                 <div class="card card--has-table">
@@ -970,6 +1091,7 @@
 
                             <?php
                             if (is_array(@$champions2015_16) && count(@$champions2015_16) > 0) {
+                                $parzialeCH += count(@$champions2015_16);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
                                 <div class="card card--has-table">
@@ -1051,6 +1173,7 @@
 
                             <?php
                             if (is_array(@$precedenti2015_16) && count(@$precedenti2015_16)) {
+                                $parzialeTL += count(@$precedenti2015_16);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2015-16 -->
                                 <div class="card card--has-table">
@@ -1132,6 +1255,7 @@
 
                             <?php
                             if (is_array(@$precedenti2014_15) && count(@$precedenti2014_15)) {
+                                $parzialeTL += count(@$precedenti2014_15);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2014-15 -->
                                 <div class="card card--has-table">
@@ -1213,6 +1337,7 @@
 
                             <?php
                             if (is_array(@$precedenti2013_14) && count(@$precedenti2013_14)) {
+                                $parzialeTL += count(@$precedenti2013_14);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
                                 <div class="card card--has-table">
@@ -1294,6 +1419,7 @@
 
                             <?php
                             if (is_array(@$precedenti2012_13) && count(@$precedenti2012_13)) {
+                                $parzialeTL += count(@$precedenti2012_13);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
                                 <div class="card card--has-table">
@@ -1375,6 +1501,7 @@
 
                             <?php
                             if (is_array(@$precedenti2011_12) && count(@$precedenti2011_12)) {
+                                $parzialeTL += count(@$precedenti2011_12);
                                 ?>
                                 <!-- PARTITE DEI PRECEDENTI STORICI 2011-12 -->
                                 <div class="card card--has-table">
@@ -1501,7 +1628,18 @@
                                     </section>
                                     <?php
                                     //Calcolo totali incontri precedenti
-                                    $totaleSC = @$parzialeSC;
+                                    $totaleSC   = @$parzialeSC;
+                                    $totaleCO   = @$parzialeCO;
+                                    $totaleCH   = @$parzialeCH;
+                                    $totaleTL   = @$parzialeTL;
+                                    $TOTALE     = (@$parzialeSC + @$parzialeCO + @$parzialeCH + @$parzialeTL);
+                                    
+                                    $TOTALEV1   = (@$parzVSC1);
+                                    $TOTALEN1   = (@$parzNSC1);
+                                    $TOTALEP1   = (@$parzPSC1);
+                                    $TOTALEV2   = (@$parzVSC2);
+                                    $TOTALEN2   = (@$parzNSC2);
+                                    $TOTALEP2   = (@$parzPSC2);
                                     ?>
                                     <section class="game-result__section">
                                         <header class="game-result__subheader card__subheader">
@@ -1519,24 +1657,24 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td>25(14)</td>
+                                                                        <td><?= $TOTALE ?></td>
                                                                         <td>Totali</td>
-                                                                        <td>16(6)</td>
+                                                                        <td><?= $TOTALE ?></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>9</td>
+                                                                        <td><?= $totaleTL ?></td>
                                                                         <td>Treble League</td>
-                                                                        <td>7</td>
+                                                                        <td><?= $totaleTL ?></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>0</td>
+                                                                        <td><?= $totaleCH ?></td>
                                                                         <td>Champions League</td>
-                                                                        <td>2</td>
+                                                                        <td><?= $totaleCH ?></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>1</td>
+                                                                        <td><?= $totaleCO ?></td>
                                                                         <td>Coppa Treble</td>
-                                                                        <td>0</td>
+                                                                        <td><?= $totaleCO ?></td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td><?= $totaleSC ?></td>
@@ -1572,31 +1710,31 @@
 
                                                         <!-- Progress: Assists -->
                                                         <div class="progress-stats">
-                                                            <div class="progress__label">Sho</div>
+                                                            <div class="progress__label" style="color: #009900;">V</div>
                                                             <div class="progress">
                                                                 <div class="progress__bar progress__bar-width-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number">25</div>
+                                                            <div class="progress__number"><?= $TOTALEV1 ?></div>
                                                         </div>
                                                         <!-- Progress: Assists / End -->
 
                                                         <!-- Progress: Fouls -->
                                                         <div class="progress-stats">
-                                                            <div class="progress__label">Fou</div>
+                                                            <div class="progress__label">N</div>
                                                             <div class="progress">
                                                                 <div class="progress__bar progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number">12</div>
+                                                            <div class="progress__number"><?= $TOTALEN1 ?></div>
                                                         </div>
                                                         <!-- Progress: Fouls / End -->
 
                                                         <!-- Progress: OFF -->
                                                         <div class="progress-stats">
-                                                            <div class="progress__label">OFF</div>
+                                                            <div class="progress__label" style="color: #ff3d3d;">P</div>
                                                             <div class="progress">
                                                                 <div class="progress__bar progress__bar-width-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number">10</div>
+                                                            <div class="progress__number"><?= $TOTALEP1 ?></div>
                                                         </div>
                                                         <!-- Progress: OFF / End -->
 
@@ -1626,31 +1764,31 @@
 
                                                         <!-- Progress: Assists -->
                                                         <div class="progress-stats">
-                                                            <div class="progress__label">Sho</div>
+                                                            <div class="progress__label" style="color: #009900;">V</div>
                                                             <div class="progress">
                                                                 <div class="progress__bar progress__bar--success progress__bar-width-80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number">25</div>
+                                                            <div class="progress__number"><?= $TOTALEV2 ?></div>
                                                         </div>
                                                         <!-- Progress: Assists / End -->
 
                                                         <!-- Progress: Fouls -->
                                                         <div class="progress-stats">
-                                                            <div class="progress__label">Fou</div>
+                                                            <div class="progress__label">N</div>
                                                             <div class="progress">
                                                                 <div class="progress__bar progress__bar--success progress__bar-width-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number">14</div>
+                                                            <div class="progress__number"><?= $TOTALEN2 ?></div>
                                                         </div>
                                                         <!-- Progress: Fouls / End -->
 
                                                         <!-- Progress: OFF -->
                                                         <div class="progress-stats">
-                                                            <div class="progress__label">OFF</div>
+                                                            <div class="progress__label" style="color: #ff3d3d;">P</div>
                                                             <div class="progress">
                                                                 <div class="progress__bar progress__bar--success progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number">12</div>
+                                                            <div class="progress__number"><?= $TOTALEP2 ?></div>
                                                         </div>
                                                         <!-- Progress: OFF / End -->
 
