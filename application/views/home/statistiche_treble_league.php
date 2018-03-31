@@ -243,15 +243,24 @@
                 $parzVSC2       = 0;
                 $parzNSC2       = 0;
                 $parzPSC2       = 0;
-                $parzVCO        = 0;
-                $parzNCO        = 0;
-                $parzPCO        = 0;
-                $parzVCH        = 0;
-                $parzNCH        = 0;
-                $parzPCH        = 0;
-                $parzVTL        = 0;
-                $parzNTL        = 0;
-                $parzPTL        = 0;
+                $parzVCO1       = 0;
+                $parzNCO1       = 0;
+                $parzPCO1       = 0;
+                $parzVCO2       = 0;
+                $parzNCO2       = 0;
+                $parzPCO2       = 0;
+                $parzVCH1       = 0;
+                $parzNCH1       = 0;
+                $parzPCH1       = 0;
+                $parzVCH2       = 0;
+                $parzNCH2       = 0;
+                $parzPCH2       = 0;
+                $parzVTL1       = 0;
+                $parzNTL1       = 0;
+                $parzPTL1       = 0;
+                $parzVTL2       = 0;
+                $parzNTL2       = 0;
+                $parzPTL2       = 0;
               
                 if ($check == 1) {
                     ?>
@@ -308,7 +317,6 @@
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
                                                         <?php
-                                                        //Parziali riferiti sempre a squadra1, per squadra2 li ribalto
                                                         if ($radio == "squadra") {
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']){
@@ -344,6 +352,52 @@
                                                                 }
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']){
                                                                     $parzVSC2 += 1;
                                                                 }
@@ -436,6 +490,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -516,6 +664,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -596,8 +838,103 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
-                                                            <div class="team-meta" style="text-align: right;">
+                                                            <div
+                                                                class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
                                                                     <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18") ?></h6>
                                                                     <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18") ?></span>
@@ -724,6 +1061,52 @@
                                                                 }
                                                             }
                                                         }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNSC2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPSC2 += 1;
+                                                                }
+                                                            }
+                                                        }
                                                         ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
@@ -805,6 +1188,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -887,6 +1364,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -969,6 +1540,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1051,6 +1716,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCO2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCO2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1133,6 +1892,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNCH2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPCH2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1215,6 +2068,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1297,6 +2244,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2014-15")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2014-15")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2014-15")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2014-15")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2014-15")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2014-15")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2014-15")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2014-15")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1379,6 +2420,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2013-14")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2013-14")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2013-14")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2013-14")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>    
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1461,6 +2596,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1543,6 +2772,100 @@
                                                             </div>
                                                         </td>
                                                         <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']){
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']){
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']){
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        ?>
                                                         <td class="team-result__status" align='right' style="width: 22%">
                                                             <div class="team-meta" style="text-align: right;">
                                                                 <div class="team-meta__info" align='right'>
@@ -1634,12 +2957,12 @@
                                     $totaleTL   = @$parzialeTL;
                                     $TOTALE     = (@$parzialeSC + @$parzialeCO + @$parzialeCH + @$parzialeTL);
                                     
-                                    $TOTALEV1   = (@$parzVSC1);
-                                    $TOTALEN1   = (@$parzNSC1);
-                                    $TOTALEP1   = (@$parzPSC1);
-                                    $TOTALEV2   = (@$parzVSC2);
-                                    $TOTALEN2   = (@$parzNSC2);
-                                    $TOTALEP2   = (@$parzPSC2);
+                                    $TOTALEV1   = (@$parzVSC1 + @$parzVCO1 + @$parzVCH1 + @$parzVTL1);
+                                    $TOTALEN1   = (@$parzNSC1 + @$parzNCO1 + @$parzNCH1 + @$parzNTL1);
+                                    $TOTALEP1   = (@$parzPSC1 + @$parzPCO1 + @$parzPCH1 + @$parzPTL1);
+                                    $TOTALEV2   = (@$parzVSC2 + @$parzVCO2 + @$parzVCH2 + @$parzVTL2);
+                                    $TOTALEN2   = (@$parzNSC2 + @$parzNCO2 + @$parzNCH2 + @$parzNTL2);
+                                    $TOTALEP2   = (@$parzPSC2 + @$parzPCO2 + @$parzPCH2 + @$parzPTL2);
                                     ?>
                                     <section class="game-result__section">
                                         <header class="game-result__subheader card__subheader">
@@ -1712,9 +3035,14 @@
                                                         <div class="progress-stats">
                                                             <div class="progress__label" style="color: #009900;">V</div>
                                                             <div class="progress">
-                                                                <div class="progress__bar progress__bar-width-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <?php
+                                                                $percV1 = ($TOTALEV1 * 100);
+                                                                $percV1 = ($percV1 / $TOTALE);
+                                                                $percV1 = round($percV1);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar-width-<?= $percV1 ?>" role="progressbar" aria-valuenow="<?= $percV1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number"><?= $TOTALEV1 ?></div>
+                                                            <div class="progress__number" style="color: #009900;"><?= $TOTALEV1 ?></div>
                                                         </div>
                                                         <!-- Progress: Assists / End -->
 
@@ -1722,9 +3050,14 @@
                                                         <div class="progress-stats">
                                                             <div class="progress__label">N</div>
                                                             <div class="progress">
-                                                                <div class="progress__bar progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <?php
+                                                                $percN1 = ($TOTALEN1 * 100);
+                                                                $percN1 = ($percN1 / $TOTALE);
+                                                                $percN1 = round($percN1);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar-width-<?= $percN1 ?>" role="progressbar" aria-valuenow="<?= $percN1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number"><?= $TOTALEN1 ?></div>
+                                                            <div class="progress__number" style="color: #000000;"><?= $TOTALEN1 ?></div>
                                                         </div>
                                                         <!-- Progress: Fouls / End -->
 
@@ -1732,9 +3065,14 @@
                                                         <div class="progress-stats">
                                                             <div class="progress__label" style="color: #ff3d3d;">P</div>
                                                             <div class="progress">
-                                                                <div class="progress__bar progress__bar-width-30" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <?php
+                                                                $percP1 = ($TOTALEP1 * 100);
+                                                                $percP1 = ($percP1 / $TOTALE);
+                                                                $percP1 = round($percP1);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar-width-<?= $percP1 ?>" role="progressbar" aria-valuenow="<?= $percP1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number"><?= $TOTALEP1 ?></div>
+                                                            <div class="progress__number" style="color: #ff3d3d;"><?= $TOTALEP1 ?></div>
                                                         </div>
                                                         <!-- Progress: OFF / End -->
 
@@ -1766,9 +3104,14 @@
                                                         <div class="progress-stats">
                                                             <div class="progress__label" style="color: #009900;">V</div>
                                                             <div class="progress">
-                                                                <div class="progress__bar progress__bar--success progress__bar-width-80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <?php
+                                                                $percV2 = ($TOTALEV2 * 100);
+                                                                $percV2 = ($percV2 / $TOTALE);
+                                                                $percV2 = round($percV2);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-<?= $percV2 ?>" role="progressbar" aria-valuenow="<?= $percV2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number"><?= $TOTALEV2 ?></div>
+                                                            <div class="progress__number" style="color: #009900;"><?= $TOTALEV2 ?></div>
                                                         </div>
                                                         <!-- Progress: Assists / End -->
 
@@ -1776,9 +3119,14 @@
                                                         <div class="progress-stats">
                                                             <div class="progress__label">N</div>
                                                             <div class="progress">
-                                                                <div class="progress__bar progress__bar--success progress__bar-width-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <?php
+                                                                $percN2 = ($TOTALEN2 * 100);
+                                                                $percN2 = ($percN2 / $TOTALE);
+                                                                $percN2 = round($percN2);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-<?= $percN2 ?>" role="progressbar" aria-valuenow="<?= $percN2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number"><?= $TOTALEN2 ?></div>
+                                                            <div class="progress__number" style="color: #000000;"><?= $TOTALEN2 ?></div>
                                                         </div>
                                                         <!-- Progress: Fouls / End -->
 
@@ -1786,9 +3134,14 @@
                                                         <div class="progress-stats">
                                                             <div class="progress__label" style="color: #ff3d3d;">P</div>
                                                             <div class="progress">
-                                                                <div class="progress__bar progress__bar--success progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <?php
+                                                                $percP2 = ($TOTALEP2 * 100);
+                                                                $percP2 = ($percP2 / $TOTALE);
+                                                                $percP2 = round($percP2);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-<?= $percP2 ?>" role="progressbar" aria-valuenow="<?= $percP2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
-                                                            <div class="progress__number"><?= $TOTALEP2 ?></div>
+                                                            <div class="progress__number" style="color: #ff3d3d;"><?= $TOTALEP2 ?></div>
                                                         </div>
                                                         <!-- Progress: OFF / End -->
 
@@ -1806,20 +3159,27 @@
                                         <div class="game-result__content">
 
                                             <div class="spacer-sm"></div>
-
+                                            
+                                            <?php
+                                                $TotaleVittorie = ($TOTALEV1 + $TOTALEV2);
+                                                $percVittorie1 = ($TOTALEV1 * 100);
+                                                $percVittorie1 = round($percVittorie1 / $TotaleVittorie);
+                                                $percVittorie2 = ($TOTALEV2 * 100);
+                                                $percVittorie2 = round($percVittorie2 / $TotaleVittorie);
+                                            ?>
                                             <!-- Progress: Ball Posession -->
                                             <div class="progress-double-wrapper">
                                                 <div class="progress-inner-holder">
-                                                    <div class="progress__digit progress__digit--left progress__digit--highlight">62%</div>
+                                                    <div class="progress__digit progress__digit--left progress__digit--highlight"><?= $percVittorie1 ?>%</div>
                                                     <div class="progress__double">
                                                         <div class="progress progress--lg">
-                                                            <div class="progress__bar progress__bar-width-60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            <div class="progress__bar progress__bar-width-<?= $percVittorie1 ?>" role="progressbar" aria-valuenow="<?= $percVittorie1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
                                                         <div class="progress progress--lg">
-                                                            <div class="progress__bar progress__bar--success progress__bar-width-40" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            <div class="progress__bar progress__bar--success progress__bar-width-<?= $percVittorie2 ?>" role="progressbar" aria-valuenow="<?= $percVittorie2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
                                                     </div>
-                                                    <div class="progress__digit progress__digit--right progress__digit--highlight">38%</div>
+                                                    <div class="progress__digit progress__digit--right progress__digit--highlight"><?= $percVittorie2 ?>%</div>
                                                 </div>
                                             </div>
                                             <!-- Progress: Ball Posession / End -->

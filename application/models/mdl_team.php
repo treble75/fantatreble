@@ -2412,6 +2412,12 @@ class mdl_team extends CI_Model {
     }
     
     private function getUtenteIdSquadra($squadra, $stagione) {
+        $this->db->select('nome');
+        $this->db->where('squadra', $squadra);
+        $this->db->from('tb_all_teams');
+        
+        $nm_utente = $this->db->get()->row('nome');
+        
         $this->db->select('cognome');
         $this->db->where('squadra', $squadra);
         $this->db->from('tb_all_teams');
@@ -2419,6 +2425,7 @@ class mdl_team extends CI_Model {
         $cg_utente = $this->db->get()->row('cognome');
         
         $this->db->select('id_squadra');
+        $this->db->where('nome', $nm_utente);
         $this->db->where('cognome', $cg_utente);
         $this->db->where('stagione', $stagione);
         $this->db->from('tb_all_teams');
