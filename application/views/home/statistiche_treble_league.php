@@ -261,6 +261,10 @@
                 $parzVTL2 = 0;
                 $parzNTL2 = 0;
                 $parzPTL2 = 0;
+                $golSC1   = 0;
+                $golSC2   = 0;
+                $golCO1   = 0;
+                $golCO2   = 0;
 
                 if ($check == 1) {
                     ?>
@@ -268,7 +272,7 @@
                     <!-- Related Products -->
                     <div class="card card--clean">
                         <header class="card__header">
-                            <h4>Precedenti storici fra <span style='color: #1892ED;'><?= @$squadra1 ?></span> e <span style='color: #1892ED;'><?= @$squadra2 ?></span> </h4>
+                            <h4>Precedenti storici fra <span style="color: #1892ED;"><?= @$squadra1 ?></span> e <span style="color: #9edb00;"><?= @$squadra2 ?></span> </h4>
                         </header>
                         <div class="card__content">
 
@@ -328,6 +332,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -339,6 +344,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -350,6 +356,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -361,6 +368,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -374,6 +382,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -385,6 +394,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -396,6 +406,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -407,6 +418,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -502,6 +514,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -513,6 +526,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -524,6 +538,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -535,6 +550,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -548,6 +564,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -559,6 +576,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -570,6 +588,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -581,6 +600,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -1026,6 +1046,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1037,6 +1058,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1048,6 +1070,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1059,6 +1082,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -1072,6 +1096,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1083,6 +1108,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1094,6 +1120,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1105,6 +1132,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC2 += 1;
                                                                 }
+                                                                $golSC2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -1200,6 +1228,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1211,6 +1240,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1222,6 +1252,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1233,6 +1264,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -1246,6 +1278,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1257,6 +1290,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1268,6 +1302,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1279,6 +1314,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -1728,6 +1764,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1739,6 +1776,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1750,6 +1788,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1761,6 +1800,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -1774,6 +1814,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1785,6 +1826,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1796,6 +1838,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO1 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1807,6 +1850,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO2 += 1;
                                                                 }
+                                                                $golCO2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -2962,6 +3006,9 @@
                                             $TOTALEV2 = (@$parzVSC2 + @$parzVCO2 + @$parzVCH2 + @$parzVTL2);
                                             $TOTALEN2 = (@$parzNSC2 + @$parzNCO2 + @$parzNCH2 + @$parzNTL2);
                                             $TOTALEP2 = (@$parzPSC2 + @$parzPCO2 + @$parzPCH2 + @$parzPTL2);
+                                            
+                                            $GOLTOTALI1 = (@$golSC1 + @$golCO1);
+                                            $GOLTOTALI2 = (@$golSC2 + @$golCO2);
                                             ?>
                                 <section class="game-result__section">
                                     <header class="game-result__subheader card__subheader">
@@ -3221,7 +3268,7 @@
                     <!-- Widget: Featured Player - Alternative without Image -->
                     <aside class="widget card widget--sidebar widget-player widget-player--alt">
                         <div class="widget__title card__header">
-                            <h4>Player Main Stats</h4>
+                            <h4>Riepilogo Partite</h4>
                         </div>
                         <div class="widget__content-secondary">
 
@@ -3232,19 +3279,19 @@
                                     <div class="widget-player__details__item">
                                         <div class="widget-player__details-desc-wrapper">
                                             <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Goals</span>
-                                                <span class="widget-player__details-desc">In this league</span>
+                                                <span class="widget-player__details-label" style='color: #1892ED;'>Gol Fatti</span>
+                                                <span class="widget-player__details-desc" >Totali</span>
                                             </span>
-                                            <span class="widget-player__details-value">24</span>
+                                            <span class="widget-player__details-value"><?= @$GOLTOTALI1 ?></span>
                                         </div>
                                     </div>
                                     <div class="widget-player__details__item">
                                         <div class="widget-player__details-desc-wrapper">
                                             <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Goals</span>
-                                                <span class="widget-player__details-desc">In his career</span>
+                                                <span class="widget-player__details-label" style="color: #9edb00;">Gol Fatti</span>
+                                                <span class="widget-player__details-desc">Totali</span>
                                             </span>
-                                            <span class="widget-player__details-value">104</span>
+                                            <span class="widget-player__details-value"><?= @$GOLTOTALI2 ?></span>
                                         </div>
                                     </div>
                                 </div>
@@ -3253,19 +3300,19 @@
                                     <div class="widget-player__details__item">
                                         <div class="widget-player__details-desc-wrapper">
                                             <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Assists</span>
-                                                <span class="widget-player__details-desc">In this league</span>
+                                                <span class="widget-player__details-label" style='color: #1892ED;'>Gol Subiti</span>
+                                                <span class="widget-player__details-desc">Totali</span>
                                             </span>
-                                            <span class="widget-player__details-value">86</span>
+                                            <span class="widget-player__details-value"><?= @$GOLTOTALI2 ?></span>
                                         </div>
                                     </div>
                                     <div class="widget-player__details__item">
                                         <div class="widget-player__details-desc-wrapper">
                                             <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Assists</span>
-                                                <span class="widget-player__details-desc">In his career</span>
+                                                <span class="widget-player__details-label" style="color: #9edb00;">Gol Subiti</span>
+                                                <span class="widget-player__details-desc">Totali</span>
                                             </span>
-                                            <span class="widget-player__details-value">350</span>
+                                            <span class="widget-player__details-value"><?= @$GOLTOTALI1 ?></span>
                                         </div>
                                     </div>
                                 </div>
