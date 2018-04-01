@@ -3061,8 +3061,9 @@
                                                     if ($radio == "squadra"){
                                                         if (file_exists("images/albo/logo/" . $this->mdl_utenti->getImmagine($team1, $radio))) {
                                                             $filename = $this->mdl_utenti->getImmagine($team1, $radio);
-                                                        } else
+                                                        } else {
                                                             $filename = "dummy.png";
+                                                        }
                                                         ?>
                                                         <img src="<?= base_url('/') ?>images/albo/logo/<?= $filename ?>" alt="">
                                                     <?php
@@ -3070,8 +3071,9 @@
                                                     if ($radio == "utente"){
                                                         if (file_exists("images/albo/utenti/" . $this->mdl_utenti->getImmagine($team1, $radio))) {
                                                             $filename = $this->mdl_utenti->getImmagine($team1, $radio);
-                                                        } else
+                                                        } else {
                                                             $filename = "dummy.png";
+                                                        }
                                                         ?>
                                                         <img src="<?= base_url('/') ?>images/albo/utenti/<?= $filename ?>" alt="">
                                                     <?php
@@ -3091,8 +3093,9 @@
                                                     if ($radio == "squadra"){
                                                         if (file_exists("images/albo/logo/" . $this->mdl_utenti->getImmagine($team2, $radio))) {
                                                             $filename = $this->mdl_utenti->getImmagine($team2, $radio);
-                                                        } else
+                                                        } else {
                                                             $filename = "dummy.png";
+                                                        }
                                                         ?>
                                                         <img src="<?= base_url('/') ?>images/albo/logo/<?= $filename ?>" alt="">
                                                     <?php
@@ -3100,8 +3103,9 @@
                                                     if ($radio == "utente"){
                                                         if (file_exists("images/albo/utenti/" . $this->mdl_utenti->getImmagine($team2, $radio))) {
                                                             $filename = $this->mdl_utenti->getImmagine($team2, $radio);
-                                                        } else
+                                                        } else {
                                                             $filename = "dummy.png";
+                                                        }
                                                         ?>
                                                         <img src="<?= base_url('/') ?>images/albo/utenti/<?= $filename ?>" alt="">
                                                     <?php
