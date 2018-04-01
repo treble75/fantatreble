@@ -261,10 +261,14 @@
                 $parzVTL2 = 0;
                 $parzNTL2 = 0;
                 $parzPTL2 = 0;
-                $golSC1   = 0;
-                $golSC2   = 0;
-                $golCO1   = 0;
-                $golCO2   = 0;
+                $golSC1 = 0;
+                $golSC2 = 0;
+                $golCO1 = 0;
+                $golCO2 = 0;
+                $golCH1 = 0;
+                $golCH2 = 0;
+                $golTL1 = 0;
+                $golTL2 = 0;
 
                 if ($check == 1) {
                     ?>
@@ -344,7 +348,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
-                                                                $golSC2 += $row['risultato2'];
+                                                                $golSC1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -356,7 +360,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
-                                                                $golSC1 += $row['risultato1'];
+                                                                $golSC2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -394,7 +398,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
-                                                                $golSC2 += $row['risultato2'];
+                                                                $golSC1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -406,7 +410,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
-                                                                $golSC1 += $row['risultato1'];
+                                                                $golSC2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -526,7 +530,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
-                                                                $golCO2 += $row['risultato2'];
+                                                                $golCO1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -538,7 +542,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
-                                                                $golCO1 += $row['risultato1'];
+                                                                $golCO2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -576,7 +580,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
-                                                                $golCO2 += $row['risultato2'];
+                                                                $golCO1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -588,7 +592,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
-                                                                $golCO1 += $row['risultato1'];
+                                                                $golCO2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -696,6 +700,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -707,6 +712,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -718,6 +724,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -729,6 +736,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -742,6 +750,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -753,6 +762,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -764,6 +774,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -775,6 +786,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -870,6 +882,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -881,6 +894,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -892,6 +906,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -903,6 +918,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -916,6 +932,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -927,6 +944,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2017-18")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -938,6 +956,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2017-18")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -949,6 +968,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -1058,7 +1078,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
-                                                                $golSC2 += $row['risultato2'];
+                                                                $golSC1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1070,7 +1090,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
-                                                                $golSC1 += $row['risultato1'];
+                                                                $golSC2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1108,7 +1128,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPSC1 += 1;
                                                                 }
-                                                                $golSC2 += $row['risultato2'];
+                                                                $golSC1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1120,7 +1140,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPSC2 += 1;
                                                                 }
-                                                                $golSC1 += $row['risultato1'];
+                                                                $golSC2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1240,7 +1260,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
-                                                                $golCO2 += $row['risultato2'];
+                                                                $golCO1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1252,7 +1272,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
-                                                                $golCO1 += $row['risultato1'];
+                                                                $golCO2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1290,7 +1310,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
-                                                                $golCO2 += $row['risultato2'];
+                                                                $golCO1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1302,7 +1322,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
-                                                                $golCO1 += $row['risultato1'];
+                                                                $golCO2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1412,6 +1432,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1423,6 +1444,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1434,6 +1456,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1445,6 +1468,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -1458,6 +1482,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1469,6 +1494,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1480,6 +1506,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1491,6 +1518,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -1588,6 +1616,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1599,6 +1628,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1610,6 +1640,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1621,6 +1652,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -1634,6 +1666,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1645,6 +1678,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2016-17")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1656,6 +1690,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2016-17")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1667,6 +1702,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -1776,7 +1812,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
-                                                                $golCO2 += $row['risultato2'];
+                                                                $golCO1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1788,7 +1824,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
-                                                                $golCO1 += $row['risultato1'];
+                                                                $golCO2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1826,7 +1862,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCO1 += 1;
                                                                 }
-                                                                $golCO2 += $row['risultato2'];
+                                                                $golCO1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1838,7 +1874,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCO2 += 1;
                                                                 }
-                                                                $golCO1 += $row['risultato1'];
+                                                                $golCO2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1948,6 +1984,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1959,6 +1996,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -1970,6 +2008,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -1981,6 +2020,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -1994,6 +2034,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2005,6 +2046,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH1 += 1;
                                                                 }
+                                                                $golCH1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -2016,6 +2058,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2027,6 +2070,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPCH2 += 1;
                                                                 }
+                                                                $golCH2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -2124,6 +2168,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2135,6 +2180,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -2146,6 +2192,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2157,6 +2204,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -2170,6 +2218,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2181,6 +2230,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2015-16")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -2192,6 +2242,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2015-16")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2203,6 +2254,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -2300,6 +2352,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2014-15")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2311,6 +2364,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2014-15")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -2322,6 +2376,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2014-15")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2333,6 +2388,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -2346,6 +2402,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2014-15")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2357,6 +2414,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2014-15")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -2368,6 +2426,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2014-15")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2379,6 +2438,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         ?>
@@ -2476,6 +2536,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2487,6 +2548,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2013-14")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -2498,6 +2560,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2509,6 +2572,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato2'];
                                                             }
                                                         }
                                                         if ($radio == "utente") {
@@ -2522,6 +2586,7 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato1'];
                                                             }
                                                             if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14")) {
                                                                 if ($row['risultato2'] > $row['risultato1']) {
@@ -2533,6 +2598,7 @@
                                                                 if ($row['risultato2'] < $row['risultato1']) {
                                                                     $parzPTL1 += 1;
                                                                 }
+                                                                $golTL1 += $row['risultato2'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2013-14")) {
                                                                 if ($row['risultato1'] > $row['risultato2']) {
@@ -2544,908 +2610,965 @@
                                                                 if ($row['risultato1'] < $row['risultato2']) {
                                                                     $parzPTL2 += 1;
                                                                 }
+                                                                $golTL2 += $row['risultato1'];
                                                             }
                                                             if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14")) {
-                                                                if ($row['risultato2'] > $row['risultato1']) {$parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL2 += 1;
                                                                 }
-                                                                ?>    
-                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                <div class="team-meta" style="text-align: right;">
-                                                    <div class="team-meta__info" align='right'>
-                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14") ?></h6>
-                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14") ?></span>
-                                                    </div>
-                                                    <figure class="team-meta__logoCalendar">
-                                                                            <?php if ($row['id1'] != $row['id2']) { ?>
-                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                            <?php } ?>
-                                                    </figure>
-                                                </div>
-                                            </td>
-                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                    <figure class="team-meta__logoCalendar">
-                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                    </figure>
-
-                                            </td>
-                                        </tr>
-
-                                        <!-- Generazione Calendario / END  --->
-                                                            <?php
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato2'];
+                                                            }
                                                         }
-                                                        ?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
-
-                                        <?php
-                                    }
-                                    ?>
-
-                                    <?php
-                                    if (is_array(@$precedenti2012_13) && count(@$precedenti2012_13)) {
-                                        $parzialeTL += count(@$precedenti2012_13);
-                                        ?>
-                        <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
-                        <div class="card card--has-table">
-
-                            <div class="table-responsive">
-                                <table class="table table-hover team-result">
-                                    <thead>
-                                        <tr>
-                                            <th class="team-result__date" style="width: 14%">Data</th>
-                                            <th class="team-result__status" style="width: 14%">Stagione</th>
-                                            <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                            <th class="team-result__score" style="width: 12%">Risultato</th>
-                                            <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                            <th class="team-result__fouls" style="width: 16%">Competizione</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <!-- Generazione Calendario  --->
-
-                                                        <?php
-                                                        foreach ($precedenti2012_13 as $row) {
-                                                            ?>
-
-                                        <tr>
-                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                            <td class="team-result__status" style="width: 14%">2012-13</td>
-                                            <td class="team-result__status" style="width: 22%">
-                                                <div class="team-meta">
-                                                    <figure class="team-meta__logoCalendar">
-                                                                            <?php if ($row['id1'] != $row['id2']) { ?>
-                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                            <?php } ?>
-                                                    </figure>
-                                                    <div class="team-meta__info">
-                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13") ?></h6>
-                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13") ?></span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                                <?php
-                                                                if ($radio == "squadra") {
-                                                                    if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                }
-                                                                if ($radio == "utente") {
-                                                                    if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                }
-                                                                ?>
-                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                <div class="team-meta" style="text-align: right;">
-                                                    <div class="team-meta__info" align='right'>
-                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13") ?></h6>
-                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13") ?></span>
-                                                    </div>
-                                                    <figure class="team-meta__logoCalendar">
-                                                                            <?php if ($row['id1'] != $row['id2']) { ?>
-                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                            <?php } ?>
-                                                    </figure>
-                                                </div>
-                                            </td>
-                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                    <figure class="team-meta__logoCalendar">
-                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                    </figure>
-
-                                            </td>
-                                        </tr>
-
-                                        <!-- Generazione Calendario / END  --->
-                                                            <?php
-                                                        }
-                                                        ?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
-
-                                        <?php
-                                    }
-                                    ?>
-
-                                    <?php
-                                    if (is_array(@$precedenti2011_12) && count(@$precedenti2011_12)) {
-                                        $parzialeTL += count(@$precedenti2011_12);
-                                        ?>
-                        <!-- PARTITE DEI PRECEDENTI STORICI 2011-12 -->
-                        <div class="card card--has-table">
-
-                            <div class="table-responsive">
-                                <table class="table table-hover team-result">
-                                    <thead>
-                                        <tr>
-                                            <th class="team-result__date" style="width: 14%">Data</th>
-                                            <th class="team-result__status" style="width: 14%">Stagione</th>
-                                            <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                            <th class="team-result__score" style="width: 12%">Risultato</th>
-                                            <th class="team-result__status" style="width: 22%">&nbsp;</th>
-                                            <th class="team-result__fouls" style="width: 16%">Competizione</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <!-- Generazione Calendario  --->
-
-                                                        <?php
-                                                        foreach ($precedenti2011_12 as $row) {
-                                                            ?>
-
-                                        <tr>
-                                            <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                            <td class="team-result__status" style="width: 14%">2011-12</td>
-                                            <td class="team-result__status" style="width: 22%">
-                                                <div class="team-meta">
-                                                    <figure class="team-meta__logoCalendar">
-                                                                            <?php if ($row['id1'] != $row['id2']) { ?>
-                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                            <?php } ?>
-                                                    </figure>
-                                                    <div class="team-meta__info">
-                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12") ?></h6>
-                                                        <span class="team-meta__place"><?= $this->mdl_utenti->accuracy($row['id1'], "2011-12") ?></span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
-                                                                <?php
-                                                                if ($radio == "squadra") {
-                                                                    if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                }
-                                                                if ($radio == "utente") {
-                                                                    if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL1 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL1 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12")) {
-                                                                        if ($row['risultato1'] > $row['risultato2']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] == $row['risultato2']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato1'] < $row['risultato2']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                    if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12")) {
-                                                                        if ($row['risultato2'] > $row['risultato1']) {
-                                                                            $parzVTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] == $row['risultato1']) {
-                                                                            $parzNTL2 += 1;
-                                                                        }
-                                                                        if ($row['risultato2'] < $row['risultato1']) {
-                                                                            $parzPTL2 += 1;
-                                                                        }
-                                                                    }
-                                                                }
-                                                                ?>
-                                            <td class="team-result__status" align='right' style="width: 22%">
-                                                <div class="team-meta" style="text-align: right;">
-                                                    <div class="team-meta__info" align='right'>
-                                                        <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12") ?></h6>
-                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12") ?></span>
-                                                    </div>
-                                                    <figure class="team-meta__logoCalendar">
-                                                                            <?php if ($row['id1'] != $row['id2']) { ?>
-                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
-                                                                            <?php } ?>
-                                                    </figure>
-                                                </div>
-                                            </td>
-                                            <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
-
-                                                    <figure class="team-meta__logoCalendar">
-                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                    </figure>
-
-                                            </td>
-                                        </tr>
-
-                                        <!-- Generazione Calendario / END  --->
-                                                            <?php
-                                                        }
-                                                        ?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <!-- PARTITE DEI PRECEDENTI STORICI 2011-12  / End -->
-
-                                        <?php
-                                    }
-                                    ?>
-
-                    </div>
-                </div>
-                <!-- Related Products / End -->
-
-
-                <!-- Statistiche precedenti -->
-
-                <!-- Content -->
-                <div class="content col-md-8">
-
-                    <!-- Game Scoreboard -->
-                    <div class="card">
-                        <header class="card__header card__header--has-btn">
-                            <h4>Statistiche precedenti storici</h4>
-                        </header>
-                        <div class="card__content">
-
-                            <!-- Game Result -->
-                            <div class="game-result">
-                                <section class="game-result__section pt-0">
-                                    <div class="game-result__content">
-
-                                        <!-- 1st Team -->
-                                        <div class="game-result__team game-result__team--first">
-                                            <figure class="game-result__team-logo">
-                                                <img src="<?= base_url('/') ?>images/albo/utenti/Frioni.png" alt="">
-                                            </figure>
-                                            <div class="game-result__team-info">
-                                                <h5 class="game-result__team-name" style="color: #1892ED;"><?= $squadra1 ?></h5>
-                                            </div>
-                                        </div>
-                                        <!-- 1st Team / End -->
-
-                                        <!-- 2nd Team -->
-                                        <div class="game-result__team game-result__team--second">
-                                            <figure class="game-result__team-logo">
-                                                <img src="<?= base_url('/') ?>images/albo/utenti/Guerrieri.png" alt="">
-                                            </figure>
-                                            <div class="game-result__team-info">
-                                                <h5 class="game-result__team-name" style="color: #9edb00;"><?= $squadra2 ?></h5>
-                                            </div>
-                                        </div>
-                                        <!-- 2nd Team / End -->
-                                    </div>
-                                </section>
-                                            <?php
-                                            //Calcolo totali incontri precedenti
-                                            $totaleSC = @$parzialeSC;
-                                            $totaleCO = @$parzialeCO;
-                                            $totaleCH = @$parzialeCH;
-                                            $totaleTL = @$parzialeTL;
-                                            $TOTALE = (@$parzialeSC + @$parzialeCO + @$parzialeCH + @$parzialeTL);
-
-                                            $TOTALEV1 = (@$parzVSC1 + @$parzVCO1 + @$parzVCH1 + @$parzVTL1);
-                                            $TOTALEN1 = (@$parzNSC1 + @$parzNCO1 + @$parzNCH1 + @$parzNTL1);
-                                            $TOTALEP1 = (@$parzPSC1 + @$parzPCO1 + @$parzPCH1 + @$parzPTL1);
-                                            $TOTALEV2 = (@$parzVSC2 + @$parzVCO2 + @$parzVCH2 + @$parzVTL2);
-                                            $TOTALEN2 = (@$parzNSC2 + @$parzNCO2 + @$parzNCH2 + @$parzNTL2);
-                                            $TOTALEP2 = (@$parzPSC2 + @$parzPCO2 + @$parzPCH2 + @$parzPTL2);
-                                            
-                                            $GOLTOTALI1 = (@$golSC1 + @$golCO1);
-                                            $GOLTOTALI2 = (@$golSC2 + @$golCO2);
-                                            ?>
-                                <section class="game-result__section">
-                                    <header class="game-result__subheader card__subheader">
-                                    </header>
-                                    <div class="game-result__content mb-0">
-                                        <div class="game-result__stats">
-                                            <div class="row">
-                                                <div class="col-xs-12 col-md-6 col-md-push-3">
-                                                    <div class="game-result__table-stats game-result__table-stats--soccer">
-                                                        <table class="table table-wrap-bordered table-thead-color">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th colspan="3">Precedenti</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td><?= $TOTALE ?></td>
-                                                                    <td>Totali</td>
-                                                                    <td><?= $TOTALE ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><?= $totaleTL ?></td>
-                                                                    <td>Treble League</td>
-                                                                    <td><?= $totaleTL ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><?= $totaleCH ?></td>
-                                                                    <td>Champions League</td>
-                                                                    <td><?= $totaleCH ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><?= $totaleCO ?></td>
-                                                                    <td>Coppa Treble</td>
-                                                                    <td><?= $totaleCO ?></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><?= $totaleSC ?></td>
-                                                                    <td>SuperCoppa Treble</td>
-                                                                    <td><?= $totaleSC ?></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 col-md-pull-6 game-result__stats-team-1">
-
-                                                    <div class="row">
-                                                        <div class="col-xs-6">
-                                                            <div class="circular circular--size-70">
-                                                                            <?php
-                                                                            $positivi1      = ($TOTALEV1 + $TOTALEN1);
-                                                                            $percPositivi1   = (100 * $positivi1);
-                                                                            $percPositivi1   = ($percPositivi1 / $TOTALE);
-                                                                            ?>
-                                                                <div class="circular__bar" data-percent="<?= number_format($percPositivi1, 1) ?>">
-                                                                    <span class="circular__percents"><?= number_format($percPositivi1, 1) ?><small>%</small></span>
+                                                        ?>    
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2013-14") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2013-14") ?></span>
                                                                 </div>
-                                                                <span class="circular__label">Risultati<br> Positivi</span>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <div class="circular circular--size-70">
-                                                                            <?php
-                                                                            $percNegativi1   = (100 * $TOTALEP1);
-                                                                            $percNegativi1   = ($percNegativi1 / $TOTALE);
-                                                                            ?>
-                                                                <div class="circular__bar" data-percent="<?= number_format($percNegativi1, 1) ?>">
-                                                                    <span class="circular__percents"><?= number_format($percNegativi1, 1) ?><small>%</small></span>
-                                                                </div>
-                                                                <span class="circular__label">Sconfitte</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
 
-                                                    <div class="spacer"></div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
 
-                                                    <!-- Progress: Assists -->
-                                                    <div class="progress-stats">
-                                                        <div class="progress__label" style="color: #009900;">V</div>
-                                                        <div class="progress">
-                                                                        <?php
-                                                                        $percV1 = ($TOTALEV1 * 100);
-                                                                        $percV1 = ($percV1 / $TOTALE);
-                                                                        $percV1 = round($percV1);
-                                                                        ?>
-                                                            <div class="progress__bar progress__bar-width-<?= $percV1 ?>" role="progressbar" aria-valuenow="<?= $percV1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                        <div class="progress__number" style="color: #009900;"><?= $TOTALEV1 ?></div>
-                                                    </div>
-                                                    <!-- Progress: Assists / End -->
+                                                        </td>
+                                                    </tr>
 
-                                                    <!-- Progress: Fouls -->
-                                                    <div class="progress-stats">
-                                                        <div class="progress__label">N</div>
-                                                        <div class="progress">
-                                                                        <?php
-                                                                        $percN1 = ($TOTALEN1 * 100);
-                                                                        $percN1 = ($percN1 / $TOTALE);
-                                                                        $percN1 = round($percN1);
-                                                                        ?>
-                                                            <div class="progress__bar progress__bar-width-<?= $percN1 ?>" role="progressbar" aria-valuenow="<?= $percN1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                        <div class="progress__number" style="color: #000000;"><?= $TOTALEN1 ?></div>
-                                                    </div>
-                                                    <!-- Progress: Fouls / End -->
-
-                                                    <!-- Progress: OFF -->
-                                                    <div class="progress-stats">
-                                                        <div class="progress__label" style="color: #ff3d3d;">P</div>
-                                                        <div class="progress">
-                                                                        <?php
-                                                                        $percP1 = ($TOTALEP1 * 100);
-                                                                        $percP1 = ($percP1 / $TOTALE);
-                                                                        $percP1 = round($percP1);
-                                                                        ?>
-                                                            <div class="progress__bar progress__bar-width-<?= $percP1 ?>" role="progressbar" aria-valuenow="<?= $percP1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                        <div class="progress__number" style="color: #ff3d3d;"><?= $TOTALEP1 ?></div>
-                                                    </div>
-                                                    <!-- Progress: OFF / End -->
-
-                                                </div>
-                                                <div class="col-xs-6 col-md-3 game-result__stats-team-2">
-
-                                                    <div class="row">
-                                                        <div class="col-xs-6">
-                                                            <div class="circular circular--size-70">
-                                                                            <?php
-                                                                            $positivi2      = ($TOTALEV2 + $TOTALEN2);
-                                                                            $percPositivi2   = (100 * $positivi2);
-                                                                            $percPositivi2   = ($percPositivi2 / $TOTALE);
-                                                                            ?>
-                                                                <div class="circular__bar" data-percent="<?= number_format($percPositivi2, 1) ?>" data-bar-color="#9fe900">
-                                                                    <span class="circular__percents"><?= number_format($percPositivi2, 1) ?><small>%</small></span>
-                                                                </div>
-                                                                <span class="circular__label">Risultati<br> Positivi</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <div class="circular circular--size-70">
-                                                                            <?php
-                                                                            $percNegativi2   = (100 * $TOTALEP2);
-                                                                            $percNegativi2   = ($percNegativi2 / $TOTALE);
-                                                                            ?>
-                                                                <div class="circular__bar" data-percent="<?= number_format($percNegativi2, 1) ?>" data-bar-color="#9fe900">
-                                                                    <span class="circular__percents"><?= number_format($percNegativi2, 1) ?><small>%</small></span>
-                                                                </div>
-                                                                <span class="circular__label">Sconfitte</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="spacer"></div>
-
-                                                    <!-- Progress: Assists -->
-                                                    <div class="progress-stats">
-                                                        <div class="progress__label" style="color: #009900;">V</div>
-                                                        <div class="progress">
-                                                                        <?php
-                                                                        $percV2 = ($TOTALEV2 * 100);
-                                                                        $percV2 = ($percV2 / $TOTALE);
-                                                                        $percV2 = round($percV2);
-                                                                        ?>
-                                                            <div class="progress__bar progress__bar--success progress__bar-width-<?= $percV2 ?>" role="progressbar" aria-valuenow="<?= $percV2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                        <div class="progress__number" style="color: #009900;"><?= $TOTALEV2 ?></div>
-                                                    </div>
-                                                    <!-- Progress: Assists / End -->
-
-                                                    <!-- Progress: Fouls -->
-                                                    <div class="progress-stats">
-                                                        <div class="progress__label">N</div>
-                                                        <div class="progress">
-                                                                        <?php
-                                                                        $percN2 = ($TOTALEN2 * 100);
-                                                                        $percN2 = ($percN2 / $TOTALE);
-                                                                        $percN2 = round($percN2);
-                                                                        ?>
-                                                            <div class="progress__bar progress__bar--success progress__bar-width-<?= $percN2 ?>" role="progressbar" aria-valuenow="<?= $percN2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                        <div class="progress__number" style="color: #000000;"><?= $TOTALEN2 ?></div>
-                                                    </div>
-                                                    <!-- Progress: Fouls / End -->
-
-                                                    <!-- Progress: OFF -->
-                                                    <div class="progress-stats">
-                                                        <div class="progress__label" style="color: #ff3d3d;">P</div>
-                                                        <div class="progress">
-                                                                        <?php
-                                                                        $percP2 = ($TOTALEP2 * 100);
-                                                                        $percP2 = ($percP2 / $TOTALE);
-                                                                        $percP2 = round($percP2);
-                                                                        ?>
-                                                            <div class="progress__bar progress__bar--success progress__bar-width-<?= $percP2 ?>" role="progressbar" aria-valuenow="<?= $percP2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                        <div class="progress__number" style="color: #ff3d3d;"><?= $TOTALEP2 ?></div>
-                                                    </div>
-                                                    <!-- Progress: OFF / End -->
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <!-- Ball Posession -->
-                                <section class="game-result__section">
-                                    <header class="game-result__subheader card__subheader">
-                                        <h5 class="game-result__subtitle">Percentuale Vittorie</h5>
-                                    </header>
-                                    <div class="game-result__content">
-
-                                        <div class="spacer-sm"></div>
-
+                                                    <!-- Generazione Calendario / END  --->
                                                     <?php
-                                                    $TotaleVittorie = ($TOTALEV1 + $TOTALEV2);
-                                                    $percVittorie1 = ($TOTALEV1 * 100);
-                                                    $percVittorie1 = round($percVittorie1 / $TotaleVittorie);
-                                                    $percVittorie2 = ($TOTALEV2 * 100);
-                                                    $percVittorie2 = round($percVittorie2 / $TotaleVittorie);
-                                                    ?>
-                                        <!-- Progress: Ball Posession -->
-                                        <div class="progress-double-wrapper">
-                                            <div class="progress-inner-holder">
-                                                <div class="progress__digit progress__digit--left progress__digit--highlight"><?= $percVittorie1 ?>%</div>
-                                                <div class="progress__double">
-                                                    <div class="progress progress--lg">
-                                                        <div class="progress__bar progress__bar-width-<?= $percVittorie1 ?>" role="progressbar" aria-valuenow="<?= $percVittorie1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="progress progress--lg">
-                                                        <div class="progress__bar progress__bar--success progress__bar-width-<?= $percVittorie2 ?>" role="progressbar" aria-valuenow="<?= $percVittorie2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="progress__digit progress__digit--right progress__digit--highlight"><?= $percVittorie2 ?>%</div>
-                                            </div>
-                                        </div>
-                                        <!-- Progress: Ball Posession / End -->
+                                                }
+                                                ?>
 
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </section>
-                                <!-- Ball Posession / End -->
 
-                            </div>
-                            <!-- Game Timeline / End -->
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
+
+                                <?php
+                            }
+                            ?>
+
+                            <?php
+                            if (is_array(@$precedenti2012_13) && count(@$precedenti2012_13)) {
+                                $parzialeTL += count(@$precedenti2012_13);
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2012_13 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2012-13</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato2'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato2'];
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato2'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2012-13")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato2'];
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2012-13") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2012-13") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2012-13  / End -->
+
+                                <?php
+                            }
+                            ?>
+
+                            <?php
+                            if (is_array(@$precedenti2011_12) && count(@$precedenti2011_12)) {
+                                $parzialeTL += count(@$precedenti2011_12);
+                                ?>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2011-12 -->
+                                <div class="card card--has-table">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-hover team-result">
+                                            <thead>
+                                                <tr>
+                                                    <th class="team-result__date" style="width: 14%">Data</th>
+                                                    <th class="team-result__status" style="width: 14%">Stagione</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__score" style="width: 12%">Risultato</th>
+                                                    <th class="team-result__status" style="width: 22%">&nbsp;</th>
+                                                    <th class="team-result__fouls" style="width: 16%">Competizione</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <!-- Generazione Calendario  --->
+
+                                                <?php
+                                                foreach ($precedenti2011_12 as $row) {
+                                                    ?>
+
+                                                    <tr>
+                                                        <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
+                                                        <td class="team-result__status" style="width: 14%">2011-12</td>
+                                                        <td class="team-result__status" style="width: 22%">
+                                                            <div class="team-meta">
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                                <div class="team-meta__info">
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12") ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__score" style="font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
+                                                        <?php
+                                                        if ($radio == "squadra") {
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato2'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato2'];
+                                                            }
+                                                        }
+                                                        if ($radio == "utente") {
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra1 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL1 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL1 += 1;
+                                                                }
+                                                                $golTL1 += $row['risultato2'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id1'], "2011-12")) {
+                                                                if ($row['risultato1'] > $row['risultato2']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] == $row['risultato2']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato1'] < $row['risultato2']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato1'];
+                                                            }
+                                                            if ($squadra2 == $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12")) {
+                                                                if ($row['risultato2'] > $row['risultato1']) {
+                                                                    $parzVTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] == $row['risultato1']) {
+                                                                    $parzNTL2 += 1;
+                                                                }
+                                                                if ($row['risultato2'] < $row['risultato1']) {
+                                                                    $parzPTL2 += 1;
+                                                                }
+                                                                $golTL2 += $row['risultato2'];
+                                                            }
+                                                        }
+                                                        ?>
+                                                        <td class="team-result__status" align='right' style="width: 22%">
+                                                            <div class="team-meta" style="text-align: right;">
+                                                                <div class="team-meta__info" align='right'>
+                                                                    <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadraPrecedente($row['id2'], "2011-12") ?></h6>
+                                                                    <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id2'], "2011-12") ?></span>
+                                                                </div>
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <?php if ($row['id1'] != $row['id2']) { ?>
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                    <?php } ?>
+                                                                </figure>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
+
+                                                                <figure class="team-meta__logoCalendar">
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
+                                                                </figure>
+
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Generazione Calendario / END  --->
+                                                    <?php
+                                                }
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <!-- PARTITE DEI PRECEDENTI STORICI 2011-12  / End -->
+
+                                <?php
+                            }
+                            ?>
 
                         </div>
                     </div>
-                    <!-- Game Scoreboard / End -->
+                    <!-- Related Products / End -->
 
-                </div>
-                <!-- Content / End -->
 
-                <!-- Sidebar -->
-                <div class="sidebar col-md-4">
+                    <!-- Statistiche precedenti -->
 
-                    <!-- Widget: Featured Player - Alternative without Image -->
-                    <aside class="widget card widget--sidebar widget-player widget-player--alt">
-                        <div class="widget__title card__header">
-                            <h4>Riepilogo Partite</h4>
-                        </div>
-                        <div class="widget__content-secondary">
+                    <!-- Content -->
+                    <div class="content col-md-8">
 
-                            <!-- Player Details -->
-                            <div class="widget-player__details">
+                        <!-- Game Scoreboard -->
+                        <div class="card">
+                            <header class="card__header card__header--has-btn">
+                                <h4>Statistiche precedenti storici</h4>
+                            </header>
+                            <div class="card__content">
 
-                                <div class="widget-player__details-row">
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label" style='color: #1892ED;'>Gol Fatti</span>
-                                                <span class="widget-player__details-desc" >Totali</span>
-                                            </span>
-                                            <span class="widget-player__details-value"><?= @$GOLTOTALI1 ?></span>
+                                <!-- Game Result -->
+                                <div class="game-result">
+                                    <section class="game-result__section pt-0">
+                                        <div class="game-result__content">
+
+                                            <!-- 1st Team -->
+                                            <div class="game-result__team game-result__team--first">
+                                                <figure class="game-result__team-logo">
+                                                    <?php
+                                                    if ($radio == "squadra"){
+                                                        if (file_exists("images/albo/logo/" . $this->mdl_utenti->getImmagine($team1, $radio))) {
+                                                            $filename = $this->mdl_utenti->getImmagine($team1, $radio);
+                                                        } else
+                                                            $filename = "dummy.png";
+                                                        ?>
+                                                        <img src="<?= base_url('/') ?>images/albo/logo/<?= $filename ?>" alt="">
+                                                    <?php
+                                                    }
+                                                    if ($radio == "utente"){
+                                                        if (file_exists("images/albo/utenti/" . $this->mdl_utenti->getImmagine($team1, $radio))) {
+                                                            $filename = $this->mdl_utenti->getImmagine($team1, $radio);
+                                                        } else
+                                                            $filename = "dummy.png";
+                                                        ?>
+                                                        <img src="<?= base_url('/') ?>images/albo/utenti/<?= $filename ?>" alt="">
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </figure>
+                                                <div class="game-result__team-info">
+                                                    <h5 class="game-result__team-name" style="color: #1892ED;"><?= $squadra1 ?></h5>
+                                                </div>
+                                            </div>
+                                            <!-- 1st Team / End -->
+
+                                            <!-- 2nd Team -->
+                                            <div class="game-result__team game-result__team--second">
+                                                <figure class="game-result__team-logo">
+                                                    <?php
+                                                    if ($radio == "squadra"){
+                                                        if (file_exists("images/albo/logo/" . $this->mdl_utenti->getImmagine($team2, $radio))) {
+                                                            $filename = $this->mdl_utenti->getImmagine($team2, $radio);
+                                                        } else
+                                                            $filename = "dummy.png";
+                                                        ?>
+                                                        <img src="<?= base_url('/') ?>images/albo/logo/<?= $filename ?>" alt="">
+                                                    <?php
+                                                    }
+                                                    if ($radio == "utente"){
+                                                        if (file_exists("images/albo/utenti/" . $this->mdl_utenti->getImmagine($team2, $radio))) {
+                                                            $filename = $this->mdl_utenti->getImmagine($team2, $radio);
+                                                        } else
+                                                            $filename = "dummy.png";
+                                                        ?>
+                                                        <img src="<?= base_url('/') ?>images/albo/utenti/<?= $filename ?>" alt="">
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </figure>
+                                                <div class="game-result__team-info">
+                                                    <h5 class="game-result__team-name" style="color: #9edb00;"><?= $squadra2 ?></h5>
+                                                </div>
+                                            </div>
+                                            <!-- 2nd Team / End -->
                                         </div>
-                                    </div>
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label" style="color: #9edb00;">Gol Fatti</span>
-                                                <span class="widget-player__details-desc">Totali</span>
-                                            </span>
-                                            <span class="widget-player__details-value"><?= @$GOLTOTALI2 ?></span>
+                                    </section>
+                                    <?php
+                                    //Calcolo totali incontri precedenti
+                                    $totaleSC = @$parzialeSC;
+                                    $totaleCO = @$parzialeCO;
+                                    $totaleCH = @$parzialeCH;
+                                    $totaleTL = @$parzialeTL;
+                                    $TOTALE = (@$parzialeSC + @$parzialeCO + @$parzialeCH + @$parzialeTL);
+
+                                    $TOTALEV1 = (@$parzVSC1 + @$parzVCO1 + @$parzVCH1 + @$parzVTL1);
+                                    $TOTALEN1 = (@$parzNSC1 + @$parzNCO1 + @$parzNCH1 + @$parzNTL1);
+                                    $TOTALEP1 = (@$parzPSC1 + @$parzPCO1 + @$parzPCH1 + @$parzPTL1);
+                                    $TOTALEV2 = (@$parzVSC2 + @$parzVCO2 + @$parzVCH2 + @$parzVTL2);
+                                    $TOTALEN2 = (@$parzNSC2 + @$parzNCO2 + @$parzNCH2 + @$parzNTL2);
+                                    $TOTALEP2 = (@$parzPSC2 + @$parzPCO2 + @$parzPCH2 + @$parzPTL2);
+
+                                    $GOLTOTALI1 = (@$golSC1 + @$golCO1 + @$golCH1 + @$golTL1);
+                                    $GOLTOTALI2 = (@$golSC2 + @$golCO2 + @$golCH2 + @$golTL2);
+                                    ?>
+                                    <section class="game-result__section">
+                                        <header class="game-result__subheader card__subheader">
+                                        </header>
+                                        <div class="game-result__content mb-0">
+                                            <div class="game-result__stats">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-md-6 col-md-push-3">
+                                                        <div class="game-result__table-stats game-result__table-stats--soccer">
+                                                            <table class="table table-wrap-bordered table-thead-color">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th colspan="3">Precedenti</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><?= $TOTALE ?></td>
+                                                                        <td>Totali</td>
+                                                                        <td><?= $TOTALE ?></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><?= $totaleTL ?></td>
+                                                                        <td>Treble League</td>
+                                                                        <td><?= $totaleTL ?></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><?= $totaleCH ?></td>
+                                                                        <td>Champions League</td>
+                                                                        <td><?= $totaleCH ?></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><?= $totaleCO ?></td>
+                                                                        <td>Coppa Treble</td>
+                                                                        <td><?= $totaleCO ?></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><?= $totaleSC ?></td>
+                                                                        <td>SuperCoppa Treble</td>
+                                                                        <td><?= $totaleSC ?></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 col-md-pull-6 game-result__stats-team-1">
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <?php
+                                                                    $positivi1 = ($TOTALEV1 + $TOTALEN1);
+                                                                    $percPositivi1 = (100 * $positivi1);
+                                                                    $percPositivi1 = ($percPositivi1 / $TOTALE);
+                                                                    ?>
+                                                                    <div class="circular__bar" data-percent="<?= number_format($percPositivi1, 1) ?>">
+                                                                        <span class="circular__percents"><?= number_format($percPositivi1, 1) ?><small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Risultati<br> Positivi</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <?php
+                                                                    $percNegativi1 = (100 * $TOTALEP1);
+                                                                    $percNegativi1 = ($percNegativi1 / $TOTALE);
+                                                                    ?>
+                                                                    <div class="circular__bar" data-percent="<?= number_format($percNegativi1, 1) ?>">
+                                                                        <span class="circular__percents"><?= number_format($percNegativi1, 1) ?><small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Sconfitte</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="spacer"></div>
+
+                                                        <!-- Progress: Assists -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label" style="color: #009900;">V</div>
+                                                            <div class="progress">
+                                                                <?php
+                                                                $percV1 = ($TOTALEV1 * 100);
+                                                                $percV1 = ($percV1 / $TOTALE);
+                                                                $percV1 = round($percV1);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar-width-<?= $percV1 ?>" role="progressbar" aria-valuenow="<?= $percV1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number" style="color: #009900;"><?= $TOTALEV1 ?></div>
+                                                        </div>
+                                                        <!-- Progress: Assists / End -->
+
+                                                        <!-- Progress: Fouls -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">N</div>
+                                                            <div class="progress">
+                                                                <?php
+                                                                $percN1 = ($TOTALEN1 * 100);
+                                                                $percN1 = ($percN1 / $TOTALE);
+                                                                $percN1 = round($percN1);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar-width-<?= $percN1 ?>" role="progressbar" aria-valuenow="<?= $percN1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number" style="color: #000000;"><?= $TOTALEN1 ?></div>
+                                                        </div>
+                                                        <!-- Progress: Fouls / End -->
+
+                                                        <!-- Progress: OFF -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label" style="color: #ff3d3d;">P</div>
+                                                            <div class="progress">
+                                                                <?php
+                                                                $percP1 = ($TOTALEP1 * 100);
+                                                                $percP1 = ($percP1 / $TOTALE);
+                                                                $percP1 = round($percP1);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar-width-<?= $percP1 ?>" role="progressbar" aria-valuenow="<?= $percP1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number" style="color: #ff3d3d;"><?= $TOTALEP1 ?></div>
+                                                        </div>
+                                                        <!-- Progress: OFF / End -->
+
+                                                    </div>
+                                                    <div class="col-xs-6 col-md-3 game-result__stats-team-2">
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <?php
+                                                                    $positivi2 = ($TOTALEV2 + $TOTALEN2);
+                                                                    $percPositivi2 = (100 * $positivi2);
+                                                                    $percPositivi2 = ($percPositivi2 / $TOTALE);
+                                                                    ?>
+                                                                    <div class="circular__bar" data-percent="<?= number_format($percPositivi2, 1) ?>" data-bar-color="#9fe900">
+                                                                        <span class="circular__percents"><?= number_format($percPositivi2, 1) ?><small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Risultati<br> Positivi</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <div class="circular circular--size-70">
+                                                                    <?php
+                                                                    $percNegativi2 = (100 * $TOTALEP2);
+                                                                    $percNegativi2 = ($percNegativi2 / $TOTALE);
+                                                                    ?>
+                                                                    <div class="circular__bar" data-percent="<?= number_format($percNegativi2, 1) ?>" data-bar-color="#9fe900">
+                                                                        <span class="circular__percents"><?= number_format($percNegativi2, 1) ?><small>%</small></span>
+                                                                    </div>
+                                                                    <span class="circular__label">Sconfitte</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="spacer"></div>
+
+                                                        <!-- Progress: Assists -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label" style="color: #009900;">V</div>
+                                                            <div class="progress">
+                                                                <?php
+                                                                $percV2 = ($TOTALEV2 * 100);
+                                                                $percV2 = ($percV2 / $TOTALE);
+                                                                $percV2 = round($percV2);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-<?= $percV2 ?>" role="progressbar" aria-valuenow="<?= $percV2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number" style="color: #009900;"><?= $TOTALEV2 ?></div>
+                                                        </div>
+                                                        <!-- Progress: Assists / End -->
+
+                                                        <!-- Progress: Fouls -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label">N</div>
+                                                            <div class="progress">
+                                                                <?php
+                                                                $percN2 = ($TOTALEN2 * 100);
+                                                                $percN2 = ($percN2 / $TOTALE);
+                                                                $percN2 = round($percN2);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-<?= $percN2 ?>" role="progressbar" aria-valuenow="<?= $percN2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number" style="color: #000000;"><?= $TOTALEN2 ?></div>
+                                                        </div>
+                                                        <!-- Progress: Fouls / End -->
+
+                                                        <!-- Progress: OFF -->
+                                                        <div class="progress-stats">
+                                                            <div class="progress__label" style="color: #ff3d3d;">P</div>
+                                                            <div class="progress">
+                                                                <?php
+                                                                $percP2 = ($TOTALEP2 * 100);
+                                                                $percP2 = ($percP2 / $TOTALE);
+                                                                $percP2 = round($percP2);
+                                                                ?>
+                                                                <div class="progress__bar progress__bar--success progress__bar-width-<?= $percP2 ?>" role="progressbar" aria-valuenow="<?= $percP2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <div class="progress__number" style="color: #ff3d3d;"><?= $TOTALEP2 ?></div>
+                                                        </div>
+                                                        <!-- Progress: OFF / End -->
+
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </section>
+
+                                    <!-- Ball Posession -->
+                                    <section class="game-result__section">
+                                        <header class="game-result__subheader card__subheader">
+                                            <h5 class="game-result__subtitle">Percentuale Vittorie</h5>
+                                        </header>
+                                        <div class="game-result__content">
+
+                                            <div class="spacer-sm"></div>
+
+                                            <?php
+                                            $TotaleVittorie = ($TOTALEV1 + $TOTALEV2);
+                                            $percVittorie1 = ($TOTALEV1 * 100);
+                                            $percVittorie1 = round($percVittorie1 / $TotaleVittorie);
+                                            $percVittorie2 = ($TOTALEV2 * 100);
+                                            $percVittorie2 = round($percVittorie2 / $TotaleVittorie);
+                                            ?>
+                                            <!-- Progress: Ball Posession -->
+                                            <div class="progress-double-wrapper">
+                                                <div class="progress-inner-holder">
+                                                    <div class="progress__digit progress__digit--left progress__digit--highlight"><?= $percVittorie1 ?>%</div>
+                                                    <div class="progress__double">
+                                                        <div class="progress progress--lg">
+                                                            <div class="progress__bar progress__bar-width-<?= $percVittorie1 ?>" role="progressbar" aria-valuenow="<?= $percVittorie1 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <div class="progress progress--lg">
+                                                            <div class="progress__bar progress__bar--success progress__bar-width-<?= $percVittorie2 ?>" role="progressbar" aria-valuenow="<?= $percVittorie2 ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress__digit progress__digit--right progress__digit--highlight"><?= $percVittorie2 ?>%</div>
+                                                </div>
+                                            </div>
+                                            <!-- Progress: Ball Posession / End -->
+
+                                        </div>
+                                    </section>
+                                    <!-- Ball Posession / End -->
+
                                 </div>
-
-                                <div class="widget-player__details-row">
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label" style='color: #1892ED;'>Gol Subiti</span>
-                                                <span class="widget-player__details-desc">Totali</span>
-                                            </span>
-                                            <span class="widget-player__details-value"><?= @$GOLTOTALI2 ?></span>
-                                        </div>
-                                    </div>
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label" style="color: #9edb00;">Gol Subiti</span>
-                                                <span class="widget-player__details-desc">Totali</span>
-                                            </span>
-                                            <span class="widget-player__details-value"><?= @$GOLTOTALI1 ?></span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="widget-player__details-row">
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Shots on Target</span>
-                                                <span class="widget-player__details-desc">In this league</span>
-                                            </span>
-                                            <span class="widget-player__details-value">46</span>
-                                        </div>
-                                    </div>
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Shots on Target</span>
-                                                <span class="widget-player__details-desc">In his career</span>
-                                            </span>
-                                            <span class="widget-player__details-value">180</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="widget-player__details-row">
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Fouls</span>
-                                                <span class="widget-player__details-desc">In this league</span>
-                                            </span>
-                                            <span class="widget-player__details-value">28</span>
-                                        </div>
-                                    </div>
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Fouls</span>
-                                                <span class="widget-player__details-desc">In his career</span>
-                                            </span>
-                                            <span class="widget-player__details-value">64</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="widget-player__details-row">
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Injuries</span>
-                                                <span class="widget-player__details-desc">In this league</span>
-                                            </span>
-                                            <span class="widget-player__details-value">2</span>
-                                        </div>
-                                    </div>
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Injuries</span>
-                                                <span class="widget-player__details-desc">In his career</span>
-                                            </span>
-                                            <span class="widget-player__details-value">14</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="widget-player__details-row">
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Yellow Cards</span>
-                                                <span class="widget-player__details-desc">In this league</span>
-                                            </span>
-                                            <span class="widget-player__details-value">12</span>
-                                        </div>
-                                    </div>
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Yellow Cards</span>
-                                                <span class="widget-player__details-desc">In his career</span>
-                                            </span>
-                                            <span class="widget-player__details-value">38</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="widget-player__details-row">
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Red Cards</span>
-                                                <span class="widget-player__details-desc">In this league</span>
-                                            </span>
-                                            <span class="widget-player__details-value">4</span>
-                                        </div>
-                                    </div>
-                                    <div class="widget-player__details__item">
-                                        <div class="widget-player__details-desc-wrapper">
-                                            <span class="widget-player__details-holder">
-                                                <span class="widget-player__details-label">Red Cards</span>
-                                                <span class="widget-player__details-desc">In his career</span>
-                                            </span>
-                                            <span class="widget-player__details-value">17</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!-- Game Timeline / End -->
 
                             </div>
-                            <!-- Player Details / End -->
-
                         </div>
+                        <!-- Game Scoreboard / End -->
 
-                        <div class="widget__content-tertiary widget__content--bottom-decor">
-                            <div class="widget__content-inner">
+                    </div>
+                    <!-- Content / End -->
+
+                    <!-- Sidebar -->
+                    <div class="sidebar col-md-4">
+
+                        <!-- Widget: Featured Player - Alternative without Image -->
+                        <aside class="widget card widget--sidebar widget-player widget-player--alt">
+                            <div class="widget__title card__header">
+                                <h4>Riepilogo Partite</h4>
+                            </div>
+                            <div class="widget__content-secondary">
+
+                                <!-- Player Details -->
+                                <div class="widget-player__details">
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style='color: #1892ED;'>Gol Fatti</span>
+                                                    <span class="widget-player__details-desc" >Totali</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$GOLTOTALI1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #9edb00;">Gol Fatti</span>
+                                                    <span class="widget-player__details-desc">Totali</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$GOLTOTALI2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style='color: #1892ED;'>Gol Subiti</span>
+                                                    <span class="widget-player__details-desc">Totali</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$GOLTOTALI2 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #9edb00;">Gol Subiti</span>
+                                                    <span class="widget-player__details-desc">Totali</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$GOLTOTALI1 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Shots on Target</span>
+                                                    <span class="widget-player__details-desc">In this league</span>
+                                                </span>
+                                                <span class="widget-player__details-value">46</span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Shots on Target</span>
+                                                    <span class="widget-player__details-desc">In his career</span>
+                                                </span>
+                                                <span class="widget-player__details-value">180</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Fouls</span>
+                                                    <span class="widget-player__details-desc">In this league</span>
+                                                </span>
+                                                <span class="widget-player__details-value">28</span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Fouls</span>
+                                                    <span class="widget-player__details-desc">In his career</span>
+                                                </span>
+                                                <span class="widget-player__details-value">64</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Injuries</span>
+                                                    <span class="widget-player__details-desc">In this league</span>
+                                                </span>
+                                                <span class="widget-player__details-value">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Injuries</span>
+                                                    <span class="widget-player__details-desc">In his career</span>
+                                                </span>
+                                                <span class="widget-player__details-value">14</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Yellow Cards</span>
+                                                    <span class="widget-player__details-desc">In this league</span>
+                                                </span>
+                                                <span class="widget-player__details-value">12</span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Yellow Cards</span>
+                                                    <span class="widget-player__details-desc">In his career</span>
+                                                </span>
+                                                <span class="widget-player__details-value">38</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Red Cards</span>
+                                                    <span class="widget-player__details-desc">In this league</span>
+                                                </span>
+                                                <span class="widget-player__details-value">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Red Cards</span>
+                                                    <span class="widget-player__details-desc">In his career</span>
+                                                </span>
+                                                <span class="widget-player__details-value">17</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Player Details / End -->
 
                             </div>
-                        </div>
-                    </aside>
-                    <!-- Widget: Featured Player - Alternative without Image / End -->
 
+                            <div class="widget__content-tertiary widget__content--bottom-decor">
+                                <div class="widget__content-inner">
+
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- Widget: Featured Player - Alternative without Image / End -->
+
+                    </div>
+                    <!-- Sidebar / End -->
                 </div>
-                <!-- Sidebar / End -->
             </div>
-        </div>
-        </div>
+            </div>
 
-        <!-- Content / End -->
+            <!-- Content / End -->
 
-                    <?php
-                }
-                ?>
+            <?php
+            }
+            ?>
 
         </div>
         </div>

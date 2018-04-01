@@ -70,6 +70,25 @@ class mdl_utenti extends CI_Model {
         return $this->db->get()->row('squadra');
     }
     
+    public function getImmagine($squadra, $type) {
+        if ($type == "squadra") {
+            
+            $this->db->select('logo');
+            $this->db->where('squadra', $squadra);
+            $this->db->from('tb_all_teams');
+
+            return $this->db->get()->row('logo');
+        }
+        if ($type == "utente") {
+            
+            $this->db->select('user');
+            $this->db->where('squadra', $squadra);
+            $this->db->from('tb_all_teams');
+
+            return $this->db->get()->row('user');
+        }
+    }
+    
     public function checkRigorista($id_giocatore, $id_utente) {
         $this->db->select('id_utente');
         $this->db->where('id_giocatore', $id_giocatore);

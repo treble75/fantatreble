@@ -173,67 +173,80 @@ class Home extends CI_Controller {
             
             if ($squadra1 != $squadra2) {
             
-                $data['check'] = 1;
                 //Seleziono i precedenti fra 2 squadre o fra 2 utenti
                 $data['precedenti2011_12'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2011-12", "2011_12");
-                if (is_array($data['precedenti2011_12'])) {
+                if (is_array($data['precedenti2011_12']) && count($data['precedenti2011_12']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['precedenti2012_13'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2012-13", "2012_13");
-                if (is_array($data['precedenti2012_13'])) {
+                if (is_array($data['precedenti2012_13']) && count($data['precedenti2012_13']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['precedenti2013_14'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2013-14", "2013_14");
-                if (is_array($data['precedenti2013_14'])) {
+                if (is_array($data['precedenti2013_14']) && count($data['precedenti2013_14']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['precedenti2014_15'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2014-15", "2014_15");
-                if (is_array($data['precedenti2014_15'])) {
+                if (is_array($data['precedenti2014_15']) && count($data['precedenti2014_15']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['precedenti2015_16'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2015-16", "2015_16");
-                if (is_array($data['precedenti2015_16'])) {
+                if (is_array($data['precedenti2015_16']) && count($data['precedenti2015_16']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['champions2015_16'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2015-16", "2015_16");
-                if (is_array($data['champions2015_16'])) {
+                if (is_array($data['champions2015_16']) && count($data['champions2015_16']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['coppa2015_16'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2015-16", "2015_16");
-                if (is_array($data['coppa2015_16'])) {
+                if (is_array($data['coppa2015_16']) && count($data['coppa2015_16']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['precedenti2016_17'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2016-17", "2016_17");
-                if (is_array($data['precedenti2016_17'])) {
+                if (is_array($data['precedenti2016_17']) && count($data['precedenti2016_17']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['champions2016_17'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2016-17", "2016_17");
-                if (is_array($data['champions2016_17'])) {
+                if (is_array($data['champions2016_17']) && count($data['champions2016_17']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['coppa2016_17'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2016-17", "2016_17");
-                if (is_array($data['coppa2016_17'])) {
+                if (is_array($data['coppa2016_17']) && count($data['coppa2016_17']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['supercoppa2016_17'] = $this->mdl_team->getPrecedentiSuperCoppa($type, $squadra1, $squadra2, "2016-17", "2016_17");
-                if (is_array($data['supercoppa2016_17'])) {
+                if (is_array($data['supercoppa2016_17']) && count($data['supercoppa2016_17']) > 0) {
                     $data['message'] = "";
                 }
                 $data['precedenti2017_18'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2017-18", "2017_18");
-                if (is_array($data['precedenti2017_18'])) {
+                if (is_array($data['precedenti2017_18']) && count($data['precedenti2017_18']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['champions2017_18'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2017-18", "2017_18");
-                if (is_array($data['champions2017_18'])) {
+                if (is_array($data['champions2017_18']) && count($data['champions2017_18']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['coppa2017_18'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2017-18", "2017_18");
-                if (is_array($data['coppa2017_18'])) {
+                if (is_array($data['coppa2017_18']) && count($data['coppa2017_18']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
                 $data['supercoppa2017_18'] = $this->mdl_team->getPrecedentiSuperCoppa($type, $squadra1, $squadra2, "2017-18", "2017_18");
-                if (is_array($data['supercoppa2017_18'])) {
+                if (is_array($data['supercoppa2017_18']) && count($data['supercoppa2017_18']) > 0) {
                     $data['message'] = "";
+                    $data['check'] = 1;
                 }
             }   else {
                     if ($type == "squadra") {
@@ -250,10 +263,14 @@ class Home extends CI_Controller {
                 }
 
             if ($type == "squadra") {
+                $data['team1'] = $squadra1;
+                $data['team2'] = $squadra2;
                 $data['squadra1'] = $squadra1;
                 $data['squadra2'] = $squadra2;
             }
             if ($type == "utente") {
+                $data['team1'] = $squadra1;
+                $data['team2'] = $squadra2;
                 $data['squadra1'] = $this->mdl_utenti->getNomeUtenteDaSquadra($squadra1);
                 $data['squadra2'] = $this->mdl_utenti->getNomeUtenteDaSquadra($squadra2);
                 if ($data['squadra1'] == $data['squadra2']){
