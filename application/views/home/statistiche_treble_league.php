@@ -237,38 +237,38 @@
                 $parzialeCO = 0;
                 $parzialeCH = 0;
                 $parzialeTL = 0;
-                $parzVSC1 = 0;
-                $parzNSC1 = 0;
-                $parzPSC1 = 0;
-                $parzVSC2 = 0;
-                $parzNSC2 = 0;
-                $parzPSC2 = 0;
-                $parzVCO1 = 0;
-                $parzNCO1 = 0;
-                $parzPCO1 = 0;
-                $parzVCO2 = 0;
-                $parzNCO2 = 0;
-                $parzPCO2 = 0;
-                $parzVCH1 = 0;
-                $parzNCH1 = 0;
-                $parzPCH1 = 0;
-                $parzVCH2 = 0;
-                $parzNCH2 = 0;
-                $parzPCH2 = 0;
-                $parzVTL1 = 0;
-                $parzNTL1 = 0;
-                $parzPTL1 = 0;
-                $parzVTL2 = 0;
-                $parzNTL2 = 0;
-                $parzPTL2 = 0;
-                $golSC1 = 0;
-                $golSC2 = 0;
-                $golCO1 = 0;
-                $golCO2 = 0;
-                $golCH1 = 0;
-                $golCH2 = 0;
-                $golTL1 = 0;
-                $golTL2 = 0;
+                $parzVSC1   = 0;
+                $parzNSC1   = 0;
+                $parzPSC1   = 0;
+                $parzVSC2   = 0;
+                $parzNSC2   = 0;
+                $parzPSC2   = 0;
+                $parzVCO1   = 0;
+                $parzNCO1   = 0;
+                $parzPCO1   = 0;
+                $parzVCO2   = 0;
+                $parzNCO2   = 0;
+                $parzPCO2   = 0;
+                $parzVCH1   = 0;
+                $parzNCH1   = 0;
+                $parzPCH1   = 0;
+                $parzVCH2   = 0;
+                $parzNCH2   = 0;
+                $parzPCH2   = 0;
+                $parzVTL1   = 0;
+                $parzNTL1   = 0;
+                $parzPTL1   = 0;
+                $parzVTL2   = 0;
+                $parzNTL2   = 0;
+                $parzPTL2   = 0;
+                $golSC1     = 0;
+                $golSC2     = 0;
+                $golCO1     = 0;
+                $golCO2     = 0;
+                $golCH1     = 0;
+                $golCH2     = 0;
+                $golTL1     = 0;
+                $golTL2     = 0;
 
                 if ($check == 1) {
                     ?>
@@ -3065,7 +3065,7 @@
                                                             $filename = "dummy.png";
                                                         }
                                                         ?>
-                                                        <img src="<?= base_url('/') ?>images/albo/logo/<?= $filename ?>" alt="">
+                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $filename ?>" alt="">
                                                     <?php
                                                     }
                                                     if ($radio == "utente"){
@@ -3075,7 +3075,7 @@
                                                             $filename = "dummy.png";
                                                         }
                                                         ?>
-                                                        <img src="<?= base_url('/') ?>images/albo/utenti/<?= $filename ?>" alt="">
+                                                        <img src="<?= base_url('/') ?>images/storico/utenti/<?= $filename ?>" alt="">
                                                     <?php
                                                     }
                                                     ?>
@@ -3097,7 +3097,7 @@
                                                             $filename = "dummy.png";
                                                         }
                                                         ?>
-                                                        <img src="<?= base_url('/') ?>images/albo/logo/<?= $filename ?>" alt="">
+                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $filename ?>" alt="">
                                                     <?php
                                                     }
                                                     if ($radio == "utente"){
@@ -3107,7 +3107,7 @@
                                                             $filename = "dummy.png";
                                                         }
                                                         ?>
-                                                        <img src="<?= base_url('/') ?>images/albo/utenti/<?= $filename ?>" alt="">
+                                                        <img src="<?= base_url('/') ?>images/storico/utenti/<?= $filename ?>" alt="">
                                                     <?php
                                                     }
                                                     ?>
@@ -3448,40 +3448,19 @@
                                         <div class="widget-player__details__item">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Shots on Target</span>
-                                                    <span class="widget-player__details-desc">In this league</span>
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">Treble League</span>
                                                 </span>
-                                                <span class="widget-player__details-value">46</span>
+                                                <span class="widget-player__details-value"><?= @$parzVTL1 ?></span>
                                             </div>
                                         </div>
                                         <div class="widget-player__details__item">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Shots on Target</span>
-                                                    <span class="widget-player__details-desc">In his career</span>
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">Treble League</span>
                                                 </span>
-                                                <span class="widget-player__details-value">180</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
-                                            <div class="widget-player__details-desc-wrapper">
-                                                <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Fouls</span>
-                                                    <span class="widget-player__details-desc">In this league</span>
-                                                </span>
-                                                <span class="widget-player__details-value">28</span>
-                                            </div>
-                                        </div>
-                                        <div class="widget-player__details__item">
-                                            <div class="widget-player__details-desc-wrapper">
-                                                <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Fouls</span>
-                                                    <span class="widget-player__details-desc">In his career</span>
-                                                </span>
-                                                <span class="widget-player__details-value">64</span>
+                                                <span class="widget-player__details-value"><?= @$parzVTL2 ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -3490,40 +3469,19 @@
                                         <div class="widget-player__details__item">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Injuries</span>
-                                                    <span class="widget-player__details-desc">In this league</span>
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">Treble League</span>
                                                 </span>
-                                                <span class="widget-player__details-value">2</span>
+                                                <span class="widget-player__details-value"><?= @$parzNTL1 ?></span>
                                             </div>
                                         </div>
                                         <div class="widget-player__details__item">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Injuries</span>
-                                                    <span class="widget-player__details-desc">In his career</span>
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">Treble League</span>
                                                 </span>
-                                                <span class="widget-player__details-value">14</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
-                                            <div class="widget-player__details-desc-wrapper">
-                                                <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Yellow Cards</span>
-                                                    <span class="widget-player__details-desc">In this league</span>
-                                                </span>
-                                                <span class="widget-player__details-value">12</span>
-                                            </div>
-                                        </div>
-                                        <div class="widget-player__details__item">
-                                            <div class="widget-player__details-desc-wrapper">
-                                                <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Yellow Cards</span>
-                                                    <span class="widget-player__details-desc">In his career</span>
-                                                </span>
-                                                <span class="widget-player__details-value">38</span>
+                                                <span class="widget-player__details-value"><?= @$parzNTL2 ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -3532,19 +3490,208 @@
                                         <div class="widget-player__details__item">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Red Cards</span>
-                                                    <span class="widget-player__details-desc">In this league</span>
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">Treble League</span>
                                                 </span>
-                                                <span class="widget-player__details-value">4</span>
+                                                <span class="widget-player__details-value"><?= @$parzPTL1 ?></span>
                                             </div>
                                         </div>
                                         <div class="widget-player__details__item">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
-                                                    <span class="widget-player__details-label">Red Cards</span>
-                                                    <span class="widget-player__details-desc">In his career</span>
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">Treble League</span>
                                                 </span>
-                                                <span class="widget-player__details-value">17</span>
+                                                <span class="widget-player__details-value"><?= @$parzPTL2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">Champions League</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzVCH1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">Champions League</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzVCH2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">Champions League</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzNCH1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">Champions League</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzNCH2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">Champions League</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzPCH1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">Champions League</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzPCH2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">Coppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzVCO1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">Coppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzVCO2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">Coppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzNCO1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">Coppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzNCO2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">Coppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzPCO1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">Coppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzPCO2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">SuperCoppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzVSC1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #009900;">Vittorie</span>
+                                                    <span class="widget-player__details-desc">SuperCoppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzVSC2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">SuperCoppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzNSC1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label">Pareggi</span>
+                                                    <span class="widget-player__details-desc">SuperCoppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzNSC2 ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="widget-player__details-row">
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">SuperCoppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzPSC1 ?></span>
+                                            </div>
+                                        </div>
+                                        <div class="widget-player__details__item">
+                                            <div class="widget-player__details-desc-wrapper">
+                                                <span class="widget-player__details-holder">
+                                                    <span class="widget-player__details-label" style="color: #ff3d3d;">Sconfitte</span>
+                                                    <span class="widget-player__details-desc">SuperCoppa Treble</span>
+                                                </span>
+                                                <span class="widget-player__details-value"><?= @$parzPSC2 ?></span>
                                             </div>
                                         </div>
                                     </div>
