@@ -163,51 +163,20 @@
                                                             //Setto l'icona scudetto o cena o altre
                                                             if ($i > 27 && $i < 34) {
                                                                 //Metto id degli ultimi 3 qualificati
-                                                                if ($row['id1'] == 6 || $row['id1'] == 7 || $row['id1'] == 10) {
+                                                                if ($row['id1'] == 1 || $row['id1'] == 6 || $row['id1'] == 8) {
                                                                     ?>
                                                                     <figure class="team-meta__logoCalendar">
                                                                         <img src="<?= base_url('/') ?>images/cena_black.png" />
                                                                     </figure>
                                                                     <?php
-                                                                }
-
-                                                                //Metto id delle amichevoli
-                                                                if ($row['id1'] == 2 && $i == 28) {
-                                                                    ?>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/molinari.png" />
-                                                                    </figure>
-                                                                    <?php
-                                                                }
-
-                                                                //Evito icona Molinari nei playoff
-                                                                if ($row['id1'] == 2 && $i != 28) {
-                                                                    ?>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" />
-                                                                    </figure>
-                                                                    <?php
-                                                                }
-
-                                                                //Metto id degli altri qualificati ai playoff
-                                                                if ($row['id1'] != $row['id2']) {
-                                                                    if ($row['id1'] == 1 || $row['id1'] == 3 || $row['id1'] == 4 || $row['id1'] == 5 || $row['id1'] == 8 || $row['id1'] == 9 || $row['id1'] > 10) {
-                                                                        ?>
+                                                                } else {
+                                                                ?>
                                                                         <figure class="team-meta__logoCalendar">
                                                                             <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
                                                                         </figure>
                                                                         <?php
-                                                                    }
                                                                 }
-
-                                                                //Se ancora non ho inserito gli id utenti dei playoff, metto lo scudetto ridotto
-                                                                if ($row['id1'] == 1 || $row['id2']) {
-                                                                    ?>
-                                                                    <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/scudetto.png" width="20px" />
-                                                                    </figure>
-                                                                    <?php
-                                                                }
+                                                                
                                                             } else {
                                                                 ?>
                                                                 <figure class="team-meta__logoCalendar">

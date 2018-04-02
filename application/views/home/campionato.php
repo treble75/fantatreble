@@ -127,11 +127,17 @@
                     if ($pos == ""){
                         $chk = "";
                     }
+                    // Se sono state giocate le 27 giornate di Regular Season, non faccio vedere il posizionamento
+                    if ($giornata < 27) {
+                        $chkVisible = $chk;
+                    }else{
+                        $chkVisible = "";
+                    }
                     ?>
                     
                     <td class="team-standings__pos" align='center'>
                         <figure class="team-meta__logo">
-                            <?= $chk ?>
+                            <?= $chkVisible ?>
                         </figure>
                     </td>
                     <td class="team-standings__played"><?= $row['partite_giocate'] ?></td>

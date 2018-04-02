@@ -100,7 +100,7 @@
                             <td class="game-player-result__vs">
                               <div class="team-meta">
                                 <figure class="team-meta__logo">
-                                  <img src="<?= base_url('/') ?>images/albo/logo/zacapa.png" alt="" width="30px">
+                                  <img src="<?= base_url('/') ?>images/albo/logo/zacapa23.png" alt="" width="30px">
                                 </figure>
                                 <div class="team-meta__info">
                                   <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Zacapa 23</h6>
@@ -331,7 +331,7 @@
                         <td class="team-leader__player">
                           <div class="team-leader__player-info">
                             <figure class="team-leader__player-img team-leader__player-img--sm">
-                              <img src="<?= base_url('/') ?>images/albo/giocatori/higuain.png" alt="">
+                              <img src="<?= base_url('/') ?>images/albo/giocatori/suso.png" alt="">
                             </figure>
                             <div class="team-leader__player-inner">
                               <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">SUSO Jesus</h5>
