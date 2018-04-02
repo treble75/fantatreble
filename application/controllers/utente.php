@@ -3758,7 +3758,7 @@ class Utente extends CI_Controller {
 
                 $data['Ruoli'] = $this->mdl_categories->getRuoli(false);
                 $data['Squadre'] = $this->mdl_categories->getSquadreA(false);
-                $data['message'] = "Nuovo calciatore inserito con successo !";
+                $data['success_message'] = "Nuovo calciatore inserito con successo !";
                 $this->show('utenti/crea_giocatore', $data);
             } else
                 $this->show('utenti/crea_giocatore', $data);

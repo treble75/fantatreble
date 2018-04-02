@@ -254,12 +254,12 @@
                                                                 <div class="main-nav__megamenu clearfix">
                                                                         <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
                                                                                 <li class="main-nav__title">Giocatori</li>
-                                                                                <li><a href="_soccer_features-shortcodes.html">Crea Giocatore</a></li>
-                                                                                <li><a href="_soccer_features-typography.html">Assegna Giocatore</a></li>
-                                                                                <li><a href="_soccer_features-widgets-blog.html">Modifica Giocatore</a></li>
-                                                                                <li><a href="_soccer_features-widgets-shop.html">Modifica Squadre</a></li>
-                                                                                <li><a href="_soccer_features-widgets-sports.html">Esegui Scambio</a></li>
-                                                                                <li><a href="_soccer_features-404.html">Modifica Voto</a></li>
+                                                                                <li><a href="<?= base_url('/') ?>index.php/utente/crea_giocatore">Crea Giocatore</a></li>
+                                                                                <li><a href="<?= base_url('/') ?>index.php/utente/assegna_giocatore">Assegna Giocatore</a></li>
+                                                                                <li><a href="<?= base_url('/') ?>index.php/utente/modifica_giocatore">Modifica Giocatore</a></li>
+                                                                                <li><a href="<?= base_url('/') ?>index.php/utente/modifica_squadre">Modifica Squadre</a></li>
+                                                                                <li><a href="<?= base_url('/') ?>index.php/utente/esegui_scambio">Esegui Scambio</a></li>
+                                                                                <li><a href="<?= base_url('/') ?>index.php/utente/modifica_voto">Modifica Voto</a></li>
                                                                         </ul>
                                                                         <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
                                                                                 <li class="main-nav__title">Utenti</li>

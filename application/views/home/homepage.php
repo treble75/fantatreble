@@ -248,10 +248,10 @@
                                                         <li class="widget-results__item">
                                                             <h5 class="widget-results__title" style="color: #1892ED; font-size: 14px;">Treble League</h5>
                                                             <h6 class="widget-results__title" style="font-size: 12px;">Giornata <?= $giornata = (($giornata > 1) ? ($giornata - 1) : "N.D.") ?></h6>
-        <?php
-        if ($giornata > 0) {
-            foreach ($risultati_giornata as $row) {
-                ?>
+                                                            <?php
+                                                            if ($giornata > 0) {
+                                                                foreach ($risultati_giornata as $row) {
+                                                                    ?>
                                                                     <div class="widget-results__content">
                                                                         <div class="widget-results__team widget-results__team--first" style="width: 45%">
                                                                             <figure class="widget-results__team-logo">
@@ -279,11 +279,11 @@
                                                                         </div>
                                                                     </div>
                                                                     <h5 class="widget-results__title"><?= dataSettimanale($row['data']) ?></h5>
-                <?php
-            }
-        } else
-            echo "<div align='center'>Nessuna partita ancora disputata</div>"
-            ?>
+                                                                    <?php
+                                                                }
+                                                            } else
+                                                                echo "<div align='center'>Nessuna partita ancora disputata</div>"
+                                                                ?>
 
                                                         </li>
                                                         <!-- Risultati / End -->
@@ -308,50 +308,50 @@
                                                         <!-- Risultati -->
                                                         <li class="widget-results__item">
                                                             <h5 class="widget-results__title" style="color: #1892ED; font-size: 14px;">Champions League</h5>
-        <?php
-        $labelChampions = "";
-        switch ($giornata) {
-            case ($giornata == 2):
-                $labelChampions = 'Giornata 1';
-                break;
-            case ($giornata == 3 || $giornata == 4 || $giornata == 5):
-                $labelChampions = 'Giornata 2';
-                break;
-            case ($giornata == 6 || $giornata == 7 || $giornata == 8):
-                $labelChampions = 'Giornata 3';
-                break;
-            case ($giornata == 9 || $giornata == 10 || $giornata == 11):
-                $labelChampions = 'Giornata 4';
-                break;
-            case ($giornata == 12):
-                $labelChampions = 'Giornata 5';
-                break;
-            case ($giornata == 13 || $giornata == 14 || $giornata == 15):
-                $labelChampions = 'Giornata 6';
-                break;
-            case ($giornata == 16):
-                $labelChampions = 'Giornata 7';
-                break;
-            case ($giornata == 17 || $giornata == 18):
-                $labelChampions = 'Giornata 8';
-                break;
-            case ($giornata == 19 || $giornata == 20 || $giornata == 21):
-                $labelChampions = 'Giornata 9';
-                break;
-            case ($giornata == 22):
-                $labelChampions = 'Giornata 10';
-                break;
-            case ($giornata == 23 || $giornata == 24 || $giornata == 25 || $giornata == 26):
-                $labelChampions = 'Quarti di finale';
-                break;
-            case ($giornata == 27 || $giornata == 28 || $giornata == 29):
-                $labelChampions = 'Semifinali';
-                break;
-            case ($giornata == 30 || $giornata == 31 || $giornata == 32 || $giornata == 33 || $giornata == 34 || $giornata == 35):
-                $labelChampions = 'Finale';
-                break;
-        }
-        ?>
+                                                            <?php
+                                                            $labelChampions = "";
+                                                            switch ($giornata) {
+                                                                case ($giornata == 2):
+                                                                    $labelChampions = 'Giornata 1';
+                                                                    break;
+                                                                case ($giornata == 3 || $giornata == 4 || $giornata == 5):
+                                                                    $labelChampions = 'Giornata 2';
+                                                                    break;
+                                                                case ($giornata == 6 || $giornata == 7 || $giornata == 8):
+                                                                    $labelChampions = 'Giornata 3';
+                                                                    break;
+                                                                case ($giornata == 9 || $giornata == 10 || $giornata == 11):
+                                                                    $labelChampions = 'Giornata 4';
+                                                                    break;
+                                                                case ($giornata == 12):
+                                                                    $labelChampions = 'Giornata 5';
+                                                                    break;
+                                                                case ($giornata == 13 || $giornata == 14 || $giornata == 15):
+                                                                    $labelChampions = 'Giornata 6';
+                                                                    break;
+                                                                case ($giornata == 16):
+                                                                    $labelChampions = 'Giornata 7';
+                                                                    break;
+                                                                case ($giornata == 17 || $giornata == 18):
+                                                                    $labelChampions = 'Giornata 8';
+                                                                    break;
+                                                                case ($giornata == 19 || $giornata == 20 || $giornata == 21):
+                                                                    $labelChampions = 'Giornata 9';
+                                                                    break;
+                                                                case ($giornata == 22):
+                                                                    $labelChampions = 'Giornata 10';
+                                                                    break;
+                                                                case ($giornata == 23 || $giornata == 24 || $giornata == 25 || $giornata == 26):
+                                                                    $labelChampions = 'Quarti di finale';
+                                                                    break;
+                                                                case ($giornata == 27 || $giornata == 28 || $giornata == 29):
+                                                                    $labelChampions = 'Semifinali';
+                                                                    break;
+                                                                case ($giornata == 30 || $giornata == 31 || $giornata == 32 || $giornata == 33 || $giornata == 34 || $giornata == 35):
+                                                                    $labelChampions = 'Finale';
+                                                                    break;
+                                                            }
+                                                            ?>
                                                             <h6 class="widget-results__title" style="font-size: 12px;"><?= $labelChampions ?></h6>
                                                             <?php
                                                             if ($giornata > 1) {
@@ -384,11 +384,11 @@
                                                                         </div>
                                                                     </div>
                                                                     <h5 class="widget-results__title"><?= dataSettimanale($row['data']) ?></h5>
-                <?php
-            }
-        } else
-            echo "<div align='center'>Nessuna partita ancora disputata</div>"
-            ?>
+                                                                    <?php
+                                                                }
+                                                            } else
+                                                                echo "<div align='center'>Nessuna partita ancora disputata</div>"
+                                                                ?>
 
                                                         </li>
                                                         <!-- Risultati / End -->
@@ -413,29 +413,29 @@
                                                         <!-- Risultati -->
                                                         <li class="widget-results__item">
                                                             <h5 class="widget-results__title" style="color: #1892ED; font-size: 14px;">Coppa Treble</h5>
-        <?php
-        $labelCoppa = "";
-        switch ($giornata) {
-            case ($giornata == 4 || $giornata == 5 || $giornata == 6):
-                $labelCoppa = 'Preliminari';
-                break;
-            case ($giornata == 7 || $giornata == 8 || $giornata == 9):
-                $labelCoppa = 'Preliminari';
-                break;
-            case ($giornata == 10):
-                $labelCoppa = 'Quarti di Finale';
-                break;
-            case ($giornata == 11 || $giornata == 12 || $giornata == 13 || $giornata == 14):
-                $labelCoppa = 'Quarti di Finale';
-                break;
-            case ($giornata == 15 || $giornata == 16 || $giornata == 17 || $giornata == 18 || $giornata == 19 || $giornata == 20 || $giornata == 21 || $giornata == 22 || $giornata == 23 || $giornata == 24 || $giornata == 25):
-                $labelCoppa = 'Semifinali';
-                break;
-            case ($giornata == 26 || $giornata == 27 || $giornata == 28 || $giornata == 29 || $giornata == 30 || $giornata == 31 || $giornata == 32 || $giornata == 33 || $giornata == 34 || $giornata == 35 ):
-                $labelCoppa = 'Finale';
-                break;
-        }
-        ?>
+                                                            <?php
+                                                            $labelCoppa = "";
+                                                            switch ($giornata) {
+                                                                case ($giornata == 4 || $giornata == 5 || $giornata == 6):
+                                                                    $labelCoppa = 'Preliminari';
+                                                                    break;
+                                                                case ($giornata == 7 || $giornata == 8 || $giornata == 9):
+                                                                    $labelCoppa = 'Preliminari';
+                                                                    break;
+                                                                case ($giornata == 10):
+                                                                    $labelCoppa = 'Quarti di Finale';
+                                                                    break;
+                                                                case ($giornata == 11 || $giornata == 12 || $giornata == 13 || $giornata == 14):
+                                                                    $labelCoppa = 'Quarti di Finale';
+                                                                    break;
+                                                                case ($giornata == 15 || $giornata == 16 || $giornata == 17 || $giornata == 18 || $giornata == 19 || $giornata == 20 || $giornata == 21 || $giornata == 22 || $giornata == 23 || $giornata == 24 || $giornata == 25):
+                                                                    $labelCoppa = 'Semifinali';
+                                                                    break;
+                                                                case ($giornata == 26 || $giornata == 27 || $giornata == 28 || $giornata == 29 || $giornata == 30 || $giornata == 31 || $giornata == 32 || $giornata == 33 || $giornata == 34 || $giornata == 35 ):
+                                                                    $labelCoppa = 'Finale';
+                                                                    break;
+                                                            }
+                                                            ?>
                                                             <h6 class="widget-results__title" style="font-size: 12px;"><?= $labelCoppa ?></h6>
                                                             <?php
                                                             if ($giornata > 3) {
@@ -468,11 +468,11 @@
                                                                         </div>
                                                                     </div>
                                                                     <h5 class="widget-results__title"><?= dataSettimanale($row['data']) ?></h5>
-                <?php
-            }
-        } else
-            echo "<div align='center'>Nessuna partita ancora disputata</div>"
-            ?>
+                                                                    <?php
+                                                                }
+                                                            } else
+                                                                echo "<div align='center'>Nessuna partita ancora disputata</div>"
+                                                                ?>
 
                                                         </li>
                                                         <!-- Risultati / End -->
@@ -509,9 +509,9 @@
                                         <div class="match-preview">
                                             <section class="match-preview__body">
                                                 <header class="match-preview__header">
-        <?php
-        $blocco = $this->mdl_utenti->getBlocco();
-        ?> 
+                                                    <?php
+                                                    $blocco = $this->mdl_utenti->getBlocco();
+                                                    ?> 
                                                     <time class="match-preview__date" datetime="2017-05-17"><?= dataSettimanale($blocco) ?></time>
                                                     <h3 class="match-preview__title match-preview__title--lg">Treble League</h3>
                                                 </header>
@@ -571,10 +571,10 @@
                                     <div class="widget__content card__content">
                                         <ul class="comments-list">
 
-        <?php
-        if (isset($offerte[0]['offerta'])) {
-            foreach (@$offerte as $row) {
-                ?>
+                                            <?php
+                                            if (isset($offerte[0]['offerta'])) {
+                                                foreach (@$offerte as $row) {
+                                                    ?>
                                                     <li class="comments-list__item">
                                                         <header class="comments-list__header">
                                                             <figure class="comments-list__avatar">
@@ -1007,10 +1007,10 @@
                                                     <td><?= $row['sconfitte'] ?></td>
                                                     <td style="color: #1892ED; font-size: 14px;"><?= $row['punti'] ?></td>
                                                 </tr>
-            <?php
-            $i++;
-        }
-        ?>
+                                                <?php
+                                                $i++;
+                                            }
+                                            ?>
 
                                         </tbody>
                                     </table>
@@ -1080,13 +1080,13 @@
                                             </thead>
 
                                             <tbody>
-            <?php
-            foreach ($top['P'] as $row) {
-                if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
-                    $filename = $row['id_giocatore'] . ".png";
-                } else
-                    $filename = "dummy.png";
-                ?>
+                                                <?php
+                                                foreach ($top['P'] as $row) {
+                                                    if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
+                                                        $filename = $row['id_giocatore'] . ".png";
+                                                    } else
+                                                        $filename = "dummy.png";
+                                                    ?>
                                                     <tr bgcolor="#fafafa"> 
                                                         <td class="team-leader__player">
                                                             <div class="team-leader__player-info">
@@ -1102,16 +1102,16 @@
                                                         <td class="team-leader__goals"><?= $row['voto'] ?></td>
                                                         <td class="team-leader__gp" style="color: #1892ED; font-size: 14px;"><?= $row['fantavoto'] ?></td>
                                                     </tr>
-            <?php } ?>
+                                                <?php } ?>
 
                                                 <!-- Difensori -->
-            <?php
-            foreach ($top['D'] as $row) {
-                if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
-                    $filename = $row['id_giocatore'] . ".png";
-                } else
-                    $filename = "dummy.png";
-                ?>
+                                                <?php
+                                                foreach ($top['D'] as $row) {
+                                                    if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
+                                                        $filename = $row['id_giocatore'] . ".png";
+                                                    } else
+                                                        $filename = "dummy.png";
+                                                    ?>
                                                     <tr bgcolor="#f0fbff">
                                                         <td class="team-leader__player">
                                                             <div class="team-leader__player-info">
@@ -1127,16 +1127,16 @@
                                                         <td class="team-leader__goals"><?= $row['voto'] ?></td>
                                                         <td class="team-leader__gp" style="color: #1892ED; font-size: 14px;"><?= $row['fantavoto'] ?></td>
                                                     </tr>
-            <?php } ?>
+                                                <?php } ?>
 
                                                 <!-- Centrocampisti -->
-            <?php
-            foreach ($top['C'] as $row) {
-                if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
-                    $filename = $row['id_giocatore'] . ".png";
-                } else
-                    $filename = "dummy.png";
-                ?>
+                                                <?php
+                                                foreach ($top['C'] as $row) {
+                                                    if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
+                                                        $filename = $row['id_giocatore'] . ".png";
+                                                    } else
+                                                        $filename = "dummy.png";
+                                                    ?>
                                                     <tr bgcolor="#fff2f2">
                                                         <td class="team-leader__player">
                                                             <div class="team-leader__player-info">
@@ -1152,16 +1152,16 @@
                                                         <td class="team-leader__goals"><?= $row['voto'] ?></td>
                                                         <td class="team-leader__gp" style="color: #1892ED; font-size: 14px;"><?= $row['fantavoto'] ?></td>
                                                     </tr>
-            <?php } ?>
+                                                <?php } ?>
 
                                                 <!-- Attaccanti -->
-            <?php
-            foreach ($top['A'] as $row) {
-                if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
-                    $filename = $row['id_giocatore'] . ".png";
-                } else
-                    $filename = "dummy.png";
-                ?>
+                                                <?php
+                                                foreach ($top['A'] as $row) {
+                                                    if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
+                                                        $filename = $row['id_giocatore'] . ".png";
+                                                    } else
+                                                        $filename = "dummy.png";
+                                                    ?>
                                                     <tr bgcolor="#eefaeb">
                                                         <td class="team-leader__player">
                                                             <div class="team-leader__player-info">
@@ -1177,11 +1177,11 @@
                                                         <td class="team-leader__goals"><?= $row['voto'] ?></td>
                                                         <td class="team-leader__gp" style="color: #1892ED; font-size: 14px;"><?= $row['fantavoto'] ?></td>
                                                     </tr>
-            <?php
-            }
-        } else
-            echo "<p align='center'> Nessuna partita ancora disputata </p>";
-        ?>
+                                                    <?php
+                                                }
+                                            } else
+                                                echo "<p align='center'> Nessuna partita ancora disputata </p>";
+                                            ?>
 
                                         </tbody>
                                     </table>
