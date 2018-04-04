@@ -122,7 +122,7 @@
                                 </div>
 
                                 <div class="form-group--submit">
-                                    <button type="submit" name="but_assegna" class="btn btn-default btn-lg btn-block">Assegna Giocatore</button>
+                                    <input type="submit" value="Assegna Giocatore" name="but_assegna" class="btn btn-default btn-lg btn-block">
                                 </div>
 
                                 </form>
