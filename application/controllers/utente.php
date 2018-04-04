@@ -3913,10 +3913,10 @@ class Utente extends CI_Controller {
             $data['Squadre'] = $this->mdl_categories->getSquadre(false);
 
             if ($this->input->post('but_assegna')) {
-                $this->form_validation->set_rules('cmbGiocatori', 'Giocatori');
-                $this->form_validation->set_rules('cmbSquadra', 'Squadra');
-                $this->form_validation->set_rules('cmbRuoli', 'Ruoli');
-                $this->form_validation->set_rules('costo', 'Costo');
+                $this->form_validation->set_rules('cmbGiocatori', 'Giocatori', 'trim|required');
+                $this->form_validation->set_rules('cmbSquadra', 'Squadra', 'trim|required');
+                $this->form_validation->set_rules('cmbRuoli', 'Ruoli', 'trim|required');
+                $this->form_validation->set_rules('costo', 'Costo', 'trim|required');
 
                 if ($this->form_validation->run()) {
                     $data = array(
@@ -3928,7 +3928,7 @@ class Utente extends CI_Controller {
                     $costo = $this->input->post('costo');
                     $this->load->model('mdl_team');
                     $this->mdl_team->assegnaGiocatore($data, $costo);
-                    $data['message'] = "<p style='color:green;'>Giocatore assegnato con successo !</p>";
+                    $data['success_message'] = "Giocatore assegnato con successo !";
 
                     $ruolo = $this->input->post('cmbRuoli');
                     $data['Ruoli'] = $this->mdl_categories->getRuoli(false);
@@ -3940,9 +3940,9 @@ class Utente extends CI_Controller {
                 }
             }
 
-            $this->form_validation->set_rules('cmbGiocatori', 'Giocatori');
-            $this->form_validation->set_rules('cmbSquadra', 'Squadra');
-            $this->form_validation->set_rules('cmbRuoli', 'Ruoli');
+            $this->form_validation->set_rules('cmbGiocatori', 'Giocatori', 'trim|required');
+            $this->form_validation->set_rules('cmbSquadra', 'Squadra', 'trim|required');
+            $this->form_validation->set_rules('cmbRuoli', 'Ruoli', 'trim|required');
 
             if ($this->form_validation->run()) {
                 $data = array(
