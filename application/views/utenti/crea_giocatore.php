@@ -101,14 +101,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="account-city">Ruolo</label>
+                                                <label for="account-city">Seleziona Ruolo</label>
                                                 <?php $js = 'id="account-city" class="form-control"'; ?>
                                                 <?= form_dropdown('cmbRuoli', $Ruoli, set_value('cmbRuoli', $this->input->post('cmbRuoli')), $js) ?>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="account-postcode">Squadra</label>
+                                                <label for="account-postcode">Seleziona Squadra</label>
                                                 <?= form_dropdown('cmbSquadre', $Squadre, set_value('cmbSquadre', $this->input->post('cmbSquadre')), $js) ?>
                                             </div>
                                         </div>

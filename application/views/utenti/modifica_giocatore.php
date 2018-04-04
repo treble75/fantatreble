@@ -11,10 +11,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title"><span class="highlight">Assegna </span> Giocatore</h1>
+                        <h1 class="page-heading__title"><span class="highlight">Modifica </span> Giocatore</h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
                             <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                            <li class="active">Assegna Giocatore</li>
+                            <li class="active">Modifica Giocatore</li>
                         </ol>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <!-- Personal Information -->
                         <div class="card card--lg">
                             <div class="card__header">
-                                <h4>Assegna Giocatore</h4>
+                                <h4>Modifica Giocatore</h4>
                             </div>
                             <div class="card__content">
                                 <?php if (validation_errors()) { ?>
@@ -82,8 +82,8 @@
                                     </div>
                                     <?php
                                 }
-                                
-                                echo form_open_multipart('utente/assegna_giocatore', array(
+
+                                echo form_open_multipart('utente/modifica_giocatore', array(
                                     'class' => 'df-personal-info'
                                 ));
                                 ?>
@@ -99,7 +99,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="account-username">Seleziona Giocatore</label>
-                                            <?php $js = 'id="account-city" class="form-control"'; ?>
+                                            <?php $js = 'id="account-city" class="form-control" onChange="refresh()"'; ?>
                                             <?= form_dropdown('cmbGiocatori', $Giocatori, set_value('cmbGiocatori'), $js) ?>
                                         </div>
                                     </div>
@@ -108,21 +108,37 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="account-city">Seleziona Squadra</label>
-                                            <?php $js = 'id="account-city" class="form-control"'; ?>
-                                            <?= form_dropdown('cmbSquadra', $Squadre, set_value('cmbSquadra', $this->input->post('cmbSquadra')), $js) ?>
+                                            <label for="account-postcode">Nome Giocatore</label>
+                                            <input type="text" class="form-control" value="<?= @$Dettagli[0]['nome'] ?>" name="nome" id="account-username" placeholder="Nome giocatore...">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="account-postcode">Costo</label>
-                                            <input type="text" class="form-control" value="<?php echo set_value('costo'); ?>" name="costo" id="account-username" placeholder="Costo giocatore...">
+                                            <label for="account-postcode">Cognome Giocatore</label>
+                                            <input type="text" class="form-control" value="<?= @$Dettagli[0]['cognome'] ?>" name="cognome" id="account-username" placeholder="Cognome giocatore...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="account-city">Squadra di Appartenenza</label>
+                                            <?php $js = 'id="account-city" class="form-control"'; ?>
+                                            <?= form_dropdown('cmbSquadre', $Squadre, set_value('cmbSquadre', $this->input->post('cmbSquadre')), $js) ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="account-city">Nuovo Ruolo</label>
+                                            <?php $js = 'id="account-city" class="form-control"'; ?>
+                                            <?= form_dropdown('cmbRuoloNuovo', $Ruoli, set_value('cmbRuoloNuovo', $this->input->post('cmbRuoloNuovo')), $js) ?>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group--submit">
-                                    <input type="submit" value="Assegna Giocatore" name="but_assegna" class="btn btn-default btn-lg btn-block">
+                                    <input type="submit" value="Modifica Giocatore" name="but_modifica" class="btn btn-default btn-lg btn-block">
                                 </div>
 
                                 </form>

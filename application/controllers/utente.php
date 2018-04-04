@@ -3858,9 +3858,9 @@ class Utente extends CI_Controller {
             if ($this->input->post('but_modifica')) {
                 $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[2]|max_length[40]');
                 $this->form_validation->set_rules('cognome', 'Cognome', 'trim|required|min_length[2]|max_length[40]');
-                $this->form_validation->set_rules('cmbGiocatori', 'Giocatori');
-                $this->form_validation->set_rules('cmbSquadre', 'Squadra di appartenenza');
-                $this->form_validation->set_rules('cmbRuoloNuovo', 'Ruolo Nuovo');
+                $this->form_validation->set_rules('cmbGiocatori', 'Giocatori', 'trim|required');
+                $this->form_validation->set_rules('cmbSquadre', 'Squadra di appartenenza', 'trim|required');
+                $this->form_validation->set_rules('cmbRuoloNuovo', 'Ruolo Nuovo', 'trim|required');
 
                 if ($this->form_validation->run()) {
                     $data = array(
@@ -3873,7 +3873,7 @@ class Utente extends CI_Controller {
 
                     $this->load->model('mdl_team');
                     $this->mdl_team->updateGiocatore($data);
-                    $data['message'] = "Giocatore modificato con successo !";
+                    $data['success_message'] = "Giocatore modificato con successo !";
 
                     $ruolo = $this->input->post('cmbRuoli');
                     $data['Ruoli'] = $this->mdl_categories->getRuoli(false);
@@ -3885,9 +3885,9 @@ class Utente extends CI_Controller {
                 }
             }
 
-            $this->form_validation->set_rules('cmbGiocatori', 'Giocatori');
+            $this->form_validation->set_rules('cmbGiocatori', 'Giocatori', 'trim|required');
             $this->form_validation->set_rules('cmbSquadra', 'Squadra');
-            $this->form_validation->set_rules('cmbRuoli', 'Ruoli');
+            $this->form_validation->set_rules('cmbRuoli', 'Ruoli', 'trim|required');
 
             if ($this->form_validation->run()) {
                 $id_giocatore = $this->input->post('cmbGiocatori');
