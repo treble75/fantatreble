@@ -4045,7 +4045,7 @@ class Utente extends CI_Controller {
             $this->load->model('mdl_team');
             $data['Squadre'] = $this->mdl_categories->getSquadre(true);
 
-            $this->form_validation->set_rules('cmbSquadra', 'Squadra');
+            $this->form_validation->set_rules('cmbSquadra', 'Squadra', 'trim|required');
             $this->form_validation->set_rules('cmbTeam', 'Giocatore');
             $this->form_validation->set_rules('cmbGiocatori', 'Sostituto');
             $this->form_validation->set_rules('costo_uscente', 'Vendita uscente');
@@ -4055,12 +4055,12 @@ class Utente extends CI_Controller {
                 if (($this->input->post('cmbSquadra') != 0) && ($this->input->post('cmbTeam') != 0) && ($this->input->post('cmbGiocatori') != 0) && ($this->input->post('costo_uscente') != "") && ($this->input->post('costo_entrante') != "")) {
                     $change = $this->mdl_team->updateTeam($this->input->post('cmbSquadra'), $this->input->post('cmbTeam'), $this->input->post('cmbGiocatori'), $this->input->post('costo_uscente'), $this->input->post('costo_entrante'));
                     if ($change)
-                        $data['message'] = "<p style='color:green;'>Modifica effettuata con successo</p>";
+                        $data['success_message'] = "Modifica effettuata con successo !";
 
                     $this->show('utenti/modifica_squadre', $data);
                     return;
                 }else {
-                    $data['message'] = "<p style='color:red;'>ATTENZIONE: Verifica che le selezioni siano esatte !</p>";
+                    $data['message'] = "ATTENZIONE: Verifica che le selezioni siano esatte !";
                     $this->show('utenti/modifica_squadre', $data);
                     return;
                 }

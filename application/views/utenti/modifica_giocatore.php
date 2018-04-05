@@ -47,6 +47,14 @@
                                         <li class="df-account-navigation__link">
                                             <a href="<?= base_url('/') ?>index.php/utente/modifica_giocatore">Modifica Giocatore</a>
                                         </li>
+                                        <li class="df-account-navigation__link">
+                                            <a href="<?= base_url('/') ?>index.php/utente/modifica_squadre">Modifica Squadre</a>
+                                        </li>
+                                        <li class="df-account-navigation__link">
+                                            <a href="<?= base_url('/') ?>index.php/utente/esegui_scambio">Esegui Scambio</a>
+                                        </li>
+                                        <li class="df-account-navigation__link">
+                                            <a href="<?= base_url('/') ?>index.php/utente/modifica_voto">Modifica Voto</a>
                                     </ul>
                                 </nav>
                             </div>
