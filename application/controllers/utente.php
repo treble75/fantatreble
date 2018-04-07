@@ -4009,7 +4009,7 @@ class Utente extends CI_Controller {
             $this->load->model('mdl_team');
             $data['Squadre'] = $this->mdl_categories->getSquadre(true);
 
-            $this->form_validation->set_rules('cmbSquadra', 'Squadra 1');
+            $this->form_validation->set_rules('cmbSquadra', 'Squadra 1', 'trim|required');
             $this->form_validation->set_rules('cmbSquadra2', 'Squadra 2');
             $this->form_validation->set_rules('cmbTeam', 'Giocatore 1');
             $this->form_validation->set_rules('cmbTeam2', 'Giocatore 2');
@@ -4018,12 +4018,12 @@ class Utente extends CI_Controller {
                 if (($this->input->post('cmbSquadra') != 0) && ($this->input->post('cmbTeam') != 0) && ($this->input->post('cmbSquadra2') != 0) && ($this->input->post('cmbTeam2') != 0)) {
                     $change = $this->mdl_team->updateScambio($this->input->post('cmbSquadra'), $this->input->post('cmbTeam'), $this->input->post('cmbSquadra2'), $this->input->post('cmbTeam2'));
                     if ($change)
-                        $data['message'] = "<p style='color:green;'>Scambio effettuato con successo</p>";
+                        $data['success_message'] = "Scambio effettuato con successo";
 
                     $this->show('utenti/esegui_scambio', $data);
                     return;
                 }else {
-                    $data['message'] = "<p style='color:red;'>ATTENZIONE: Verifica che le selezioni siano esatte !</p>";
+                    $data['message'] = "ATTENZIONE: Verifica che le selezioni siano esatte !";
                     $this->show('utenti/esegui_scambio', $data);
                     return;
                 }
