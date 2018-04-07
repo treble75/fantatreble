@@ -3775,19 +3775,19 @@ class Utente extends CI_Controller {
             $data['Giocatori'] = $this->mdl_categories->getAllGiocatori(false, $ruolo);
 
             if ($this->input->post('but_modifica')) {
-                $this->form_validation->set_rules('cmbGiocatori', 'Giocatori');
-                $this->form_validation->set_rules('cmbGiornata', 'Giornata');
-                $this->form_validation->set_rules('voto', 'voto');
-                $this->form_validation->set_rules('fanta_voto', 'fanta_voto');
-                $this->form_validation->set_rules('gol', 'gol');
-                $this->form_validation->set_rules('assist', 'assist');
-                $this->form_validation->set_rules('ammonizioni', 'ammonizioni');
-                $this->form_validation->set_rules('espulsioni', 'espulsioni');
-                $this->form_validation->set_rules('rigore_parato', 'rigore_parato');
-                $this->form_validation->set_rules('rigore_sbagliato', 'rigore_sbagliato');
-                $this->form_validation->set_rules('autogol', 'autogol');
-                $this->form_validation->set_rules('gol_subiti', 'gol_subiti');
-                $this->form_validation->set_rules('cmbSchierato', 'Schierato');
+                $this->form_validation->set_rules('cmbGiocatori', 'Giocatori', 'trim|required');
+                $this->form_validation->set_rules('cmbGiornata', 'Giornata', 'trim|required');
+                $this->form_validation->set_rules('voto', 'voto', 'trim|required');
+                $this->form_validation->set_rules('fanta_voto', 'fanta_voto', 'trim|required');
+                $this->form_validation->set_rules('gol', 'gol', 'trim|required');
+                $this->form_validation->set_rules('assist', 'assist', 'trim|required');
+                $this->form_validation->set_rules('ammonizioni', 'ammonizioni', 'trim|required');
+                $this->form_validation->set_rules('espulsioni', 'espulsioni', 'trim|required');
+                $this->form_validation->set_rules('rigore_parato', 'rigore_parato', 'trim|required');
+                $this->form_validation->set_rules('rigore_sbagliato', 'rigore_sbagliato', 'trim|required');
+                $this->form_validation->set_rules('autogol', 'autogol', 'trim|required');
+                $this->form_validation->set_rules('gol_subiti', 'gol_subiti', 'trim|required');
+                $this->form_validation->set_rules('cmbSchierato', 'Schierato', 'trim|required');
 
                 if ($this->form_validation->run()) {
                     $data = array(
@@ -3808,7 +3808,7 @@ class Utente extends CI_Controller {
 
                     $this->load->model('mdl_team');
                     $this->mdl_team->updateVotoCampionato($data);
-                    $data['message'] = "Voto modificato con successo !";
+                    $data['success_message'] = "Voto modificato con successo !";
 
                     $id_giocatore = $this->input->post('cmbGiocatori');
                     $ruolo = $this->input->post('cmbRuoli');
@@ -3827,7 +3827,7 @@ class Utente extends CI_Controller {
 
             $this->form_validation->set_rules('cmbGiocatori', 'Giocatori');
             $this->form_validation->set_rules('cmbGiornata', 'Giornata');
-            $this->form_validation->set_rules('cmbRuoli', 'Ruoli');
+            $this->form_validation->set_rules('cmbRuoli', 'Ruoli', 'trim|required');
 
             if ($this->form_validation->run()) {
                 $id_giocatore = $this->input->post('cmbGiocatori');
