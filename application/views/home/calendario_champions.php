@@ -167,6 +167,17 @@
                                                     } else
                                                         $ok2 = "";
                                                 }
+                                                if ($i == 28) {
+                                                    //Segnalo in verde le squadre qualificate : inserire id delle squadre eliminate
+                                                    if ($row['id1'] != 2 && $row['id1'] != 5 ) {
+                                                        $ok1 = " * ";
+                                                    } else
+                                                        $ok1 = "";
+                                                    if ($row['id2'] != 2 && $row['id2'] != 5 ) {
+                                                        $ok2 = " * ";
+                                                    } else
+                                                        $ok2 = "";
+                                                }
                                                 ?>
 
                                                 <tr <?= $color ?> >

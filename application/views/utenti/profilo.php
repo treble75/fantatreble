@@ -13,9 +13,7 @@
 
     <!-- Content
     ================================================== -->
-    
-    <?php echo form_open_multipart('utente/profilo') ?>
-    
+
     <div class="site-content">
       <div class="container">
 
@@ -49,7 +47,7 @@
                 <h4>Informazioni personali</h4>
               </div>
               <div class="card__content">
-                <form action="#" class="df-personal-info">
+                <?php echo form_open_multipart('utente/profilo') ?>
 
                     <?php
                     if (validation_errors()) { ?>

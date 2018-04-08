@@ -107,7 +107,7 @@
                                 </figure>
                                 <div class="team-meta__info">
                                   <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">S.C. Arsenal</h6>
-                                  <span class="team-meta__place">Antonio Francone</span>
+                                  <span class="team-meta__place">Ivano Staccone</span>
                                 </div>
                               </div>
                             </td>

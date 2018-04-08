@@ -2953,7 +2953,7 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
-    
+
     public function myteam_bacheca() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_utenti');
@@ -2965,10 +2965,10 @@ class Utente extends CI_Controller {
                 $data['blocco'] = $blocco;
             }
             $data['giornata'] = $_SESSION['giornata'];
-            
+
             $data['utente'] = $this->mdl_utenti->getDatiUtente($_SESSION['id_utente']);
             $data['news'] = $this->mdl_utenti->getNewsTeam($_SESSION['id_utente']);
-            
+
             $this->show('utenti/myteam_bacheca', $data);
         } else
             redirect('home/index');
@@ -3020,7 +3020,7 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
-    
+
     public function myteam_calendario() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_utenti');
@@ -3031,11 +3031,11 @@ class Utente extends CI_Controller {
                 $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
                 $data['blocco'] = $blocco;
             }
-            
+
             $data['prossimiMatch'] = $this->mdl_team->getProssimiMatch($_SESSION['id_utente']);
             $data['prossimiMatchCoppa'] = $this->mdl_team->getProssimiMatchCoppa($_SESSION['id_utente']);
             $data['prossimiMatchChampions'] = $this->mdl_team->getProssimiMatchChampions($_SESSION['id_utente']);
-            
+
             $this->show('utenti/myteam_calendario', $data);
         } else
             redirect('home/index');
@@ -3842,6 +3842,122 @@ class Utente extends CI_Controller {
                 $this->show('utenti/modifica_voto', $data);
             } else
                 $this->show('utenti/modifica_voto', $data);
+        } else
+            redirect('utente/login');
+    }
+
+    function modifica_utente() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_categories');
+            $this->load->model('mdl_utenti');
+            $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+
+            if ($this->input->post('but_modifica')) {
+                $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[2]|max_length[40]');
+                $this->form_validation->set_rules('cognome', 'Cognome', 'trim|required|min_length[2]|max_length[40]');
+                $this->form_validation->set_rules('soprannome', 'Soprannome', 'trim|required|min_length[2]|max_length[40]');
+                $this->form_validation->set_rules('squadra', 'Nome Squadra', 'trim|required|min_length[2]|max_length[40]');
+                $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[2]|max_length[40]');
+                $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[40]');
+                $this->form_validation->set_rules('pwd1', 'Password 1');
+                $this->form_validation->set_rules('pwd_utente', 'Conferma Password');
+
+                if ($this->form_validation->run()) {
+                    if ($this->input->post('pwd1') == $this->input->post('pwd_utente')) {
+                        $utente = $this->input->post('cmbUtente');
+
+                        if ($this->input->post('pwd1') != "") {
+                            $data = array(
+                                'nome' => ucwords($this->input->post('nome')),
+                                'cognome' => ucwords($this->input->post('cognome')),
+                                'soprannome' => ucwords($this->input->post('soprannome')),
+                                'squadra' => ucwords($this->input->post('squadra')),
+                                'email' => $this->input->post('email'),
+                                'username' => $this->input->post('username'),
+                                'pwd_utente' => md5($this->input->post('pwd_utente'))
+                            );
+                        } else {
+                            $data = array(
+                                'nome' => ucwords($this->input->post('nome')),
+                                'cognome' => ucwords($this->input->post('cognome')),
+                                'soprannome' => ucwords($this->input->post('soprannome')),
+                                'squadra' => ucwords($this->input->post('squadra')),
+                                'email' => $this->input->post('email'),
+                                'username' => $this->input->post('username')
+                            );
+                        }
+                        
+                        $this->mdl_utenti->updateUtente($utente, $data);
+
+                        //Configuro l'invio mail
+                        $config = Array(
+                            'protocol' => 'smtp',
+                            'smtp_host' => 'mail.fantatreble.it',
+                            'smtp_port' => 587,
+                            'smtp_user' => 'info@fantatreble.it',
+                            'smtp_pass' => '3ble160475',
+                            'mailtype' => 'html'
+                        );
+
+                        $this->load->library('email', $config);
+
+                        $this->email->from('info@fantatreble.it', 'FantaTreble');
+
+                        $message = "Ciao <b>" . $data['nome'] . "</b><br><br>";
+
+                        $message .= "Ecco di seguito le modifiche apportate al tuo account FantaTreble : <br><br>";
+                        $message .= "Email : <b>" . $data['email'] . "</b><br><br>";
+                        $message .= "Squadra : <b>" . $data['squadra'] . "</b><br><br>";
+                        $message .= "Username : <b>" . $data['username'] . "</b><br><br>";
+                        $message .= "Password  : <b>" . $this->input->post('pwd_utente') . "</b><br>";
+
+                        //Invio la mail all'utente
+                        $this->email->to($data['email']);
+                        $this->email->cc("guerrieriluca@gmail.com");
+                        $this->email->bcc("info@fantatreble.it");
+                        $this->email->subject("Modifiche al tuo account FantaTreble");
+                        $this->email->message($message);
+
+                        $this->email->send();
+
+                        $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+                        $data['success_message'] = "Utente modificato con successo !";
+                        $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
+                        $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+                        $this->show('utenti/modifica_utente', $data);
+                        return;
+                    } else {
+                        $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+                        $data['message'] = "Le password inserite non combaciano";
+                        $utente = $this->input->post('cmbUtente');
+                        $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
+                        $this->show('utenti/modifica_utente', $data);
+                        return;
+                    }
+                } else
+                    $utente = $this->input->post('cmbUtente');
+                    $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
+                    $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+                $this->show('utenti/modifica_utente', $data);
+
+                return;
+            }
+
+            $this->form_validation->set_rules('cmbUtente', 'Utente', 'trim|required');
+
+            if ($this->form_validation->run()) {
+
+                $utente = $this->input->post('cmbUtente');
+                $this->load->model('mdl_utenti');
+                $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
+
+                $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+                $this->show('utenti/modifica_utente', $data);
+
+                return;
+            } else
+                $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+            $this->show('utenti/modifica_utente', $data);
         } else
             redirect('utente/login');
     }
