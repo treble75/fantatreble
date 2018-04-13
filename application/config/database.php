@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '127.0.0.1',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'fantatre_2017_18',
+	'hostname' => '10.33.102.156:3306',
+	'username' => '188ea251e2a3',
+	'password' => 'e348b482faae',
+	'database' => '100a9ac8-fef0-2efb-b717-7c42ca7bdd9a',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

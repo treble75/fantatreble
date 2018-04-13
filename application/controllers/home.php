@@ -90,17 +90,17 @@ class Home extends CI_Controller {
             $this->load->model('mdl_categories');
 
             if ($this->input->post('but_blocco')) {
-                $this->form_validation->set_rules('cmbGiornata', 'Giornata');
-                $this->form_validation->set_rules('cmbGiorno', 'Giorno');
-                $this->form_validation->set_rules('cmbMese', 'Mese');
-                $this->form_validation->set_rules('cmbAnno', 'Anno');
-                $this->form_validation->set_rules('cmbOra', 'Ora');
-                $this->form_validation->set_rules('cmbMinuti', 'Minuti');
+                $this->form_validation->set_rules('cmbGiornata', 'Giornata', 'trim|required');
+                $this->form_validation->set_rules('cmbGiorno', 'Giorno', 'trim|required');
+                $this->form_validation->set_rules('cmbMese', 'Mese', 'trim|required');
+                $this->form_validation->set_rules('cmbAnno', 'Anno', 'trim|required');
+                $this->form_validation->set_rules('cmbOra', 'Ora', 'trim|required');
+                $this->form_validation->set_rules('cmbMinuti', 'Minuti', 'trim|required');
 
                 if ($this->form_validation->run()) {
                     $blocco = $this->input->post('cmbAnno') . "-" . $this->input->post('cmbMese') . "-" . $this->input->post('cmbGiorno') . " " . $this->input->post('cmbOra') . ":" . $this->input->post('cmbMinuti') . ":00";
                     $this->mdl_utenti->insBlocco($this->input->post('cmbGiornata'), $blocco);
-                    $data['message'] = "L'orario di blocco impostato per la " . $this->input->post('cmbGiornata') . "° Giornata è : " . $this->input->post('cmbOra') . ":" . $this->input->post('cmbMinuti') . ":00 del giorno " . $this->input->post('cmbGiorno') . "/" . $this->input->post('cmbMese') . "/" . $this->input->post('cmbAnno');
+                    $data['success_message'] = "L'orario di blocco impostato per la Giornata " . $this->input->post('cmbGiornata') . " è : " . $this->input->post('cmbOra') . ":" . $this->input->post('cmbMinuti') . " del giorno " . $this->input->post('cmbGiorno') . "/" . $this->input->post('cmbMese') . "/" . $this->input->post('cmbAnno');
                 }
             }
 

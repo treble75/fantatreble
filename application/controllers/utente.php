@@ -2471,7 +2471,7 @@ class Utente extends CI_Controller {
             //Calcolo fantavoto per i portieri
             if ($this->input->post('but_vota1')) {
                 $this->form_validation->set_rules('cmbPortieri', 'Portieri');
-                $this->form_validation->set_rules('txtVotoP', 'Voto', 'trim|required|numeric|greater_than[0]|less_than[10]');
+                $this->form_validation->set_rules('txtVotoP', 'Voto Portiere', 'trim|required|numeric|greater_than[0]|less_than[10]');
                 $this->form_validation->set_rules('GolP', 'Gol');
                 $this->form_validation->set_rules('AssistP', 'Assist');
                 $this->form_validation->set_rules('AmmoP', 'Ammonizione');
@@ -2523,14 +2523,14 @@ class Utente extends CI_Controller {
                     //Inserisco voti e modifico tabella giocatori
                     $this->mdl_team->insertVoto($data);
                     $this->mdl_team->updateGiocatori($data['id_giocatore'], $_SESSION['giornata']);
-                    $data['message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
+                    $data['success_message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
                 }
             }
 
             //Calcolo fantavoto per i difensori
             if ($this->input->post('but_vota2')) {
                 $this->form_validation->set_rules('cmbDifensori', 'Difensori');
-                $this->form_validation->set_rules('txtVotoD', 'Voto', 'trim|required|numeric|greater_than[0]|less_than[10]');
+                $this->form_validation->set_rules('txtVotoD', 'Voto Difensore', 'trim|required|numeric|greater_than[0]|less_than[10]');
                 $this->form_validation->set_rules('GolD', 'Gol');
                 $this->form_validation->set_rules('AssistD', 'Assist');
                 $this->form_validation->set_rules('AmmoD', 'Ammonizione');
@@ -2581,14 +2581,14 @@ class Utente extends CI_Controller {
                     //Inserisco voti e modifico tabella giocatori
                     $this->mdl_team->insertVoto($data);
                     $this->mdl_team->updateGiocatori($data['id_giocatore'], $_SESSION['giornata']);
-                    $data['message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
+                    $data['success_message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
                 }
             }
 
             //Calcolo fantavoto per i centrocampisti
             if ($this->input->post('but_vota3')) {
                 $this->form_validation->set_rules('cmbCentrocampisti', 'Centrocampisti');
-                $this->form_validation->set_rules('txtVotoC', 'Voto', 'trim|required|numeric|greater_than[0]|less_than[10]');
+                $this->form_validation->set_rules('txtVotoC', 'Voto Centrocampista', 'trim|required|numeric|greater_than[0]|less_than[10]');
                 $this->form_validation->set_rules('GolC', 'Gol');
                 $this->form_validation->set_rules('AssistC', 'Assist');
                 $this->form_validation->set_rules('AmmoC', 'Ammonizione');
@@ -2639,14 +2639,14 @@ class Utente extends CI_Controller {
                     //Inserisco voti e modifico tabella giocatori
                     $this->mdl_team->insertVoto($data);
                     $this->mdl_team->updateGiocatori($data['id_giocatore'], $_SESSION['giornata']);
-                    $data['message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
+                    $data['success_message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
                 }
             }
 
             //Calcolo fantavoto per gli attaccanti
             if ($this->input->post('but_vota4')) {
                 $this->form_validation->set_rules('cmbAttaccanti', 'Attaccanti');
-                $this->form_validation->set_rules('txtVotoA', 'Voto', 'trim|required|numeric|greater_than[0]|less_than[10]');
+                $this->form_validation->set_rules('txtVotoA', 'Voto Attaccante', 'trim|required|numeric|greater_than[0]|less_than[10]');
                 $this->form_validation->set_rules('GolA', 'Gol');
                 $this->form_validation->set_rules('AssistA', 'Assist');
                 $this->form_validation->set_rules('AmmoA', 'Ammonizione');
@@ -2697,7 +2697,7 @@ class Utente extends CI_Controller {
                     //Inserisco voti e modifico tabella giocatori
                     $this->mdl_team->insertVoto($data);
                     $this->mdl_team->updateGiocatori($data['id_giocatore'], $_SESSION['giornata']);
-                    $data['message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
+                    $data['success_message'] = "Voto inserito: " . $this->mdl_team->getNomeGiocatore($data['id_giocatore']) . " - Voto: " . $data['voto'] . " - FV: " . $data['fantavoto'] . " - Gol: " . $data['gol'] . " - Assist: " . $data['assist'] . " - Ammo: " . $data['ammonizioni'] . " - Espu: " . $data['espulsioni'] . " - RigPar: " . $data['rigore_parato'] . " - RigSba: " . $data['rigore_sbagliato'] . " - Autogol: " . $data['autogol'] . " - Gol Subiti: " . $data['gol_subiti'];
                 }
             }
 
@@ -2724,12 +2724,54 @@ class Utente extends CI_Controller {
             if ($this->mdl_utenti->login($utente, $password)) {
                 redirect('home/index');
             } else {
-                $topData['message'] = 'Utente o password errati<br>';
-                $this->show('home/homepage', $topData);
+                $data['message'] = 'Utente o password errati<br>';
+
+                $this->load->model('mdl_team');
+                $this->load->model('mdl_utenti');
+                $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+
+                //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
+                $giornata_posizione = ($_SESSION['giornata'] - 1);
+
+                $data['risultati'] = $this->mdl_team->getCalendario1A();
+                $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
+                $data['giornata'] = $_SESSION['giornata'];
+                $data['risultati_giornata'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata'] - 1);
+                $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
+                $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
+                $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
+
+                $giornataTop = ($_SESSION['giornata'] - 1);
+                $data['top'] = $this->mdl_team->getTop($giornataTop);
+                $data['topCampionato'] = $this->mdl_team->getTopCampionato();
+                $data['offerte'] = $this->mdl_team->getLastOfferte();
+
+                $this->show('home/homepage', $data);
             }
         } else {
-            $topData['message'] = '';
-            $this->show('home/homepage', $topData);
+            $data['message'] = '';
+
+            $this->load->model('mdl_team');
+            $this->load->model('mdl_utenti');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+
+            //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
+            $giornata_posizione = ($_SESSION['giornata'] - 1);
+
+            $data['risultati'] = $this->mdl_team->getCalendario1A();
+            $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['risultati_giornata'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata'] - 1);
+            $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
+            $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
+            $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
+
+            $giornataTop = ($_SESSION['giornata'] - 1);
+            $data['top'] = $this->mdl_team->getTop($giornataTop);
+            $data['topCampionato'] = $this->mdl_team->getTopCampionato();
+            $data['offerte'] = $this->mdl_team->getLastOfferte();
+
+            $this->show('home/homepage', $data);
         }
     }
 
@@ -3628,10 +3670,10 @@ class Utente extends CI_Controller {
 
                     $this->email->send();
 
-                    $data['message'] = "<p style='color:green;'>Nuovo utente registrato con successo !</p>";
+                    $data['success_message'] = "Nuovo utente registrato con successo !";
                     $this->show('utenti/registra_utente', $data);
                 } else {
-                    $data['message'] = "<p style='color:red;'>Le password inserite non combaciano</p>";
+                    $data['message'] = "Le password inserite non combaciano";
                     $this->show('utenti/registra_utente', $data);
                 }
             } else
@@ -3886,7 +3928,7 @@ class Utente extends CI_Controller {
                                 'username' => $this->input->post('username')
                             );
                         }
-                        
+
                         $this->mdl_utenti->updateUtente($utente, $data);
 
                         //Configuro l'invio mail
@@ -3936,8 +3978,8 @@ class Utente extends CI_Controller {
                     }
                 } else
                     $utente = $this->input->post('cmbUtente');
-                    $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
-                    $data['Utenti'] = $this->mdl_categories->getUtenti(true);
+                $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
+                $data['Utenti'] = $this->mdl_categories->getUtenti(true);
                 $this->show('utenti/modifica_utente', $data);
 
                 return;
@@ -4202,7 +4244,7 @@ class Utente extends CI_Controller {
             //Aggiungo o sottraggo il debito inserito all'utente selezionato
             if ($this->input->post('but_fanta')) {
                 $this->form_validation->set_rules('cmbScelta', 'Scelta');
-                $this->form_validation->set_rules('txtFanta', 'Debito', 'trim|required|numeric');
+                $this->form_validation->set_rules('txtFanta', 'FantaMilioni', 'trim|required|numeric');
                 $this->form_validation->set_rules('cmbSquadra', 'Squadra');
 
                 if ($this->form_validation->run()) {
@@ -4212,7 +4254,7 @@ class Utente extends CI_Controller {
                     if ($this->input->post('cmbScelta') == 1)
                         $this->mdl_utenti->delFanta($this->input->post('txtFanta'), $this->input->post('cmbSquadra'));
 
-                    $data['message'] = "Fantamilioni modificati con successo !";
+                    $data['success_message'] = "Fantamilioni modificati con successo !";
                 }
             }
             $data['fanta'] = $this->mdl_utenti->getFanta();
@@ -4231,7 +4273,7 @@ class Utente extends CI_Controller {
             //Aggiungo o sottraggo il debito inserito all'utente selezionato
             if ($this->input->post('but_debito')) {
                 $this->form_validation->set_rules('cmbDebito', 'Scelta');
-                $this->form_validation->set_rules('txtDebito', 'Debito', 'trim|required|numeric');
+                $this->form_validation->set_rules('txtDebito', 'Quota', 'trim|required|numeric');
                 $this->form_validation->set_rules('cmbSquadra', 'Squadra');
 
                 if ($this->form_validation->run()) {
@@ -4240,6 +4282,8 @@ class Utente extends CI_Controller {
 
                     if ($this->input->post('cmbDebito') == 1)
                         $this->mdl_utenti->delDebito($this->input->post('txtDebito'), $this->input->post('cmbSquadra'));
+                    
+                    $data['success_message'] = "Quote modificate con successo !";
                 }
             }
             $data['debiti'] = $this->mdl_utenti->getDebiti();
