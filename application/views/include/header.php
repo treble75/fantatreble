@@ -282,7 +282,7 @@
                                         </li>
                                     <?php } ?>
                                     <?php if (isset($_SESSION['id_utente'])) { ?>
-                                        <li class=""><a href="#">My Team</a>
+                                        <li class=""><a href="#"><?= $_SESSION['squadra'] ?></a>
                                             <ul class="main-nav__sub">
                                                 <li><a href="<?= base_url('/') ?>index.php/utente/myteam">Rosa Giocatori</a></li>
                                                 <li><a href="_soccer_team-overview.html">Schiera Formazione</a></li>
@@ -295,6 +295,28 @@
                                                 <li><a href="_soccer_shop-grid.html">Prepartita</a></li>
                                             </ul>
                                         </li>
+                                        
+                                        <?php
+                                        //Leggo tutte le squadre per creare il menu
+                                        $this->load->model('mdl_utenti');
+                                        $squadreMenu = $this->mdl_utenti->getSquadre();
+                                        ?>
+                                        
+                                        <li class=""><a href="#">Teams</a>
+                                            <ul class="main-nav__sub">
+                                                <?php
+                                                foreach ($squadreMenu as $row) { ?>
+                                                <li><a href="<?= base_url('/') ?>index.php/utente/team_bacheca/<?= $row['id_utente'] ?>" ><span>
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_utente'] ?>.png" >
+                                                    </figure>
+                                                </span>&nbsp;<?= $row['squadra'] ?></a></li>
+                                                <?php
+                                                }
+                                                ?>
+                                            </ul>
+                                        </li>
+                                        
                                     <?php } ?>
                                     <li class=""><a href="#">Competitions</a>
                                         <ul class="main-nav__sub">

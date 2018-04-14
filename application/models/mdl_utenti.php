@@ -183,6 +183,12 @@ class mdl_utenti extends CI_Model {
         return $query->result_array();
     }
     
+    public function getSquadre() {
+        $this->db->order_by('squadra', 'asc');
+        $query = $this->db->get("tb_utenti");
+        return $query->result_array();
+    }
+    
     public function getNewsTeam($id) {
         $this->db->where('id_utente', $id);
         $this->db->order_by('data', 'desc');

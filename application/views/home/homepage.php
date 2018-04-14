@@ -32,7 +32,7 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="_soccer_blog-post-1.html"><span class="highlight">S.C.Arsenal</span> compie l'impresa </br> 2-0 contro Frank One</a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/campionato"><span class="highlight">S.C.Arsenal</span> compie l'impresa </br> 2-0 contro Frank One</a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
@@ -81,7 +81,7 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="_soccer_blog-post-1.html"><span class="highlight">Frank One</span> stecca la prima</br> 1-0 contro Zacapa 23 </a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/champions"><span class="highlight">Frank One</span> stecca la prima</br> 1-0 contro Zacapa 23 </a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
@@ -130,7 +130,7 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="_soccer_blog-post-1.html">La finale sarà</br>tra <span class="highlight">Warriors</span> e <span class="highlight">Frank One</span></a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/coppa">La finale sarà</br>tra <span class="highlight">Warriors</span> e <span class="highlight">Frank One</span></a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
