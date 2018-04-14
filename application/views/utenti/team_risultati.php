@@ -6,10 +6,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title">Risultati <span class="highlight"><?= $_SESSION['squadra'] ?></span></h1>
+                        <h1 class="page-heading__title">Risultati <span class="highlight"><?= $utente[0]['squadra'] ?></span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
                             <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                            <li><a href="<?= base_url('/') ?>index.php/utente/myteam">My Team</a></li>
+                            <li><a href="<?= base_url('/') ?>index.php/utente/team/<?= $utente[0]['id_utente'] ?>">Team</a></li>
                             <li class="active">Risultati</li>
                         </ol>
                     </div>
@@ -22,12 +22,12 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam" class="content-filter__link"><small>My Team</small>Rosa Giocatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_marcatori" class="content-filter__link"><small>My Team</small>Marcatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_statistiche" class="content-filter__link"><small>My Team</small>Statistiche</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/myteam_risultati" class="content-filter__link"><small>My Team</small>Risultati</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_calendario" class="content-filter__link"><small>My Team</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/myteam_bacheca" class="content-filter__link"><small>My Team</small>Bacheca</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Rosa Giocatori</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_marcatori/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Marcatori</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_statistiche/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Statistiche</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/team_risultati/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Risultati</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_calendario/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Calendario</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_bacheca/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Bacheca</a></li>
                 </ul>
             </div>
         </nav>
@@ -83,16 +83,16 @@
                                             foreach ($partitegiocate as $row) {
                                                 $evidenzia1 = "";
                                                 $evidenzia2 = "";
-                                                if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
+                                                if ($row['id1'] == $utente[0]['id_utente'] || $row['id2'] == $utente[0]['id_utente']) {
                                                     $colore = "";
-                                                    if ($row['id1'] == $_SESSION['id_utente']) {
+                                                    if ($row['id1'] == $utente[0]['id_utente']) {
                                                         if ($row['risultato1'] > $row['risultato2'])
                                                             $colore = "color: #009900;";
                                                         if ($row['risultato1'] < $row['risultato2'])
                                                             $colore = "color: #ff3d3d;";
                                                         $evidenzia1 = "style='color: #1892ED; font-size: 12px;'";
                                                     }
-                                                    if ($row['id2'] == $_SESSION['id_utente']) {
+                                                    if ($row['id2'] == $utente[0]['id_utente']) {
                                                         if ($row['risultato2'] > $row['risultato1'])
                                                             $colore = "color: #009900;";
                                                         if ($row['risultato2'] < $row['risultato1'])
@@ -206,17 +206,17 @@
                                             foreach ($partitegiocateChampions as $row) {
                                                 $evidenzia1 = "";
                                                 $evidenzia2 = "";
-                                                if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
+                                                if ($row['id1'] == $utente[0]['id_utente'] || $row['id2'] == $utente[0]['id_utente']) {
                                                     $colore = "";
                                                     $label = "";
-                                                    if ($row['id1'] == $_SESSION['id_utente']) {
+                                                    if ($row['id1'] == $utente[0]['id_utente']) {
                                                         if ($row['risultato1'] > $row['risultato2'])
                                                             $colore = "color: #009900;";
                                                         if ($row['risultato1'] < $row['risultato2'])
                                                             $colore = "color: #ff3d3d;";
                                                         $evidenzia1 = "style='color: #1892ED; font-size: 12px;'";
                                                     }
-                                                    if ($row['id2'] == $_SESSION['id_utente']) {
+                                                    if ($row['id2'] == $utente[0]['id_utente']) {
                                                         if ($row['risultato2'] > $row['risultato1'])
                                                             $colore = "color: #009900;";
                                                         if ($row['risultato2'] < $row['risultato1'])
@@ -364,19 +364,19 @@
                                             $bgcolor = 'bgcolor="#ffffff"';
                                             $i = 1;
                                             foreach ($partitegiocateCoppa as $row) {
-                                                if ($row['id1'] == $_SESSION['id_utente'] || $row['id2'] == $_SESSION['id_utente']) {
+                                                if ($row['id1'] == $utente[0]['id_utente'] || $row['id2'] == $utente[0]['id_utente']) {
                                                     $colore = "";
                                                     $label = "";
                                                     $evidenzia1 = "";
                                                     $evidenzia2 = "";
-                                                    if ($row['id1'] == $_SESSION['id_utente']) {
+                                                    if ($row['id1'] == $utente[0]['id_utente']) {
                                                         if ($row['risultato1'] > $row['risultato2'])
                                                             $colore = "color: #009900;";
                                                         if ($row['risultato1'] < $row['risultato2'])
                                                             $colore = "color: #ff3d3d;";
                                                         $evidenzia1 = "style='color: #1892ED; font-size: 12px;'";
                                                     }
-                                                    if ($row['id2'] == $_SESSION['id_utente']) {
+                                                    if ($row['id2'] == $utente[0]['id_utente']) {
                                                         if ($row['risultato2'] > $row['risultato1'])
                                                             $colore = "color: #009900;";
                                                         if ($row['risultato2'] < $row['risultato1'])

@@ -3015,6 +3015,26 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
+    
+    public function team_bacheca($team) {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            if ($_SESSION['giornata'] != "") {
+                $blocco = $this->mdl_utenti->getBlocco();
+                $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
+                $data['blocco'] = $blocco;
+            }
+            $data['giornata'] = $_SESSION['giornata'];
+
+            $data['utente'] = $this->mdl_utenti->getDatiUtente($team);
+            $data['news'] = $this->mdl_utenti->getNewsTeam($team);
+
+            $this->show('utenti/team_bacheca', $data);
+        } else
+            redirect('home/index');
+    }
 
     public function myteam_marcatori() {
         if (isset($_SESSION['id_utente'])) {
@@ -3027,6 +3047,22 @@ class Utente extends CI_Controller {
             $data['bomberTotaliChampions'] = $this->mdl_team->getBomberTeamChampionsTotale($_SESSION['id_utente']);
             $data['bomberTotaliCoppa'] = $this->mdl_team->getBomberTeamCoppaTotale($_SESSION['id_utente']);
             $this->show('utenti/myteam_marcatori', $data);
+        } else
+            redirect('home/index');
+    }
+    
+    public function team_marcatori($team) {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['utente'] = $this->mdl_utenti->getDatiUtente($team);
+            $data['bomberTotali'] = $this->mdl_team->getBomberTeamTotali($team, $_SESSION['giornata']);
+            $data['bomberTotaliChampions'] = $this->mdl_team->getBomberTeamChampionsTotale($team);
+            $data['bomberTotaliCoppa'] = $this->mdl_team->getBomberTeamCoppaTotale($team);
+            $this->show('utenti/team_marcatori', $data);
         } else
             redirect('home/index');
     }
@@ -3062,6 +3098,38 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
+    
+    public function team_risultati($team) {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            if ($_SESSION['giornata'] != "") {
+                $blocco = $this->mdl_utenti->getBlocco();
+                $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
+                $data['blocco'] = $blocco;
+            }
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['myteamT'] = $this->mdl_utenti->getSchieramentoT($team);
+            $data['myteamTCoppa'] = $this->mdl_utenti->getSchieramentoTCoppa($team);
+            $data['myteamP'] = $this->mdl_utenti->getSchieramentoP($team);
+            $data['myteamPCoppa'] = $this->mdl_utenti->getSchieramentoPCoppa($team);
+            $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
+            $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
+            $data['utente'] = $this->mdl_utenti->getDatiUtente($team);
+            $data['team'] = $this->mdl_team->getTeam($team);
+            $data['partitegiocate'] = $this->mdl_team->getPartitegiocate();
+            $data['partitegiocateChampions'] = $this->mdl_team->getPartitegiocateChampions();
+            $data['partitegiocateCoppa'] = $this->mdl_team->getPartitegiocateCoppa();
+            $data['partitegiocateSuperCoppa'] = $this->mdl_team->getPartitegiocateSuperCoppa();
+            $data['prossimapartita'] = $this->mdl_team->getProssimapartita();
+            $data['prossimapartitacoppa'] = $this->mdl_team->getProssimapartitacoppa();
+            $data['prossimapartitachampions'] = $this->mdl_team->getProssimapartitachampions();
+            $data['bomber'] = $this->mdl_team->getBomberTeam($team, $_SESSION['giornata']);
+            $this->show('utenti/team_risultati', $data);
+        } else
+            redirect('home/index');
+    }
 
     public function myteam_calendario() {
         if (isset($_SESSION['id_utente'])) {
@@ -3079,6 +3147,27 @@ class Utente extends CI_Controller {
             $data['prossimiMatchChampions'] = $this->mdl_team->getProssimiMatchChampions($_SESSION['id_utente']);
 
             $this->show('utenti/myteam_calendario', $data);
+        } else
+            redirect('home/index');
+    }
+    
+    public function team_calendario($team) {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            if ($_SESSION['giornata'] != "") {
+                $blocco = $this->mdl_utenti->getBlocco();
+                $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
+                $data['blocco'] = $blocco;
+            }
+
+            $data['utente'] = $this->mdl_utenti->getDatiUtente($team);
+            $data['prossimiMatch'] = $this->mdl_team->getProssimiMatch($team);
+            $data['prossimiMatchCoppa'] = $this->mdl_team->getProssimiMatchCoppa($team);
+            $data['prossimiMatchChampions'] = $this->mdl_team->getProssimiMatchChampions($team);
+
+            $this->show('utenti/team_calendario', $data);
         } else
             redirect('home/index');
     }

@@ -102,7 +102,7 @@
                             <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_squadra'] ?>.png" width="30px">
                         </figure>
                         <div class="team-meta__info">
-                            <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/home/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></a>
+                            <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/utente/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></a>
                             <?php
                             //Inserire ID della squadra scudettata
                             if ($row['id_squadra'] == 10){?>
