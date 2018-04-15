@@ -27,6 +27,7 @@ class Home extends CI_Controller {
         $CI->load->library('form_validation');
         $CI->load->library('session');
         $CI->load->helper('ghelper');
+        $CI->load->model('mdl_utenti');
     }
 
     public function show($pagina, $dati = '') {
@@ -149,7 +150,7 @@ class Home extends CI_Controller {
         $this->show('home/calendario', $data);
     }
 
-    public function statistiche_treble_league() {
+    public function albo_statistiche() {
 
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
@@ -285,7 +286,7 @@ class Home extends CI_Controller {
             $data['storico_squadre'] = $this->mdl_team->getStoricoSquadre();
             $data['combo_storico_squadre'] = $this->mdl_categories->getComboStoricoSquadre();
             
-            $this->show('home/statistiche_treble_league', $data);
+            $this->show('home/albo_statistiche', $data);
             return;
         }
         
@@ -296,7 +297,7 @@ class Home extends CI_Controller {
         $data['storico_squadre'] = $this->mdl_team->getStoricoSquadre();
         $data['combo_storico_squadre'] = $this->mdl_categories->getComboStoricoSquadre();
 
-        $this->show('home/statistiche_treble_league', $data);
+        $this->show('home/albo_statistiche', $data);
     }
 
     public function marcatori() {
@@ -403,9 +404,9 @@ class Home extends CI_Controller {
         $this->show('home/albo_supercoppa.php');
     }
 
-    public function albo_statistiche() {
+    public function statistiche_treble_league() {
 
-        $this->show('home/albo_statistiche.php');
+        $this->show('home/statistiche_treble_league.php');
     }
 
     public function bonus() {

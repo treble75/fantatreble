@@ -285,11 +285,11 @@
                                         <li class=""><a href="#"><?= $_SESSION['squadra'] ?></a>
                                             <ul class="main-nav__sub">
                                                 <li><a href="<?= base_url('/') ?>index.php/utente/myteam">Rosa Giocatori</a></li>
-                                                <li><a href="_soccer_team-overview.html">Schiera Formazione</a></li>
-                                                <li><a href="_soccer_team-roster.html">Rigoristi</a>
+                                                <li><a href="<?= base_url('/') ?>index.php/utente/schiera_formazione">Schiera Formazione</a></li>
+                                                <li><a href="#">Rigoristi</a>
                                                     <ul class="main-nav__sub-2">
-                                                        <li><a href="_soccer_team-roster.html">Seleziona Rigoristi</a></li>
-                                                        <li><a href="_soccer_team-roster-2.html">Rigoristi Schierati <span class="label label-danger"> New </span></a></li>
+                                                        <li><a href="<?= base_url('/') ?>index.php/utente/seleziona_rigoristi">Seleziona Rigoristi</a></li>
+                                                        <li><a href="<?= base_url('/') ?>index.php/utente/rigoristi">Rigoristi Schierati <span class="label label-danger"> New </span></a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="_soccer_shop-grid.html">Prepartita</a></li>
@@ -305,13 +305,16 @@
                                         <li class=""><a href="#">Teams</a>
                                             <ul class="main-nav__sub">
                                                 <?php
-                                                foreach ($squadreMenu as $row) { ?>
-                                                <li><a href="<?= base_url('/') ?>index.php/utente/team_bacheca/<?= $row['id_utente'] ?>" ><span>
-                                                    <figure class="widget-results__team-logo">
-                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_utente'] ?>.png" >
-                                                    </figure>
-                                                </span>&nbsp;<?= $row['squadra'] ?></a></li>
-                                                <?php
+                                                foreach ($squadreMenu as $row) {
+                                                    if ($_SESSION['id_utente'] != $row['id_utente']) {
+                                                        ?>
+                                                        <li><a href="<?= base_url('/') ?>index.php/utente/team_bacheca/<?= $row['id_utente'] ?>" ><span>
+                                                                    <figure class="widget-results__team-logo">
+                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_utente'] ?>.png" >
+                                                                    </figure>
+                                                                </span>&nbsp;<?= $row['squadra'] ?></a></li>
+                                                        <?php
+                                                    }
                                                 }
                                                 ?>
                                             </ul>

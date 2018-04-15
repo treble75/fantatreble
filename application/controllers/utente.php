@@ -29,6 +29,8 @@ class Utente extends CI_Controller {
         $CI->load->helper(array('form', 'url'));
         $CI->load->library('form_validation');
         $CI->load->library('session');
+        $CI->load->helper('ghelper');
+        $CI->load->model('mdl_utenti');
     }
 
     public function show($pagina, $dati = '') {
