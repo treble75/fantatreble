@@ -70,6 +70,12 @@ class mdl_utenti extends CI_Model {
         return $this->db->get()->row('squadra');
     }
     
+    public function getPartecipazioni($nome, $cognome) {
+        $query = $this->db->query('select count(*) from tb_all_teams where nome = "' . $nome . '" and cognome = "' . $cognome . '"');
+
+        return $query->row('count(*)');
+    }
+    
     public function getImmagine($squadra, $type) {
         if ($type == "squadra") {
             
