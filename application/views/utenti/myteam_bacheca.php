@@ -75,15 +75,33 @@
 
                                                     <!-- Details -->
                                                     <dl class="alc-staff-details">
+                                                        
+                                                        <dt class="alc-staff-details__label">Presidente</dt>
+                                                        <dd class="alc-staff-details__value"><?= $utente[0]['nome'] . " " . $utente[0]['cognome'] ?></dd>
+                                                        
+                                                        <dt class="alc-staff-details__label">Partecipazioni</dt>
+                                                        <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getPartecipazioni($utente[0]['nome'],$utente[0]['cognome']) ?></dd>
 
-                                                        <dt class="alc-staff-details__label">Miglior Piazzamento:</dt>
+                                                        <dt class="alc-staff-details__label">Miglior Piazzamento</dt>
                                                         <dd class="alc-staff-details__value"><?= $utente[0]['piazzamento'] ?></dd>
 
-                                                        <dt class="alc-staff-details__label">FantaMilioni:</dt>
-                                                        <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getFantamilioni($_SESSION['id_utente']) ?></dd>
-
+                                                        <dt class="alc-staff-details__label">FantaMilioni</dt>
+                                                        <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getFantamilioni($utente[0]['id_utente']) ?></dd>
+                                                        
                                                         <dt class="alc-staff-details__label">Quota residua:</dt>
                                                         <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getOldDebito($_SESSION['id_utente']) . " €" ?></dd>
+                                                        
+                                                        <dt class="alc-staff-details__label">Scudetti</dt>
+                                                        <dd class="alc-staff-details__value"><?= $utente[0]['scudetto'] ?></dd>
+                                                        
+                                                        <dt class="alc-staff-details__label">Champions League</dt>
+                                                        <dd class="alc-staff-details__value"><?= $utente[0]['champions'] ?></dd>
+                                                        
+                                                        <dt class="alc-staff-details__label">Coppe Treble</dt>
+                                                        <dd class="alc-staff-details__value"><?= $utente[0]['coppa'] ?></dd>
+                                                        
+                                                        <dt class="alc-staff-details__label">SuperCoppe Treble</dt>
+                                                        <dd class="alc-staff-details__value"><?= $utente[0]['supercoppa'] ?></dd>
 
                                                     </dl>
                                                     <!-- Details / End -->
