@@ -74,6 +74,28 @@
                     <tbody>
                         
                         <tr>
+                            <td class="game-player-result__date">2017 / 18</td>
+                            <td class="game-player-result__vs">
+                              <div class="team-meta">
+                                <figure class="team-meta__logo">
+                                  <img src="<?= base_url('/') ?>images/albo/logo/warriors.png" alt="" width="30px">
+                                </figure>
+                                <div class="team-meta__info">
+                                  <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Warriors</h6>
+                                  <span class="team-meta__place">Luca Guerrieri</span>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="game-player-result__min">8</td>
+                            <td class="game-player-result__tg">4</td>
+                            <td class="game-player-result__ts">2</td>
+                            <td class="game-player-result__ga">2</td>
+                            <td class="game-player-result__fc">14</td>
+                            <td class="game-player-result__fs">11</td>
+                            <td class="game-player-result__yc">+3</td>
+                            <td class="game-player-result__rc">579.5</td>
+                        </tr>
+                        <tr>
                             <td class="game-player-result__date">2016 / 17</td>
                             <td class="game-player-result__vs">
                               <div class="team-meta">
@@ -199,6 +221,28 @@
                         <td class="team-leader__player">
                           <div class="team-leader__player-info">
                             <figure class="team-leader__player-img team-leader__player-img--sm">
+                              <img src="<?= base_url('/') ?>images/albo/giocatori/immobile.png" alt="">
+                            </figure>
+                            <div class="team-leader__player-inner">
+                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">IMMOBILE Ciro</h5>
+                              <span class="team-leader__player-position" style="color: #000000;">Sangue&Oro</span>
+                              <span class="team-leader__player-position">Stagione 2017 / 18</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">5</td>
+                        <td class="team-leader__avg">
+                          <div class="circular">
+                            <div class="circular__bar" data-percent="108.8">
+                              <span class="circular__percents">10.88</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="team-leader__player">
+                          <div class="team-leader__player-info">
+                            <figure class="team-leader__player-img team-leader__player-img--sm">
                               <img src="<?= base_url('/') ?>images/albo/giocatori/muriel.png" alt="">
                             </figure>
                             <div class="team-leader__player-inner">
@@ -243,6 +287,28 @@
                         <td class="team-leader__player">
                           <div class="team-leader__player-info">
                             <figure class="team-leader__player-img team-leader__player-img--sm">
+                              <img src="<?= base_url('/') ?>images/albo/giocatori/dybala.png" alt="">
+                            </figure>
+                            <div class="team-leader__player-inner">
+                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">DYBALA Paulo</h5>
+                              <span class="team-leader__player-position" style="color: #000000;">Warriors</span>
+                              <span class="team-leader__player-position">Stagione 2017 / 18</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">5</td>
+                        <td class="team-leader__avg">
+                          <div class="circular">
+                            <div class="circular__bar" data-percent="84.3">
+                              <span class="circular__percents">8.43</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="team-leader__player">
+                          <div class="team-leader__player-info">
+                            <figure class="team-leader__player-img team-leader__player-img--sm">
                               <img src="<?= base_url('/') ?>images/albo/giocatori/bernardeschi.png" alt="">
                             </figure>
                             <div class="team-leader__player-inner">
@@ -257,6 +323,28 @@
                           <div class="circular">
                             <div class="circular__bar" data-percent="81.9">
                               <span class="circular__percents">8.19</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="team-leader__player">
+                          <div class="team-leader__player-info">
+                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                              <img src="<?= base_url('/') ?>images/albo/giocatori/khedira.png" alt="">
+                            </figure>
+                            <div class="team-leader__player-inner">
+                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">KHEDIRA Sami</h5>
+                              <span class="team-leader__player-position" style="color: #000000;">All Blacks</span>
+                              <span class="team-leader__player-position">Stagione 2017 / 18</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">4</td>
+                        <td class="team-leader__avg">
+                          <div class="circular">
+                            <div class="circular__bar" data-percent="98.8">
+                              <span class="circular__percents">9.88</span>
                             </div>
                           </div>
                         </td>
@@ -301,72 +389,6 @@
                           <div class="circular">
                             <div class="circular__bar" data-percent="85.0">
                               <span class="circular__percents">8.50</span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="team-leader__player">
-                          <div class="team-leader__player-info">
-                            <figure class="team-leader__player-img team-leader__player-img--sm">
-                              <img src="<?= base_url('/') ?>images/albo/giocatori/iago.png" alt="">
-                            </figure>
-                            <div class="team-leader__player-inner">
-                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">IAGO Falque</h5>
-                              <span class="team-leader__player-position" style="color: #000000;">S.C. Arsenal</span>
-                              <span class="team-leader__player-position">Stagione 2016 / 17</span>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">3</td>
-                        <td class="team-leader__avg">
-                          <div class="circular">
-                            <div class="circular__bar" data-percent="96.2">
-                              <span class="circular__percents">9.62</span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="team-leader__player">
-                          <div class="team-leader__player-info">
-                            <figure class="team-leader__player-img team-leader__player-img--sm">
-                              <img src="<?= base_url('/') ?>images/albo/giocatori/suso.png" alt="">
-                            </figure>
-                            <div class="team-leader__player-inner">
-                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">SUSO Jesus</h5>
-                              <span class="team-leader__player-position" style="color: #000000;">S.C. Arsenal</span>
-                              <span class="team-leader__player-position">Stagione 2016 / 17</span>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">3</td>
-                        <td class="team-leader__avg">
-                          <div class="circular">
-                            <div class="circular__bar" data-percent="93.7">
-                              <span class="circular__percents">9.37</span>
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="team-leader__player">
-                          <div class="team-leader__player-info">
-                            <figure class="team-leader__player-img team-leader__player-img--sm">
-                              <img src="<?= base_url('/') ?>images/albo/giocatori/dybala.png" alt="">
-                            </figure>
-                            <div class="team-leader__player-inner">
-                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">Dybala Paulo</h5>
-                              <span class="team-leader__player-position" style="color: #000000;">All Blacks</span>
-                              <span class="team-leader__player-position">Stagione 2016 / 17</span>
-                            </div>
-                          </div>
-                        </td>
-                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">3</td>
-                        <td class="team-leader__avg">
-                          <div class="circular">
-                            <div class="circular__bar" data-percent="92.5">
-                              <span class="circular__percents">9.25</span>
                             </div>
                           </div>
                         </td>
