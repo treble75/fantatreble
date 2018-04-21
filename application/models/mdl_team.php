@@ -2067,8 +2067,10 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
 
-    public function attivaRigoristi($giornata, $competizione) {
+    public function attivaRigoristi($giornata, $competizione, $squadra1, $squadra2) {
         $this->db->where('giornata', $giornata);
+        $this->db->where('id1', $squadra1);
+        $this->db->where('id2', $squadra2);
 
         if ($competizione == "Campionato")
             $this->db->update('tb_calendario', array('rigoristi' => 1));

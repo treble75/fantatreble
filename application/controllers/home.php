@@ -535,23 +535,38 @@ class Home extends CI_Controller {
     public function gestione_rigoristi() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_team');
+            $this->load->model('mdl_categories');
+            
+            $data['Squadre'] = $this->mdl_categories->getSquadre(true);
 
-            $this->form_validation->set_rules('cmbGiornata', 'Giornata');
-            $this->form_validation->set_rules('cmbScelta', 'Competizione');
+            $this->form_validation->set_rules('cmbGiornata', 'Giornata', 'trim|required');
+            $this->form_validation->set_rules('cmbScelta', 'Competizione', 'trim|required');
+            $this->form_validation->set_rules('cmbSquadra1', 'Squadra1', 'trim|required');
+            $this->form_validation->set_rules('cmbSquadra2', 'Squadra2', 'trim|required');
 
             if ($this->form_validation->run()) {
+                
+                if (($this->input->post('cmbGiornata') != 0) && ($this->input->post('cmbScelta') != 0) && ($this->input->post('cmbSquadra1') != 0) && ($this->input->post('cmbSquadra2') != 0)) {
 
-                $giornata = $this->input->post('cmbGiornata');
-                $competizione = $this->input->post('cmbScelta');
+                    $giornata       = $this->input->post('cmbGiornata');
+                    $competizione   = $this->input->post('cmbScelta');
+                    $squadra1       = $this->input->post('cmbSquadra1');
+                    $squadra2       = $this->input->post('cmbSquadra2');
 
-                $aggiorna = $this->mdl_team->attivaRigoristi($giornata, $competizione);
-                if ($aggiorna)
-                    $data['message'] = "<p style='color:green;'>Rigoristi per " . $competizione . " attivati con successo per la giornata " . $giornata . "<p>";
+                    $aggiorna = $this->mdl_team->attivaRigoristi($giornata, $competizione, $squadra1, $squadra2);
+                    if ($aggiorna)
+                        $data['success_message'] = "Rigoristi per " . $competizione . " attivati con successo per la giornata " . $giornata;
 
-                $this->show('home/gestione_rigoristi', $data);
-                return;
+                    $this->show('home/gestione_rigoristi', $data);
+                    return;
+                } else {
+                    $data['message'] = "ATTENZIONE: Verificare le selezioni";
+
+                    $this->show('home/gestione_rigoristi', $data);
+                    return;
+                }
             }
-            $this->show('home/gestione_rigoristi');
+            $this->show('home/gestione_rigoristi', $data);
         } else
             redirect('utente/login');
     }
