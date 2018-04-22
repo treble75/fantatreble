@@ -313,7 +313,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -433,7 +433,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -495,7 +495,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -615,7 +615,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -677,7 +677,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -797,7 +797,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -859,7 +859,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -980,7 +980,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2017-18") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -1042,7 +1042,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -1163,7 +1163,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -1225,7 +1225,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -1345,7 +1345,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -1409,7 +1409,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -1529,7 +1529,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -1593,7 +1593,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -1713,7 +1713,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2016-17") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -1777,7 +1777,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2015-16") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -1897,7 +1897,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2015-16") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -1961,7 +1961,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2015-16") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -2081,7 +2081,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2015-16") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -2145,7 +2145,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2015-16") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -2265,7 +2265,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2015-16") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -2329,7 +2329,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2014-15") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -2449,7 +2449,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2014-15") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -2513,7 +2513,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2013-14") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -2633,7 +2633,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2013-14") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -2697,7 +2697,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2012-13") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -2817,7 +2817,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2012-13") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>
@@ -2881,7 +2881,7 @@
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id1'], "2011-12") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                                 <div class="team-meta__info">
@@ -3001,7 +3001,7 @@
                                                                 </div>
                                                                 <figure class="team-meta__logoCalendar">
                                                                     <?php if ($row['id1'] != $row['id2']) { ?>
-                                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png">
+                                                                        <img src="<?= base_url('/') ?>images/storico/logo/<?= $this->mdl_utenti->getLogoStorico($row['id2'], "2011-12") ?>">
                                                                     <?php } ?>
                                                                 </figure>
                                                             </div>

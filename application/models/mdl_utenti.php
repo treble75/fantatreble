@@ -70,6 +70,15 @@ class mdl_utenti extends CI_Model {
         return $this->db->get()->row('squadra');
     }
     
+    public function getLogoStorico($id_utente, $stagione) {
+        $this->db->select('logo');
+        $this->db->where('id_squadra', $id_utente);
+        $this->db->where('stagione', $stagione);
+        $this->db->from('tb_all_teams');
+
+        return $this->db->get()->row('logo');
+    }
+    
     public function getPartecipazioni($nome, $cognome) {
         $query = $this->db->query('select count(*) from tb_all_teams where nome = "' . $nome . '" and cognome = "' . $cognome . '"');
 
