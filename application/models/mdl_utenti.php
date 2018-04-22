@@ -90,6 +90,7 @@ class mdl_utenti extends CI_Model {
             
             $this->db->select('logo');
             $this->db->where('squadra', $squadra);
+            $this->db->order_by('id', 'DESC');
             $this->db->from('tb_all_teams');
 
             return $this->db->get()->row('logo');
@@ -98,6 +99,7 @@ class mdl_utenti extends CI_Model {
             
             $this->db->select('user');
             $this->db->where('squadra', $squadra);
+            $this->db->order_by('id', 'DESC');
             $this->db->from('tb_all_teams');
 
             return $this->db->get()->row('user');
