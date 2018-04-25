@@ -2938,8 +2938,12 @@ class Utente extends CI_Controller {
     
     public function reset_rigoristi() {
         if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_categories');
+            
+            $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
+            $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
 
-            $this->show('utenti/conferma_reset_rigoristi.php');
+            $this->show('utenti/conferma_reset_rigoristi.php', $data);
         } else
             redirect('utente/login');
     }
