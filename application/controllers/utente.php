@@ -2842,31 +2842,31 @@ class Utente extends CI_Controller {
 
             if ($orario <= $blocco) {
 
-                $this->form_validation->set_rules('cmbRigorista1', 'cmbRigorista1');
-                $this->form_validation->set_rules('cmbRigorista2', 'cmbRigorista2');
-                $this->form_validation->set_rules('cmbRigorista3', 'cmbRigorista3');
-                $this->form_validation->set_rules('cmbRigorista4', 'cmbRigorista4');
-                $this->form_validation->set_rules('cmbRigorista5', 'cmbRigorista5');
-                $this->form_validation->set_rules('cmbRigorista6', 'cmbRigorista6');
-                $this->form_validation->set_rules('cmbRigorista7', 'cmbRigorista7');
-                $this->form_validation->set_rules('cmbRigorista8', 'cmbRigorista8');
-                $this->form_validation->set_rules('cmbRigorista9', 'cmbRigorista9');
-                $this->form_validation->set_rules('cmbRigorista10', 'cmbRigorista10');
-                $this->form_validation->set_rules('cmbRigorista11', 'cmbRigorista11');
-                $this->form_validation->set_rules('cmbRigorista12', 'cmbRigorista12');
-                $this->form_validation->set_rules('cmbRigorista13', 'cmbRigorista13');
-                $this->form_validation->set_rules('cmbRigorista14', 'cmbRigorista14');
-                $this->form_validation->set_rules('cmbRigorista15', 'cmbRigorista15');
-                $this->form_validation->set_rules('cmbRigorista16', 'cmbRigorista16');
-                $this->form_validation->set_rules('cmbRigorista17', 'cmbRigorista17');
-                $this->form_validation->set_rules('cmbRigorista18', 'cmbRigorista18');
-                $this->form_validation->set_rules('cmbRigorista19', 'cmbRigorista19');
-                $this->form_validation->set_rules('cmbRigorista20', 'cmbRigorista20');
-                $this->form_validation->set_rules('cmbRigorista21', 'cmbRigorista21');
-                $this->form_validation->set_rules('cmbRigorista22', 'cmbRigorista22');
-                $this->form_validation->set_rules('cmbRigorista23', 'cmbRigorista23');
-                $this->form_validation->set_rules('cmbRigorista24', 'cmbRigorista24');
-                $this->form_validation->set_rules('cmbRigorista25', 'cmbRigorista25');
+                $this->form_validation->set_rules('cmbRigorista1', 'cmbRigorista1', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista2', 'cmbRigorista2', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista3', 'cmbRigorista3', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista4', 'cmbRigorista4', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista5', 'cmbRigorista5', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista6', 'cmbRigorista6', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista7', 'cmbRigorista7', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista8', 'cmbRigorista8', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista9', 'cmbRigorista9', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista10', 'cmbRigorista10', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista11', 'cmbRigorista11', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista12', 'cmbRigorista12', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista13', 'cmbRigorista13', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista14', 'cmbRigorista14', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista15', 'cmbRigorista15', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista16', 'cmbRigorista16', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista17', 'cmbRigorista17', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista18', 'cmbRigorista18', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista19', 'cmbRigorista19', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista20', 'cmbRigorista20', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista21', 'cmbRigorista21', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista22', 'cmbRigorista22', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista23', 'cmbRigorista23', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista24', 'cmbRigorista24', 'trim|required');
+                $this->form_validation->set_rules('cmbRigorista25', 'cmbRigorista25', 'trim|required');
 
                 if ($this->input->post('but_reset_rigoristi')) {
                     //Prima svuoto i rigoristi precedenti
@@ -2884,7 +2884,7 @@ class Utente extends CI_Controller {
                     }
                     $data['formazione'] = "";
                     $data['rigoristi'] = "";
-                    $data['message'] = '<p style="color:green;">Rigoristi resettati con successo !</p>';
+                    $data['success_message'] = 'Rigoristi resettati con successo !';
                     $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
                     $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
 
@@ -2903,7 +2903,7 @@ class Utente extends CI_Controller {
                             if ($rig1 == $rig2) {
                                 $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
                                 $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
-                                $data['message'] = '<p style="color:red;">ATTENZIONE : hai inserito più volte lo stesso rigorista !</p>';
+                                $data['message'] = 'ATTENZIONE : hai inserito più volte lo stesso rigorista !';
 
                                 $this->show('utenti/rigoristi.php', $data);
                                 return;
@@ -2922,16 +2922,99 @@ class Utente extends CI_Controller {
                         $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $rig, $i);
                     }
 
-                    $data['message'] = '<p style="color:green;">Rigoristi inseriti con successo !</p>';
+                    $data['success_message'] = 'Rigoristi inseriti con successo !';
                 }
             } else {
-                $data['message'] = "<p>Non è possibile modificare i rigoristi a partite già iniziate !<br>Verranno selezionati gli ultimi rigoristi schierati.</p>";
+                $data['message'] = "Non è possibile modificare i rigoristi a partite già iniziate !<br>Verranno selezionati gli ultimi rigoristi schierati.";
             }
 
             $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
             $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
 
             $this->show('utenti/rigoristi.php', $data);
+        } else
+            redirect('utente/login');
+    }
+    
+    public function reset_rigoristi() {
+        if (isset($_SESSION['id_utente'])) {
+
+            $this->show('utenti/conferma_reset_rigoristi.php');
+        } else
+            redirect('utente/login');
+    }
+    
+    public function reset_confirmed_rigoristi() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $this->load->model('mdl_categories');
+            $giornata = $this->mdl_team->getGiornata();
+
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            //Recupero dal db, data e ora di blocco invio formazioni
+            if ($_SESSION['giornata'] != "") {
+                $blocco = $this->mdl_utenti->getBlocco();
+                $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
+                $data['blocco'] = $blocco;
+            }
+
+            //Setto il timezone per ogni evenienza
+            date_default_timezone_set('Europe/Rome');
+
+            //Verifico se la formazione è creata prima del blocco orario
+            $orario = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
+            $blocco = $this->mdl_utenti->getBlocco();
+            $bloccoO = substr($blocco, 11, 2);
+            $bloccoM = substr($blocco, 14, 2);
+            $bloccoS = substr($blocco, 17, 2);
+            $bloccom = substr($blocco, 5, 2);
+            $bloccod = substr($blocco, 8, 2);
+            $bloccoY = substr($blocco, 0, 4);
+            $blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
+
+            if ($this->input->post('but_reset_rigoristi')) {
+            
+                if ($orario <= $blocco) {
+
+                    //Prima svuoto i rigoristi precedenti
+                    $deleteRigoristi = $this->mdl_team->deleteRigoristi($giornata, $_SESSION['id_utente']);
+
+                    //Poi inserisco la formazione standard partendo da attaccanti, centrocampisti ecc.
+                    $formazione = $this->mdl_team->getTeamForResetRigori($_SESSION['id_utente']);
+
+                    $i = 1;
+                    for ($c = 0; $c < 25; $c++) {
+                        //Inserisco i rigoristi nell'ordine di inserimento
+                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i);
+
+                        $i++;
+                    }
+                    $data['formazione'] = "";
+                    $data['rigoristi'] = "";
+                    $data['success_message'] = 'Rigoristi resettati con successo !';
+                    $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
+                    $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
+
+                    $this->show('utenti/rigoristi.php', $data);
+                    return;
+                } else {
+                    $data['message'] = "Non è possibile modificare i rigoristi a partite già iniziate !<br>Verranno selezionati gli ultimi rigoristi schierati.";
+                    
+                    $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
+                    $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
+
+                    $this->show('utenti/rigoristi.php', $data);
+                    return;
+                }
+            }
+            
+            if ($this->input->post('but_annulla')) {
+                
+                redirect('utente/rigoristi');
+                
+            }
+
         } else
             redirect('utente/login');
     }

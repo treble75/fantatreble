@@ -133,7 +133,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <?php if (is_Array(@$Team2)) { ?>
-                                                <label for="account-city">PGiocatore 2</label>
+                                                <label for="account-city">Giocatore 2</label>
                                                 <?php
                                                 $js = 'id="account-city" class="form-control"';
                                                 echo form_dropdown('cmbTeam2', $Team2, set_value('cmbTeam2', $this->input->post('cmbTeam2')), $js);
