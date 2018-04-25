@@ -289,7 +289,7 @@
                                                 <li><a href="#">Rigoristi</a>
                                                     <ul class="main-nav__sub-2">
                                                         <li><a href="<?= base_url('/') ?>index.php/utente/seleziona_rigoristi">Seleziona Rigoristi</a></li>
-                                                        <li><a href="<?= base_url('/') ?>index.php/utente/rigoristi">Rigoristi Schierati <span class="label label-danger"> New </span></a></li>
+                                                        <li><a href="<?= base_url('/') ?>index.php/utente/elenco_rigoristi">Rigoristi Schierati <span class="label label-danger"> New </span></a></li>
                                                     </ul>
                                                 </li>
                                                 <li><a href="_soccer_shop-grid.html">Prepartita</a></li>

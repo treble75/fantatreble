@@ -190,6 +190,12 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('squadra');
     }
+    
+    public function getMediaVotoGiocatore($id) {
+        $query = $this->db->query('SELECT avg(tb_voti.voto) as voto from tb_voti, tb_giocatori where tb_voti.id_giocatore = tb_giocatori.id_giocatore and tb_giocatori.id_giocatore = ' . $id . ' group by tb_giocatori.id_giocatore');
+
+        return $query->row('voto');
+    }
 
     public function getSquadraBomber($id_giocatore) {
         $this->db->select('id_utente');
@@ -1438,6 +1444,25 @@ class mdl_team extends CI_Model {
             case 3 : $ruolo = "C";
                 break;
             case 4 : $ruolo = "A";
+                break;
+        }
+        return $ruolo;
+    }
+    
+    public function getDescrizioneRuolo($id_giocatore) {
+        $this->db->select('ruolo');
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_giocatori');
+
+        $ruolo = $this->db->get()->row('ruolo');
+        switch ($ruolo) {
+            case 1 : $ruolo = "Portiere";
+                break;
+            case 2 : $ruolo = "Difensore";
+                break;
+            case 3 : $ruolo = "Centrocampista";
+                break;
+            case 4 : $ruolo = "Attaccante";
                 break;
         }
         return $ruolo;
