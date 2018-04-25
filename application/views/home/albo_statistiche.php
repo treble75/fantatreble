@@ -3401,8 +3401,12 @@
                                 <!-- Player Details -->
                                 <div class="widget-player__details">
 
+                                    <!-- Setto il background color --->
+                                    <?php
+                                    $bgcolor1 = "#f8f8f8;";
+                                    ?>
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style='color: #1892ED;'>Gol Fatti</span>
@@ -3411,7 +3415,7 @@
                                                 <span class="widget-player__details-value"><?= @$GOLTOTALI1 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">Gol Fatti</span>
@@ -3423,7 +3427,7 @@
                                     </div>
 
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style='color: #1892ED;'>Gol Subiti</span>
@@ -3432,7 +3436,7 @@
                                                 <span class="widget-player__details-value"><?= @$GOLTOTALI2 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">Gol Subiti</span>
@@ -3507,7 +3511,7 @@
                                     </div>
 
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #1892ED;">Champions L.</span>
@@ -3516,7 +3520,7 @@
                                                 <span class="widget-player__details-value"><?= @$parzVCH1 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">Champions L.</span>
@@ -3528,7 +3532,7 @@
                                     </div>
 
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #1892ED;">Champions L.</span>
@@ -3537,7 +3541,7 @@
                                                 <span class="widget-player__details-value"><?= @$parzNCH1 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">Champions L.</span>
@@ -3549,7 +3553,7 @@
                                     </div>
 
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #1892ED;">Champions L.</span>
@@ -3558,7 +3562,7 @@
                                                 <span class="widget-player__details-value"><?= @$parzPCH1 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">Champions L.</span>
@@ -3633,7 +3637,7 @@
                                     </div>
 
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #1892ED;">SuperCoppa T.</span>
@@ -3642,7 +3646,7 @@
                                                 <span class="widget-player__details-value"><?= @$parzVSC1 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">SuperCoppa T.</span>
@@ -3654,7 +3658,7 @@
                                     </div>
 
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #1892ED;">SuperCoppa T.</span>
@@ -3663,7 +3667,7 @@
                                                 <span class="widget-player__details-value"><?= @$parzNSC1 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">SuperCoppa T.</span>
@@ -3675,7 +3679,7 @@
                                     </div>
 
                                     <div class="widget-player__details-row">
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #1892ED;">SuperCoppa T.</span>
@@ -3684,7 +3688,7 @@
                                                 <span class="widget-player__details-value"><?= @$parzPSC1 ?></span>
                                             </div>
                                         </div>
-                                        <div class="widget-player__details__item">
+                                        <div class="widget-player__details__item" style="background-color: <?= $bgcolor1 ?>">
                                             <div class="widget-player__details-desc-wrapper">
                                                 <span class="widget-player__details-holder">
                                                     <span class="widget-player__details-label" style="color: #9edb00;">SuperCoppa T.</span>
