@@ -3003,17 +3003,16 @@ class Utente extends CI_Controller {
                     
                     //Recupero i giocatori della squadra utente
                     $squadra = $this->mdl_categories->getFormazionePerSelezioneRigoristi($_SESSION['id_utente']);
-                    
-                    $aggiunta[] = "";
-                    $mancanti[] = "";
+
+                    $progressivo = array();
                     //Devo ciclare tutti i giocatori della squadra utente e se non sono presenti nella selezione automatica, perchè non hanno mai preso voto, allora li aggiungo
                     if ($numero_rigoristi < 25) {
                         foreach ($squadra as $row){
                             $key = array_search($row['id_giocatore'], array_column($selezione, 'id_giocatore'));
-                            
-                            if ($key == 0){
+
+                            if (!isset($key) || !is_numeric($key)){
                                 $aggiunta = array('id_giocatore' => $row['id_giocatore']);
-                                $progressivo = array($aggiunta);
+                                array_push($progressivo,$aggiunta);
                             }
                         }
                     }
