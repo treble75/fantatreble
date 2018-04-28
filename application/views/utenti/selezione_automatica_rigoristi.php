@@ -47,14 +47,14 @@
                     <div class="col-md-8">
 
                         <?php
-                        echo form_open_multipart('utente/reset_confirmed_rigoristi', array(
+                        echo form_open_multipart('utente/selezione_automatica_rigoristi_confirmed', array(
                             'class' => 'df-personal-info'
                         ));
                         ?>
                         <!-- Personal Information -->
                         <div class="card card--lg">
                             <div class="card__header">
-                                <h4>Reset Rigoristi</h4>
+                                <h4>Selezione Automatica Rigoristi</h4>
                             </div>
                             <div class="card__content">
                                 <?php if (validation_errors()) { ?>
@@ -77,12 +77,16 @@
                                     </div>
                                 <?php }
                                 ?>
-                            </div>
                             
-                            <div class="alert alert-warning">
-                                <input type="submit" value="Conferma Reset" name="but_reset_rigoristi" class="btn btn-xs btn-default btn-outline alert-btn-right">
-                                <input type="submit" value="Annulla" name="but_annulla" class="btn btn-xs btn-default btn-outline alert-btn-right">
-                                <strong>Confermi il reset dei rigoristi ?</strong>
+                                <div class="alert alert-warning">
+                                    <strong>Conferma</strong>
+                                    <input type="submit" value="Selezione Automatica" name="but_selezione_automatica" class="btn btn-xs btn-default btn-outline alert-btn-right">
+                                </div>
+                                <div class="alert alert-danger">
+                                    <strong>Annulla</strong>
+                                    <input type="submit" value="Annulla Operazione" name="but_annulla" class="btn btn-xs btn-default btn-outline alert-btn-right">
+                                </div>
+                                
                             </div>
                             
                         </div>

@@ -2948,6 +2948,119 @@ class Utente extends CI_Controller {
             redirect('utente/login');
     }
     
+    public function selezione_automatica_rigoristi() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_categories');
+            
+            $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
+            $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
+
+            $this->show('utenti/selezione_automatica_rigoristi.php', $data);
+        } else
+            redirect('utente/login');
+    }
+    
+    public function selezione_automatica_rigoristi_confirmed() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $this->load->model('mdl_categories');
+            $giornata = $this->mdl_team->getGiornata();
+
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            //Recupero dal db, data e ora di blocco invio formazioni
+            if ($_SESSION['giornata'] != "") {
+                $blocco = $this->mdl_utenti->getBlocco();
+                $blocco = substr(@$blocco, 11, 5) . " del " . dataIns(substr(@$blocco, 0, 10));
+                $data['blocco'] = $blocco;
+            }
+
+            //Setto il timezone per ogni evenienza
+            date_default_timezone_set('Europe/Rome');
+
+            //Verifico se la formazione è creata prima del blocco orario
+            $orario = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
+            $blocco = $this->mdl_utenti->getBlocco();
+            $bloccoO = substr($blocco, 11, 2);
+            $bloccoM = substr($blocco, 14, 2);
+            $bloccoS = substr($blocco, 17, 2);
+            $bloccom = substr($blocco, 5, 2);
+            $bloccod = substr($blocco, 8, 2);
+            $bloccoY = substr($blocco, 0, 4);
+            $blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
+
+            if ($this->input->post('but_selezione_automatica')) {
+            
+                if ($orario <= $blocco) {
+
+                    //Prima svuoto i rigoristi precedenti
+                    $deleteRigoristi = $this->mdl_team->deleteRigoristi($giornata, $_SESSION['id_utente']);
+                    
+                    //Poi inserisco la formazione standard partendo da attaccanti, centrocampisti ecc.
+                    $selezione = $this->mdl_team->getSelezioneAutomaticaRigoristi($_SESSION['id_utente']);
+                    
+                    $numero_rigoristi = count($selezione);
+                    
+                    //Recupero i giocatori della squadra utente
+                    $squadra = $this->mdl_categories->getFormazionePerSelezioneRigoristi($_SESSION['id_utente']);
+                    
+                    $aggiunta[] = "";
+                    $mancanti[] = "";
+                    //Devo ciclare tutti i giocatori della squadra utente e se non sono presenti nella selezione automatica, perchè non hanno mai preso voto, allora li aggiungo
+                    if ($numero_rigoristi < 25) {
+                        foreach ($squadra as $row){
+                            $key = array_search($row['id_giocatore'], array_column($selezione, 'id_giocatore'));
+                            
+                            if ($key == 0){
+                                $aggiunta = array('id_giocatore' => $row['id_giocatore']);
+                                $progressivo = array($aggiunta);
+                            }
+                        }
+                    }
+
+//                    print_r($mancanti);
+//                    return;
+                    $formazione = array_merge($selezione, $progressivo);
+//                    print_r($formazione);
+//                    return;
+                    
+                    $i = 1;
+                    for ($c = 0; $c < 25; $c++) {
+                        //Inserisco i rigoristi nell'ordine di inserimento
+                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i);
+
+                        $i++;
+                    }
+
+                    $data['rigoristi'] = "";
+                    $data['success_message'] = 'Selezione automatica eseguita con successo !';
+                    $data['message'] = 'Devi salvare i tuoi rigoristi';
+                    $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
+                    $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
+
+                    $this->show('utenti/rigoristi.php', $data);
+                    return;
+                } else {
+                    $data['message'] = "Non è possibile modificare i rigoristi a partite già iniziate !<br>Verranno selezionati gli ultimi rigoristi schierati.";
+                    
+                    $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
+                    $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
+
+                    $this->show('utenti/rigoristi.php', $data);
+                    return;
+                }
+            }
+            
+            if ($this->input->post('but_annulla')) {
+                
+                redirect('utente/rigoristi');
+                
+            }
+
+        } else
+            redirect('utente/login');
+    }
+    
     public function reset_confirmed_rigoristi() {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_utenti');

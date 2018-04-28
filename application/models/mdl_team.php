@@ -44,6 +44,23 @@ class mdl_team extends CI_Model {
 
         return $result;
     }
+    
+    public function getSelezioneAutomaticaRigoristi($id_utente) {
+        $query = $this->db->query('SELECT
+							Sum(gol) AS gol,
+							tb_giocatori.cognome,
+							tb_giocatori.nome,
+							tb_voti.id_giocatore,
+							avg(tb_voti.voto) as voto,
+							avg(tb_voti.fantavoto) as fv
+							from tb_voti, tb_giocatori
+							where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+							and id_utente = ' . $id_utente . '
+							group by id_giocatore 
+							order by voto DESC, fv DESC');
+        
+        return $query->result_array();
+    }
 
     public function getTopCampionato() {
         $queryP = $this->db->query('SELECT

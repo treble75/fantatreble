@@ -178,6 +178,15 @@ class mdl_categories extends CI_Model {
             return $return;
         }
     }
+    
+    public function getFormazionePerSelezioneRigoristi($id_utente) {
+        $this->db->where('id_utente', $id_utente);
+        $this->db->order_by('ruolo', 'DESC');
+        $this->db->order_by('cognome');
+        $query = $this->db->get("tb_giocatori");
+
+        return $query->result_array();
+    }
 
     public function getTeamForRigori($blank = false, $id_utente) {
         $this->db->where('id_utente', $id_utente);
