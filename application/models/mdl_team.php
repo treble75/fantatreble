@@ -2657,7 +2657,7 @@ class mdl_team extends CI_Model {
         $this->db->order_by('giornata', 'desc');
         if ($giornata < 28)
             $this->db->limit(4);
-        if ($giornata = 28)
+        if ($giornata == 28)
             $this->db->limit(2);
         if ($giornata >= 29 && $giornata <= 30)
             $this->db->limit(2);

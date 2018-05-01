@@ -2831,16 +2831,16 @@ class Utente extends CI_Controller {
 
             //Verifico se la formazione è creata prima del blocco orario
             $orario = mktime(date("H"), date("i"), date("s"), date("m"), date("d"), date("Y"));
-            $blocco = $this->mdl_utenti->getBlocco();
+            @$blocco = $this->mdl_utenti->getBlocco();
             $bloccoO = substr($blocco, 11, 2);
             $bloccoM = substr($blocco, 14, 2);
             $bloccoS = substr($blocco, 17, 2);
             $bloccom = substr($blocco, 5, 2);
             $bloccod = substr($blocco, 8, 2);
             $bloccoY = substr($blocco, 0, 4);
-            $blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
+            @$blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
 
-            if ($orario <= $blocco) {
+            if ($orario <= @$blocco) {
 
                 $this->form_validation->set_rules('cmbRigorista1', 'cmbRigorista1', 'trim|required');
                 $this->form_validation->set_rules('cmbRigorista2', 'cmbRigorista2', 'trim|required');
@@ -2987,7 +2987,7 @@ class Utente extends CI_Controller {
             $bloccom = substr($blocco, 5, 2);
             $bloccod = substr($blocco, 8, 2);
             $bloccoY = substr($blocco, 0, 4);
-            $blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
+            @$blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
 
             if ($this->input->post('but_selezione_automatica')) {
             
@@ -3087,7 +3087,7 @@ class Utente extends CI_Controller {
             $bloccom = substr($blocco, 5, 2);
             $bloccod = substr($blocco, 8, 2);
             $bloccoY = substr($blocco, 0, 4);
-            $blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
+            @$blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
 
             if ($this->input->post('but_reset_rigoristi')) {
             
