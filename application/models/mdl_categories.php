@@ -127,7 +127,9 @@ class mdl_categories extends CI_Model {
             $return[] = '';
 
         foreach ($query->result_array() as $row) {
-            $return[$row['id_giocatore']] = $this->mdl_team->getCognome($row['id_giocatore']) . " " . $this->mdl_team->getNome($row['id_giocatore']) . " - " . number_format($this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']), 2);
+            $mediavoto = number_format($this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']), 2);
+            
+            $return[$row['id_giocatore']] = $this->mdl_team->getCognome($row['id_giocatore']) . " " . $this->mdl_team->getNome($row['id_giocatore']) . " - " . $mediavoto;
         }
         return @$return;
     }

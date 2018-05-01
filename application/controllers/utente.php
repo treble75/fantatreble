@@ -3033,7 +3033,6 @@ class Utente extends CI_Controller {
 
                     $data['rigoristi'] = "";
                     $data['success_message'] = 'Selezione automatica eseguita con successo !';
-                    $data['message'] = 'Devi salvare i tuoi rigoristi';
                     $data['rigoristi'] = $this->mdl_categories->getRigoristi(false, $_SESSION['id_utente']);
                     $data['formazione'] = $this->mdl_categories->getTeamForRigori(false, $_SESSION['id_utente']);
 
