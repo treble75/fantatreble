@@ -4,6 +4,12 @@
 		$string = str_replace (".",",",$string);
 		return $string;
 	}
+        
+        function oraedataIns($data)
+	{
+		$data = substr($data,10,6) . " del " . substr($data,8,2)."/".substr($data,5,2)."/".substr($data,0,4);
+		return $data;
+	}
 	
 	function dataIns($data)
 	{

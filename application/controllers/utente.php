@@ -2875,10 +2875,11 @@ class Utente extends CI_Controller {
                     //Poi inserisco la formazione standard partendo da attaccanti, centrocampisti ecc.
                     $formazione = $this->mdl_team->getTeamForResetRigori($_SESSION['id_utente']);
 
+                    $ora_inserimento = date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H") . ":" . date("i") . ":" . date("s");
                     $i = 1;
                     for ($c = 0; $c < 25; $c++) {
                         //Inserisco i rigoristi nell'ordine di inserimento
-                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i);
+                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i, $ora_inserimento);
 
                         $i++;
                     }
@@ -2915,11 +2916,12 @@ class Utente extends CI_Controller {
                     //Prima svuoto i rigoristi precedenti
                     $deleteRigoristi = $this->mdl_team->deleteRigoristi($giornata, $_SESSION['id_utente']);
 
+                    $ora_inserimento = date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H") . ":" . date("i") . ":" . date("s");
                     $i = "";
                     for ($i = 1; $i <= 25; $i++) {
                         //Inserisco i rigoristi nell'ordine di inserimento
                         $rig = $this->input->post('cmbRigorista' . $i);
-                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $rig, $i);
+                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $rig, $i, $ora_inserimento);
                     }
 
                     $data['success_message'] = 'Rigoristi inseriti con successo !';
@@ -3023,10 +3025,11 @@ class Utente extends CI_Controller {
 //                    print_r($formazione);
 //                    return;
                     
+                    $ora_inserimento = date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H") . ":" . date("i") . ":" . date("s");
                     $i = 1;
                     for ($c = 0; $c < 25; $c++) {
                         //Inserisco i rigoristi nell'ordine di inserimento
-                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i);
+                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i, $ora_inserimento);
 
                         $i++;
                     }
@@ -3098,10 +3101,11 @@ class Utente extends CI_Controller {
                     //Poi inserisco la formazione standard partendo da attaccanti, centrocampisti ecc.
                     $formazione = $this->mdl_team->getTeamForResetRigori($_SESSION['id_utente']);
 
+                    $ora_inserimento = date("Y") . "-" . date("m") . "-" . date("d") . " " . date("H") . ":" . date("i") . ":" . date("s");
                     $i = 1;
                     for ($c = 0; $c < 25; $c++) {
                         //Inserisco i rigoristi nell'ordine di inserimento
-                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i);
+                        $ins = $this->mdl_team->insertRigoristi($giornata, $_SESSION['id_utente'], $formazione[$c]['id_giocatore'], $i, $ora_inserimento);
 
                         $i++;
                     }

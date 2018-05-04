@@ -23,6 +23,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(1) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(1);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -93,6 +102,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(2) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(2);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -163,6 +181,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(3) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(3);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -238,6 +265,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(4) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(4);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -308,6 +344,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(5) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(5);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -378,6 +423,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(6) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(6);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -453,6 +507,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(7) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(7);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -523,6 +586,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(8) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(8);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -593,6 +665,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(9) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(9);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -672,6 +753,15 @@
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
                                 <h4>Rigoristi <span style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra(10) ?></span></h4>
+                                <?php
+                                $ora_inserimento = $this->mdl_utenti->getUltimaSelezioneRigoristi(10);
+                                if ($ora_inserimento != "") {
+                                    $ora = "Ultima selezione ->  " . oraedataIns($ora_inserimento);
+                                } else {
+                                    $ora = "Mai selezionati";
+                                }
+                                ?>
+                                <span style="font-size: 10px;"><?= $ora ?></span>
                             </div>
                             <div class="widget__content card__content">
 

@@ -79,6 +79,15 @@ class mdl_utenti extends CI_Model {
         return $this->db->get()->row('logo');
     }
     
+    public function getUltimaSelezioneRigoristi($id_utente) {
+        $this->db->select('ora_inserimento');
+        $this->db->where('id_utente', $id_utente);
+        $this->db->order_by('ora_inserimento', 'DESC');
+        $this->db->from('tb_rigoristi');
+
+        return $this->db->get()->row('ora_inserimento');
+    }
+    
     public function getPartecipazioni($nome, $cognome) {
         $query = $this->db->query('select count(*) from tb_all_teams where nome = "' . $nome . '" and cognome = "' . $cognome . '"');
 

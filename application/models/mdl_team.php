@@ -1704,8 +1704,8 @@ class mdl_team extends CI_Model {
         $this->db->delete('tb_rigoristi');
     }
 
-    public function insertRigoristi($giornata, $id_utente, $id_giocatore, $ordine) {
-        $this->db->insert('tb_rigoristi', array('giornata' => $giornata, 'id_utente' => $id_utente, 'id_giocatore' => $id_giocatore, 'ordine' => $ordine));
+    public function insertRigoristi($giornata, $id_utente, $id_giocatore, $ordine, $ora_inserimento) {
+        $this->db->insert('tb_rigoristi', array('giornata' => $giornata, 'id_utente' => $id_utente, 'id_giocatore' => $id_giocatore, 'ordine' => $ordine, 'ora_inserimento' => $ora_inserimento));
     }
 
     public function insertFormazioneT($id_utente, $id_giocatore, $ruolo) {
