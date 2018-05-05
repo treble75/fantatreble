@@ -580,20 +580,20 @@ class Home extends CI_Controller {
             $data['Squadre'] = $this->mdl_categories->getSquadre(true);
             $data['giornata'] = $_SESSION['giornata'];
 
-            $this->form_validation->set_rules('cmbSquadraCasa', 'Squadra Casa');
-            $this->form_validation->set_rules('cmbSquadraTrasferta', 'Squadra Trasferta');
-            $this->form_validation->set_rules('txtPunteggioCasa', 'Punteggio Casa');
-            $this->form_validation->set_rules('txtGolCasa', 'Gol Casa');
-            $this->form_validation->set_rules('txtPunteggioTrasferta', 'Punteggio Trasferta');
-            $this->form_validation->set_rules('txtGolTrasferta', 'Gol Trasferta');
-            $this->form_validation->set_rules('cmbScelta', 'Coppa');
+            $this->form_validation->set_rules('cmbSquadraCasa', 'Squadra Casa', 'trim|required');
+            $this->form_validation->set_rules('cmbSquadraTrasferta', 'Squadra Trasferta', 'trim|required');
+            $this->form_validation->set_rules('txtPunteggioCasa', 'Punteggio Casa', 'trim|required');
+            $this->form_validation->set_rules('txtGolCasa', 'Gol Casa', 'trim|required');
+            $this->form_validation->set_rules('txtPunteggioTrasferta', 'Punteggio Trasferta', 'trim|required');
+            $this->form_validation->set_rules('txtGolTrasferta', 'Gol Trasferta', 'trim|required');
+            $this->form_validation->set_rules('cmbScelta', 'Coppa', 'trim|required');
 
             if ($this->form_validation->run()) {
                 if (($this->input->post('cmbSquadraCasa') != 0) && ($this->input->post('cmbSquadraTrasferta') != 0) && ($this->input->post('txtPunteggioCasa') != "") && ($this->input->post('txtPunteggioTrasferta') != "") && ($this->input->post('txtGolCasa') != "") && ($this->input->post('txtGolTrasferta') != "")) {
                     if ($this->input->post('cmbScelta') == "Coppa") {
                         $aggiorna = $this->mdl_team->updateCoppa($giornatacoppa, $this->input->post('cmbSquadraCasa'), $this->input->post('cmbSquadraTrasferta'), $this->input->post('txtPunteggioCasa'), $this->input->post('txtPunteggioTrasferta'), $this->input->post('txtGolCasa'), $this->input->post('txtGolTrasferta'));
                         if ($aggiorna)
-                            $data['message'] = "Risultati Coppa Treble aggiornati con successo";
+                            $data['success_message'] = "Risultati Coppa Treble aggiornati con successo";
                         $this->show('home/aggiorna_coppe', $data);
                         return;
                     }
@@ -601,7 +601,7 @@ class Home extends CI_Controller {
                     if ($this->input->post('cmbScelta') == "SuperCoppa") {
                         $aggiorna = $this->mdl_team->updateSuperCoppa($giornatacoppa, $this->input->post('cmbSquadraCasa'), $this->input->post('cmbSquadraTrasferta'), $this->input->post('txtPunteggioCasa'), $this->input->post('txtPunteggioTrasferta'), $this->input->post('txtGolCasa'), $this->input->post('txtGolTrasferta'));
                         if ($aggiorna)
-                            $data['message'] = "Risultati SuperCoppa Treble aggiornati con successo";
+                            $data['success_message'] = "Risultati SuperCoppa Treble aggiornati con successo";
                         $this->show('home/aggiorna_coppe', $data);
                         return;
                     }
@@ -641,7 +641,7 @@ class Home extends CI_Controller {
                             $classifica['gol_subiti'] = $GS;
                         }
                         //Inserire qui ultima giornata di Champions
-                        if ($giornatacoppa <= 24) {
+                        if ($giornatacoppa <= 22) {
                             $aggiornaChampions1 = $this->mdl_team->insertClassificaChampions($team1, $classifica);
                         }
 
@@ -672,12 +672,12 @@ class Home extends CI_Controller {
                             $classifica['gol_subiti'] = $GF;
                         }
                         //Inserire qui ultima giornata di Champions
-                        if ($giornatacoppa <= 24) {
+                        if ($giornatacoppa <= 22) {
                             $aggiornaChampions2 = $this->mdl_team->insertClassificaChampions($team2, $classifica);
                         }
 
                         if ($aggiornaRisultatiChampions)
-                            $data['message'] = "Risultati Champions League aggiornati con successo";
+                            $data['success_message'] = "Risultati Champions League aggiornati con successo";
 
                         $this->show('home/aggiorna_coppe', $data);
                         return;
