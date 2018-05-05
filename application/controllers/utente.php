@@ -35,9 +35,9 @@ class Utente extends CI_Controller {
 
     public function show($pagina, $dati = '') {
         if ($pagina != "utenti/login")
-            $this->load->view('include/header');
+            $this->load->view('include/header', $dati);
         else
-            $this->load->view('include/header_login');
+            $this->load->view('include/header_login', $dati);
         //$this->load->view('include/menu');
         $this->load->view($pagina, $dati);
         $this->load->view('include/footer');
@@ -4007,7 +4007,7 @@ class Utente extends CI_Controller {
                     $this->show('utenti/registra_utente', $data);
                 }
             } else
-                $this->show('utenti/registra_utente');
+                $this->show('utenti/registra_utente', $data);
         } else
             redirect('utente/login');
     }

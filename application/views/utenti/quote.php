@@ -81,6 +81,8 @@
                                 ?>  
 
                                 <?php
+                                $cassa       = 0.00;
+                                $quota       = 135.00;
                                 foreach ($debiti as $row) {
                                     $utente = $this->mdl_utenti->getDatiUtente($row['id_utente']);
                                     ?>
@@ -99,8 +101,22 @@
                                     </div>
 
                                     <?php
+                                    $cassa += number_format(($quota - $row['debito']), 2);
                                 }
                                 ?>
+                                
+                                <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="account-first-name" style="color: #1892ED">In cassa : </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="account-first-name" style="color: #009900">€ <?= replace($cassa) ?></label>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 <div class="row">
                                     <div class="col-md-6">

@@ -59,7 +59,6 @@
                 </div>
                 <div class="header-mobile__inner">
                     <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
-                    <span class="header-mobile__search-icon" id="header-mobile__search-icon"></span>
                 </div>
             </div>
 
@@ -137,7 +136,7 @@
                                 <svg role="img" class="df-icon df-icon--soccer-ball">
                                 <use xlink:href="<?= base_url('/') ?>assets/images/icons-soccer.svg#soccer-ball"/>
                                 </svg>
-                                <h6 class="info-block__heading">&nbsp;</h6>
+                                <h6 class="info-block__heading">Benvenuto al FantaTreble</h6>
                                 <a class="info-block__link" href="<?= base_url('/') ?>index.php/home/homepage">Homepage</a>
                             </li>
 

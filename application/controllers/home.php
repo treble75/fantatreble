@@ -403,7 +403,8 @@ class Home extends CI_Controller {
 
     public function albo_champions() {
 
-        $this->show('home/albo_champions.php');
+        $data['active'] = 5;
+        $this->show('home/albo_champions.php', $data);
     }
 
     public function albo_coppa() {
