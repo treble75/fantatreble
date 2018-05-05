@@ -104,7 +104,8 @@ class Home extends CI_Controller {
                     $data['success_message'] = "L'orario di blocco impostato per la Giornata " . $this->input->post('cmbGiornata') . " è : " . $this->input->post('cmbOra') . ":" . $this->input->post('cmbMinuti') . " del giorno " . $this->input->post('cmbGiorno') . "/" . $this->input->post('cmbMese') . "/" . $this->input->post('cmbAnno');
                 }
             }
-
+            
+            $data['active'] = 1;
             $this->show('home/blocco', @$data);
         } else
             redirect('utente/login');
@@ -127,6 +128,7 @@ class Home extends CI_Controller {
         $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/campionato', $data);
     }
 
@@ -147,6 +149,7 @@ class Home extends CI_Controller {
         $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
         $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/calendario', $data);
     }
 
@@ -156,6 +159,7 @@ class Home extends CI_Controller {
         $this->load->model('mdl_utenti');
         $this->load->model('mdl_categories');
         $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+        $data['active'] = 5;
 
         $this->form_validation->set_rules('cmbStoricoSquadre1', 'Squadra 1', 'trim|required');
         $this->form_validation->set_rules('cmbStoricoSquadre2', 'Squadra 2', 'trim|required');
@@ -317,6 +321,7 @@ class Home extends CI_Controller {
         $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
         $data['bomber'] = $this->mdl_team->getBomberCampionatoTotale($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/marcatori', $data);
     }
 
@@ -327,7 +332,8 @@ class Home extends CI_Controller {
             $data['giornata'] = $giornata;
             $data['risultati'] = $this->mdl_team->getCalendariogiornata($giornata);
             $data['player'] = $this->mdl_team->getTeamGiornata($giornata);
-
+            
+            $data['active'] = 5;
             $this->show('home/dettagli', $data);
         } else
             redirect('utente/login');
@@ -341,6 +347,7 @@ class Home extends CI_Controller {
             $data['risultati_champions'] = $this->mdl_team->getCalendariogiornatachampions($giornata);
             $data['player'] = $this->mdl_team->getTeamGiornataCoppa($giornata);
 
+            $data['active'] = 5;
             $this->show('home/dettaglichampions', $data);
         } else
             redirect('utente/login');
@@ -354,6 +361,7 @@ class Home extends CI_Controller {
             $data['risultati_coppa'] = $this->mdl_team->getCalendariogiornatasupercoppa($giornata);
             $data['player'] = $this->mdl_team->getTeamGiornataCoppa($giornata);
 
+            $data['active'] = 5;
             $this->show('home/dettaglisupercoppa', $data);
         } else
             redirect('utente/login');
@@ -367,6 +375,7 @@ class Home extends CI_Controller {
             $data['risultati_coppa'] = $this->mdl_team->getCalendariogiornatacoppa($giornata);
             $data['player'] = $this->mdl_team->getTeamGiornataCoppa($giornata);
 
+            $data['active'] = 5;
             $this->show('home/dettaglicoppa', $data);
         } else
             redirect('utente/login');
@@ -374,7 +383,9 @@ class Home extends CI_Controller {
 
     public function prepartita() {
         if (isset($_SESSION['id_utente'])) {
-            $this->show('home/prepartita.php');
+            
+            $data['active'] = 3;
+            $this->show('home/prepartita.php', $data);
         } else
             redirect('utente/login');
     }
@@ -386,7 +397,8 @@ class Home extends CI_Controller {
 
     public function albo() {
 
-        $this->show('home/albo.php');
+        $data['active'] = 5;
+        $this->show('home/albo.php', $data);
     }
 
     public function albo_champions() {
@@ -396,24 +408,26 @@ class Home extends CI_Controller {
 
     public function albo_coppa() {
 
-        $this->show('home/albo_coppa.php');
+        $data['active'] = 5;
+        $this->show('home/albo_coppa.php', $data);
     }
 
     public function albo_supercoppa() {
 
-        $this->show('home/albo_supercoppa.php');
+        $data['active'] = 5;
+        $this->show('home/albo_supercoppa.php', $data);
     }
 
     public function statistiche_treble_league() {
 
-        $this->show('home/statistiche_treble_league.php');
+        $data['active'] = 5;
+        $this->show('home/statistiche_treble_league.php', $data);
     }
 
-    public function bonus() {
-        if (isset($_SESSION['id_utente'])) {
-            $this->show('home/bonus.php');
-        } else
-            redirect('utente/login');
+    public function premi() {
+
+        $data['active'] = 5;
+        $this->show('home/premi.php', $data);
     }
 
     public function champions() {
@@ -427,6 +441,7 @@ class Home extends CI_Controller {
         $data['classifica_championsB'] = $this->mdl_team->getClassificaChampionsB();
         $data['bomber'] = $this->mdl_team->getBomberChampions($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/champions.php', $data);
     }
 
@@ -441,6 +456,7 @@ class Home extends CI_Controller {
         $data['classifica_championsB'] = $this->mdl_team->getClassificaChampionsB();
         $data['bomber'] = $this->mdl_team->getBomberChampions($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/calendario_champions.php', $data);
     }
 
@@ -455,6 +471,7 @@ class Home extends CI_Controller {
         $data['classifica_championsB'] = $this->mdl_team->getClassificaChampionsB();
         $data['bomber'] = $this->mdl_team->getBomberChampionsTotale($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/marcatori_champions.php', $data);
     }
 
@@ -467,6 +484,7 @@ class Home extends CI_Controller {
         $data['risultati_coppa'] = $this->mdl_team->getCalendarioCoppa();
         $data['bomber'] = $this->mdl_team->getBomberCoppa($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/coppa.php', $data);
     }
 
@@ -479,6 +497,7 @@ class Home extends CI_Controller {
         $data['risultati_coppa'] = $this->mdl_team->getCalendarioCoppa();
         $data['bomber'] = $this->mdl_team->getBomberCoppaTotale($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/marcatori_coppa.php', $data);
     }
 
@@ -491,6 +510,7 @@ class Home extends CI_Controller {
         $data['risultati_coppa'] = $this->mdl_team->getCalendarioCoppa();
         $data['bomber'] = $this->mdl_team->getBomberCoppa($_SESSION['giornata']);
 
+        $data['active'] = 5;
         $this->show('home/calendario_coppa.php', $data);
     }
 
@@ -502,6 +522,7 @@ class Home extends CI_Controller {
         $data['giornata'] = $_SESSION['giornata'];
         $data['risultati_supercoppa'] = $this->mdl_team->getCalendarioSupercoppa();
 
+        $data['active'] = 5;
         $this->show('home/supercoppa.php', $data);
     }
 
@@ -509,6 +530,7 @@ class Home extends CI_Controller {
         $this->load->model('mdl_categories');
         $this->load->model('mdl_team');
 
+        $data['active'] = 5;
         $data['ruolo'] = $ruolo;
 
         $this->form_validation->set_rules('order', 'Ordine', 'trim|required');
@@ -537,6 +559,7 @@ class Home extends CI_Controller {
             $this->load->model('mdl_team');
             $this->load->model('mdl_categories');
             
+            $data['active'] = 1;
             $data['Squadre'] = $this->mdl_categories->getSquadre(true);
 
             $this->form_validation->set_rules('cmbGiornata', 'Giornata', 'trim|required');
@@ -575,6 +598,7 @@ class Home extends CI_Controller {
         if (isset($_SESSION['id_utente'])) {
             $this->load->model('mdl_categories');
             $this->load->model('mdl_team');
+            $data['active'] = 1;
             $_SESSION['giornata'] = $this->mdl_team->getGiornata();
             $giornatacoppa = ($_SESSION['giornata'] - 1);
             $data['Squadre'] = $this->mdl_categories->getSquadre(true);

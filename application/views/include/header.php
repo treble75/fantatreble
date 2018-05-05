@@ -49,8 +49,6 @@
         <div class="site-wrapper clearfix">
             <div class="site-overlay"></div>
 
-
-
             <!-- Header
             ================================================== -->
 
@@ -102,6 +100,33 @@
                 </div>
                 <!-- Header Top Bar / End -->
 
+                <?php
+                //Qui setto l'active per i menu selezionati
+                $active_amministrazione = "";
+                $active_calciomercato   = "";
+                $active_myteam          = "";
+                $active_teams           = "";
+                $active_competitions    = "";
+                
+                switch (@$active) {
+                    case 1:
+                        $active_amministrazione = "active";
+                        break;
+                    case 2;
+                        $active_calciomercato = "active";
+                        break;
+                    case 3;
+                        $active_myteam = "active";
+                        break;
+                    case 4;
+                        $active_teams = "active";
+                        break;
+                    case 5;
+                        $active_competitions = "active";
+                        break;
+                }
+                ?>
+                
                 <!-- Header Secondary -->
                 <div class="header__secondary">
                     <div class="container">
@@ -246,11 +271,10 @@
                             <!-- Main Navigation -->
                             <nav class="main-nav clearfix">
                                 <ul class="main-nav__list">
-                                    <li class="active"><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
                                     <!-- Se non sono loggato non vedo alcune voci di menu -->
                                     <?php if (isset($_SESSION['id_utente']) && $_SESSION['utente'] == "Luca Guerrieri") { ?>
                                         <!-- L'Amministrazione la vede solo l'utente treble -->
-                                        <li class=""><a href="#">Amministrazione</a>
+                                        <li class="<?= $active_amministrazione ?>"><a href="#">Amministrazione</a>
                                             <div class="main-nav__megamenu clearfix">
                                                 <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
                                                     <li class="main-nav__title">Giocatori</li>
@@ -282,7 +306,14 @@
                                         </li>
                                     <?php } ?>
                                     <?php if (isset($_SESSION['id_utente'])) { ?>
-                                        <li class=""><a href="#"><?= $_SESSION['squadra'] ?></a>
+                                        <li class="<?= $active_calciomercato ?>"><a href="#">Calciomercato</a>
+                                            <ul class="main-nav__sub">
+                                                <li><a href="<?= base_url('/') ?>index.php/utente/calciomercato">Offerte</a></li>
+                                                <li><a href="<?= base_url('/') ?>index.php/utente/trattative">Trattative Aperte</a></li>
+                                                <li><a href="<?= base_url('/') ?>index.php/utente/trasferimenti">Trasferimenti</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="<?= $active_myteam ?>"><a href="#"><?= $_SESSION['squadra'] ?></a>
                                             <ul class="main-nav__sub">
                                                 <li><a href="<?= base_url('/') ?>index.php/utente/myteam">Rosa Giocatori</a></li>
                                                 <li><a href="<?= base_url('/') ?>index.php/utente/schiera_formazione">Schiera Formazione</a></li>
@@ -295,14 +326,14 @@
                                                 <li><a href="<?= base_url('/') ?>index.php/home/prepartita">Prepartita</a></li>
                                             </ul>
                                         </li>
-                                        
+
                                         <?php
                                         //Leggo tutte le squadre per creare il menu
                                         $this->load->model('mdl_utenti');
                                         $squadreMenu = $this->mdl_utenti->getSquadre();
                                         ?>
-                                        
-                                        <li class=""><a href="#">Teams</a>
+
+                                        <li class="<?= $active_teams ?>"><a href="#">Teams</a>
                                             <ul class="main-nav__sub">
                                                 <?php
                                                 foreach ($squadreMenu as $row) {
@@ -319,9 +350,9 @@
                                                 ?>
                                             </ul>
                                         </li>
-                                        
+
                                     <?php } ?>
-                                    <li class=""><a href="#">Competitions</a>
+                                    <li class="<?= $active_competitions ?>"><a href="#">Competitions</a>
                                         <ul class="main-nav__sub">
                                             <li><a href="<?= base_url('/') ?>index.php/home/campionato">Treble League</a></li>
                                             <li><a href="<?= base_url('/') ?>index.php/home/champions">Champions League</a></li>

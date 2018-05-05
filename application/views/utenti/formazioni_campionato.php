@@ -28,7 +28,7 @@
                             <div class="col-md-10 col-md-offset-1">
                                 <h1 class="page-heading__title">Formazioni <span class="highlight">Treble League</span></h1>
                                 <ol class="page-heading__breadcrumb breadcrumb">
-                                    <li class="active"><?= $label ?></li>
+                                    <li><?= $label ?></li>
                                 </ol>
                             </div>
                         </div>
