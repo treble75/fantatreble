@@ -57,7 +57,7 @@
             <!-- Header Mobile -->
             <div class="header-mobile clearfix" id="header-mobile">
                 <div class="header-mobile__logo">
-                    <a href="_soccer_index.html"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-mobile__logo-img"></a>
+                    <a href="<?= base_url('/') ?>index.php/home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-mobile__logo-img"></a>
                 </div>
                 <div class="header-mobile__inner">
                     <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
@@ -112,8 +112,8 @@
                                 <svg role="img" class="df-icon df-icon--soccer-ball">
                                 <use xlink:href="<?= base_url('/') ?>assets/images/icons-soccer.svg#soccer-ball"/>
                                 </svg>
-                                <h6 class="info-block__heading">Contact Us</h6>
-                                <a class="info-block__link" href="mailto:info@alchemists.com">info@alchemists.com</a>
+                                <h6 class="info-block__heading">&nbsp;</h6>
+                                <a class="info-block__link" href="<?= base_url('/') ?>index.php/home/homepage">Homepage</a>
                             </li>
 
                             <li class="info-block__item info-block__item--shopping-cart">
@@ -217,7 +217,7 @@
                                     <svg role="img" class="df-icon df-icon--whistle">
                                     <h6 class="info-block__heading">Bentornato <?= $_SESSION['utente'] ?></h6>
                                     </svg>
-                                    <a class="info-block__link" href="#"><?= $_SESSION['squadra'] ?></a>
+                                    <a class="info-block__link" href="<?= base_url('/') ?>index.php/utente/myteam"><?= $_SESSION['squadra'] ?></a>
                                 </li>
                                 <li class="info-block__item info-block__item--contact-primary info-block-user">
                                     <svg role="img" class="df-icon">
@@ -239,7 +239,7 @@
 
                             <!-- Header Logo -->
                             <div class="header-logo">
-                                <a href="_soccer_index.html"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-logo__img"></a>
+                                <a href="<?= base_url('/') ?>index.php/home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-logo__img"></a>
                             </div>
                             <!-- Header Logo / End -->
 
@@ -289,10 +289,10 @@
                                                 <li><a href="#">Rigoristi</a>
                                                     <ul class="main-nav__sub-2">
                                                         <li><a href="<?= base_url('/') ?>index.php/utente/rigoristi">Seleziona Rigoristi</a></li>
-                                                        <li><a href="<?= base_url('/') ?>index.php/utente/elenco_rigoristi">Rigoristi Schierati <span class="label label-danger"> New </span></a></li>
+                                                        <li><a href="<?= base_url('/') ?>index.php/utente/elenco_rigoristi">Rigoristi Schierati</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="_soccer_shop-grid.html">Prepartita</a></li>
+                                                <li><a href="<?= base_url('/') ?>index.php/home/prepartita">Prepartita</a></li>
                                             </ul>
                                         </li>
                                         
@@ -368,7 +368,7 @@
                 <div class="pushy-panel__inner">
                     <header class="pushy-panel__header">
                         <div class="pushy-panel__logo">
-                            <a href="index.html"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="assets/images/soccer/logo@2x.png 2x" alt="FantaTreble"></a>
+                            <a href="<?= base_url('/') ?>index.php/home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="assets/images/soccer/logo@2x.png 2x" alt="FantaTreble"></a>
                         </div>
                     </header>
                     <div class="pushy-panel__content">
