@@ -79,12 +79,7 @@
                                 <li class="nav-account__item"><a href="#" data-toggle="modal" data-target="#modal-login-register-tabs">Login</a></li>
                             <?php } ?>
                             <li class="nav-account__item nav-account__item--wishlist"><a href="_soccer_shop-wishlist.html">Wishlist <span class="highlight">8</span></a></li>
-                            <li class="nav-account__item"><a href="#">Currency: <span class="highlight">USD</span></a>
-                                <ul class="main-nav__sub">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">EUR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
+                            <li class="nav-account__item"><a href="http://www.fantagiaveno.it/quotazioni-calciatori.asp" target="_blank">Quotazioni <span class="highlight">GDS</span></a>
                             </li>
                             <li class="nav-account__item nav-account__item--wishlist"><a href="<?= base_url('/') ?>index.php/home/regolamento">Regolamento</a></li>
 

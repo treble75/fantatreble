@@ -60,19 +60,15 @@
                                 }
                                 ?>  
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
+                                            <label>Il calciomercato è aperto dal 03/09/2018 alle 24:00 del 28/02/2019.<br>Le offerte saranno valide per 48 ore, poi verranno aggiudicate se non ci sono rilanci o controfferte.</label>
                                             <label class="checkbox checkbox-inline">
                                                 <input type="radio" id="radio" value="Scambio" name="chkOfferta">&nbsp; Scambio alla pari
                                             </label>
                                             <label class="checkbox checkbox-inline">
                                                 <input type="radio" id="radio2" value="Offerta" name="chkOfferta">&nbsp; Offerta di mercato
                                             </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            &nbsp;
                                         </div>
                                     </div>
                                 </div>
