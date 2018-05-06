@@ -100,15 +100,14 @@
                                     <div class="card__content">
 
                                         <!-- Ciclo offerte -->
-                                        <?php
-                                        if ($offerte) { ?>
+                                        <?php if ($offerte) { ?>
                                             <ul class="products products--list products--list-condensed">
-                                                
+
                                                 <?php
                                                 foreach ($offerte as $row) {
                                                     $stato = (($row['attiva'] == 1) ? "Aperta" : "Chiusa");
                                                     $colore = (($row['attiva'] == 1) ? "onsale" : "onsale_chiusa");
-                                                ?>
+                                                    ?>
                                                     <li class="product__item card">
 
                                                         <span class="<?= $colore ?>">
@@ -116,7 +115,7 @@
                                                         </span>
 
                                                         <div class="product__img">
-                                                            <div class="product__img-holder" style="padding-top: 20px;">
+                                                            <div class="product__img-holder" style="padding-top: 30px;">
                                                                 <img src="<?= base_url('/') ?>images/users/<?= $row['id_utente'] ?>.png" />
                                                             </div>
                                                         </div>
@@ -141,36 +140,42 @@
                                                                 <h5 class="team-leader__player-name" style="font-size: 12px">
                                                                     Offerta inserita alle ore <?= $row['orario'] ?>
                                                                 </h5>
+                                                                <span>&nbsp;</span>
+                                                                <?php
+                                                                $ora_offerta = substr($row['orario'], 19, 4) . "-" . substr($row['orario'], 16, 2) . "-" . (substr($row['orario'], 13, 2) + 02) . " " . substr($row['orario'], 0, 8);
+                                                                ?> 
+                                                                <h5 class="team-leader__player-name" style="font-size: 12px">
+                                                                    <div class="countdown-counter" data-date="<?= $ora_offerta ?>" ></div>
+                                                                </h5>
                                                             </div>
-                                                            
+
                                                             <?php
                                                             //Parte amministrativa
-                                                            if ($_SESSION['username'] == "trebler") {
-                                                            ?>
+                                                            if ($_SESSION['username'] == "treble") {
+                                                                ?>
                                                                 <footer class="product__footer">
-                                                                    <a href="_soccer_shop-cart.html" class="btn btn-primary-inverse btn-icon product__add-to-cart"><i class="icon-bag"></i> Add to Cart</a>
-                                                                    <a href="#" class="btn btn-default btn-single-icon product__wish"><i class="icon-heart"></i></a>
-                                                                    <a href="#" class="btn btn-default btn-single-icon product__view"><i class="icon-eye"></i></a>
+                                                                    <a href='<?= base_url('/') . "index.php/utente/closeofferta/" . $row['id_offerta'] ?>' class="btn btn-primary-inverse btn-icon product__add-to-cart"><i class="icon-bag"></i> Chiudi offerta</a>
+                                                                    <a href='<?= base_url('/') . "index.php/utente/delofferta/" . $row['id_offerta'] ?>' class="btn btn-default btn-single-icon product__wish"><i class="icon-eye"></i></a>
                                                                 </footer>
-                                                            <?php
+                                                                <?php
                                                             }
                                                             ?>
                                                         </div>
                                                     </li>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
                                             </ul>
-                                        <?php
-                                        } else { ?>
+                                        <?php } else {
+                                            ?>
                                             <div class = 'alert alert-warning alert-dismissible'>
                                                 <strong>Attualmente non sono presenti offerte di mercato</strong>
                                             </div>
-                                        <?php
+                                            <?php
                                         }
                                         ?>
                                         <!-- Ciclo Offerte / End -->
-                                        
+
                                     </div>
                                 </div>
                                 <!-- Shop List / End -->
