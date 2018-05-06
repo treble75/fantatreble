@@ -585,7 +585,7 @@
                                                                 <time class="comments-list__date" datetime="2016-08-23"><?= $this->mdl_utenti->getSquadra($row['id_utente']) ?></time>
                                                                 <time class="comments-list__date" datetime="2016-08-23"><?= $row['orario'] ?></time>
                                                             </div>
-                                                            <a href="#" class="comments-list__link"><span class="icon-options"></span></a>
+                                                            <a href="<?= base_url('/') ?>index.php/utente/calciomercato" class="comments-list__link"><span class="icon-options"></span></a>
                                                         </header>
                                                         <div class="comments-list__body">
                                                             <br>

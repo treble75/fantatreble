@@ -18587,6 +18587,19 @@ td.team-leader__goals {
   right: 0;
 }
 
+.onsale_chiusa {
+  display: block;
+  position: absolute;
+  z-index: 3;
+  color: #fff;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  right: 0;
+}
+
 .onsale::before {
   content: "";
   display: block;
@@ -18596,11 +18609,34 @@ td.team-leader__goals {
   width: 0;
   height: 0;
   border-left: 76px solid transparent;
-  border-top: 76px solid #38a9ff;
+  border-top: 76px solid #28d751;
+  z-index: 1;
+}
+
+.onsale_chiusa::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 76px solid transparent;
+  border-top: 76px solid #f6494d;
   z-index: 1;
 }
 
 .onsale .onsale__inner {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.onsale_chiusa .onsale__inner {
   position: absolute;
   z-index: 2;
   top: 10px;

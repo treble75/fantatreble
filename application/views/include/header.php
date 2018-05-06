@@ -363,7 +363,7 @@
                                                     <li><a href="<?= base_url('/') ?>index.php/utente/formazioni_coppe">Coppe</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Statistiche</a>
+                                            <li><a href="#">Statistiche Giocatori</a>
                                                 <ul class="main-nav__sub-2">
                                                     <li><a href="<?= base_url('/') ?>index.php/home/statistiche/1">Portieri</a></li>
                                                     <li><a href="<?= base_url('/') ?>index.php/home/statistiche/2">Difensori</a></li>
@@ -372,7 +372,7 @@
                                                 </ul>
                                             </li>
                                             <li><a href="<?= base_url('/') ?>index.php/home/albo">Albo d'Oro</a></li>
-                                            <li><a href="<?= base_url('/') ?>index.php/home/premi">Premi</a></li>
+                                            <!-- <li><a href="<?= base_url('/') ?>index.php/home/premi">Premi</a></li> -->
                                         </ul>
                                     </li>
                                 </ul>

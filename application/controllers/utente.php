@@ -3874,6 +3874,8 @@ class Utente extends CI_Controller {
                 $this->email->message($message);
 
                 $this->email->send();
+                
+                $data['success_message'] = "Offerta inserita con successo";
             }
 
             $data['offerte'] = $this->mdl_utenti->getOfferte();

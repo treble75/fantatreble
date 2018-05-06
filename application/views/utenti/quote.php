@@ -113,7 +113,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="account-first-name" style="color: #009900">€ <?= replace($cassa) ?></label>
+                                                <label for="account-first-name" style="color: #009900">€ <?= replace(number_format($cassa, 2)) ?></label>
                                             </div>
                                         </div>
                                     </div>
