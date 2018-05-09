@@ -6,6 +6,11 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title">Trattative <span class="highlight">Calciomercato</span></h1>
+                        <ol class="page-heading__breadcrumb breadcrumb">
+                            <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
+                            <li><a href="<?= base_url('/') ?>index.php/utente/calciomercato">Calciomercato</a></li>
+                            <li class="active">Trattative</li>
+                        </ol>
                     </div>
                 </div>
             </div>

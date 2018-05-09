@@ -4469,8 +4469,8 @@ class Utente extends CI_Controller {
             $this->load->model('mdl_categories');
             $data['active'] = 2;
 
-            $this->form_validation->set_rules('cmbSquadra', 'Squadra');
-            $this->form_validation->set_rules('chkAsta', 'Asta');
+            $this->form_validation->set_rules('cmbSquadra', 'Squadra', 'trim|required');
+            $this->form_validation->set_rules('chkAsta', 'Asta', 'trim|required');
 
             if ($this->form_validation->run()) {
                 $team = $this->input->post('cmbSquadra');
