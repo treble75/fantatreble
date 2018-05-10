@@ -713,7 +713,7 @@ class Utente extends CI_Controller {
                         $this->mdl_team->addChk($this->input->post($txt));
                 }
 
-                $data = "";
+                //$data = "";
                 //Vado avanti con l'inserimento dei risultati
                 $data['risultati'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata']);
                 $data['schierati'] = $this->mdl_team->getSchierati();

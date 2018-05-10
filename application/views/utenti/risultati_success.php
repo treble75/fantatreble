@@ -69,6 +69,8 @@
                                                                 //Inizializzo variabili
                                                                 $chkMod = "";
                                                                 $chkid = "";
+                                                                //+2 per chi gioca in casa o 0 per campionato a 10
+                                                                $totaleA[$c] = 0;
 
                                                                 //Calcolo numeri difensori per Modificatore difesa
                                                                 @$num_difensori = $this->mdl_team->getNumeroDifensoriSchierati($row['id1'], $_SESSION['giornata']);
@@ -92,36 +94,396 @@
                                                                     $colRuolo = "backRuoloA";
                                                                 }
                                                                 
-                                                                //+2 per chi gioca in casa o 0 per campionato a 10
-                                                                $totaleA[$c] = 0;
                                                                 ?>
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($schierati[$c]['id_giocatore'], $giornata);
-                                                                    $v = (($v == "") ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($schierati[$c]['id_giocatore']);
-                                                                    $voto = (($voto == "") ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T1']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T1']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <?php
-                                                                    $chk = $this->mdl_team->getFantavotoP($schierati[$c]['id_giocatore']);
-                                                                    $chk = (($chk == "") ? "" : "checked='checked'");
-                                                                    ?>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $z . $schierati[$c]['id_utente'] ?>" value="Y" name="<?= $schierati[$c]['id_utente'] . 'Tcheck' . $z ?>" <?= $chk ?> />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
+                                                                
                                                                 <?php
-                                                                $totaleA = (round($totaleA, 2) + round($voto, 2));
-                                                                $z++;
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T2']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
                                                                 ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T2']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T2']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
                                                                 <?php
-                                                            }
-                                                        }
-                                                        ?>
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T3']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T3']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T3']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T4']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T4']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T4']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T5']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T5']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T5']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T6']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T6']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T6']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T7']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T7']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T7']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T8']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T8']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T8']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T9']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T9']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T9']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T10']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T10']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T10']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T11']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                ?>
+
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T11']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T11']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
 
                                                         <tr>
                                                             <th colspan="5" class="lineup__subheader">Giocatori in Panchina</th>
@@ -130,495 +492,520 @@
                                                         <!-- Panchinari in casa ---->
 
                                                         <?php
-                                                        for ($c = 0; $c < count($panchinari); $c++) {
 
-                                                            if ($row['id1'] == $panchinari[$c]['id_utente']) {
-
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P1']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P1']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P1'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P1']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P1']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P1']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P1'] . "' name='" . $panchinari[$c]['id_utente'] . "P1" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P1' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P1check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P2']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P2']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P2'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P2']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P2']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P2']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P2'] . "' name='" . $panchinari[$c]['id_utente'] . "P2" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P2' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P2check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P3']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P3']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P3'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P3']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P3']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P3']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P3'] . "' name='" . $panchinari[$c]['id_utente'] . "P3" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P3' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P3check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P4']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P4']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P4'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P4']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P4']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P4']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P4'] . "' name='" . $panchinari[$c]['id_utente'] . "P4" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P4' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P4check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P5']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P5']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P5'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P5']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P5']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P5']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P5'] . "' name='" . $panchinari[$c]['id_utente'] . "P5" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P5' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P5check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P6']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P6']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P6'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P6']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P6']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P6']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P6'] . "' name='" . $panchinari[$c]['id_utente'] . "P6" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P6' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P6check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P7']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P7']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P7'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P7']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P7']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P7']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P7'] . "' name='" . $panchinari[$c]['id_utente'] . "P7" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P7' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P7check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P8']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P8']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P8'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P8']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P8']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P8']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P8'] . "' name='" . $panchinari[$c]['id_utente'] . "P8" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P8' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P8check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P9']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P9']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P9'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P9']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P9']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P9']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P9'] . "' name='" . $panchinari[$c]['id_utente'] . "P9" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P9' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P9check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P10']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P10']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P10'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P10']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P10']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P10']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P10'] . "' name='" . $panchinari[$c]['id_utente'] . "P10" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P10' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P10check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P11']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P11']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P11'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P11']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P11']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P11']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P11'] . "' name='" . $panchinari[$c]['id_utente'] . "P11" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P11' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P11check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P12']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P12']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P12'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P12']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P12']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P12']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P12'] . "' name='" . $panchinari[$c]['id_utente'] . "P12" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P12' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P12check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P13']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P13']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P13'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P13']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P13']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P13']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P13'] . "' name='" . $panchinari[$c]['id_utente'] . "P13" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P13' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P13check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P14']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P14']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
                                                                 ?>
 
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P14'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P14']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P14']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P14']);
+                                                                    $img = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleA[$c] = (@$totaleA[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P14'] . "' name='" . $panchinari[$c]['id_utente'] . "P14" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P14' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P14check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
@@ -626,11 +1013,9 @@
                                                                 <?php
                                                             }
                                                         }
-                                                        ?>
+                                                                
+                                                        //Modificatore Difesa squadra in casa
 
-                                                        <!-- Modificatore Difesa squadra in casa -->
-
-                                                        <?php
                                                         if ($num_difensori < 4) {
                                                             $chkMod = "Non Attivo";
                                                             $chkid = "non_attivo";
@@ -646,7 +1031,10 @@
                                                         //Calcolo media voto
                                                         $media = (@$media_difensori / @$num_difesa);
                                                         $media = number_format(@$media, 3);
-                                                        $bonus = $this->mdl_team->getBonusModificatore(@$media);
+                                                        $bonusA = $this->mdl_team->getBonusModificatore(@$media);
+                                                        
+                                                        //Fine Modificatore difesa
+
                                                         ?>
 
                                                         <tr style="vertical-align: middle;">
@@ -656,14 +1044,41 @@
                                                                 <?= $abilitazione ?>
                                                             </figure>
                                                             </th>
-                                                            <th colspan="2" class="lineup__subheader" style="text-align: center"><?= $media_difensori . " / " . $media . " -> + " . $bonus ?></th>
+                                                            <th colspan="2" class="lineup__subheader" style="text-align: center"><?= @$media_difensori . ' / ' . $media . ' -> + ' . $bonusA ?></th>
                                                         </tr>
 
                                                     <!-- Modificatore Difesa squadra in casa / END -->
+                                                    
+                                                    <?php
+                                                    //Calcolo somma totale squadra e bonus
+                                                    $parzialeA = $totaleA[$c];
+                                                    if ($chkMod == "Attivo") {
+                                                        $totaleA = ( $totaleA[$c] + $bonusA );
+                                                        //Campo nascosto per il bonus modificatore
+                                                        echo "<input type='hidden' value='" . $bonusA . "' name='bonus" . $c . "' />";
+                                                    } else {
+                                                        $totaleA = $parzialeA;
+                                                        //Campo nascosto per il bonus modificatore
+                                                        echo "<input type='hidden' value=0 name='bonus" . $c . "' />";
+                                                    }
 
+                                                    //Campo nascosto per il totale parziale squadra in casa
+                                                    echo "<input type='hidden' value='" . $totaleA . "' name='totale" . $c . "' />";
+
+                                                    //Campo nascosto per il numero dei difensori
+                                                    echo "<input type='hidden' value='" . @$num_difensori . "' name='numero_difensori" . $c . "' />";
+
+                                                    //Campo nascosto per il totale modificatore
+                                                    echo "<input type='hidden' value='" . @$media_difensori . "' name='totale_modificatore" . $c . "' />";
+
+                                                    //Campo nascosto per la media difensori
+                                                    echo "<input type='hidden' value='" . @$media . "' name='media_difensori" . $c . "' />";
+
+                                                    ?>
+                                                    
                                                     <tr style="vertical-align: middle;">
-                                                        <th colspan="2" class="lineup__subheader">Totale Parziale</th>
-                                                        <th class="lineup__subheader" style="text-align: center;">&nbsp;</th>
+                                                        <th colspan="2" class="lineup__subheader">TOTALE PUNTI SQUADRA</th>
+                                                        <th class="lineup__subheader" style="text-align: center;"><?= $parzialeA ?> ( + <?= $bonusA ?> )</th>
                                                         <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $totaleA ?></th>
                                                     </tr>
 
@@ -715,542 +1130,956 @@
                                                                 //Calcolo media voto difensori per Modificatore difesa
                                                                 @$media_difensori = $this->mdl_team->getMediaDifensori($row['id2'], $giornata);
 
-                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['id_giocatore']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T1']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($schierati[$c]['id_giocatore'], $giornata);
-                                                                    $v = (($v == "") ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($schierati[$c]['id_giocatore']);
-                                                                    $voto = (($voto == "") ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T1']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T1']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <?php
-                                                                    $chk = $this->mdl_team->getFantavotoP($schierati[$c]['id_giocatore']);
-                                                                    $chk = (($chk == "") ? "" : "checked='checked'");
-                                                                    ?>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $z . $schierati[$c]['id_utente'] ?>" value="Y" name="<?= $schierati[$c]['id_utente'] . 'Tcheck' . $z ?>" <?= $chk ?> />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
+                                                                
                                                                 <?php
-                                                                $totaleB = (round($totaleB, 2) + round($voto, 2));
-                                                                $z++;
-                                                            }
-                                                        }
-                                                        ?>
-
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T2']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T2']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T2']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T3']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T3']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T3']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T4']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T4']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T4']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T5']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T5']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T5']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T6']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T6']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T6']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T7']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T7']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T7']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T8']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T8']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T8']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T9']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T9']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T9']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T10']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T10']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T10']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                                                                
+                                                                <?php
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T11']);
+                                                                $role = "";
+                                                                $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
+                                                                if ($role == "P") {
+                                                                    $colRuolo = "backRuoloP";
+                                                                }
+                                                                if ($role == "D") {
+                                                                    $colRuolo = "backRuoloD";
+                                                                }
+                                                                if ($role == "C") {
+                                                                    $colRuolo = "backRuoloC";
+                                                                }
+                                                                if ($role == "A") {
+                                                                    $colRuolo = "backRuoloA";
+                                                                }
+                                                                
+                                                                ?>
+                                                        
+                                                                <tr <?= $colRuolo ?> >
+                                                                    <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <?php
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T11']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T11']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
+                                                                    ?>
+                                                                    <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
+                                                                    <td class="lineup__pos" style="text-align: center;">
+                                                                        <?= $img ?>
+                                                                    </td>
+                                                                    <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
+                                                                </tr>
+                         
                                                         <tr>
                                                             <th colspan="5" class="lineup__subheader">Giocatori in Panchina</th>
                                                         </tr>
 
                                                         <?php
-                                                        for ($c = 0; $c < count($panchinari); $c++) {
-                                                            //Panchinari in trasferta
-                                                            if ($row['id2'] == $panchinari[$c]['id_utente']) {
 
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P1']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P1']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P1'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P1']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P1']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P1']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P1'] . "' name='" . $panchinari[$c]['id_utente'] . "P1" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P1' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P1check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P2']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P2']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P2'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P2']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P2']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P2']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P2'] . "' name='" . $panchinari[$c]['id_utente'] . "P2" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P2' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P2check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P3']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P3']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P3'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P3']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P3']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P3']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P3'] . "' name='" . $panchinari[$c]['id_utente'] . "P3" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P3' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P3check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P4']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P4']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P4'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P4']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P4']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P4']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P4'] . "' name='" . $panchinari[$c]['id_utente'] . "P4" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P4' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P4check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P5']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P5']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P5'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P5']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P5']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P5']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P5'] . "' name='" . $panchinari[$c]['id_utente'] . "P5" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P5' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P5check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P6']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P6']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P6'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P6']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P6']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P6']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P6'] . "' name='" . $panchinari[$c]['id_utente'] . "P6" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P6' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P6check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P7']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P7']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P7'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P7']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P7']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P7']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P7'] . "' name='" . $panchinari[$c]['id_utente'] . "P7" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P7' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P7check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P8']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P8']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P8'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P8']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P8']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P8']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P8'] . "' name='" . $panchinari[$c]['id_utente'] . "P8" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P8' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P8check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P9']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P9']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P9'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P9']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P9']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P9']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P9'] . "' name='" . $panchinari[$c]['id_utente'] . "P9" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P9' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P9check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P10']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P10']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P10'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P10']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P10']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P10']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P10'] . "' name='" . $panchinari[$c]['id_utente'] . "P10" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P10' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P10check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P11']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P11']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P11'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P11']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P11']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P11']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P11'] . "' name='" . $panchinari[$c]['id_utente'] . "P11" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P11' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P11check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P12']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P12']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P12'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P12']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P12']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P12']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P12'] . "' name='" . $panchinari[$c]['id_utente'] . "P12" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P12' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P12check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P13']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P13']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P13'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P13']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P13']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P13']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P13'] . "' name='" . $panchinari[$c]['id_utente'] . "P13" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P13' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P13check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
 
                                                                 <?php
-                                                                $dettagli = $this->mdl_team->getGiocatore($panchinari[$c]['P14']);
+                                                                $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['P14']);
                                                                 $role = "";
                                                                 $role = $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']);
                                                                 if ($role == "P") {
-                                                                    $colRuolo = 'bgcolor="#fafafa"';
+                                                                    $colRuolo = "backRuoloP";
                                                                 }
                                                                 if ($role == "D") {
-                                                                    $colRuolo = 'bgcolor="#f0fbff"';
+                                                                    $colRuolo = "backRuoloD";
                                                                 }
                                                                 if ($role == "C") {
-                                                                    $colRuolo = 'bgcolor="#fff2f2"';
+                                                                    $colRuolo = "backRuoloC";
                                                                 }
                                                                 if ($role == "A") {
-                                                                    $colRuolo = 'bgcolor="#eefaeb"';
+                                                                    $colRuolo = "backRuoloA";
                                                                 }
+                                                                
                                                                 ?>
-
+                                                        
                                                                 <tr <?= $colRuolo ?> >
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name" style="font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVoto($panchinari[$c]['P14'], $giornata);
-                                                                    $v = (is_Array($v) ? "S.V." : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P14']);
-                                                                    $voto = (is_Array($voto) ? "" : $voto);
+                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P14']);
+                                                                    $v = (is_Array($v) ? "" : $v);
+                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P14']);
+                                                                    $img  = (is_Array($voto) ? "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />" : "");
+                                                                    if ($img != "<img src='" . base_url('/') . "images/sv2.png' title='Sostituito' />") {
+                                                                        $totaleB[$c] = (@$totaleB[$c] + $voto);
+                                                                    }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
-                                                                    <input type='hidden' value='<?= $panchinari[$c]['P14'] . "' name='" . $panchinari[$c]['id_utente'] . "P14" ?>' />
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <input type="checkbox" id="copy<?= $panchinari[$c]['id_utente'] . 'P14' ?>" value="Y" name="<?= $panchinari[$c]['id_utente'] . 'P14check' ?>"  />
+                                                                        <?= $img ?>
                                                                     </td>
                                                                     <td class="lineup__info"style="color: #1892ED; font-size: 12px; text-align: center;"><?= $voto ?></td>
                                                                 </tr>
@@ -1263,6 +2092,7 @@
                                                         <!-- Modificatore Difesa squadra in trasferta -->
 
                                                             <?php
+
                                                             if ($num_difensori < 4) {
                                                                 $chkMod = "Non Attivo";
                                                                 $chkid = "non_attivo";
@@ -1278,7 +2108,7 @@
                                                             //Calcolo media voto
                                                             $media = (@$media_difensori / @$num_difesa);
                                                             $media = number_format(@$media, 3);
-                                                            $bonus = $this->mdl_team->getBonusModificatore(@$media);
+                                                            $bonusB = $this->mdl_team->getBonusModificatore(@$media);
                                                             ?>
 
                                                             <tr style="vertical-align: middle;">
@@ -1288,14 +2118,39 @@
                                                                     <?= $abilitazione ?>
                                                                 </figure>
                                                                 </th>
-                                                                <th colspan="2" class="lineup__subheader" style="text-align: center"><?= $media_difensori . " / " . $media . " -> + " . $bonus ?></th>
+                                                                <th colspan="2" class="lineup__subheader" style="text-align: center"><?= @$media_difensori . ' / ' . $media . ' -> + ' . $bonusB ?></th>
                                                             </tr>
 
                                                         <!-- Modificatore Difesa squadra in trasferta / END --> 
-                                                               
+                                                        <?php
+                                                        //Sommo totale squadra e bonus
+                                                        $parzialeB = $totaleB[$c];
+                                                        if ($chkMod == "Attivo") {
+                                                            $totaleB = ( $totaleB[$c] + $bonusB );
+                                                            //Campo nascosto per il bonus modificatore
+                                                            echo "<input type='hidden' value='" . $bonusB . "' name='bonus" . $c . "' />";
+                                                        } else {
+                                                            $totaleB = $parzialeB;
+                                                            //Campo nascosto per il bonus modificatore
+                                                            echo "<input type='hidden' value=0 name='bonus" . $c . "' />";
+                                                        }
+
+                                                        //Campo nascosto totale
+                                                        echo "<input type='hidden' value='" . $totaleB . "' name='totale" . $c . "' />";
+
+                                                        //Campo nascosto per il numero dei difensori
+                                                        echo "<input type='hidden' value='" . @$num_difensori . "' name='numero_difensori" . $c . "' />";
+
+                                                        //Campo nascosto per il totale modificatore
+                                                        echo "<input type='hidden' value='" . @$media_difensori . "' name='totale_modificatore" . $c . "' />";
+
+                                                        //Campo nascosto per la media difensori
+                                                        echo "<input type='hidden' value='" . @$media . "' name='media_difensori" . $c . "' />";
+                                                        ?>
+                                                       
                                                         <tr style="vertical-align: middle;">
-                                                        <th colspan="2" class="lineup__subheader">Totale Parziale</th>
-                                                        <th class="lineup__subheader" style="text-align: center;">&nbsp;</th>
+                                                        <th colspan="2" class="lineup__subheader">TOTALE PUNTI SQUADRA</th>
+                                                        <th class="lineup__subheader" style="text-align: center;"><?= $parzialeB ?> ( + <?= $bonusB ?> )</th>
                                                         <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $totaleB ?></th>
                                                     </tr>
 

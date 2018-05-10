@@ -33,13 +33,6 @@
 
                             <?php
                             
-                            if (validation_errors()) {
-                                echo validation_errors();
-                            }
-                            if (@$message) {
-                                echo @$message;
-                            }
-                        
                             echo form_open_multipart('utente/inserisci_risultati');
 
                             foreach ($risultati as $row) {
