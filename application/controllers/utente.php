@@ -79,6 +79,7 @@ class Utente extends CI_Controller {
             $_SESSION['giornata'] = $this->mdl_team->getGiornata();
             $data['giornata'] = $_SESSION['giornata'];
 
+            $this->form_validation->set_rules('check_invio', 'check_invio', 'trim|required');
             $this->form_validation->set_rules('1T1', '1T1');
             $this->form_validation->set_rules('1T2', '1T2');
             $this->form_validation->set_rules('1T3', '1T3');
@@ -329,8 +330,9 @@ class Utente extends CI_Controller {
             $this->form_validation->set_rules('10P12', '10P12');
             $this->form_validation->set_rules('10P13', '10P13');
             $this->form_validation->set_rules('10P14', '10P14');
-
-            if ($this->form_validation->run()) {
+            
+            if ($this->form_validation->run()==true) {
+                
                 $data = array(
                     'id_utente' => 1,
                     'giornata' => $_SESSION['giornata'],

@@ -32,6 +32,9 @@
                     <div class="card__content">
                         <div class="table-responsive">
                             <table class="table table--lg team-roster-table">
+                                <?php
+                                if ($offerte) { ?>
+                                
                                 <thead>
                                     <tr>
                                         <th class="team-roster-table__number" style="width: 15%">&nbsp;</th>
@@ -40,8 +43,8 @@
                                         <th class="team-roster-table__name" style="width: 20%; text-align: center;">Scadenza</th>
                                     </tr>
                                 </thead>
+                                
                                 <?php
-                                if ($offerte) {
                                     $color = "#CCFFCC";
                                     ?>
                                     <tbody>
@@ -68,9 +71,14 @@
                                         ?>
                                     </tbody>
                                     <?php
-                                } else
-                                    echo "<h6>Nessuna partita ancora disputata</h6>"
-                                    ?>
+                                } else { ?>
+                                    <div class="spacer"></div>
+                                    <div class = 'alert alert-warning alert-dismissible'>
+                                        <strong>Nessuna trattativa in corso</strong>
+                                    </div>
+                                <?php
+                                }
+                                ?>
                             </table>
                         </div>
                     </div>
