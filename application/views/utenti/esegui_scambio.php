@@ -101,8 +101,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="account-email">Seleziona Squadra 1</label>
-                                            <?php $js = 'id="account-city" class="form-control" onChange="refresh()"'; ?>
-                                            <?= form_dropdown('cmbSquadra', $Squadre, set_value('cmbSquadra', $this->input->post('cmbSquadra')), $js) ?>
+                                            <?php $js = 'id="account-city" class="form-control"';
+                                            echo form_dropdown('cmbSquadra', $Squadre, set_value('cmbSquadra', $this->input->post('cmbSquadra')), $js) ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
