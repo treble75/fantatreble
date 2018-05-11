@@ -1774,6 +1774,7 @@ class Utente extends CI_Controller {
             $data['active'] = 1;
             $_SESSION['giornata'] = $this->mdl_team->getGiornata();
 
+            $this->form_validation->set_rules('check_invio', 'check_invio', 'trim|required');
             $this->form_validation->set_rules('totale0', 'Totale1');
             $this->form_validation->set_rules('totale1', 'Totale2');
             $this->form_validation->set_rules('totale2', 'Totale3');
@@ -2120,6 +2121,7 @@ class Utente extends CI_Controller {
             $_SESSION['giornata'] = $this->mdl_team->getGiornata();
 
             if ($this->input->post('but_archivia')) {
+                $this->form_validation->set_rules('check_invio', 'check_invio', 'trim|required');
                 $this->form_validation->set_rules('GF1', 'GF1');
                 $this->form_validation->set_rules('GS1', 'GS1');
                 $this->form_validation->set_rules('GF2', 'GF2');
@@ -2141,333 +2143,357 @@ class Utente extends CI_Controller {
                 $this->form_validation->set_rules('GF10', 'GF10');
                 $this->form_validation->set_rules('GS10', 'GS10');
 
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF1');
                 $GS = $this->input->post('GS1');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(1, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(1, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF2');
                 $GS = $this->input->post('GS2');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(2, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(2, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF3');
                 $GS = $this->input->post('GS3');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(3, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(3, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF4');
                 $GS = $this->input->post('GS4');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(4, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(4, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF5');
                 $GS = $this->input->post('GS5');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(5, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(5, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF6');
                 $GS = $this->input->post('GS6');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(6, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(6, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF7');
                 $GS = $this->input->post('GS7');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(7, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(7, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF8');
                 $GS = $this->input->post('GS8');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(8, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(8, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF9');
                 $GS = $this->input->post('GS9');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(9, $classifica);
+                    }
                 }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(9, $classifica);
-                }
-                $classifica = "";
+                
+                $classifica = array();
                 $GF = $this->input->post('GF10');
                 $GS = $this->input->post('GS10');
-                if ($GF < $GS) {
-                    $classifica['punti'] = 0;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 1;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF == $GS) {
-                    $classifica['punti'] = 1;
-                    $classifica['vittorie'] = 0;
-                    $classifica['pareggi'] = 1;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                if ($GF > $GS) {
-                    $classifica['punti'] = 3;
-                    $classifica['vittorie'] = 1;
-                    $classifica['pareggi'] = 0;
-                    $classifica['sconfitte'] = 0;
-                    $classifica['gol_fatti'] = $GF;
-                    $classifica['gol_subiti'] = $GS;
-                }
-                //Inserire ultima giornata di Regular Season
-                if ($_SESSION['giornata'] <= 27) {
-                    $this->mdl_team->insertClassifica(10, $classifica);
+                if ($GF != "" && $GS != "") {
+                    if ($GF < $GS) {
+                        $classifica['punti'] = 0;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 1;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF == $GS) {
+                        $classifica['punti'] = 1;
+                        $classifica['vittorie'] = 0;
+                        $classifica['pareggi'] = 1;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    if ($GF > $GS) {
+                        $classifica['punti'] = 3;
+                        $classifica['vittorie'] = 1;
+                        $classifica['pareggi'] = 0;
+                        $classifica['sconfitte'] = 0;
+                        $classifica['gol_fatti'] = $GF;
+                        $classifica['gol_subiti'] = $GS;
+                    }
+                    //Inserire ultima giornata di Regular Season
+                    if ($_SESSION['giornata'] <= 27) {
+                        $this->mdl_team->insertClassifica(10, $classifica);
+                    }
                 }
 
                 //Chiudo la giornata
                 $this->mdl_team->closeGiornata();
-                $data['message'] = "Risultati inseriti con successo. La giornata è conclusa !";
+                $data['success_message'] = "Risultati inseriti con successo. La giornata è conclusa !";
 
-                $data['giornata'] = $_SESSION['giornata'];
-                $data['risultati_giornata'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata'] - 1);
-                $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
-                $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
-                $data['bomber'] = $this->mdl_team->getBomber($_SESSION['giornata']);
-
-                $data['risultati'] = $this->mdl_team->getCalendario1A();
-                $data['classifica'] = $this->mdl_team->getClassifica($_SESSION['giornata']);
-                $this->show('home/campionato', $data);
+                redirect('home/campionato');
                 return;
             }
 
+            $giornata_posizione = ($_SESSION['giornata'] - 1);
+            $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
             $data['giornata'] = $_SESSION['giornata'];
             $data['risultati'] = $this->mdl_team->getGiornataGiocata();
             $this->show('utenti/giornata', $data);
