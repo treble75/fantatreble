@@ -98,20 +98,20 @@
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="account-first-name">Nome</label>
-                        <input type="text" class="form-control" value="<?= @$dettagliUtente[0]['nome'] ?>" name="nome" id="account-first-name" placeholder="nome...">
+                        <input type="text" class="form-control" value="<?= @$dettagliUtente[0]['nome'] ?>" name="nome" id="account-first-name" disabled="disabled" placeholder="nome...">
                       </div>
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
                         <label for="account-last-name">Cognome</label>
-                        <input type="text" class="form-control" value="<?= @$dettagliUtente[0]['cognome'] ?>" name="cognome" id="account-last-name" placeholder="cognome...">
+                        <input type="text" class="form-control" value="<?= @$dettagliUtente[0]['cognome'] ?>" name="cognome" id="account-last-name" disabled="disabled" placeholder="cognome...">
                       </div>
                     </div>
                   </div>
 
                   <div class="form-group form-group--sm">
                     <label for="account-address-1">Nome Squadra</label>
-                    <input type="text" class="form-control" value="<?= @$dettagliUtente[0]['squadra'] ?>" name="squadra" id="account-address-1" placeholder="nome squadra...">
+                    <input type="text" class="form-control" value="<?= @$dettagliUtente[0]['squadra'] ?>" name="squadra" id="account-address-1" disabled="disabled" placeholder="nome squadra...">
                   </div>
                     
                   <div class="form-group form-group--sm">

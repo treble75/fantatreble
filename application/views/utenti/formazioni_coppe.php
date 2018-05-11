@@ -59,8 +59,9 @@
                                         $risultati = $risultati_supercoppa;
 
                                     if (count($risultati) < 1) { ?>
-                                        <div align="center" style="width:50%" style="text-align: center;">
-                                            <div class="alert alert-info"">
+                                        <div class="spacer"></div>
+                                        <div align="center" style="width:100%" style="text-align: center;">
+                                            <div class="alert alert-info">
                                                 Non viene disputata nessuna partita di coppa in questa giornata
                                             </div>
                                         </div>
