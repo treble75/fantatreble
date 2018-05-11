@@ -44,6 +44,9 @@
                                         <li class="df-account-navigation__link">
                                             <a href="<?= base_url('/') ?>index.php/utente/news_desktop" >News Desktop</a>
                                         </li>
+                                        <li class="df-account-navigation__link">
+                                            <a href="<?= base_url('/') ?>index.php/utente/news_utente" >News Utente</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>
@@ -84,8 +87,9 @@
                                 ?>  
 
                                 <?php
+                                //Quota inziale da modificare
                                 $cassa       = 0.00;
-                                $quota       = 135.00;
+                                $quota       = 145.00;
                                 foreach ($debiti as $row) {
                                     $utente = $this->mdl_utenti->getDatiUtente($row['id_utente']);
                                     ?>

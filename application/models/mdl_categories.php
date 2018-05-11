@@ -76,6 +76,21 @@ class mdl_categories extends CI_Model {
         }
         return $return;
     }
+    
+    public function getGiocatoriAssegnati($blank = false) {
+        $this->db->order_by('cognome');
+        $this->db->where('id_utente <>', '0');
+        $query = $this->db->get("tb_giocatori");
+        $return = array();
+
+        if ($blank)
+            $return[] = '';
+
+        foreach ($query->result_array() as $row) {
+            $return[$row['id_giocatore']] = $row['cognome'] . " " . $row['nome'];
+        }
+        return $return;
+    }
 
     public function getAllGiocatori($blank = false, $ruolo) {
         $this->db->order_by('cognome');

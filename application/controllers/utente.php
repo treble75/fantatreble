@@ -3967,6 +3967,11 @@ class Utente extends CI_Controller {
         $data['top'] = $this->mdl_team->getTop($giornataTop);
         $data['topCampionato'] = $this->mdl_team->getTopCampionato();
         $data['offerte'] = $this->mdl_team->getLastOfferte();
+        
+        $data['news_coppa'] = $this->mdl_utenti->getNewsDesktop("coppa");
+        $data['news_champions'] = $this->mdl_utenti->getNewsDesktop("champions");
+        $data['news_supercoppa'] = $this->mdl_utenti->getNewsDesktop("super");
+        $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
 
         $this->show('home/homepage', $data);
     }
@@ -4699,6 +4704,44 @@ class Utente extends CI_Controller {
             }
 
             $this->show('utenti/news_desktop', $data);
+        } else
+            redirect('utente/login');
+    }
+    
+    function news_utente() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_categories');
+            $data['active'] = 1;
+
+            //Inserisco news desktop
+            if ($this->input->post('but_inserisci')) {
+                $this->form_validation->set_rules('cmbSquadra', 'Squadra', 'trim|required');
+                $this->form_validation->set_rules('cmbNews', 'Tipologia', 'trim|required');
+                $this->form_validation->set_rules('testo_news', 'Testo News', 'trim|required');
+                $this->form_validation->set_rules('cmbGiocatore', 'Giocatore', 'trim|required');
+
+                if ($this->form_validation->run()) {
+
+                    $data = array(
+                    'id_utente' => $this->input->post('cmbSquadra'),
+                    'tipologia' => $this->input->post('cmbNews'),
+                    'testo_news' => $this->input->post('testo_news'),
+                    'data' => date("Y-m-d"),
+                    'id_giocatore' => $this->input->post('cmbGiocatore')
+                    );
+                    
+                    //Poi inserisco news
+                    $insertNewsDesktop = $this->mdl_utenti->insertNewsUtente($data);
+                    
+                    $data['success_message'] = "News utente inserita con successo !";
+                }
+            }
+            
+            $data['Giocatori'] = $this->mdl_categories->getGiocatoriAssegnati(true);
+            $data['Squadre'] = $this->mdl_categories->getSquadre(true);
+
+            $this->show('utenti/news_utente', $data);
         } else
             redirect('utente/login');
     }

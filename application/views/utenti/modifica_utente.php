@@ -50,6 +50,9 @@
                                         <li class="df-account-navigation__link">
                                             <a href="<?= base_url('/') ?>index.php/utente/news_desktop" >News Desktop</a>
                                         </li>
+                                        <li class="df-account-navigation__link">
+                                            <a href="<?= base_url('/') ?>index.php/utente/news_utente" >News Utente</a>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

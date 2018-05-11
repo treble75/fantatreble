@@ -237,6 +237,10 @@ class mdl_utenti extends CI_Model {
     public function insertNewsDesktop($data) {
         $this->db->insert('tb_news_desktop', $data);
     }
+    
+    public function insertNewsUtente($data) {
+        $this->db->insert('tb_news', $data);
+    }
 
     function getOldDebito($utente) {
         $this->db->select('debito');

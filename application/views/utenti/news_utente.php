@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title"><span class="highlight">Registra</span> Utente</h1>
+                        <h1 class="page-heading__title"><span class="highlight">News</span> Utente</h1>
                     </div>
                 </div>
             </div>
@@ -59,10 +59,10 @@
                         <!-- Personal Information -->
                         <div class="card card--lg">
                             <div class="card__header">
-                                <h4>Registra utente</h4>
+                                <h4>Gestione News Utente</h4>
                             </div>
                             <div class="card__content">
-                                <?php echo form_open_multipart('utente/registra_utente') ?>
+                                <?php echo form_open_multipart('utente/news_utente') ?>
 
                                 <?php if (validation_errors()) { ?>
                                     <div class = 'alert alert-danger alert-dismissible'>
@@ -89,66 +89,55 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="account-first-name">Nome</label>
-                                            <input type="text" class="form-control" value="<?= $this->input->post('nome') ?>" name="nome" id="account-first-name" placeholder="Nome utente..." >
+                                            <?php
+                                            $js = 'id="account-city" class="form-control"';
+                                            ?>
+                                            <label for="account-email">Seleziona Utente/Squadra</label>
+                                            <?php $js = 'id="account-city" class="form-control"'; ?>
+                                            <?= form_dropdown('cmbSquadra', $Squadre, set_value('cmbSquadra', $this->input->post('cmbSquadra')), $js) ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-last-name">Cognome</label>
-                                            <input type="text" class="form-control" value="<?= $this->input->post('cognome') ?>" name="cognome" id="account-last-name" placeholder="Cognome utente..." >
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-address-1">Soprannome Utente</label>
-                                            <input type="text" class="form-control" value="<?= $this->input->post('soprannome') ?>" name="soprannome" id="account-address-1" placeholder="Soprannome utente..." >
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-address-1">Nome Squadra</label>
-                                            <input type="text" class="form-control" value="<?= $this->input->post('squadra') ?>" name="squadra" id="account-address-1" placeholder="Nome Squadra..." >
-                                        </div>
+                                        <?php
+                                            $js = 'id="account-city" class="form-control"';
+                                            ?>
+                                            <label for="account-email">Seleziona Tipologia</label>
+                                            <select name="cmbNews" id="account-city" class="form-control">
+                                                <option value="infortunio">Infortunio</option>
+                                            </select>
                                     </div>
                                 </div>
                                 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="account-address-1">Email</label>
-                                            <input type="text" class="form-control" value="<?= $this->input->post('email') ?>" name="email" id="account-address-1" placeholder="Email..." >
+                                            <?php
+                                            $js = 'id="account-city" class="form-control"';
+                                            ?>
+                                            <label for="account-email">Seleziona Giocatore</label>
+                                            <?php $js = 'id="account-city" class="form-control"'; ?>
+                                            <?= form_dropdown('cmbGiocatore', $Giocatori, set_value('cmbGiocatore', $this->input->post('cmbGiocatore')), $js) ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-address-1">Username</label>
-                                            <input type="text" class="form-control" value="<?= $this->input->post('username') ?>" name="username" id="account-address-1" placeholder="Username..." >
-                                        </div>
+                                        &nbsp;
                                     </div>
                                 </div>
-
+                                
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="account-password">Password</label>
-                                            <input type="password" class="form-control" value="<?= $this->input->post('pwd1') ?>" name="pwd1" id="account-password" placeholder="**********">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-password-repeat">Ripeti Password</label>
-                                            <input type="password" class="form-control" value="<?= $this->input->post('pwd_utente') ?>" name="pwd_utente" id="account-password-repeat" placeholder="**********">
+                                            <label for="account-first-name">Testo News</label>
+                                            <input type="text" class="form-control" value="" name="testo_news" id="account-first-name" maxlength="80" placeholder="Max 80 caratteri" >
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group--submit">
-                                    <input type="submit" value="Registra Utente" name="but_inserisci" class="btn btn-default btn-lg btn-block">
+                                    <input type="submit" value="Salva News" name="but_inserisci" class="btn btn-default btn-lg btn-block">
                                 </div>
+                                
+                                
 
                                 </form>
                             </div>
