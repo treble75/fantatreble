@@ -285,7 +285,7 @@
                                                     <li><a href="<?= base_url('/') ?>index.php/utente/modifica_utente">Modifica Utente</a></li>
                                                     <li><a href="<?= base_url('/') ?>index.php/utente/fantamilioni">Fantamilioni</a></li>
                                                     <li><a href="<?= base_url('/') ?>index.php/utente/quote">Quote</a></li>
-
+                                                    <li><a href="<?= base_url('/') ?>index.php/utente/news_desktop">News Desktop</a></li>
                                                 </ul>
                                                 <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
                                                     <li class="main-nav__title">Campionati</li>

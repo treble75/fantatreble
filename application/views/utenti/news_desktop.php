@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title"><span class="highlight">FantaMilioni</span></h1>
+                        <h1 class="page-heading__title"><span class="highlight">News</span> Desktop</h1>
                     </div>
                 </div>
             </div>
@@ -56,10 +56,10 @@
                         <!-- Personal Information -->
                         <div class="card card--lg">
                             <div class="card__header">
-                                <h4>FantaMilioni</h4>
+                                <h4>Gestione News Desktop</h4>
                             </div>
                             <div class="card__content">
-                                <?php echo form_open_multipart('utente/fantamilioni') ?>
+                                <?php echo form_open_multipart('utente/news_desktop') ?>
 
                                 <?php if (validation_errors()) { ?>
                                     <div class = 'alert alert-danger alert-dismissible'>
@@ -83,66 +83,48 @@
                                 }
                                 ?>  
 
-                                <?php
-                                foreach ($fanta as $row) {
-                                    $utente = $this->mdl_utenti->getDatiUtente($row['id_utente']);
-                                    ?>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="account-first-name" style="color: #1892ED"><?= $utente[0]['nome'] . " " . $utente[0]['cognome'] ?></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="account-first-name"><?= $row['fantamilioni'] ?></label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <?php
-                                }
-                                ?>
-
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="account-first-name">Seleziona Utente/Squadra</label>
                                             <?php
                                             $js = 'id="account-city" class="form-control"';
-                                            echo form_dropdown('cmbSquadra', $Squadre, set_value('cmbSquadra', $this->input->post('cmbSquadra')), $js)
                                             ?>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            &nbsp;
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-first-name">Tipologia Movimento</label>
-                                            <select name="cmbScelta" <?= $js ?> >
-                                                <option value="0">Aggiungi Fantamilioni</option>
-                                                <option value="1">Sottrai Fantamilioni</option>
+                                            <label for="account-email">Seleziona News</label>
+                                            <select name="cmbNews" id="account-city" class="form-control">
+                                                <option value="champions">Champions League</option>
+                                                <option value="coppa">Coppa Treble</option>
+                                                <option value="league">Treble League</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        &nbsp;
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <div class="form-group">
-                                            <label for="account-address-1">FantaMilioni</label>
-                                            <input type="text" class="form-control" value="" name="txtFanta" id="account-address-1" >
+                                            <label for="account-first-name">Testo News - Riga 1 - ( * per evidenziare inserire tag span e class=highlight )</label>
+                                            <input type="text" class="form-control" value="" name="riga1" id="account-first-name" maxlength="80" placeholder="Max 80 caratteri" >
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="account-first-name">Testo News - Riga 2 - </label>
+                                            <input type="text" class="form-control" value="" name="riga2" id="account-first-name" maxlength="80" placeholder="Max 80 caratteri" >
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group--submit">
-                                    <input type="submit" value="Conferma Movimento" name="but_fanta" class="btn btn-default btn-lg btn-block">
+                                    <input type="submit" value="Salva News" name="but_inserisci" class="btn btn-default btn-lg btn-block">
                                 </div>
+                                
+                                
 
                                 </form>
                             </div>

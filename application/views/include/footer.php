@@ -75,12 +75,12 @@
                     </div>
                     <div class="col-md-8">
                         <ul class="footer-nav footer-nav--right footer-nav--condensed footer-nav--sm">
-                            <li class="footer-nav__item"><a href="#">Home</a></li>
-                            <li class="footer-nav__item"><a href="#">Features</a></li>
-                            <li class="footer-nav__item"><a href="#">Statistics</a></li>
-                            <li class="footer-nav__item"><a href="#">The Team</a></li>
-                            <li class="footer-nav__item"><a href="#">News</a></li>
-                            <li class="footer-nav__item"><a href="#">Shop</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/utente/calciomercato">Calciomercato</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/campionato">Treble League</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/champions">Champions League</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/coppa">Coppa Treble</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/albo">Albo d'Oro</a></li>
                         </ul>
                     </div>
                 </div>

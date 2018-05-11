@@ -222,6 +222,21 @@ class mdl_utenti extends CI_Model {
         $query = $this->db->get("tb_news");
         return $query->result_array();
     }
+    
+    public function getNewsDesktop($competizione) {
+        $this->db->where('tipologia', $competizione);
+        $query = $this->db->get("tb_news_desktop");
+        return $query->result_array();
+    }
+    
+    public function deleteNewsDesktop($competizione) {
+        $this->db->where('tipologia', $competizione);
+        $this->db->delete('tb_news_desktop');
+    }
+    
+    public function insertNewsDesktop($data) {
+        $this->db->insert('tb_news_desktop', $data);
+    }
 
     function getOldDebito($utente) {
         $this->db->select('debito');

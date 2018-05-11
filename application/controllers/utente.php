@@ -4664,6 +4664,44 @@ class Utente extends CI_Controller {
         } else
             redirect('utente/login');
     }
+    
+    function news_desktop() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_categories');
+            $data['active'] = 1;
+
+            //Inserisco news desktop
+            if ($this->input->post('but_inserisci')) {
+                $this->form_validation->set_rules('cmbNews', 'Tipologia', 'trim|required');
+                $this->form_validation->set_rules('riga1', 'Riga 1', 'trim|required');
+                $this->form_validation->set_rules('riga2', 'Riga 2', 'trim|required');
+
+                if ($this->form_validation->run()) {
+                    
+                    $competizione = $this->input->post('cmbNews');
+                    //Prima cancello news precedente
+                    $deleteNewsDesktop = $this->mdl_utenti->deleteNewsDesktop($competizione);
+                    
+                    $data = array(
+                    'tipologia' => $competizione,
+                    'riga1' => $this->input->post('riga1'),
+                    'riga2' => $this->input->post('riga2'),
+                    'data' => date("Y-m-d"),
+                    'attiva' => 1,
+                    );
+                    
+                    //Poi inserisco news
+                    $insertNewsDesktop = $this->mdl_utenti->insertNewsDesktop($data);
+                    
+                    $data['success_message'] = "News desktop inserita con successo !";
+                }
+            }
+
+            $this->show('utenti/news_desktop', $data);
+        } else
+            redirect('utente/login');
+    }
 
     public function checkGiocatore($cognome) {
         $this->db->where('cognome', $cognome);

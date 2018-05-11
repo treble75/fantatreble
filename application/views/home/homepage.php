@@ -1,6 +1,4 @@
 
-
-
         <!-- Hero Slider
         1) Le immagini dello slider sono contenute in assets/images/soccer/samples e sono : 
            hero-slide-1.jpg, hero-slide-2.jpg e hero-slide-3.jpg
@@ -32,15 +30,12 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/campionato"><span class="highlight">S.C.Arsenal</span> compie l'impresa </br> 2-0 contro Frank One</a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/campionato"><?= $news_league[0]['riga1'] ?></br><?= $news_league[0]['riga2'] ?></a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
                                     <ul class="post__meta meta">
-                                        <li class="meta__item meta__item--date"><time datetime="2017-08-23">6 Febbraio 2018</time></li>
-                                        <li class="meta__item meta__item--views">2369</li>
-                                        <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 530</a></li>
-                                        <li class="meta__item meta__item--comments"><a href="#">18</a></li>
+                                        <li class="meta__item meta__item--date"><time datetime="<?= $news_league[0]['data'] ?>"><?= dataSettimanale($news_league[0]['data']) ?></time></li>
                                     </ul>
                                     <!-- Post Meta Info / End -->
 
@@ -81,15 +76,12 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/champions"><span class="highlight">Frank One</span> stecca la prima</br> 1-0 contro Zacapa 23 </a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/champions"><?= $news_champions[0]['riga1'] ?></br><?= $news_champions[0]['riga2'] ?></a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
                                     <ul class="post__meta meta">
-                                        <li class="meta__item meta__item--date"><time datetime="2017-08-23">11 Marzo 2018</time></li>
-                                        <li class="meta__item meta__item--views">2369</li>
-                                        <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 530</a></li>
-                                        <li class="meta__item meta__item--comments"><a href="#">18</a></li>
+                                        <li class="meta__item meta__item--date"><time datetime="<?= $news_champions[0]['data'] ?>"><?= dataSettimanale($news_champions[0]['data']) ?></time></li>
                                     </ul>
                                     <!-- Post Meta Info / End -->
 
@@ -130,15 +122,12 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/coppa">La finale sarà</br>tra <span class="highlight">Warriors</span> e <span class="highlight">Frank One</span></a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/coppa"><?= $news_coppa[0]['riga1'] ?></br><?= $news_coppa[0]['riga2'] ?></a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
                                     <ul class="post__meta meta">
-                                        <li class="meta__item meta__item--date"><time datetime="2017-08-23">7 Febbraio 2018</time></li>
-                                        <li class="meta__item meta__item--views">2369</li>
-                                        <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like meta-like--active icon-heart"></i> 530</a></li>
-                                        <li class="meta__item meta__item--comments"><a href="#">18</a></li>
+                                        <li class="meta__item meta__item--date"><time datetime="<?= $news_coppa[0]['data'] ?>"><?= dataSettimanale($news_coppa[0]['data']) ?></time></li>
                                     </ul>
                                     <!-- Post Meta Info / End -->
 
@@ -174,8 +163,9 @@
                                     <div class="posts__cat">
                                         <span class="label posts__cat-label">Treble League</span>
                                     </div>
-                                    <h6 class="posts__title">S.C.Arsenal compie l'impresa</br>2-0 contro Frank One</h6>
-                                    <time datetime="2017-12-12" class="posts__date">6 Febbraio 2018</time>
+                                    <h6 class="posts__title"><?= $news_league[0]['riga1'] ?></h6>
+                                    <h6 class="posts__title"><?= $news_league[0]['riga2'] ?></h6>
+                                    <time datetime="<?= $news_league[0]['data'] ?>" class="posts__date"><?= dataSettimanale($news_league[0]['data']) ?></time>
                                 </div>
                             </div>
                         </div>
@@ -185,8 +175,9 @@
                                     <div class="posts__cat">
                                         <span class="label posts__cat-label">Champions League</span>
                                     </div>
-                                    <h6 class="posts__title">Frank One stecca la prima</br>1-0 contro Zacapa 23</h6>
-                                    <time datetime="2017-11-14" class="posts__date">11 Marzo 2018</time>
+                                    <h6 class="posts__title"><?= $news_champions[0]['riga1'] ?></h6>
+                                    <h6 class="posts__title"><?= $news_champions[0]['riga2'] ?></h6>
+                                    <time datetime="<?= $news_champions[0]['data'] ?>" class="posts__date"><?= dataSettimanale($news_champions[0]['data']) ?></time>
                                 </div>
                             </div>
                         </div>
@@ -196,8 +187,9 @@
                                     <div class="posts__cat">
                                         <span class="label posts__cat-label">Coppa Treble</span>
                                     </div>
-                                    <h6 class="posts__title">La finale sarà tra Warriors e Frank One</h6>
-                                    <time datetime="2017-12-13" class="posts__date">7 Febbraio 2018</time>
+                                    <h6 class="posts__title"><?= $news_coppa[0]['riga1'] ?></h6>
+                                    <h6 class="posts__title"><?= $news_coppa[0]['riga2'] ?></h6>
+                                    <time datetime="<?= $news_coppa[0]['data'] ?>" class="posts__date"><?= dataSettimanale($news_coppa[0]['data']) ?></time>
                                 </div>
                             </div>
                         </div>
@@ -594,8 +586,11 @@
                                                     </li>
                                                     <?php
                                                 }
-                                            } else
-                                                echo "<h6>Nessuna offerta ancora inserita</h6";
+                                            } else { ?>
+                                                    <span class="label posts__cat-label">Non sono presenti offerte di mercato</span>
+                                                    <div class="spacer"></div>
+                                            <?php
+                                            }
                                             ?>
 
                                         </ul>
