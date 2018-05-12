@@ -122,6 +122,22 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                
+                                <div class="form-group form-group--upload">
+                                    <div class="form-group__avatar">
+                                        <img src="<?= base_url('/') ?>assets/images/samples/avatar-empty.png" alt="">
+                                        <div class="form-group__label">
+                                            <h6>Foto di sfondo</h6>
+                                            <span>Dimensioni ideali 1500x560px</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group__upload">
+                                        <label class="btn btn-default btn-xs btn-file">
+                                            Upload Immagine... <input type="file" name="img_sfondo" style="display: none;" />
+                                        </label>
+                                    </div>
+                                </div>
 
                                 <div class="form-group--submit">
                                     <input type="submit" value="Salva News" name="but_inserisci" class="btn btn-default btn-lg btn-block">

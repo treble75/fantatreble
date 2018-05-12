@@ -132,7 +132,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <div class="form-group--submit">
                                     <input type="submit" value="Salva News" name="but_inserisci" class="btn btn-default btn-lg btn-block">
                                 </div>

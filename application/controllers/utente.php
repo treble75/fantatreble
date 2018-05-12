@@ -4685,6 +4685,46 @@ class Utente extends CI_Controller {
                 if ($this->form_validation->run()) {
                     
                     $competizione = $this->input->post('cmbNews');
+                    
+                    /*
+                    1) Le immagini dello slider sono contenute in assets/images/soccer/samples e sono : 
+                        hero-slide-1.jpg, hero-slide-2.jpg e hero-slide-3.jpg
+                    2) Hanno dimensioni ideali : 1500x560px
+                    */
+                    
+                    //Upload del file relativo allo sfondo della news
+                    $config['upload_path']          = './assets/images/soccer/samples/';
+                    $config['allowed_types']        = 'gif|jpg|png';
+                    $config['max_size']             = 10000;
+                    $config['max_width']            = 5000;
+                    $config['max_height']           = 4000;
+                    $config['overwrite']            = TRUE;
+                    
+                    if ($competizione == "league") {
+                        $config['file_name']        = "hero-slide-1.jpg";
+                    }
+                    if ($competizione == "champions") {
+                        $config['file_name']        = "hero-slide-2.jpg";
+                    }
+                    if ($competizione == "coppa") {
+                        $config['file_name']        = "hero-slide-3.jpg";
+                    }
+
+                    $this->load->library('upload', $config);
+
+                    if ( ! $this->upload->do_upload('img_sfondo'))
+                    {
+                            $error = array('error' => $this->upload->display_errors());
+                            
+                            $data['message'] = $error;
+                            $this->show('utenti/news_desktop', $data);
+                    }
+                    else
+                    {
+                            $data = array('upload_data' => $this->upload->data());
+
+                    }
+                    
                     //Prima cancello news precedente
                     $deleteNewsDesktop = $this->mdl_utenti->deleteNewsDesktop($competizione);
                     
