@@ -39,18 +39,6 @@
                                     </ul>
                                     <!-- Post Meta Info / End -->
 
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <figure class="post-author__avatar">
-                                            <img src="<?= base_url('/') ?>assets/images/samples/avatar-1.jpg" alt="Post Author Avatar">
-                                        </figure>
-                                        <div class="post-author__info">
-                                            <h4 class="post-author__name">James Spiegel</h4>
-                                            <span class="post-author__slogan">Alchemists Ninja</span>
-                                        </div>
-                                    </div>
-                                    <!-- Post Author / End -->
-
                                 </div>
                                 <!-- Post Meta - Top / End -->
                             </div>
@@ -85,18 +73,6 @@
                                     </ul>
                                     <!-- Post Meta Info / End -->
 
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <figure class="post-author__avatar">
-                                            <img src="<?= base_url('/') ?>assets/images/samples/avatar-1.jpg" alt="Post Author Avatar">
-                                        </figure>
-                                        <div class="post-author__info">
-                                            <h4 class="post-author__name">James Spiegel</h4>
-                                            <span class="post-author__slogan">Alchemists Ninja</span>
-                                        </div>
-                                    </div>
-                                    <!-- Post Author / End -->
-
                                 </div>
                                 <!-- Post Meta - Top / End -->
                             </div>
@@ -130,18 +106,6 @@
                                         <li class="meta__item meta__item--date"><time datetime="<?= $news_coppa[0]['data'] ?>"><?= dataSettimanale($news_coppa[0]['data']) ?></time></li>
                                     </ul>
                                     <!-- Post Meta Info / End -->
-
-                                    <!-- Post Author -->
-                                    <div class="post-author">
-                                        <figure class="post-author__avatar">
-                                            <img src="<?= base_url('/') ?>assets/images/samples/avatar-1.jpg" alt="Post Author Avatar">
-                                        </figure>
-                                        <div class="post-author__info">
-                                            <h4 class="post-author__name">James Spiegel</h4>
-                                            <span class="post-author__slogan">Alchemists Ninja</span>
-                                        </div>
-                                    </div>
-                                    <!-- Post Author / End -->
 
                                 </div>
                                 <!-- Post Meta - Top / End -->
@@ -863,77 +827,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="clearfix hidden-md hidden-lg"></div>
-
-                                    <div class="post-grid__item col-sm-6">
-                                        <div class="posts__item posts__item--card posts__item--category-1 card">
-                                            <figure class="posts__thumb">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label">The Team</span>
-                                                </div>
-                                                <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img13.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner card__content">
-                                                <a href="#" class="posts__cta"></a>
-                                                <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                <h6 class="posts__title"><a href="#">The team is starting a new power breakfast regimen</a></h6>
-                                            </div>
-                                            <footer class="posts__footer card__footer">
-                                                <div class="post-author">
-                                                    <figure class="post-author__avatar">
-                                                        <img src="<?= base_url('/') ?>assets/images/samples/avatar-1.jpg" alt="Post Author Avatar">
-                                                    </figure>
-                                                    <div class="post-author__info">
-                                                        <h4 class="post-author__name">James Spiegel</h4>
-                                                    </div>
-                                                </div>
-                                                <ul class="post__meta meta">
-                                                    <li class="meta__item meta__item--views">2369</li>
-                                                    <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> 530</a></li>
-                                                    <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                                </ul>
-                                            </footer>
-                                        </div>
-                                    </div>
-
-                                    <div class="post-grid__item col-sm-6">
-                                        <div class="posts__item posts__item--card posts__item--category-1 card">
-                                            <figure class="posts__thumb">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label">The Team</span>
-                                                </div>
-                                                <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img2.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner card__content">
-                                                <a href="#" class="posts__cta"></a>
-                                                <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                <h6 class="posts__title"><a href="#">Cheerleader tryouts will start next Friday at 5pm</a></h6>
-                                            </div>
-                                            <footer class="posts__footer card__footer">
-                                                <div class="post-author">
-                                                    <figure class="post-author__avatar">
-                                                        <img src="<?= base_url('/') ?>assets/images/samples/avatar-1.jpg" alt="Post Author Avatar">
-                                                    </figure>
-                                                    <div class="post-author__info">
-                                                        <h4 class="post-author__name">James Spiegel</h4>
-                                                    </div>
-                                                </div>
-                                                <ul class="post__meta meta">
-                                                    <li class="meta__item meta__item--views">2369</li>
-                                                    <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> 530</a></li>
-                                                    <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                                </ul>
-                                            </footer>
-                                        </div>
-                                    </div>
-
                                 </div>
                                 <!-- Post Area 4 / End -->
                             </div>
                         </div>
                         <!-- Lates News / End -->
-
-
 
                     </div>
                     <!-- Content / End -->

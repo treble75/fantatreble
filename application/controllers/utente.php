@@ -2785,6 +2785,11 @@ class Utente extends CI_Controller {
                 $data['top'] = $this->mdl_team->getTop($giornataTop);
                 $data['topCampionato'] = $this->mdl_team->getTopCampionato();
                 $data['offerte'] = $this->mdl_team->getLastOfferte();
+                
+                $data['news_coppa'] = $this->mdl_utenti->getNewsDesktop("coppa");
+                $data['news_champions'] = $this->mdl_utenti->getNewsDesktop("champions");
+                $data['news_supercoppa'] = $this->mdl_utenti->getNewsDesktop("super");
+                $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
 
                 $this->show('home/homepage', $data);
             }
@@ -2810,6 +2815,11 @@ class Utente extends CI_Controller {
             $data['top'] = $this->mdl_team->getTop($giornataTop);
             $data['topCampionato'] = $this->mdl_team->getTopCampionato();
             $data['offerte'] = $this->mdl_team->getLastOfferte();
+            
+            $data['news_coppa'] = $this->mdl_utenti->getNewsDesktop("coppa");
+            $data['news_champions'] = $this->mdl_utenti->getNewsDesktop("champions");
+            $data['news_supercoppa'] = $this->mdl_utenti->getNewsDesktop("super");
+            $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
 
             $this->show('home/homepage', $data);
         }
@@ -4586,16 +4596,43 @@ class Utente extends CI_Controller {
             if ($this->input->post('but_modifica')) {
                 if (($this->input->post('cmbSquadra') != 0) && ($this->input->post('cmbTeam') != 0) && ($this->input->post('cmbGiocatori') != 0) && ($this->input->post('costo_uscente') != "") && ($this->input->post('costo_entrante') != "")) {
                     $change = $this->mdl_team->updateTeam($this->input->post('cmbSquadra'), $this->input->post('cmbTeam'), $this->input->post('cmbGiocatori'), $this->input->post('costo_uscente'), $this->input->post('costo_entrante'));
-                    if ($change)
-                        $data['success_message'] = "Modifica effettuata con successo !";
+                    if ($change) {
+                    
+                        //Inserisco news utente, prima vendita e poi acquisto
+                        $data = array(
+                            'id_utente' => $this->input->post('cmbSquadra'),
+                            'tipologia' => "vendita",
+                            'costo' => $this->input->post('costo_uscente'),
+                            'data' => date("Y-m-d"),
+                            'id_giocatore' => $this->input->post('cmbTeam')
+                            );
 
-                    $this->show('utenti/modifica_squadre', $data);
-                    return;
+                        //Poi inserisco news
+                        $insertNewsUtente = $this->mdl_utenti->insertNewsUtente($data);
+
+                        $data = array(
+                            'id_utente' => $this->input->post('cmbSquadra'),
+                            'tipologia' => "acquisto",
+                            'costo' => $this->input->post('costo_entrante'),
+                            'data' => date("Y-m-d"),
+                            'id_giocatore' => $this->input->post('cmbGiocatori')
+                            );
+
+                        //Poi inserisco news
+                        $insertNewsUtente = $this->mdl_utenti->insertNewsUtente($data);
+
+                        $data['active'] = 1;
+                        $data['success_message'] = "Modifica effettuata con successo !";
+                        $data['Squadre'] = $this->mdl_categories->getSquadre(true);
+                        $this->show('utenti/modifica_squadre', $data);
+                        return;
+                    }
                 }else {
                     $data['message'] = "ATTENZIONE: Verifica che le selezioni siano esatte !";
                     $this->show('utenti/modifica_squadre', $data);
                     return;
                 }
+                
             }
 
             if ($this->form_validation->run()) {

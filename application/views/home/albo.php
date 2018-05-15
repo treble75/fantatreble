@@ -76,6 +76,29 @@
                                         <tbody>
 
                                             <tr>
+                                                <td class="game-player-result__date">2017 / 18</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/sportingkrk.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Sporting KRK</h6>
+                                                            <span class="team-meta__place">Francesco Carchedi</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__score"><span style="color: #1892ED; font-size: 12px;">39</span></td>
+                                                <td class="game-player-result__min">27</td>
+                                                <td class="game-player-result__tg">11</td>
+                                                <td class="game-player-result__ts">6</td>
+                                                <td class="game-player-result__ga">10</td>
+                                                <td class="game-player-result__fc">44</td>
+                                                <td class="game-player-result__fs">46</td>
+                                                <td class="game-player-result__yc">-2</td>
+                                                <td class="game-player-result__rc">1964.0</td>
+                                            </tr>
+                                            <tr>
                                                 <td class="game-player-result__date">2016 / 17</td>
                                                 <td class="game-player-result__vs">
                                                     <div class="team-meta">
@@ -340,6 +363,50 @@
                                                 <td class="team-leader__player">
                                                     <div class="team-leader__player-info">
                                                         <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                            <img src="<?= base_url('/') ?>images/albo/giocatori/icardi.png" alt="">
+                                                        </figure>
+                                                        <div class="team-leader__player-inner">
+                                                            <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">ICARDI Mauro</h5>
+                                                            <span class="team-leader__player-position" style="color: #000000;">Sporting KRK</span>
+                                                            <span class="team-leader__player-position">Stagione 2017 / 18</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">24</td>
+                                                <td class="team-leader__avg">
+                                                    <div class="circular">
+                                                        <div class="circular__bar" data-percent="85.6">
+                                                            <span class="circular__percents">8.56</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="team-leader__player">
+                                                    <div class="team-leader__player-info">
+                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                            <img src="<?= base_url('/') ?>images/albo/giocatori/icardi.png" alt="">
+                                                        </figure>
+                                                        <div class="team-leader__player-inner">
+                                                            <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">IMMOBILE Ciro</h5>
+                                                            <span class="team-leader__player-position" style="color: #000000;">Sangue&Oro</span>
+                                                            <span class="team-leader__player-position">Stagione 2017 / 18</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">23</td>
+                                                <td class="team-leader__avg">
+                                                    <div class="circular">
+                                                        <div class="circular__bar" data-percent="92.6">
+                                                            <span class="circular__percents">9.26</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="team-leader__player">
+                                                    <div class="team-leader__player-info">
+                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
                                                             <img src="<?= base_url('/') ?>images/albo/giocatori/belotti.png" alt="">
                                                         </figure>
                                                         <div class="team-leader__player-inner">
@@ -420,51 +487,6 @@
                                                     <div class="circular">
                                                         <div class="circular__bar" data-percent="84.4">
                                                             <span class="circular__percents">8.44</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="team-leader__player">
-                                                    <div class="team-leader__player-info">
-                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>images/albo/giocatori/higuain.png" alt="">
-                                                        </figure>
-                                                        <div class="team-leader__player-inner">
-                                                            <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">HIGUAIN Gonzalo</h5>
-                                                            <span class="team-leader__player-position" style="color: #000000;">All Blacks</span>
-                                                            <span class="team-leader__player-position">Stagione 2016 / 17</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">19</td>
-                                                <td class="team-leader__avg">
-                                                    <div class="circular">
-                                                        <div class="circular__bar" data-percent="84.0">
-                                                            <span class="circular__percents">8.40</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td class="team-leader__player">
-                                                    <div class="team-leader__player-info">
-                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>images/albo/giocatori/cavani.png" alt="">
-                                                        </figure>
-                                                        <div class="team-leader__player-inner">
-                                                            <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">CAVANI Edinson</h5>
-                                                            <span class="team-leader__player-position" style="color: #000000;">Bella Ciao</span>
-                                                            <span class="team-leader__player-position">Stagione 2011 / 12</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">19</td>
-                                                <td class="team-leader__avg">
-                                                    <div class="circular">
-                                                        <div class="circular__bar" data-percent="79.3">
-                                                            <span class="circular__percents">7.93</span>
                                                         </div>
                                                     </div>
                                                 </td>

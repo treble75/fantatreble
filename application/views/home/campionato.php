@@ -1,6 +1,4 @@
 
-
-
         <!-- Page Heading
         ================================================== -->
         <div class="page-heading">
@@ -66,6 +64,7 @@
                                         <th class="team-standings__goals-diff">Diff. Gol</th>
                                         <th class="team-standings__total-points">Punti</th>
                                         <th class="team-standings__points-diff">Fanta Punti</th>
+                                        <th class="team-standings__points-diff">Forma Squadra</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,6 +73,7 @@
                                     <?php
                                     $i = 1;
                                     foreach ($classifica as $row) {
+                                        
                                         switch ($i) {
                                             case 1:
                                                 $color = 'bgcolor="#f2fff0"';
@@ -107,7 +107,7 @@
                                                             //Inserire ID della squadra scudettata
                                                             if ($row['id_squadra'] == 10) {
                                                                 ?>
-                                                                <img src="<?= base_url('/') ?>images/scudetto.png"  width="12" height="15" />
+                                                                <img src="<?= base_url('/') ?>images/scudetto.png" width="12" height="15" />
                                                             <?php }
                                                             ?> 
                                                         </h6>
@@ -157,6 +157,43 @@
                                             </td>
                                             <td class="team-standings__total-points" style="color: #1892ED; font-size: 14px;"><?= $row['punti'] ?></td>
                                             <td class="team-standings__points-diff"><?= $row['fanta_punteggio'] ?></td>
+                                            <td class="team-standings__points-diff">
+                                                
+                                                <?php
+                                                $forma = $this->mdl_team->getFormaSquadra($row['id_squadra']);
+                                                
+                                                foreach ($forma as $team) {
+                                                    if ($row['id_squadra'] == $team['id1']) {
+                                                        if ($team['risultato1'] > $team['risultato2']){ ?>
+                                                            <img src="<?= base_url('/') ?>images/v.png">
+                                                        <?php
+                                                        }
+                                                        if ($team['risultato1'] == $team['risultato2']){ ?>
+                                                            <img src="<?= base_url('/') ?>images/n.png">
+                                                        <?php
+                                                        }
+                                                        if ($team['risultato1'] < $team['risultato2']){ ?>
+                                                            <img src="<?= base_url('/') ?>images/p.png">
+                                                        <?php
+                                                        }
+                                                    }
+                                                    if ($row['id_squadra'] == $team['id2']) {
+                                                        if ($team['risultato2'] > $team['risultato1']){ ?>
+                                                            <img src="<?= base_url('/') ?>images/v.png">
+                                                        <?php
+                                                        }
+                                                        if ($team['risultato2'] == $team['risultato1']){ ?>
+                                                            <img src="<?= base_url('/') ?>images/n.png">
+                                                        <?php
+                                                        }
+                                                        if ($team['risultato2'] < $team['risultato1']){ ?>
+                                                            <img src="<?= base_url('/') ?>images/p.png">
+                                                        <?php
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                            </td>
                                         </tr>
                                         <?php
                                         $i++;

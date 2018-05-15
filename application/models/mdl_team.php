@@ -28,6 +28,18 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getFormaSquadra($id_squadra) {
+        $query = $this->db->query('select * from tb_calendario where id1 = ' . $id_squadra . ' or id2 = ' . $id_squadra . ' order by giornata desc limit 5');
+
+        return $query->result_array();
+    }
+    
+    public function getFormaSquadraChampions($id_squadra) {
+        $query = $this->db->query('select * from tb_champions where id1 = ' . $id_squadra . ' or id2 = ' . $id_squadra . ' order by giornata desc limit 5');
+
+        return $query->result_array();
+    }
 
     public function getTop($giornata) {
         $queryP = $this->db->query('select * from tb_giocatori, tb_voti where tb_giocatori.id_giocatore = tb_voti.id_giocatore and giornata = ' . $giornata . ' and ruolo = 1 ORDER BY fantavoto DESC, voto DESC limit 1');
