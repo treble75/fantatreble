@@ -385,7 +385,7 @@
                                                 <td class="team-leader__player">
                                                     <div class="team-leader__player-info">
                                                         <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>images/albo/giocatori/icardi.png" alt="">
+                                                            <img src="<?= base_url('/') ?>images/albo/giocatori/immobile.png" alt="">
                                                         </figure>
                                                         <div class="team-leader__player-inner">
                                                             <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">IMMOBILE Ciro</h5>
