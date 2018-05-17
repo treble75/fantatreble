@@ -296,6 +296,7 @@
                                                     <li><a href="<?= base_url('/') ?>index.php/home/aggiorna_coppe">Aggiorna Coppe</a></li>
                                                     <li><a href="<?= base_url('/') ?>index.php/home/blocco">Blocco Formazioni</a></li>
                                                     <li><a href="<?= base_url('/') ?>index.php/home/gestione_rigoristi">Gestione Rigoristi</a></li>
+                                                    <li><a href="<?= base_url('/') ?>index.php/home/topmatch">Top Match</a></li>
                                                 </ul>
                                             </div>
                                         </li>

@@ -1,9 +1,4 @@
-        <script language="JavaScript" type="text/javascript">
-            function refresh()
-            {
-                document.forms[0].submit();
-            }
-        </script>
+
 
         <!-- Page Heading
         ================================================== -->
@@ -11,7 +6,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title">Aggiorna <span class="highlight">Coppe</span></h1>
+                        <h1 class="page-heading__title"><span class="highlight">Top </span>Match</h1>
                     </div>
                 </div>
             </div>
@@ -67,7 +62,7 @@
                         <!-- Personal Information -->
                         <div class="card card--lg">
                             <div class="card__header">
-                                <h4>Aggiorna Coppe Giornata n° <?= $giornata = (($giornata > 1) ? ($giornata - 1) : "N.D.") ?></h4>
+                                <h4>Top Match Giornata n° <?= $giornata ?></h4>
                             </div>
                             <div class="card__content">
                                 <?php if (validation_errors()) { ?>
@@ -91,7 +86,7 @@
                                     <?php
                                 }
 
-                                echo form_open_multipart('home/aggiorna_coppe', array(
+                                echo form_open_multipart('home/topmatch', array(
                                     'class' => 'df-personal-info'
                                 ));
                                 ?>
@@ -112,57 +107,29 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-email">Punteggio squadra in casa</label>
-                                            <input type="text" class="form-control" value="<?php echo set_value('txtPunteggioCasa'); ?>" name="txtPunteggioCasa" id="account-username" placeholder="Punteggio squadra in casa...">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-email">Punteggio squadra in trasferta</label>
-                                            <input type="text" class="form-control" value="<?php echo set_value('txtPunteggioTrasferta'); ?>" name="txtPunteggioTrasferta" id="account-username" placeholder="Punteggio squadra in trasferta...">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-email">Gol squadra in casa</label>
-                                            <input type="text" class="form-control" value="<?php echo set_value('txtGolCasa'); ?>" name="txtGolCasa" id="account-username" placeholder="Gol squadra in casa...">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="account-email">Gol squadra in trasferta</label>
-                                            <input type="text" class="form-control" value="<?php echo set_value('txtGolTrasferta'); ?>" name="txtGolTrasferta" id="account-username" placeholder="Gol squadra in trasferta...">
-                                        </div>
-                                    </div>
-                                </div>
                                 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="account-email">Seleziona Coppa</label>
-                                            <select name="cmbScelta" id="account-city" class="form-control">
-                                                <option value="Coppa">Coppa Treble</option>
-                                                <option value="Champions">Champions League</option>
-                                                <option value="SuperCoppa">SuperCoppa</option>
+                                            <label for="account-email">Seleziona Competizione</label>
+                                            <select name="cmbCompetizione" id="account-city" class="form-control">
+                                                <option value="coppa">Coppa Treble</option>
+                                                <option value="champions">Champions League</option>
+                                                <option value="supercoppa">SuperCoppa Treble</option>
+                                                <option value="league">Treble League</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            &nbsp;
+                                            <label for="account-email">Blocco Formazioni</label><br>
+                                            <span style="color: #1892ED;"><?= oraedataIns($blocco) ?></span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group--submit">
-                                    <input type="submit" value="Aggiorna Coppe" name="but_modifica" class="btn btn-default btn-lg btn-block">
+                                    <input type="submit" value="Inserisci Top Match" name="but_inserisci" class="btn btn-default btn-lg btn-block">
                                 </div>
 
                                 </form>

@@ -10,6 +10,15 @@ class mdl_team extends CI_Model {
     public function insertGiocatore($data) {
         $this->db->insert('tb_giocatori', $data);
     }
+    
+    public function insertTopMatch($data) {
+        $this->db->insert('tb_topmatch', $data);
+    }
+    
+    public function deleteTopMatch($giornata) {
+        $this->db->where('giornata', $giornata);
+        $this->db->delete('tb_topmatch');
+    }
 
     public function addSchierati($data) {
         $this->db->insert('tb_formazioni_schierate', $data);
@@ -27,6 +36,18 @@ class mdl_team extends CI_Model {
         $query = $this->db->get();
 
         return $query->result_array();
+    }
+    
+    public function getTopMatch($giornata) {
+        
+    }
+    
+    public function getPuntiClassifica($id) {
+        $this->db->select('punti');
+        $this->db->where('id_squadra', $id);
+        $this->db->from('tb_classifica');
+
+        return $this->db->get()->row('punti');
     }
     
     public function getFormaSquadra($id_squadra) {

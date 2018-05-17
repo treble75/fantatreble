@@ -62,6 +62,8 @@ class Home extends CI_Controller {
         $data['news_champions'] = $this->mdl_utenti->getNewsDesktop("champions");
         $data['news_supercoppa'] = $this->mdl_utenti->getNewsDesktop("super");
         $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
+        
+        $data['topmatch'] = $this->mdl_team->getTopMatch($_SESSION['giornata']);
 
         $this->show('home/homepage', $data);
     }
@@ -93,6 +95,61 @@ class Home extends CI_Controller {
         $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
 
         $this->show('home/homepage', $data);
+    }
+    
+    public function topmatch() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_categories');
+            $this->load->model('mdl_team');
+            $data['active'] = 1;
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            $data['Squadre'] = $this->mdl_categories->getSquadre(true);
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['blocco'] = $this->mdl_utenti->getBlocco();
+            if ($data['blocco'] == "") {
+                $data['message'] = "Orario blocco formazioni non impostato";
+            }
+
+            $this->form_validation->set_rules('cmbSquadraCasa', 'Squadra Casa', 'trim|required');
+            $this->form_validation->set_rules('cmbSquadraTrasferta', 'Squadra Trasferta', 'trim|required');
+            $this->form_validation->set_rules('cmbCompetizione', 'Competizione', 'trim|required');
+
+            if ($this->form_validation->run()) {
+                if ($this->input->post('cmbSquadraCasa') != 0 && $this->input->post('cmbSquadraTrasferta') != 0) {
+
+                    //Prima cancello topmatch della stessa giornata
+                    $deleteTopMatch = $this->mdl_team->deleteTopMatch($_SESSION['giornata']);
+                    
+                    $data = array(
+                        'id1' => $this->input->post('cmbSquadraCasa'),
+                        'id2' => $this->input->post('cmbSquadraTrasferta'),
+                        'competizione' => $this->input->post('cmbCompetizione'),
+                        'giornata' => $_SESSION['giornata']
+                        );
+                    
+                    $insertTopMatch = $this->mdl_team->insertTopMatch($data);
+                    
+                $data['success_message'] = "Top Match inserito con successo";
+                
+                } else {
+                    $data['message'] = "ATTENZIONE: Dati mancanti !";
+
+                    $this->show('home/topmatch', $data);
+                    return;
+                }
+            }
+            
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            $data['Squadre'] = $this->mdl_categories->getSquadre(true);
+            $data['giornata'] = $_SESSION['giornata'];
+            $data['blocco'] = $this->mdl_utenti->getBlocco();
+            if ($data['blocco'] == "") {
+                $data['message'] = "Orario blocco formazioni non impostato";
+            }
+            
+            $this->show('home/topmatch', $data);
+        } else
+            redirect('utente/login');
     }
 
     function blocco() {
