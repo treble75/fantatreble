@@ -200,6 +200,17 @@ class Home extends CI_Controller {
         $data['active'] = 5;
         $this->show('home/campionato', $data);
     }
+    
+    public function classifica_perpetua() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $data['classifica'] = $this->mdl_team->getClassificaPerpetua();
+
+        $data['active'] = 5;
+        $this->show('home/classifica_perpetua', $data);
+    }
 
     public function calendario() {
 

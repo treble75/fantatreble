@@ -180,14 +180,14 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="game-player-result__score"><span style="color: #1892ED; font-size: 12px;">46</span></td>
+                                                <td class="game-player-result__score"><span style="color: #1892ED; font-size: 12px;">41</span></td>
                                                 <td class="game-player-result__min">28</td>
-                                                <td class="game-player-result__tg">13</td>
-                                                <td class="game-player-result__ts">7</td>
-                                                <td class="game-player-result__ga">8</td>
-                                                <td class="game-player-result__fc">48</td>
-                                                <td class="game-player-result__fs">38</td>
-                                                <td class="game-player-result__yc">+10</td>
+                                                <td class="game-player-result__tg">11</td>
+                                                <td class="game-player-result__ts">8</td>
+                                                <td class="game-player-result__ga">9</td>
+                                                <td class="game-player-result__fc">36</td>
+                                                <td class="game-player-result__fs">35</td>
+                                                <td class="game-player-result__yc">+1</td>
                                                 <td class="game-player-result__rc">1969.5</td>
                                             </tr>
                                             <tr>
@@ -203,13 +203,13 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="game-player-result__score"><span style="color: #1892ED; font-size: 12px;">45</span></td>
+                                                <td class="game-player-result__score"><span style="color: #1892ED; font-size: 12px;">42</span></td>
                                                 <td class="game-player-result__min">28</td>
-                                                <td class="game-player-result__tg">12</td>
-                                                <td class="game-player-result__ts">9</td>
-                                                <td class="game-player-result__ga">7</td>
-                                                <td class="game-player-result__fc">37</td>
-                                                <td class="game-player-result__fs">31</td>
+                                                <td class="game-player-result__tg">10</td>
+                                                <td class="game-player-result__ts">12</td>
+                                                <td class="game-player-result__ga">6</td>
+                                                <td class="game-player-result__fc">40</td>
+                                                <td class="game-player-result__fs">34</td>
                                                 <td class="game-player-result__yc">+6</td>
                                                 <td class="game-player-result__rc">2003.0</td>
                                             </tr>

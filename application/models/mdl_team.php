@@ -48,6 +48,16 @@ class mdl_team extends CI_Model {
         
     }
     
+    public function getClassificaPerpetua() {
+        $query = $this->db->query('select * , ( `punti_11_12` + `punti_12_13` + `punti_13_14` + `punti_14_15` + `punti_15_16` + `punti_16_17` + `punti_17_18` ) AS totale_punti, '
+                                            . '( `gf_11_12` + `gf_12_13` + `gf_13_14` + `gf_14_15` + `gf_15_16` + `gf_16_17` + `gf_17_18` ) AS totale_golfatti, '
+                                            . '( `gs_11_12` + `gs_12_13` + `gs_13_14` + `gs_14_15` + `gs_15_16` + `gs_16_17` + `gs_17_18` ) AS totale_golsubiti '
+                                            . 'from tb_perpetua order by totale_punti DESC');
+
+        return $query->result_array();
+        
+    }
+    
     public function getPuntiClassifica($id) {
         $this->db->select('punti');
         $this->db->where('id_squadra', $id);
