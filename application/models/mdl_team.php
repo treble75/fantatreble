@@ -39,6 +39,12 @@ class mdl_team extends CI_Model {
     }
     
     public function getTopMatch($giornata) {
+        $this->db->select('*');
+        $this->db->where('giornata', $giornata);
+        $this->db->from('tb_topmatch');
+        $query = $this->db->get();
+
+        return $query->result_array();
         
     }
     

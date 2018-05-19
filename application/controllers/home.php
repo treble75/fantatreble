@@ -93,6 +93,8 @@ class Home extends CI_Controller {
         $data['news_champions'] = $this->mdl_utenti->getNewsDesktop("champions");
         $data['news_supercoppa'] = $this->mdl_utenti->getNewsDesktop("super");
         $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
+        
+        $data['topmatch'] = $this->mdl_team->getTopMatch($_SESSION['giornata']);
 
         $this->show('home/homepage', $data);
     }

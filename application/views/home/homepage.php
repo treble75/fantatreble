@@ -461,55 +461,95 @@
                                     </div>
                                     <div class="widget__content card__content">
 
-                                        <!-- Match Preview -->
+                                        <!-- Top Match Preview -->
                                         <div class="match-preview">
                                             <section class="match-preview__body">
                                                 <header class="match-preview__header">
                                                     <?php
                                                     $blocco = $this->mdl_utenti->getBlocco();
-                                                    ?> 
-                                                    <time class="match-preview__date" datetime="2017-05-17"><?= dataSettimanale($blocco) ?></time>
-                                                    <h3 class="match-preview__title match-preview__title--lg">Treble League</h3>
+                                                    if (is_array(@$topmatch) && @$topmatch[0] != "") {
+                                                        switch ($topmatch[0]['competizione']) {
+                                                            case "supercoppa": 
+                                                                $chk  = "SuperCoppa Treble";
+                                                                $gara = "supercoppa";
+                                                                break;
+                                                            case "league": 
+                                                                $chk = "Treble League";
+                                                                $gara = "calendario";
+                                                                break;
+                                                            case "champions": 
+                                                                $chk = "Champions League";
+                                                                $gara = "champions";
+                                                                break;
+                                                            case "coppa": 
+                                                                $chk = "Coppa Treble";
+                                                                $gara = "coppa";
+                                                                break;
+                                                            default:
+                                                                break;
+                                                        }
+                                                        ?> 
+                                                        <time class="match-preview__date" datetime="<?= substr($blocco,0,10) ?>"><?= dataSettimanale($blocco) ?></time>
+                                                        <h3 class="match-preview__title match-preview__title--lg"><?= $chk ?></h3>
+                                                    <?php
+                                                    } else { ?>
+                                                        <span class="label posts__cat-label">Stagione Terminata</span>
+                                                        <div class="spacer"></div>
+                                                    <?php 
+                                                    }
+                                                    ?>
                                                 </header>
-                                                <div class="match-preview__content">
+                                                <?php
+                                                    if (is_array(@$topmatch) && @$topmatch[0] != "") {
+                                                ?>
+                                                    <div class="match-preview__content">
 
-                                                    <!-- 1st Team -->
-                                                    <div class="match-preview__team match-preview__team--first">
-                                                        <figure class="match-preview__team-logo">
-                                                            <img src="<?= base_url('/') ?>images/users/mini7.png" alt="">
-                                                        </figure>
-                                                        <h5 class="match-preview__team-name">Zacapa 23</h5>
-                                                        <div class="match-preview__team-info">Claudio Frioni</div>
-                                                    </div>
-                                                    <!-- 1st Team / End -->
-
-                                                    <div class="match-preview__vs">
-                                                        <div class="match-preview__conj">VS</div>
-                                                        <div class="match-preview__match-info">
-                                                            <time class="match-preview__match-time" datetime="2018-02-15 09:00">15:00</time>
-                                                            <div class="match-preview__match-place"></div>
+                                                        <!-- 1st Team -->
+                                                        <div class="match-preview__team match-preview__team--first">
+                                                            <figure class="match-preview__team-logo">
+                                                                <img src="<?= base_url('/') ?>images/users/mini<?= $topmatch[0]['id1'] ?>.png" alt="">
+                                                            </figure>
+                                                            <h5 class="match-preview__team-name"><?= $this->mdl_utenti->getSquadra($topmatch[0]['id1']) ?></h5>
+                                                            <div class="match-preview__team-info"><?= $this->mdl_utenti->getNomeUtente($topmatch[0]['id1']) ?></div>
                                                         </div>
-                                                    </div>
+                                                        <!-- 1st Team / End -->
 
-                                                    <!-- 2nd Team -->
-                                                    <div class="match-preview__team match-preview__team--second">
-                                                        <figure class="match-preview__team-logo">
-                                                            <img src="<?= base_url('/') ?>images/users/mini2.png" alt="">
-                                                        </figure>
-                                                        <h5 class="match-preview__team-name">Sangueeoro</h5>
-                                                        <div class="match-preview__team-info">Francesco Carriero</div>
-                                                    </div>
-                                                    <!-- 2nd Team / End -->
+                                                        <div class="match-preview__vs">
+                                                            <div class="match-preview__conj">VS</div>
+                                                            <div class="match-preview__match-info">
+                                                                <time class="match-preview__match-time" datetime="<?= $blocco ?>"><?= substr($blocco,11,5) ?></time>
+                                                                <div class="match-preview__match-place"></div>
+                                                            </div>
+                                                        </div>
 
-                                                </div>
+                                                        <!-- 2nd Team -->
+                                                        <div class="match-preview__team match-preview__team--second">
+                                                            <figure class="match-preview__team-logo">
+                                                                <img src="<?= base_url('/') ?>images/users/mini<?= $topmatch[0]['id2'] ?>.png" alt="">
+                                                            </figure>
+                                                            <h5 class="match-preview__team-name"><?= $this->mdl_utenti->getSquadra($topmatch[0]['id2']) ?></h5>
+                                                            <div class="match-preview__team-info"><?= $this->mdl_utenti->getNomeUtente($topmatch[0]['id2']) ?></div>
+                                                        </div>
+                                                        <!-- 2nd Team / End -->
+
+                                                    </div>
+                                                <?php
+                                                    }
+                                                ?>    
                                             </section>
-                                            <div class="countdown__content">
-                                                <!-- Conto alla rovescia Top Match --->                                        
-                                                <div class="countdown-counter" data-date="<?= $blocco ?>"></div>
-                                            </div>
-                                            <div class="match-preview__action match-preview__action--ticket">
-                                                <a href="<?= base_url('/') ?>index.php/home/calendario" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
-                                            </div>
+                                            <?php
+                                                if (is_array(@$topmatch) && @$topmatch[0] != "") {
+                                            ?>
+                                                <div class="countdown__content">
+                                                    <!-- Conto alla rovescia Top Match --->                                        
+                                                    <div class="countdown-counter" data-date="<?= $blocco ?>"></div>
+                                                </div>
+                                                <div class="match-preview__action match-preview__action--ticket">
+                                                    <a href="<?= base_url('/') ?>index.php/home/<?= $gara ?>" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
+                                                </div>
+                                            <?php
+                                            }
+                                            ?>  
                                         </div>
                                         <!--  Match Clou   / End -->
 
