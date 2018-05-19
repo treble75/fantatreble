@@ -112,7 +112,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T1'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -171,7 +171,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T2'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -230,7 +230,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T3'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -289,7 +289,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T4'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -348,7 +348,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T5'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -407,7 +407,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T6'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -466,7 +466,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T7'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -525,7 +525,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T8'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -584,7 +584,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T9'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -643,7 +643,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T10'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -702,7 +702,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T11'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -1791,7 +1791,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T1'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -1850,7 +1850,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T2'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -1909,7 +1909,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T3'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -1968,7 +1968,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T4'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -2027,7 +2027,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T5'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -2086,7 +2086,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T6'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -2145,7 +2145,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T7'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -2204,7 +2204,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T8'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -2263,7 +2263,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T9'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -2322,7 +2322,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T10'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
@@ -2381,7 +2381,7 @@
                                                                 ?>
                                                                 <tr <?= $colRuolo ?> height="35px" >
                                                                     <td class="lineup__num"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
-                                                                    <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
+                                                                    <td class="lineup__name" style="color: #1892ED;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVoto($player[$c]['T11'], $giornata);
                                                                     $v = (is_Array($v) ? "S.V." : $v);
