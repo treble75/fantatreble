@@ -58,6 +58,26 @@ class mdl_team extends CI_Model {
         
     }
     
+    public function getPuntiClassificaPerUtente($nome,$cognome) {
+        //Recupero prima l'id utente
+        $id = $this->getIDUtentePerNomeECognome($nome,$cognome);
+        
+        $this->db->select('punti');
+        $this->db->where('id_squadra', $id);
+        $this->db->from('tb_classifica');
+
+        return $this->db->get()->row('punti');
+    }
+    
+    public function getIDUtentePerNomeECognome($nome,$cognome) {
+        $this->db->select('id_utente');
+        $this->db->where('nome', $nome);
+        $this->db->where('cognome', $cognome);
+        $this->db->from('tb_utenti');
+
+        return $this->db->get()->row('id_utente');
+    }
+    
     public function getPuntiClassifica($id) {
         $this->db->select('punti');
         $this->db->where('id_squadra', $id);

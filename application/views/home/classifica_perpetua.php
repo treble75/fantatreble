@@ -46,6 +46,7 @@
                     <div class="card__header">
                         <!-- Anno da modificare -->
                         <h4>Classifica Perpetua Treble League</h4>
+                        <span style="font-size: 12px;">* Risultati relativi alla regular season aggiornati alla Stagione 2017/18</span>
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">
@@ -57,13 +58,13 @@
                                         <th class="team-standings__win">Sta</th>
                                         <th class="team-standings__played">Gio</th>
                                         <th class="team-standings__win">V</th>
-                                        <th class="team-standings__lose">P</th>
-                                        <th class="team-standings__drawn">S</th>
+                                        <th class="team-standings__lose">N</th>
+                                        <th class="team-standings__drawn">P</th>
                                         <th class="team-standings__goals-for">GF</th>
                                         <th class="team-standings__goals-against">GS</th>
                                         <th class="team-standings__goals-diff">Diff</th>
                                         <th class="team-standings__total-points">Punti</th>
-                                        <th class="team-standings__total-points">FP</th>
+                                        <th class="team-standings__total-points">MPP</th>
                                         <th class="team-standings__win">MPS</th>
                                     </tr>
                                 </thead>
@@ -120,7 +121,7 @@
                                             $partecipazioni = $this->mdl_utenti->getPartecipazioni($row['nome_utente'],$row['cognome_utente']);
                                             ?>
                                             <td class="team-standings__win" align='center'><?= $partecipazioni ?></td>
-                                            <td class="team-standings__played" style="color: #000"><?= $row['partite'] ?></td>
+                                            <td class="team-standings__played" style="color: #000"><?= $row['partite_storico'] ?></td>
                                             <td class="team-standings__win"><?= $row['v_storico'] ?></td>
                                             <td class="team-standings__lose"><?= $row['n_storico'] ?></td>
                                             <td class="team-standings__drawn"><?= $row['p_storico'] ?></td>
@@ -145,7 +146,7 @@
                                             <td class="team-standings__total-points" style="color: #1892ED; font-size: 14px;"><?= $row['totale_punti'] ?></td>
                                             <?php
                                             //Calcolo media punti per partita
-                                            $mpp = ($row['totale_punti'] / $row['partite']);
+                                            $mpp = ($row['totale_punti'] / $row['partite_storico']);
                                             ?>
                                             <td class="team-standings__total-points"><?= number_format($mpp, 2) ?></td>
                                             <?php
@@ -165,6 +166,30 @@
                     </div>
                 </div>
                 <!-- Team Standings / End -->
+                
+                <!-- Player Glossary -->
+                <div class="card">
+                    <div class="card__header">
+                        <h4>Glossario</h4>
+                        <span style="font-size: 12px;">* La Classifica non tiene conto delle squadre che avevano nome diverso, ma lo stesso proprietario, nelle precedenti stagioni. I risultati sportivi sono stati attribuiti alla squadra attualmente presente in Treble League.</span>
+                    </div>
+                    <div class="card__content">
+                        <div class="glossary">
+                            <div class="glossary__item"><span class="glossary__abbr">STA :</span> Stagioni disputate</div>
+                            <div class="glossary__item"><span class="glossary__abbr">GIO :</span> Partite Giocate</div>
+                            <div class="glossary__item"><span class="glossary__abbr">V :</span> Vittorie Totali</div>
+                            <div class="glossary__item"><span class="glossary__abbr">N :</span> Pareggi Totali</div>
+                            <div class="glossary__item"><span class="glossary__abbr">P :</span> Sconfitte Totali</div>
+                            <div class="glossary__item"><span class="glossary__abbr">GF :</span> Gol Realizzati</div>
+                            <div class="glossary__item"><span class="glossary__abbr">GS :</span> Gol Subiti</div>
+                            <div class="glossary__item"><span class="glossary__abbr">DIFF :</span> Differenza Reti</div>
+                            <div class="glossary__item"><span class="glossary__abbr">PUNTI :</span> Punti Totali In Treble League</div>
+                            <div class="glossary__item"><span class="glossary__abbr">MPP :</span> Media Punti Per Partita</div>
+                            <div class="glossary__item"><span class="glossary__abbr">MPS :</span> Media Punti Per Stagione</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Player Glossary / End -->
 
             </div>
         </div>
