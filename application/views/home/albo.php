@@ -53,7 +53,7 @@
                             <div class="card__header card__header--has-btn">
                                 <h4>Albo d'oro</h4>
                                 <br><span style="font-size: 12px;">* Risultati relativi alla regular season</span>
-                                <a href="_soccer_player-stats.html" class="btn btn-default btn-outline btn-xs card-header__button">Vedi Storico Treble League</a>
+                                <a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="btn btn-default btn-outline btn-xs card-header__button">Vedi Classifica Perpetua</a>
                             </div>
                             <div class="card__content">
                                 <div class="table-responsive">
@@ -135,7 +135,7 @@
                                                     </div>
                                                 </td>
                                                 <td class="game-player-result__score"><span style="color: #1892ED; font-size: 12px;">51</span></td>
-                                                <td class="game-player-result__min">27</td>
+                                                <td class="game-player-result__min">28</td>
                                                 <td class="game-player-result__tg">15</td>
                                                 <td class="game-player-result__ts">6</td>
                                                 <td class="game-player-result__ga">7</td>

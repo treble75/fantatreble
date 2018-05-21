@@ -500,7 +500,10 @@ class Home extends CI_Controller {
     }
 
     public function statistiche_treble_league() {
-
+        $this->load->model('mdl_team');
+        
+        $data['fallosi'] = $this->mdl_team->getFallosi();
+        
         $data['active'] = 5;
         $this->show('home/statistiche_treble_league.php', $data);
     }

@@ -58,6 +58,27 @@ class mdl_team extends CI_Model {
         
     }
     
+    public function getFallosi() {
+        $query = $this->db->query('select *, sum( `ammonizioni`) + sum( `espulsioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_cartellini DESC limit 5');
+
+        return $query->result_array();
+        
+    }
+    
+    public function getSommaAmmonizioniSchierato($id_giocatore) {
+        $query = $this->db->query('select sum( `ammonizioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
+
+        return $query->row('totale_cartellini');
+        
+    }
+    
+    public function getSommaEspulsioniSchierato($id_giocatore) {
+        $query = $this->db->query('select sum( `espulsioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
+
+        return $query->row('totale_cartellini');
+        
+    }
+    
     public function getPuntiClassificaPerUtente($nome,$cognome) {
         //Recupero prima l'id utente
         $id = $this->getIDUtentePerNomeECognome($nome,$cognome);
