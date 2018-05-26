@@ -501,8 +501,19 @@ class Home extends CI_Controller {
 
     public function statistiche_treble_league() {
         $this->load->model('mdl_team');
+        $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+        //Prendo le giornate giocate, quindi quella di sessione, meno 1 per avere l'ultima giocata
+        $data['giornata_media'] = ($_SESSION['giornata'] - 1);
         
+        $data['topmediavoto'] = $this->mdl_team->getTopMediaVoto($data['giornata_media']);
+        $data['topmediafantavoto'] = $this->mdl_team->getTopMediaFantaVoto($data['giornata_media']);
+        $data['topplayer'] = $this->mdl_team->getTopPlayer();
+        $data['peggioriportieri'] = $this->mdl_team->getPeggioriPortieri();
+        $data['assistmen'] = $this->mdl_team->getAssistmen();
         $data['fallosi'] = $this->mdl_team->getFallosi();
+        $data['bestmatch'] = $this->mdl_team->getBestMatch();
+        $data['rigori_sbagliati'] = $this->mdl_team->getTopRigoriSbagliati();
+        $data['topCampionato'] = $this->mdl_team->getTopCampionato();
         
         $data['active'] = 5;
         $this->show('home/statistiche_treble_league.php', $data);
