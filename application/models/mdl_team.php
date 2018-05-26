@@ -10,11 +10,11 @@ class mdl_team extends CI_Model {
     public function insertGiocatore($data) {
         $this->db->insert('tb_giocatori', $data);
     }
-    
+
     public function insertTopMatch($data) {
         $this->db->insert('tb_topmatch', $data);
     }
-    
+
     public function deleteTopMatch($giornata) {
         $this->db->where('giornata', $giornata);
         $this->db->delete('tb_topmatch');
@@ -37,7 +37,7 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     public function getTopMatch($giornata) {
         $this->db->select('*');
         $this->db->where('giornata', $giornata);
@@ -45,94 +45,83 @@ class mdl_team extends CI_Model {
         $query = $this->db->get();
 
         return $query->result_array();
-        
     }
-    
+
     public function getClassificaPerpetua() {
         $query = $this->db->query('select * , ( `punti_11_12` + `punti_12_13` + `punti_13_14` + `punti_14_15` + `punti_15_16` + `punti_16_17` + `punti_17_18` ) AS totale_punti, '
-                                            . '( `gf_11_12` + `gf_12_13` + `gf_13_14` + `gf_14_15` + `gf_15_16` + `gf_16_17` + `gf_17_18` ) AS totale_golfatti, '
-                                            . '( `gs_11_12` + `gs_12_13` + `gs_13_14` + `gs_14_15` + `gs_15_16` + `gs_16_17` + `gs_17_18` ) AS totale_golsubiti '
-                                            . 'from tb_perpetua order by totale_punti DESC');
+                . '( `gf_11_12` + `gf_12_13` + `gf_13_14` + `gf_14_15` + `gf_15_16` + `gf_16_17` + `gf_17_18` ) AS totale_golfatti, '
+                . '( `gs_11_12` + `gs_12_13` + `gs_13_14` + `gs_14_15` + `gs_15_16` + `gs_16_17` + `gs_17_18` ) AS totale_golsubiti '
+                . 'from tb_perpetua order by totale_punti DESC');
 
         return $query->result_array();
-        
     }
-    
+
     public function getFallosi() {
         $query = $this->db->query('select *, sum( `ammonizioni`) + sum( `espulsioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_cartellini DESC limit 5');
 
         return $query->result_array();
-        
     }
-    
+
     public function getBestMatch() {
         $query = $this->db->query('select *, sum(`punteggio1`) + sum(`punteggio2`) AS totale_punti from tb_calendario group by giornata, id1, id2 order by totale_punti DESC limit 5;');
 
         return $query->result_array();
-        
     }
-    
+
     public function getAssistmen() {
         $query = $this->db->query('select *, sum( `assist`) AS totale_assist from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_assist DESC limit 5');
 
         return $query->result_array();
-        
     }
-    
+
     public function getPeggioriPortieri() {
         $query = $this->db->query('select *, sum( `gol_subiti`) AS totale_golsubiti from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_golsubiti DESC limit 5');
 
         return $query->result_array();
-        
     }
-    
+
     public function getTopRigoriSbagliati() {
         $query = $this->db->query('select *, sum( `rigore_sbagliato`) AS totale_rigsba from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_utente > 0 and schierato = 1 group by tb_giocatori.id_utente order by totale_rigsba DESC limit 5');
 
         return $query->result_array();
-        
     }
-    
+
     public function getTopPlayer() {
         $query = $this->db->query('select *, sum( `gol`) + sum( `assist`) AS totale_bonus from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_bonus DESC limit 5;');
 
         return $query->result_array();
-        
     }
-    
+
     public function getAssist($id_giocatore) {
         $query = $this->db->query('select sum( `assist`) AS totale_assist from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
 
         return $query->row('totale_assist');
-        
     }
-    
+
     public function getSommaAmmonizioniSchierato($id_giocatore) {
         $query = $this->db->query('select sum( `ammonizioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
 
         return $query->row('totale_cartellini');
-        
     }
-    
+
     public function getSommaEspulsioniSchierato($id_giocatore) {
         $query = $this->db->query('select sum( `espulsioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
 
         return $query->row('totale_cartellini');
-        
     }
-    
-    public function getPuntiClassificaPerUtente($nome,$cognome) {
+
+    public function getPuntiClassificaPerUtente($nome, $cognome) {
         //Recupero prima l'id utente
-        $id = $this->getIDUtentePerNomeECognome($nome,$cognome);
-        
+        $id = $this->getIDUtentePerNomeECognome($nome, $cognome);
+
         $this->db->select('punti');
         $this->db->where('id_squadra', $id);
         $this->db->from('tb_classifica');
 
         return $this->db->get()->row('punti');
     }
-    
-    public function getIDUtentePerNomeECognome($nome,$cognome) {
+
+    public function getIDUtentePerNomeECognome($nome, $cognome) {
         $this->db->select('id_utente');
         $this->db->where('nome', $nome);
         $this->db->where('cognome', $cognome);
@@ -140,7 +129,7 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('id_utente');
     }
-    
+
     public function getPuntiClassifica($id) {
         $this->db->select('punti');
         $this->db->where('id_squadra', $id);
@@ -148,13 +137,13 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('punti');
     }
-    
+
     public function getFormaSquadra($id_squadra) {
         $query = $this->db->query('select * from tb_calendario where id1 = ' . $id_squadra . ' or id2 = ' . $id_squadra . ' order by giornata desc limit 5');
 
         return $query->result_array();
     }
-    
+
     public function getFormaSquadraChampions($id_squadra) {
         $query = $this->db->query('select * from tb_champions where id1 = ' . $id_squadra . ' or id2 = ' . $id_squadra . ' order by giornata desc limit 5');
 
@@ -176,7 +165,7 @@ class mdl_team extends CI_Model {
 
         return $result;
     }
-    
+
     public function getSelezioneAutomaticaRigoristi($id_utente) {
         $query = $this->db->query('SELECT
 							Sum(gol) AS gol,
@@ -190,125 +179,133 @@ class mdl_team extends CI_Model {
 							and id_utente = ' . $id_utente . '
 							group by id_giocatore 
 							order by voto DESC, fv DESC');
-        
+
         return $query->result_array();
     }
 
     public function getTopCampionato() {
         $queryP = $this->db->query('SELECT
-										avg(fantavoto) AS fv,
-										avg(voto) AS vt,
-										tb_giocatori.cognome,
-										tb_giocatori.nome,
-										tb_giocatori.squadra,
-										tb_giocatori.id_utente,
-										tb_voti.id_giocatore,
-										tb_voti.giornata,
-										tb_voti.voto,
-										tb_voti.fantavoto,
-										tb_voti.gol,
-										tb_voti.assist,
-										tb_voti.ammonizioni,
-										tb_voti.espulsioni,
-										tb_voti.rigore_parato,
-										tb_voti.rigore_sbagliato,
-										tb_voti.autogol,
-										tb_voti.gol_subiti,
-										tb_voti.schierato
-										from tb_voti, tb_giocatori
-										where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
-										and tb_giocatori.inattivo = 0
-										and tb_giocatori.ruolo =  1
-										group by id_giocatore 
-										order by fv DESC, vt DESC, cognome ASC
-                                        limit 1');
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti.id_giocatore,
+                                        tb_voti.giornata,
+                                        tb_voti.voto,
+                                        tb_voti.fantavoto,
+                                        tb_voti.gol,
+                                        tb_voti.assist,
+                                        tb_voti.ammonizioni,
+                                        tb_voti.espulsioni,
+                                        tb_voti.rigore_parato,
+                                        tb_voti.rigore_sbagliato,
+                                        tb_voti.autogol,
+                                        tb_voti.gol_subiti,
+                                        tb_voti.schierato
+                                        from tb_voti, tb_giocatori
+                                        where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 1
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 20');
         $result['P'] = $queryP->result_array();
 
         $queryD = $this->db->query('SELECT
-										avg(fantavoto) AS fv,
-										avg(voto) AS vt,
-										tb_giocatori.cognome,
-										tb_giocatori.nome,
-										tb_giocatori.squadra,
-										tb_giocatori.id_utente,
-										tb_voti.id_giocatore,
-										tb_voti.giornata,
-										tb_voti.voto,
-										tb_voti.fantavoto,
-										tb_voti.gol,
-										tb_voti.assist,
-										tb_voti.ammonizioni,
-										tb_voti.espulsioni,
-										tb_voti.rigore_parato,
-										tb_voti.rigore_sbagliato,
-										tb_voti.autogol,
-										tb_voti.gol_subiti,
-										tb_voti.schierato
-										from tb_voti, tb_giocatori
-										where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
-										and tb_giocatori.inattivo = 0
-										and tb_giocatori.ruolo =  2
-										group by id_giocatore 
-										order by fv DESC, vt DESC, cognome ASC
-                                        limit 3');
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti.id_giocatore,
+                                        tb_voti.giornata,
+                                        tb_voti.voto,
+                                        tb_voti.fantavoto,
+                                        tb_voti.gol,
+                                        tb_voti.assist,
+                                        tb_voti.ammonizioni,
+                                        tb_voti.espulsioni,
+                                        tb_voti.rigore_parato,
+                                        tb_voti.rigore_sbagliato,
+                                        tb_voti.autogol,
+                                        tb_voti.gol_subiti,
+                                        tb_voti.schierato
+                                        from tb_voti, tb_giocatori
+                                        where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 2
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 20');
         $result['D'] = $queryD->result_array();
 
         $queryC = $this->db->query('SELECT
-										avg(fantavoto) AS fv,
-										avg(voto) AS vt,
-										tb_giocatori.cognome,
-										tb_giocatori.nome,
-										tb_giocatori.squadra,
-										tb_giocatori.id_utente,
-										tb_voti.id_giocatore,
-										tb_voti.giornata,
-										tb_voti.voto,
-										tb_voti.fantavoto,
-										tb_voti.gol,
-										tb_voti.assist,
-										tb_voti.ammonizioni,
-										tb_voti.espulsioni,
-										tb_voti.rigore_parato,
-										tb_voti.rigore_sbagliato,
-										tb_voti.autogol,
-										tb_voti.gol_subiti,
-										tb_voti.schierato
-										from tb_voti, tb_giocatori
-										where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
-										and tb_giocatori.inattivo = 0
-										and tb_giocatori.ruolo =  3
-										group by id_giocatore 
-										order by fv DESC, vt DESC, cognome ASC
-                                        limit 4');
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti.id_giocatore,
+                                        tb_voti.giornata,
+                                        tb_voti.voto,
+                                        tb_voti.fantavoto,
+                                        tb_voti.gol,
+                                        tb_voti.assist,
+                                        tb_voti.ammonizioni,
+                                        tb_voti.espulsioni,
+                                        tb_voti.rigore_parato,
+                                        tb_voti.rigore_sbagliato,
+                                        tb_voti.autogol,
+                                        tb_voti.gol_subiti,
+                                        tb_voti.schierato
+                                        from tb_voti, tb_giocatori
+                                        where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 3
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 20');
         $result['C'] = $queryC->result_array();
 
         $queryA = $this->db->query('SELECT
-										avg(fantavoto) AS fv,
-										avg(voto) AS vt,
-										tb_giocatori.cognome,
-										tb_giocatori.nome,
-										tb_giocatori.squadra,
-										tb_giocatori.id_utente,
-										tb_voti.id_giocatore,
-										tb_voti.giornata,
-										tb_voti.voto,
-										tb_voti.fantavoto,
-										tb_voti.gol,
-										tb_voti.assist,
-										tb_voti.ammonizioni,
-										tb_voti.espulsioni,
-										tb_voti.rigore_parato,
-										tb_voti.rigore_sbagliato,
-										tb_voti.autogol,
-										tb_voti.gol_subiti,
-										tb_voti.schierato
-										from tb_voti, tb_giocatori
-										where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
-										and tb_giocatori.inattivo = 0
-										and tb_giocatori.ruolo =  4
-										group by id_giocatore 
-										order by fv DESC, vt DESC, cognome ASC
-                                        limit 3');
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti.id_giocatore,
+                                        tb_voti.giornata,
+                                        tb_voti.voto,
+                                        tb_voti.fantavoto,
+                                        tb_voti.gol,
+                                        tb_voti.assist,
+                                        tb_voti.ammonizioni,
+                                        tb_voti.espulsioni,
+                                        tb_voti.rigore_parato,
+                                        tb_voti.rigore_sbagliato,
+                                        tb_voti.autogol,
+                                        tb_voti.gol_subiti,
+                                        tb_voti.schierato
+                                        from tb_voti, tb_giocatori
+                                        where tb_voti.id_giocatore = tb_giocatori.id_giocatore 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 4
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 20');
         $result['A'] = $queryA->result_array();
 
         return $result;
@@ -339,7 +336,7 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('squadra');
     }
-    
+
     public function getMediaVotoGiocatore($id) {
         $query = $this->db->query('SELECT avg(tb_voti.voto) as voto from tb_voti, tb_giocatori where tb_voti.id_giocatore = tb_giocatori.id_giocatore and tb_giocatori.id_giocatore = ' . $id . ' group by tb_giocatori.id_giocatore');
 
@@ -605,13 +602,13 @@ class mdl_team extends CI_Model {
 
         return $query->row('gol');
     }
-    
+
     public function getTopMediaVoto($giornata) {
         $query = $this->db->query('select *, avg( `voto`) AS media_voto, count(`schierato`) as presenze from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by media_voto DESC limit 20;');
 
         return $query->result_array();
     }
-    
+
     public function getTopMediaFantaVoto($giornata) {
         $query = $this->db->query('select *, avg( `fantavoto`) AS media_voto, count(`schierato`) as presenze from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by media_voto DESC limit 20;');
 
@@ -1609,7 +1606,7 @@ class mdl_team extends CI_Model {
         }
         return $ruolo;
     }
-    
+
     public function getDescrizioneRuolo($id_giocatore) {
         $this->db->select('ruolo');
         $this->db->where('id_giocatore', $id_giocatore);
@@ -2384,18 +2381,18 @@ class mdl_team extends CI_Model {
         $query = $this->db->get('tb_calendario');
         return $query->result_array();
     }
-    
+
     //Storico Squadre: Tutte quelle che hanno partecipato almeno una volta
     public function getStoricoSquadre() {
         $query = $this->db->query('select distinct(squadra),cognome,nome from tb_all_teams order by squadra;');
 
         return $query->result_array();
     }
-    
+
     //Storico Squadre: Prendo tutte le partite delle squadre o utenti selezionati
     public function getPrecedenti($type, $squadra1, $squadra2, $stagione, $db) {
-        if ($type == "squadra"){
-            
+        if ($type == "squadra") {
+
             //Ricavo le squadre selezionate
             $id1 = $this->getIdSquadra($squadra1, $stagione);
             $id2 = $this->getIdSquadra($squadra2, $stagione);
@@ -2403,36 +2400,34 @@ class mdl_team extends CI_Model {
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedenti($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
         }
-        
-        if ($type == "utente"){
-            
+
+        if ($type == "utente") {
+
             //Ricavo gli utenti selezionati 
             $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
-            
+
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedenti($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
-            
         }
-        
     }
-    
+
     //Storico Squadre: Prendo tutte le partite delle squadre o utenti selezionati
     public function getPrecedentiChampions($type, $squadra1, $squadra2, $stagione, $db) {
-        if ($type == "squadra"){
-            
+        if ($type == "squadra") {
+
             //Ricavo le squadre selezionate
             $id1 = $this->getIdSquadra($squadra1, $stagione);
             $id2 = $this->getIdSquadra($squadra2, $stagione);
@@ -2440,36 +2435,34 @@ class mdl_team extends CI_Model {
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiChampions($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
         }
-        
-        if ($type == "utente"){
-            
+
+        if ($type == "utente") {
+
             //Ricavo gli utenti selezionati 
             $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
-            
+
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiChampions($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
-            
         }
-        
     }
-    
+
     //Storico Squadre: Prendo tutte le partite delle squadre o utenti selezionati
     public function getPrecedentiCoppa($type, $squadra1, $squadra2, $stagione, $db) {
-        if ($type == "squadra"){
-            
+        if ($type == "squadra") {
+
             //Ricavo le squadre selezionate
             $id1 = $this->getIdSquadra($squadra1, $stagione);
             $id2 = $this->getIdSquadra($squadra2, $stagione);
@@ -2477,36 +2470,34 @@ class mdl_team extends CI_Model {
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiCoppa($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
         }
-        
-        if ($type == "utente"){
-            
+
+        if ($type == "utente") {
+
             //Ricavo gli utenti selezionati 
             $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
-            
+
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiCoppa($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
-            
         }
-        
     }
-    
+
     //Storico Squadre: Prendo tutte le partite delle squadre o utenti selezionati
     public function getPrecedentiSuperCoppa($type, $squadra1, $squadra2, $stagione, $db) {
-        if ($type == "squadra"){
-            
+        if ($type == "squadra") {
+
             //Ricavo le squadre selezionate
             $id1 = $this->getIdSquadra($squadra1, $stagione);
             $id2 = $this->getIdSquadra($squadra2, $stagione);
@@ -2514,80 +2505,78 @@ class mdl_team extends CI_Model {
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
         }
-        
-        if ($type == "utente"){
-            
+
+        if ($type == "utente") {
+
             //Ricavo gli utenti selezionati 
             $id1 = $this->getUtenteIdSquadra($squadra1, $stagione);
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
-            
+
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
             if ($id1 != "" && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db);
-            }else{
+            } else {
                 $precedenti = "";
             }
-            
+
             return $precedenti;
-            
         }
-        
     }
-    
+
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
-    private function getPartitePrecedenti($id1,$id2,$stagione, $db) {
+    private function getPartitePrecedenti($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_calendario_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
-        }else{
+        } else {
             $query = $this->db->query('Select * from tb_calendario where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
-        }    
-            
+        }
+
         return $query->result_array();
     }
-    
+
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
-    private function getPartitePrecedentiChampions($id1,$id2,$stagione, $db) {
+    private function getPartitePrecedentiChampions($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_champions_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
-        }else{
+        } else {
             $query = $this->db->query('Select * from tb_champions where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
-        }    
-            
+        }
+
         return $query->result_array();
     }
-    
+
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
-    private function getPartitePrecedentiCoppa($id1,$id2,$stagione, $db) {
+    private function getPartitePrecedentiCoppa($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_coppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
-        }else{
+        } else {
             $query = $this->db->query('Select * from tb_coppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
-        }    
-            
+        }
+
         return $query->result_array();
     }
-    
+
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
-    private function getPartitePrecedentiSuperCoppa($id1,$id2,$stagione, $db) {
+    private function getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
         if ($db != "2017_18") {
             $query = $this->db->query('Select * from tb_supercoppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
-        }else{
+        } else {
             $query = $this->db->query('Select * from tb_supercoppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
-        }    
-            
+        }
+
         return $query->result_array();
     }
-    
+
     private function getIdSquadra($squadra, $stagione) {
         $this->db->select('id_squadra');
         $this->db->where('squadra', $squadra);
@@ -2595,23 +2584,23 @@ class mdl_team extends CI_Model {
         $this->db->from('tb_all_teams');
 
         $id_squadra = $this->db->get()->row('id_squadra');
-        
+
         return $id_squadra;
     }
-    
+
     private function getUtenteIdSquadra($squadra, $stagione) {
         $this->db->select('nome');
         $this->db->where('squadra', $squadra);
         $this->db->from('tb_all_teams');
-        
+
         $nm_utente = $this->db->get()->row('nome');
-        
+
         $this->db->select('cognome');
         $this->db->where('squadra', $squadra);
         $this->db->from('tb_all_teams');
 
         $cg_utente = $this->db->get()->row('cognome');
-        
+
         $this->db->select('id_squadra');
         $this->db->where('nome', $nm_utente);
         $this->db->where('cognome', $cg_utente);
@@ -2619,7 +2608,7 @@ class mdl_team extends CI_Model {
         $this->db->from('tb_all_teams');
 
         $id_squadra = $this->db->get()->row('id_squadra');
-        
+
         return $id_squadra;
     }
 
@@ -2629,14 +2618,14 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
-    
+
     //Prossimi match di coppa treble
     public function getProssimiMatchCoppa($id_utente) {
         $query = $this->db->query('select * from tb_coppa as t1 where t1.giocata = 0 and t1.id1 = ' . $id_utente . ' or t1.giocata = 0 and t1.id2 = ' . $id_utente . ';');
 
         return $query->result_array();
     }
-    
+
     //Prossimi match di champions
     public function getProssimiMatchChampions($id_utente) {
         $query = $this->db->query('select * from tb_champions as t1 where t1.giocata = 0 and t1.id1 = ' . $id_utente . ' or t1.giocata = 0 and t1.id2 = ' . $id_utente . ';');
