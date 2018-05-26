@@ -513,6 +513,7 @@ class Home extends CI_Controller {
         $data['fallosi'] = $this->mdl_team->getFallosi();
         $data['bestmatch'] = $this->mdl_team->getBestMatch();
         $data['rigori_sbagliati'] = $this->mdl_team->getTopRigoriSbagliati();
+        $data['rigori_parati'] = $this->mdl_team->getTopRigoriParati();
         $data['topCampionato'] = $this->mdl_team->getTopCampionato();
         
         $data['active'] = 5;

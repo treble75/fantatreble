@@ -85,11 +85,56 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getTopRigoriParati() {
+        $query = $this->db->query('select *, sum( `rigore_parato`) AS totale_rigpar from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_utente > 0 and schierato = 1 group by tb_giocatori.id_utente order by totale_rigpar DESC limit 5');
+
+        return $query->result_array();
+    }
 
     public function getTopPlayer() {
         $query = $this->db->query('select *, sum( `gol`) + sum( `assist`) AS totale_bonus from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_bonus DESC limit 5;');
 
         return $query->result_array();
+    }
+    
+    public function getMediaGolFatti($id_utente) {
+        $query = $this->db->query('select SUM(`risultato1`) as gol1 from tb_calendario where id1 = ' . $id_utente);
+        $gol1 = $query->row('gol1');
+        
+        $query = $this->db->query('select SUM(`risultato2`) as gol2 from tb_calendario where id2 = ' . $id_utente);
+        $gol2 = $query->row('gol2');
+        
+        $somma_gol = $gol1 + $gol2;
+        return $somma_gol;
+    }
+    
+    public function getMediaAssistFatti($id_utente) {
+        $query = $this->db->query('select *, sum( `assist`) AS totale_assist from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 and tb_giocatori.id_utente = ' . $id_utente . ' group by tb_giocatori.id_utente order by totale_assist');
+
+        return $query->row('totale_assist');
+    }
+    
+    public function getMediaGolSubiti($id_utente) {
+        $query = $this->db->query('select SUM(`risultato2`) as gol1 from tb_calendario where id1 = ' . $id_utente);
+        $gol1 = $query->row('gol1');
+        
+        $query = $this->db->query('select SUM(`risultato1`) as gol2 from tb_calendario where id2 = ' . $id_utente);
+        $gol2 = $query->row('gol2');
+        
+        $somma_gol = $gol1 + $gol2;
+        return $somma_gol;
+    }
+    
+    public function getPartiteGiocateTL($id_utente) {
+        $query = $this->db->query('select count(`id1`) as pg1 from tb_calendario where id1 = ' . $id_utente);
+        $match1 = $query->row('pg1');
+        
+        $query = $this->db->query('select count(`id2`) as pg2 from tb_calendario where id2 = ' . $id_utente);
+        $match2 = $query->row('pg2');
+        
+        $somma_match = $match1 + $match2;
+        return $somma_match;
     }
 
     public function getAssist($id_giocatore) {
