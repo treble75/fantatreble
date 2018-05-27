@@ -775,15 +775,21 @@
                                     <div class="posts__item posts__item--category-1">
                                         <div class="posts__inner">
                                             <div class="posts__cat">
-                                                <span class="label posts__cat-label">The Team</span>
+                                                <span class="label posts__cat-label">Le Novità per la stagione 2018/19</span>
                                             </div>
-                                            <h6 class="posts__title"><a href="#">Today was unveiled the <span class="main-news-banner__highlight">New Football</span> for the league</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
+                                            <h6 class="posts__title"><a href="#">Cambia il modo di gestire le <span class="main-news-banner__highlight">Sostituzioni !</span></a></h6>
+                                            <time datetime="2016-08-23" class="posts__date">1 Settembre 2018</time>
+                                            <div class="spacer"></div>
                                             <div class="posts__excerpt">
-                                                Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore.
+                                                <ul class="list">
+                                                    <li>3 Criteri di sostituzione</li>
+                                                    <li>Playoff rinnovati</li>
+                                                    <li>Precedenti storici</li>
+                                                    <li>Statistiche aggiornate in tempo reale</li>
+                                                </ul>
                                             </div>
                                             <div class="posts__more">
-                                                <a href="#" class="btn btn-inverse btn-sm btn-outline btn-icon-right btn-condensed">Read More <i class="fa fa-plus text-primary"></i></a>
+                                                <a href="<?= base_url('/') ?>index.php/home/regolamento" class="btn btn-inverse btn-sm btn-outline btn-icon-right btn-condensed">Vai al Regolamento</a>
                                             </div>
                                         </div>
                                     </div>

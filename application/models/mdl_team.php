@@ -67,9 +67,21 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getSquadraFallosaCoppa() {
+        $query = $this->db->query('select *, sum( `ammonizioni`) + sum( `espulsioni`) AS totale_cartellini from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_utente order by totale_cartellini DESC limit 1');
+
+        return $query->result_array();
+    }
 
     public function getBestMatch() {
         $query = $this->db->query('select *, sum(`punteggio1`) + sum(`punteggio2`) AS totale_punti from tb_calendario group by giornata, id1, id2 order by totale_punti DESC limit 5');
+
+        return $query->result_array();
+    }
+    
+    public function getBestMatchCoppa() {
+        $query = $this->db->query('select *, sum(`punteggio1`) + sum(`punteggio2`) AS totale_punti from tb_coppa group by giornata, id1, id2 order by totale_punti DESC limit 5');
 
         return $query->result_array();
     }
@@ -99,7 +111,13 @@ class mdl_team extends CI_Model {
     }
 
     public function getTopPlayer() {
-        $query = $this->db->query('select *, sum( `gol`) + sum( `assist`) AS totale_bonus from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_bonus DESC limit 5');
+        $query = $this->db->query('select *, avg(fantavoto) AS fv, sum( `gol`) + sum( `assist`) AS totale_bonus from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_bonus DESC, fv  DESC limit 5');
+
+        return $query->result_array();
+    }
+    
+    public function getTopPlayerCoppa() {
+        $query = $this->db->query('select *, avg(fantavoto) AS fv, sum( `gol`) + sum( `assist`) AS totale_bonus from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by totale_bonus DESC, fv  DESC limit 5');
 
         return $query->result_array();
     }
@@ -115,8 +133,25 @@ class mdl_team extends CI_Model {
         return $somma_gol;
     }
     
+    public function getMediaGolFattiCoppa($id_utente) {
+        $query = $this->db->query('select SUM(`risultato1`) as gol1 from tb_coppa where id1 = ' . $id_utente);
+        $gol1 = $query->row('gol1');
+        
+        $query = $this->db->query('select SUM(`risultato2`) as gol2 from tb_coppa where id2 = ' . $id_utente);
+        $gol2 = $query->row('gol2');
+        
+        $somma_gol = $gol1 + $gol2;
+        return $somma_gol;
+    }
+    
     public function getMediaAssistFatti($id_utente) {
         $query = $this->db->query('select *, sum( `assist`) AS totale_assist from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 and tb_giocatori.id_utente = ' . $id_utente . ' group by tb_giocatori.id_utente order by totale_assist');
+
+        return $query->row('totale_assist');
+    }
+    
+    public function getMediaAssistFattiCoppa($id_utente) {
+        $query = $this->db->query('select *, sum( `assist`) AS totale_assist from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and schierato = 1 and giornata in (4,7,10,11,15,20,26,31) and tb_giocatori.id_utente = ' . $id_utente . ' group by tb_giocatori.id_utente order by totale_assist');
 
         return $query->row('totale_assist');
     }
@@ -126,6 +161,17 @@ class mdl_team extends CI_Model {
         $gol1 = $query->row('gol1');
         
         $query = $this->db->query('select SUM(`risultato1`) as gol2 from tb_calendario where id2 = ' . $id_utente);
+        $gol2 = $query->row('gol2');
+        
+        $somma_gol = $gol1 + $gol2;
+        return $somma_gol;
+    }
+    
+    public function getMediaGolSubitiCoppa($id_utente) {
+        $query = $this->db->query('select SUM(`risultato2`) as gol1 from tb_coppa where id1 = ' . $id_utente);
+        $gol1 = $query->row('gol1');
+        
+        $query = $this->db->query('select SUM(`risultato1`) as gol2 from tb_coppa where id2 = ' . $id_utente);
         $gol2 = $query->row('gol2');
         
         $somma_gol = $gol1 + $gol2;
@@ -142,9 +188,26 @@ class mdl_team extends CI_Model {
         $somma_match = $match1 + $match2;
         return $somma_match;
     }
+    
+    public function getStatsPartiteGiocateCoppa($id_utente) {
+        $query = $this->db->query('select count(`id1`) as pg1 from tb_coppa where id1 = ' . $id_utente);
+        $match1 = $query->row('pg1');
+        
+        $query = $this->db->query('select count(`id2`) as pg2 from tb_coppa where id2 = ' . $id_utente);
+        $match2 = $query->row('pg2');
+        
+        $somma_match = $match1 + $match2;
+        return $somma_match;
+    }
 
     public function getAssist($id_giocatore) {
         $query = $this->db->query('select sum( `assist`) AS totale_assist from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
+
+        return $query->row('totale_assist');
+    }
+    
+    public function getAssistCoppa($id_giocatore) {
+        $query = $this->db->query('select sum( `assist`) AS totale_assist from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and giornata in (4,7,10,11,15,20,26,31) and schierato = 1');
 
         return $query->row('totale_assist');
     }
@@ -357,6 +420,138 @@ class mdl_team extends CI_Model {
                                         group by id_giocatore 
                                         order by fv DESC, vt DESC, presenze DESC, cognome ASC
                                         limit 20');
+        $result['A'] = $queryA->result_array();
+
+        return $result;
+    }
+    
+    public function getTopCoppa() {
+        $queryP = $this->db->query('SELECT
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti_coppa.id_giocatore,
+                                        tb_voti_coppa.giornata,
+                                        tb_voti_coppa.voto,
+                                        tb_voti_coppa.fantavoto,
+                                        tb_voti_coppa.gol,
+                                        tb_voti_coppa.assist,
+                                        tb_voti_coppa.ammonizioni,
+                                        tb_voti_coppa.espulsioni,
+                                        tb_voti_coppa.rigore_parato,
+                                        tb_voti_coppa.rigore_sbagliato,
+                                        tb_voti_coppa.autogol,
+                                        tb_voti_coppa.gol_subiti,
+                                        tb_voti_coppa.schierato
+                                        from tb_voti_coppa, tb_giocatori
+                                        where tb_voti_coppa.id_giocatore = tb_giocatori.id_giocatore 
+                                        and giornata in (4,7,10,11,15,20,26,31) 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 1
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 20');
+        $result['P'] = $queryP->result_array();
+
+        $queryD = $this->db->query('SELECT
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti_coppa.id_giocatore,
+                                        tb_voti_coppa.giornata,
+                                        tb_voti_coppa.voto,
+                                        tb_voti_coppa.fantavoto,
+                                        tb_voti_coppa.gol,
+                                        tb_voti_coppa.assist,
+                                        tb_voti_coppa.ammonizioni,
+                                        tb_voti_coppa.espulsioni,
+                                        tb_voti_coppa.rigore_parato,
+                                        tb_voti_coppa.rigore_sbagliato,
+                                        tb_voti_coppa.autogol,
+                                        tb_voti_coppa.gol_subiti,
+                                        tb_voti_coppa.schierato
+                                        from tb_voti_coppa, tb_giocatori
+                                        where tb_voti_coppa.id_giocatore = tb_giocatori.id_giocatore 
+                                        and giornata in (4,7,10,11,15,20,26,31) 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 2
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 30');
+        $result['D'] = $queryD->result_array();
+
+        $queryC = $this->db->query('SELECT
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti_coppa.id_giocatore,
+                                        tb_voti_coppa.giornata,
+                                        tb_voti_coppa.voto,
+                                        tb_voti_coppa.fantavoto,
+                                        tb_voti_coppa.gol,
+                                        tb_voti_coppa.assist,
+                                        tb_voti_coppa.ammonizioni,
+                                        tb_voti_coppa.espulsioni,
+                                        tb_voti_coppa.rigore_parato,
+                                        tb_voti_coppa.rigore_sbagliato,
+                                        tb_voti_coppa.autogol,
+                                        tb_voti_coppa.gol_subiti,
+                                        tb_voti_coppa.schierato
+                                        from tb_voti_coppa, tb_giocatori
+                                        where tb_voti_coppa.id_giocatore = tb_giocatori.id_giocatore 
+                                        and giornata in (4,7,10,11,15,20,26,31) 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 3
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 30');
+        $result['C'] = $queryC->result_array();
+
+        $queryA = $this->db->query('SELECT
+                                        avg(fantavoto) AS fv,
+                                        avg(voto) AS vt,
+                                        count(`schierato`) AS presenze,
+                                        tb_giocatori.cognome,
+                                        tb_giocatori.nome,
+                                        tb_giocatori.squadra,
+                                        tb_giocatori.id_utente,
+                                        tb_voti_coppa.id_giocatore,
+                                        tb_voti_coppa.giornata,
+                                        tb_voti_coppa.voto,
+                                        tb_voti_coppa.fantavoto,
+                                        tb_voti_coppa.gol,
+                                        tb_voti_coppa.assist,
+                                        tb_voti_coppa.ammonizioni,
+                                        tb_voti_coppa.espulsioni,
+                                        tb_voti_coppa.rigore_parato,
+                                        tb_voti_coppa.rigore_sbagliato,
+                                        tb_voti_coppa.autogol,
+                                        tb_voti_coppa.gol_subiti,
+                                        tb_voti_coppa.schierato
+                                        from tb_voti_coppa, tb_giocatori
+                                        where tb_voti_coppa.id_giocatore = tb_giocatori.id_giocatore 
+                                        and giornata in (4,7,10,11,15,20,26,31) 
+                                        and tb_giocatori.inattivo = 0
+                                        and schierato = 1
+                                        and tb_giocatori.ruolo = 4
+                                        group by id_giocatore 
+                                        order by fv DESC, vt DESC, presenze DESC, cognome ASC
+                                        limit 30');
         $result['A'] = $queryA->result_array();
 
         return $result;
@@ -1012,6 +1207,12 @@ class mdl_team extends CI_Model {
 
     public function getPartite_schierato($id_giocatore) {
         $query = $this->db->query('select count(*) from tb_voti where id_giocatore = ' . $id_giocatore . ' and schierato = 1');
+
+        return $query->row('count(*)');
+    }
+    
+    public function getPartite_schieratoCoppa($id_giocatore) {
+        $query = $this->db->query('select count(*) from tb_voti_coppa where id_giocatore = ' . $id_giocatore . ' and giornata in (4,7,10,11,15,20,26,31) and schierato = 1');
 
         return $query->row('count(*)');
     }

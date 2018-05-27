@@ -6,9 +6,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title"><span class="highlight">Treble</span> League</h1>
+                        <h1 class="page-heading__title">Coppa <span class="highlight">Treble</span></h1>
+                        <!-- Detentore DA MODIFICARE -->
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Detentore: Frank One</li>
+                            <li>Detentore: Warriors</li>
                         </ol>
                     </div>
                 </div>
@@ -20,13 +21,13 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/campionato" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario" class="content-filter__link"><small>Treble League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Treble League</small>Gallery</a></li>
-                </ul>
+              <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/statistiche_coppa" class="content-filter__link"><small>Coppa Treble</small>Statistiche</a></li>
+              <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori_coppa" class="content-filter__link"><small>Coppa Treble</small>Marcatori</a></li>
+              <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/coppa" class="content-filter__link"><small>Coppa Treble</small>Griglia</a></li>
+              <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario_coppa" class="content-filter__link"><small>Coppa Treble</small>Calendario</a></li>
+              <li class="content-filter__item "><a href="_soccer_team-schedule.html" class="content-filter__link"><small>Coppa Treble</small>Schedule</a></li>
+              <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Coppa Treble</small>Gallery</a></li>
+            </ul>
             </div>
         </nav>
         <!-- Team Pages Filter / End -->
@@ -42,8 +43,8 @@
                         <!-- Widget: Lineup -->
                         <aside class="widget card widget--sidebar widget-lineup">
                             <div class="widget__title card__header">
-                                <h4>Top 11 Treble League</h4>
-                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* Giocatori schierati almeno per il 30% del campionato</span>
+                                <h4>Top 11 Coppa Treble</h4>
+                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* Giocatori schierati almeno per il 30% della Coppa</span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -54,11 +55,11 @@
                                 </canvas>
 
                                 <?php
-                                //Setto i nomi dei top 11 campionato
+                                //Setto i nomi dei top 11 campionato; diviso per le 8 giornate di Coppa Treble
                                 $i = 1;
-                                foreach ($topCampionato['P'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                foreach ($topCoppa['P'] as $row) {
+                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 1) {
                                         if ($i == 1)
                                             $portiere = $row['cognome'];
@@ -67,9 +68,9 @@
                                 }
 
                                 $i = 1;
-                                foreach ($topCampionato['D'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                foreach ($topCoppa['D'] as $row) {
+                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
                                         if ($i == 1)
                                             $difensore1 = $row['cognome'];
@@ -82,9 +83,9 @@
                                 }
 
                                 $i = 1;
-                                foreach ($topCampionato['C'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                foreach ($topCoppa['C'] as $row) {
+                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 4) {
                                         if ($i == 1)
                                             $centrocampista1 = $row['cognome'];
@@ -99,9 +100,9 @@
                                 }
 
                                 $i = 1;
-                                foreach ($topCampionato['A'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                foreach ($topCoppa['A'] as $row) {
+                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
                                         if ($i == 1)
                                             $attaccante1 = $row['cognome'];
@@ -196,7 +197,7 @@
                                     drawTextBG(context, players.player8, 230, 270);
                                     drawTextBG(context, players.player9, 50, 354);
                                     drawTextBG(context, players.player10, 220, 354);
-                                    drawTextBG(context, players.player11, 130, 398);
+                                    drawTextBG(context, players.player11, 135, 398);
 
                                     /// expand with color, background etc.
                                     function drawTextBG(context, txt, x, y, padding) {
@@ -227,32 +228,6 @@
 
                     <div class="col-md-4">
 
-                        <?php
-                        //Calcolo maggior mediagol - DA MODIFICARE se più di 10 utenti
-                        $media1 = ( $this->mdl_team->getMediaGolFatti(1) / $this->mdl_team->getPartiteGiocateTL(1));
-                        $media2 = ( $this->mdl_team->getMediaGolFatti(2) / $this->mdl_team->getPartiteGiocateTL(2));
-                        $media3 = ( $this->mdl_team->getMediaGolFatti(3) / $this->mdl_team->getPartiteGiocateTL(3));
-                        $media4 = ( $this->mdl_team->getMediaGolFatti(4) / $this->mdl_team->getPartiteGiocateTL(4));
-                        $media5 = ( $this->mdl_team->getMediaGolFatti(5) / $this->mdl_team->getPartiteGiocateTL(5));
-                        $media6 = ( $this->mdl_team->getMediaGolFatti(6) / $this->mdl_team->getPartiteGiocateTL(6));
-                        $media7 = ( $this->mdl_team->getMediaGolFatti(7) / $this->mdl_team->getPartiteGiocateTL(7));
-                        $media8 = ( $this->mdl_team->getMediaGolFatti(8) / $this->mdl_team->getPartiteGiocateTL(8));
-                        $media9 = ( $this->mdl_team->getMediaGolFatti(9) / $this->mdl_team->getPartiteGiocateTL(9));
-                        $media10 = ( $this->mdl_team->getMediaGolFatti(10) / $this->mdl_team->getPartiteGiocateTL(10));
-
-                        $medie_gol = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
-
-                        $topmediagol = max($medie_gol);
-
-                        //Cerco index per id_utente
-                        foreach ($medie_gol as $key => $value) {
-
-                            if ($value == $topmediagol) {
-                                $utente_mediagol = $key;
-                            }
-                        }
-                        ?>
-
                         <!-- Widget: Team Stats -->
                         <aside class="widget widget--sidebar card card--has-table widget-team-stats">
                             <div class="widget__title card__header">
@@ -260,6 +235,33 @@
                                 <span class="team-leader__player-position"  style="text-transform: capitalize;">* Media per partita giocata</span>
                             </div>
                             <div class="widget__content card__content">
+                                
+                                <?php
+                                //Calcolo maggior mediagol - DA MODIFICARE se più di 10 utenti
+                                $media1 = ( $this->mdl_team->getMediaGolFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
+                                $media2 = ( $this->mdl_team->getMediaGolFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
+                                $media3 = ( $this->mdl_team->getMediaGolFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
+                                $media4 = ( $this->mdl_team->getMediaGolFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
+                                $media5 = ( $this->mdl_team->getMediaGolFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
+                                $media6 = ( $this->mdl_team->getMediaGolFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
+                                $media7 = ( $this->mdl_team->getMediaGolFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
+                                $media8 = ( $this->mdl_team->getMediaGolFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
+                                $media9 = ( $this->mdl_team->getMediaGolFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
+                                $media10 = ( $this->mdl_team->getMediaGolFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
+
+                                $medie_gol = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
+
+                                $topmediagol = max($medie_gol);
+
+                                //Cerco index per id_utente
+                                foreach ($medie_gol as $key => $value) {
+
+                                    if ($value == $topmediagol) {
+                                        $utente_mediagol = $key;
+                                    }
+                                }
+                                ?>
+                                
                                 <ul class="team-stats-box">
                                     <li class="team-stats__item team-stats__item--clean">
                                         <div class="team-stats__label">Reti Realizzate</div><br>
@@ -272,16 +274,16 @@
 
                                     <?php
                                     //Calcolo maggior mediagolsubiti - DA MODIFICARE se più di 10 utenti
-                                    $media1 = ( $this->mdl_team->getMediaGolSubiti(1) / $this->mdl_team->getPartiteGiocateTL(1));
-                                    $media2 = ( $this->mdl_team->getMediaGolSubiti(2) / $this->mdl_team->getPartiteGiocateTL(2));
-                                    $media3 = ( $this->mdl_team->getMediaGolSubiti(3) / $this->mdl_team->getPartiteGiocateTL(3));
-                                    $media4 = ( $this->mdl_team->getMediaGolSubiti(4) / $this->mdl_team->getPartiteGiocateTL(4));
-                                    $media5 = ( $this->mdl_team->getMediaGolSubiti(5) / $this->mdl_team->getPartiteGiocateTL(5));
-                                    $media6 = ( $this->mdl_team->getMediaGolSubiti(6) / $this->mdl_team->getPartiteGiocateTL(6));
-                                    $media7 = ( $this->mdl_team->getMediaGolSubiti(7) / $this->mdl_team->getPartiteGiocateTL(7));
-                                    $media8 = ( $this->mdl_team->getMediaGolSubiti(8) / $this->mdl_team->getPartiteGiocateTL(8));
-                                    $media9 = ( $this->mdl_team->getMediaGolSubiti(9) / $this->mdl_team->getPartiteGiocateTL(9));
-                                    $media10 = ( $this->mdl_team->getMediaGolSubiti(10) / $this->mdl_team->getPartiteGiocateTL(10));
+                                    $media1 = ( $this->mdl_team->getMediaGolSubitiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
+                                    $media2 = ( $this->mdl_team->getMediaGolSubitiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
+                                    $media3 = ( $this->mdl_team->getMediaGolSubitiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
+                                    $media4 = ( $this->mdl_team->getMediaGolSubitiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
+                                    $media5 = ( $this->mdl_team->getMediaGolSubitiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
+                                    $media6 = ( $this->mdl_team->getMediaGolSubitiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
+                                    $media7 = ( $this->mdl_team->getMediaGolSubitiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
+                                    $media8 = ( $this->mdl_team->getMediaGolSubitiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
+                                    $media9 = ( $this->mdl_team->getMediaGolSubitiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
+                                    $media10 = ( $this->mdl_team->getMediaGolSubitiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
 
                                     $medie_golsubiti = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -308,16 +310,16 @@
 
                                     <?php
                                     //Calcolo maggior mediaassist - DA MODIFICARE se più di 10 utenti
-                                    $media1 = ( $this->mdl_team->getMediaAssistFatti(1) / $this->mdl_team->getPartiteGiocateTL(1));
-                                    $media2 = ( $this->mdl_team->getMediaAssistFatti(2) / $this->mdl_team->getPartiteGiocateTL(2));
-                                    $media3 = ( $this->mdl_team->getMediaAssistFatti(3) / $this->mdl_team->getPartiteGiocateTL(3));
-                                    $media4 = ( $this->mdl_team->getMediaAssistFatti(4) / $this->mdl_team->getPartiteGiocateTL(4));
-                                    $media5 = ( $this->mdl_team->getMediaAssistFatti(5) / $this->mdl_team->getPartiteGiocateTL(5));
-                                    $media6 = ( $this->mdl_team->getMediaAssistFatti(6) / $this->mdl_team->getPartiteGiocateTL(6));
-                                    $media7 = ( $this->mdl_team->getMediaAssistFatti(7) / $this->mdl_team->getPartiteGiocateTL(7));
-                                    $media8 = ( $this->mdl_team->getMediaAssistFatti(8) / $this->mdl_team->getPartiteGiocateTL(8));
-                                    $media9 = ( $this->mdl_team->getMediaAssistFatti(9) / $this->mdl_team->getPartiteGiocateTL(9));
-                                    $media10 = ( $this->mdl_team->getMediaAssistFatti(10) / $this->mdl_team->getPartiteGiocateTL(10));
+                                    $media1 = ( $this->mdl_team->getMediaAssistFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
+                                    $media2 = ( $this->mdl_team->getMediaAssistFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
+                                    $media3 = ( $this->mdl_team->getMediaAssistFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
+                                    $media4 = ( $this->mdl_team->getMediaAssistFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
+                                    $media5 = ( $this->mdl_team->getMediaAssistFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
+                                    $media6 = ( $this->mdl_team->getMediaAssistFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
+                                    $media7 = ( $this->mdl_team->getMediaAssistFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
+                                    $media8 = ( $this->mdl_team->getMediaAssistFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
+                                    $media9 = ( $this->mdl_team->getMediaAssistFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
+                                    $media10 = ( $this->mdl_team->getMediaAssistFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
 
                                     $medie_assist = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -341,13 +343,14 @@
                                         <div class="team-stats__value"><?= number_format($topmediaassist, 2) ?></div>
                                         <div class="team-stats__label" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($utente_mediaassist) ?></div>
                                     </li>
+                                    
                                     <li class="team-stats__item team-stats__item--clean">
                                         <div class="team-stats__label">Numero Cartellini</div><br>
                                         <div class="team-stats__icon team-stats__icon--circle team-stats__icon--assists">
                                             <img src="<?= base_url('/') ?>assets/images/soccer/yellow-red_card.png" alt="" class="team-stats__icon-primary">
                                         </div>
                                         <?php
-                                        $partite_giocate = $this->mdl_team->getPartiteGiocateTL($topTeamFallosa[0]['id_utente']);
+                                        $partite_giocate = $this->mdl_team->getStatsPartiteGiocateCoppa($topTeamFallosa[0]['id_utente']);
                                         $pca = ($topTeamFallosa[0]['totale_cartellini'] / $partite_giocate);
                                         ?>
                                         <div class="team-stats__value"><?= number_format($pca, 2) ?></div>
@@ -461,10 +464,10 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td class="team-leader__goals"><?= $this->mdl_team->getGolCampionato($row['id_giocatore']) ?></td>
-                                                    <td class="team-leader__gp"><?= $this->mdl_team->getAssist($row['id_giocatore']) ?></td>
+                                                    <td class="team-leader__goals"><?= $this->mdl_team->getGolCoppa($row['id_giocatore']) ?></td>
+                                                    <td class="team-leader__gp"><?= $this->mdl_team->getAssistCoppa($row['id_giocatore']) ?></td>
                                                     <?php
-                                                    $partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                    $partite_schierato = $this->mdl_team->getPartite_schieratoCoppa($row['id_giocatore']);
                                                     $mpp = ($row['totale_bonus'] / $partite_schierato);
                                                     ?>
                                                     <td class="team-leader__avg">

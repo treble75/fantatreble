@@ -521,6 +521,29 @@ class Home extends CI_Controller {
         $data['active'] = 5;
         $this->show('home/statistiche_treble_league.php', $data);
     }
+    
+    public function statistiche_coppa() {
+        $this->load->model('mdl_team');
+        $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+        //Prendo le giornate giocate, quindi quella di sessione, meno 1 per avere l'ultima giocata
+        $data['giornata_media'] = ($_SESSION['giornata'] - 1);
+        
+        $data['topmediavoto'] = $this->mdl_team->getTopMediaVoto($data['giornata_media']);
+        $data['topmediafantavoto'] = $this->mdl_team->getTopMediaFantaVoto($data['giornata_media']);
+        $data['topplayer'] = $this->mdl_team->getTopPlayerCoppa();
+        $data['peggioriportieri'] = $this->mdl_team->getPeggioriPortieri();
+        $data['assistmen'] = $this->mdl_team->getAssistmen();
+        $data['fallosi'] = $this->mdl_team->getFallosi();
+        $data['bestmatch'] = $this->mdl_team->getBestMatchCoppa();
+        $data['rigori_sbagliati'] = $this->mdl_team->getTopRigoriSbagliati();
+        $data['rigori_parati'] = $this->mdl_team->getTopRigoriParati();
+        $data['topCoppa'] = $this->mdl_team->getTopCoppa();
+        $data['topTeamFallosa'] = $this->mdl_team->getSquadraFallosaCoppa();
+        $data['flopmediavoto'] = $this->mdl_team->getFlopMediaVoto($data['giornata_media']);
+        
+        $data['active'] = 5;
+        $this->show('home/statistiche_coppa.php', $data);
+    }
 
     public function premi() {
 
