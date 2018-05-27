@@ -442,7 +442,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__goals">Gol</th>
                                                 <th class="team-leader__gp">Ass</th>
                                                 <th class="team-leader__avg">MPP</th>
@@ -509,7 +509,8 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <!-- Anno DA MODIFICARE -->
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__gp">Assist</th>
                                                 <th class="team-leader__avg">MPP</th>
                                             </tr>
@@ -532,7 +533,7 @@
                                                     </td>
                                                     <td class="team-leader__gp"><?= $row['totale_assist'] ?></td>
                                                     <?php
-                                                    $partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                    $partite_schierato = $this->mdl_team->getPartite_schieratoCoppa($row['id_giocatore']);
                                                     $mpp = ($row['totale_assist'] / $partite_schierato);
                                                     ?>
                                                     <td class="team-leader__avg">
@@ -574,7 +575,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__goals"><img src="<?= base_url('/') ?>images/ammo.png"></th>
                                                 <th class="team-leader__gp"><img src="<?= base_url('/') ?>images/espu.png"></th>
                                                 <th class="team-leader__avg">MPP</th>
@@ -596,10 +597,10 @@
                                                             </div>
                                                         </div>
                                                     </td>
-                                                    <td class="team-leader__goals"><?= $this->mdl_team->getSommaAmmonizioniSchierato($row['id_giocatore']) ?></td>
-                                                    <td class="team-leader__gp"><?= $this->mdl_team->getSommaEspulsioniSchierato($row['id_giocatore']) ?></td>
+                                                    <td class="team-leader__goals"><?= $this->mdl_team->getSommaAmmonizioniSchieratoCoppa($row['id_giocatore']) ?></td>
+                                                    <td class="team-leader__gp"><?= $this->mdl_team->getSommaEspulsioniSchieratoCoppa($row['id_giocatore']) ?></td>
                                                     <?php
-                                                    $partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                    $partite_schierato = $this->mdl_team->getPartite_schieratoCoppa($row['id_giocatore']);
                                                     $mpp = ($row['totale_cartellini'] / $partite_schierato);
                                                     ?>
                                                     <td class="team-leader__avg">
@@ -646,7 +647,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MFV</th>
                                             </tr>
@@ -655,7 +656,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($topmediafantavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / 8;
 
                                                 //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
@@ -718,7 +719,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MFV</th>
                                             </tr>
@@ -727,7 +728,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($flopmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / 8;
 
                                                 //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
@@ -789,7 +790,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MV</th>
                                             </tr>
@@ -798,7 +799,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($topmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / 8;
 
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
                                                     ?>
@@ -866,7 +867,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__gp">Reti</th>
                                                 <th class="team-leader__avg">MPP</th>
                                             </tr>
@@ -889,7 +890,7 @@
                                                     </td>
                                                     <td class="team-leader__gp"><?= $row['totale_golsubiti'] ?></td>
                                                     <?php
-                                                    $partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                    $partite_schierato = $this->mdl_team->getPartite_schieratoCoppa($row['id_giocatore']);
                                                     $mpp = ($row['totale_golsubiti'] / $partite_schierato);
                                                     ?>
                                                     <td class="team-leader__avg">
@@ -931,7 +932,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__gp">Rigori Parati</th>
                                             </tr>
                                         </thead>
@@ -983,7 +984,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
                                                 <th class="team-leader__gp">Rigori Sbagliati</th>
                                             </tr>
                                         </thead>

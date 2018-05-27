@@ -62,6 +62,12 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
+    public function getFallosiCoppa() {
+        $query = $this->db->query('select *, sum( `ammonizioni`) + sum( `espulsioni`) AS totale_cartellini from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by totale_cartellini DESC limit 5');
+
+        return $query->result_array();
+    }
+    
     public function getSquadraFallosa() {
         $query = $this->db->query('select *, sum( `ammonizioni`) + sum( `espulsioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_utente order by totale_cartellini DESC limit 1');
 
@@ -87,13 +93,25 @@ class mdl_team extends CI_Model {
     }
 
     public function getAssistmen() {
-        $query = $this->db->query('select *, sum( `assist`) AS totale_assist from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_assist DESC limit 5');
+        $query = $this->db->query('select *, avg(fantavoto) AS fv, sum( `assist`) AS totale_assist from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_assist DESC, fv  DESC limit 5');
+
+        return $query->result_array();
+    }
+    
+    public function getAssistmenCoppa() {
+        $query = $this->db->query('select *, avg(fantavoto) AS fv, sum( `assist`) AS totale_assist from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by totale_assist DESC, fv  DESC limit 5');
 
         return $query->result_array();
     }
 
     public function getPeggioriPortieri() {
         $query = $this->db->query('select *, sum( `gol_subiti`) AS totale_golsubiti from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by totale_golsubiti DESC limit 5');
+
+        return $query->result_array();
+    }
+    
+    public function getPeggioriPortieriCoppa() {
+        $query = $this->db->query('select *, sum( `gol_subiti`) AS totale_golsubiti from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by totale_golsubiti DESC limit 5');
 
         return $query->result_array();
     }
@@ -104,8 +122,20 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
+    public function getTopRigoriSbagliatiCoppa() {
+        $query = $this->db->query('select *, sum( `rigore_sbagliato`) AS totale_rigsba from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and tb_giocatori.id_utente > 0 and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_utente order by totale_rigsba DESC limit 5');
+
+        return $query->result_array();
+    }
+    
     public function getTopRigoriParati() {
         $query = $this->db->query('select *, sum( `rigore_parato`) AS totale_rigpar from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_utente > 0 and schierato = 1 group by tb_giocatori.id_utente order by totale_rigpar DESC limit 5');
+
+        return $query->result_array();
+    }
+    
+    public function getTopRigoriParatiCoppa() {
+        $query = $this->db->query('select *, sum( `rigore_parato`) AS totale_rigpar from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and tb_giocatori.id_utente > 0 and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_utente order by totale_rigpar DESC limit 5');
 
         return $query->result_array();
     }
@@ -217,9 +247,21 @@ class mdl_team extends CI_Model {
 
         return $query->row('totale_cartellini');
     }
+    
+    public function getSommaAmmonizioniSchieratoCoppa($id_giocatore) {
+        $query = $this->db->query('select sum( `ammonizioni`) AS totale_cartellini from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and giornata in (4,7,10,11,15,20,26,31) and schierato = 1');
+
+        return $query->row('totale_cartellini');
+    }
 
     public function getSommaEspulsioniSchierato($id_giocatore) {
         $query = $this->db->query('select sum( `espulsioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and schierato = 1');
+
+        return $query->row('totale_cartellini');
+    }
+    
+    public function getSommaEspulsioniSchieratoCoppa($id_giocatore) {
+        $query = $this->db->query('select sum( `espulsioni`) AS totale_cartellini from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and tb_giocatori.id_giocatore = ' . $id_giocatore . ' and giornata in (4,7,10,11,15,20,26,31) and schierato = 1');
 
         return $query->row('totale_cartellini');
     }
@@ -855,14 +897,32 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
+    public function getTopMediaVotoCoppa($giornata) {
+        $query = $this->db->query('select *, avg( `voto`) AS media_voto, count(`schierato`) as presenze from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by media_voto DESC limit 20');
+
+        return $query->result_array();
+    }
+    
     public function getFlopMediaVoto($giornata) {
         $query = $this->db->query('select *, avg( `voto`) AS media_voto, count(`schierato`) as presenze from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by media_voto ASC limit 50');
 
         return $query->result_array();
     }
     
+    public function getFlopMediaVotoCoppa($giornata) {
+        $query = $this->db->query('select *, avg( `voto`) AS media_voto, count(`schierato`) as presenze from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by media_voto ASC limit 50');
+
+        return $query->result_array();
+    }
+    
     public function getTopMediaFantaVoto($giornata) {
         $query = $this->db->query('select *, avg( `fantavoto`) AS media_voto, count(`schierato`) as presenze from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 group by tb_giocatori.id_giocatore order by media_voto DESC limit 20');
+
+        return $query->result_array();
+    }
+    
+    public function getTopMediaFantaVotoCoppa($giornata) {
+        $query = $this->db->query('select *, avg( `fantavoto`) AS media_voto, count(`schierato`) as presenze from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by media_voto DESC limit 20');
 
         return $query->result_array();
     }
