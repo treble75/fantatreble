@@ -515,6 +515,8 @@ class Home extends CI_Controller {
         $data['rigori_sbagliati'] = $this->mdl_team->getTopRigoriSbagliati();
         $data['rigori_parati'] = $this->mdl_team->getTopRigoriParati();
         $data['topCampionato'] = $this->mdl_team->getTopCampionato();
+        $data['topTeamFallosa'] = $this->mdl_team->getSquadraFallosa();
+        $data['flopmediavoto'] = $this->mdl_team->getFlopMediaVoto($data['giornata_media']);
         
         $data['active'] = 5;
         $this->show('home/statistiche_treble_league.php', $data);
