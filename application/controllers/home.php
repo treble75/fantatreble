@@ -544,6 +544,29 @@ class Home extends CI_Controller {
         $data['active'] = 5;
         $this->show('home/statistiche_coppa.php', $data);
     }
+    
+    public function statistiche_champions() {
+        $this->load->model('mdl_team');
+        $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+        //Prendo le giornate giocate, quindi quella di sessione, meno 1 per avere l'ultima giocata
+        $data['giornata_media'] = ($_SESSION['giornata'] - 1);
+        
+        $data['topmediavoto'] = $this->mdl_team->getTopMediaVotoChampions($data['giornata_media']);
+        $data['topmediafantavoto'] = $this->mdl_team->getTopMediaFantaVotoChampions($data['giornata_media']);
+        $data['topplayer'] = $this->mdl_team->getTopPlayerChampions();
+        $data['peggioriportieri'] = $this->mdl_team->getPeggioriPortieriChampions();
+        $data['assistmen'] = $this->mdl_team->getAssistmenChampions();
+        $data['fallosi'] = $this->mdl_team->getFallosiChampions();
+        $data['bestmatch'] = $this->mdl_team->getBestMatchChampions();
+        $data['rigori_sbagliati'] = $this->mdl_team->getTopRigoriSbagliatiChampions();
+        $data['rigori_parati'] = $this->mdl_team->getTopRigoriParatiChampions();
+        $data['topChampions'] = $this->mdl_team->getTopChampions();
+        $data['topTeamFallosa'] = $this->mdl_team->getSquadraFallosaChampions();
+        $data['flopmediavoto'] = $this->mdl_team->getFlopMediaVotoChampions($data['giornata_media']);
+        
+        $data['active'] = 5;
+        $this->show('home/statistiche_champions.php', $data);
+    }
 
     public function premi() {
 
