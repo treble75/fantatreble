@@ -738,6 +738,7 @@ class Utente extends CI_Controller {
             $_SESSION['giornata'] = $this->mdl_team->getGiornataCoppa();
             $data['giornata'] = $_SESSION['giornata'];
 
+            $this->form_validation->set_rules('check_invio', 'check_invio', 'trim|required');
             $this->form_validation->set_rules('1T1', '1T1');
             $this->form_validation->set_rules('1T2', '1T2');
             $this->form_validation->set_rules('1T3', '1T3');
@@ -1370,12 +1371,13 @@ class Utente extends CI_Controller {
                         $this->mdl_team->addChkCoppa($this->input->post($txt));
                 }
 
-                $data = "";
+                $data = array();
                 //Vado avanti solo per realizzare i totali
                 $data['risultati_champions'] = $this->mdl_team->getCalendariogiornatachampions($_SESSION['giornata']);
                 $data['risultati_coppa'] = $this->mdl_team->getCalendariogiornatacoppa($_SESSION['giornata']);
                 $data['risultati_supercoppa'] = $this->mdl_team->getCalendariogiornatasupercoppa($_SESSION['giornata']);
                 $data['schierati'] = $this->mdl_team->getSchieratiCoppa();
+                $data['giornata'] = $_SESSION['giornata'];
                 $this->show('utenti/risultati_successCoppa', $data);
                 return;
             }
@@ -1397,6 +1399,7 @@ class Utente extends CI_Controller {
             $data['active'] = 1;
             $_SESSION['giornata'] = $this->mdl_team->getGiornataCoppa();
 
+            $this->form_validation->set_rules('check_invio', 'check_invio', 'trim|required');
             $this->form_validation->set_rules('totale0', 'Totale1');
             $this->form_validation->set_rules('totale1', 'Totale2');
             $this->form_validation->set_rules('totale2', 'Totale3');
@@ -1724,7 +1727,7 @@ class Utente extends CI_Controller {
                     'smtp_host' => 'mail.fantatreble.it',
                     'smtp_port' => 587,
                     'smtp_user' => 'formazioni@fantatreble.it',
-                    'smtp_pass' => '3ble160475',
+                    'smtp_pass' => 'nxnddiYoO2Pd',
                     'mailtype' => 'html'
                 );
 
@@ -2070,7 +2073,7 @@ class Utente extends CI_Controller {
                     'smtp_host' => 'mail.fantatreble.it',
                     'smtp_port' => 587,
                     'smtp_user' => 'formazioni@fantatreble.it',
-                    'smtp_pass' => '3ble160475',
+                    'smtp_pass' => 'nxnddiYoO2Pd',
                     'mailtype' => 'html'
                 );
 
@@ -3648,7 +3651,7 @@ class Utente extends CI_Controller {
                             'smtp_host' => 'mail.fantatreble.it',
                             'smtp_port' => 587,
                             'smtp_user' => 'formazioni@fantatreble.it',
-                            'smtp_pass' => '3ble160475',
+                            'smtp_pass' => 'nxnddiYoO2Pd',
                             'mailtype' => 'html'
                         );
                         $this->load->library('email', $config);

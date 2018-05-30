@@ -7,9 +7,23 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
+                        <?php
+                        if (count($risultati_supercoppa) < 1) {
+                            if (count($risultati_coppa) > 0 && count($risultati_champions) < 1)
+                                $competizione = "Coppa Treble";
+                            if (count($risultati_coppa) < 1 && count($risultati_champions) > 0)
+                                $competizione = "Champions League";
+                            if (count($risultati_coppa) < 1 && count($risultati_champions) < 1)
+                                $competizione = "";
+                            
+                            $checkCasa = " +2 in casa";
+                        } else
+                            $competizione = "SuperCoppa Treble";
+                        ?>
                         <h1 class="page-heading__title">Conferma <span class="highlight">Risultati</span></h1>
+                        <span class="highlight" style="color: #c2ff1f; font-size: 20px;"><?= $competizione ?></span>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Giornata n° <?= $_SESSION['giornata'] ?></li>
+                            <li>Giornata n° <?= $giornata ?></li>
                         </ol>
                     </div>
                 </div>
@@ -26,13 +40,18 @@
                 <!-- Team Roster: Table -->
                 <div class="card card--has-table">
                     <div class="card__header">
-                        <h4>Inserisci Risultati Treble League</h4>
+                        <h4>Inserisci Risultati di Coppa</h4>
                     </div>
                     <div class="card__content" style="overflow-x:auto;">
                         <div class="table-responsive" style="min-width:768px;">
 
                             <?php
-                            echo form_open_multipart('utente/risultati_success');
+                            if (count($risultati_supercoppa) < 1)
+                                $risultati = (count($risultati_coppa) > 0) ? $risultati_coppa : $risultati_champions;
+                            else
+                                $risultati = $risultati_supercoppa;
+                            
+                            echo form_open_multipart('utente/risultati_successCoppa');
 
                             foreach ($risultati as $row) {
                                 //Inizializzo variabili
@@ -69,14 +88,18 @@
                                                                 //Inizializzo variabili
                                                                 $chkMod = "";
                                                                 $chkid = "";
+                                                                
                                                                 //+2 per chi gioca in casa o 0 per campionato a 10
-                                                                $totaleA[$c] = 0;
+                                                                if ($competizione == "SuperCoppa Treble") {
+                                                                    $totaleA[$c] = 0;
+                                                                } else
+                                                                    $totaleA[$c] = 2;
 
                                                                 //Calcolo numeri difensori per Modificatore difesa
-                                                                @$num_difensori = $this->mdl_team->getNumeroDifensoriSchierati($row['id1'], $_SESSION['giornata']);
+                                                                @$num_difensori = $this->mdl_team->getNumeroDifensoriSchieratiCoppa($row['id1'], $_SESSION['giornata']);
 
                                                                 //Calcolo media voto difensori per Modificatore difesa
-                                                                @$media_difensori = $this->mdl_team->getMediaDifensoriSchierati($row['id1'], $_SESSION['giornata']);
+                                                                @$media_difensori = $this->mdl_team->getMediaDifensoriSchieratiCoppa($row['id1'], $_SESSION['giornata']);
 
                                                                 $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T1']);
                                                                 $role = "";
@@ -99,9 +122,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T1']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T1']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T1']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T1']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -139,9 +162,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T2']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T2']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T2']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T2']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -179,9 +202,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T3']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T3']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T3']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T3']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -219,9 +242,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T4']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T4']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T4']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T4']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -259,9 +282,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T5']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T5']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T5']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T5']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -299,9 +322,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T6']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T6']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T6']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T6']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -339,9 +362,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T7']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T7']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T7']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T7']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -379,9 +402,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T8']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T8']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T8']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T8']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -419,9 +442,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T9']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T9']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T9']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T9']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -459,9 +482,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T10']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T10']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T10']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T10']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -499,9 +522,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T11']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T11']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T11']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T11']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -545,9 +568,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P1']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P1']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P1']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P1']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -585,9 +608,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P2']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P2']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P2']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P2']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -625,9 +648,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P3']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P3']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P3']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P3']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -665,9 +688,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P4']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P4']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P4']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P4']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -705,9 +728,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P5']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P5']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P5']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P5']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -745,9 +768,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P6']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P6']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P6']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P6']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -785,9 +808,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P7']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P7']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P7']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P7']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -825,9 +848,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P8']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P8']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P8']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P8']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -865,9 +888,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P9']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P9']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P9']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P9']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -905,9 +928,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P10']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P10']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P10']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P10']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -945,9 +968,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P11']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P11']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P11']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P11']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -985,9 +1008,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P12']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P12']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P12']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P12']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -1025,9 +1048,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P13']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P13']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P13']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P13']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -1065,9 +1088,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P14']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P14']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P14']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P14']);
                                                                     if ($voto != "") {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
@@ -1145,9 +1168,9 @@
                                                             //Campo nascosto per la media difensori
                                                             echo "<input type='hidden' value='" . @$media . "' name='media_difensori" . $c . "' />";
                                                             ?>
-
+                                                            
                                                             <tr style="vertical-align: middle;">
-                                                                <th colspan="2" class="lineup__subheader">TOTALE PUNTI SQUADRA</th>
+                                                                <th colspan="2" class="lineup__subheader">TOTALE PUNTI SQUADRA <?= $checkCasa ?></th>
                                                                 <th colspan="2"class="lineup__subheader" style="text-align: center;"><?= $parzialeA ?> ( + <?= $bonusA ?> )</th>
                                                                 <th class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $totaleA ?></th>
                                                             </tr>
@@ -1224,9 +1247,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T1']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T1']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T1']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T1']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1264,9 +1287,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T2']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T2']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T2']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T2']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1304,9 +1327,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T3']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T3']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T3']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T3']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1344,9 +1367,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T4']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T4']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T4']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T4']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1384,9 +1407,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T5']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T5']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T5']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T5']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1424,9 +1447,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T6']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T6']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T6']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T6']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1464,9 +1487,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T7']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T7']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T7']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T7']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1504,9 +1527,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T8']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T8']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T8']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T8']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1544,9 +1567,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T9']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T9']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T9']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T9']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1584,9 +1607,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T10']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T10']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T10']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T10']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1624,9 +1647,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['T11']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['T11']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T11']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['T11']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1668,9 +1691,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P1']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P1']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P1']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P1']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1708,9 +1731,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P2']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P2']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P2']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P2']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1748,9 +1771,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P3']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P3']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P3']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P3']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1788,9 +1811,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P4']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P4']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P4']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P4']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1828,9 +1851,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P5']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P5']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P5']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P5']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1868,9 +1891,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P6']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P6']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P6']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P6']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1908,9 +1931,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P7']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P7']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P7']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P7']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1948,9 +1971,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P8']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P8']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P8']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P8']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -1988,9 +2011,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P9']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P9']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P9']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P9']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -2028,9 +2051,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P10']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P10']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P10']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P10']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -2068,9 +2091,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P11']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P11']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P11']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P11']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -2108,9 +2131,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P12']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P12']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P12']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P12']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -2148,9 +2171,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P13']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P13']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P13']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P13']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -2188,9 +2211,9 @@
                                                                     <td class="lineup__num" style="text-align: center;"><?= $this->mdl_team->getNomeRuolo($dettagli[0]['id_giocatore']) ?></td>
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
-                                                                    $v = $this->mdl_team->getVotoS($schierati[$c]['P14']);
+                                                                    $v = $this->mdl_team->getVotoSCoppa($schierati[$c]['P14']);
                                                                     $v = (is_Array($v) ? "" : $v);
-                                                                    $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P14']);
+                                                                    $voto = $this->mdl_team->getFantavotoSCoppa($schierati[$c]['P14']);
                                                                     if ($voto != "") {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
@@ -2293,7 +2316,7 @@
                             ?>
 
                             <div class="form-group--submit">
-                                <input type="submit" value="Chiudi Giornata Treble League" name="but_chiudigiornata" class="btn btn-default btn-lg btn-block">
+                                <input type="submit" value="Chiudi Giornata di Coppa" name="but_chiudigiornata" class="btn btn-default btn-lg btn-block">
                             </div>
 
                             </form>
