@@ -3489,8 +3489,8 @@ class Utente extends CI_Controller {
                 $blocco = mktime($bloccoO, $bloccoM, $bloccoS, $bloccom, $bloccod, $bloccoY);
 
                 if ($orario <= $blocco) {
-                    $this->form_validation->set_rules('cmbTattica', 'Tattica');
-                    $this->form_validation->set_rules('cmbCampionato', 'Campionato');
+                    $this->form_validation->set_rules('cmbTattica', 'Tattica', 'trim|required');
+                    $this->form_validation->set_rules('cmbCampionato', 'Campionato', 'trim|required');
                     $this->form_validation->set_rules('cmbPortieri', '1');
                     $this->form_validation->set_rules('cmbDifensori1', '2');
                     $this->form_validation->set_rules('cmbDifensori2', '3');
@@ -3758,7 +3758,7 @@ class Utente extends CI_Controller {
 
                         $this->email->send();
 
-                        $data['message'] = "<p style='color:green;'>Formazione per " . $selEmail . " inserita con successo !</p>";
+                        $data['success_message'] = "Formazione per " . $selEmail . " inserita con successo !";
 
                         $data['Selezione'] = $this->mdl_team->getModulo($_SESSION['id_utente']);
                         $data['Portieri'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], 1);
@@ -3788,7 +3788,7 @@ class Utente extends CI_Controller {
                 return;
             }
 
-            $this->form_validation->set_rules('cmbTattica', 'Tattica');
+            $this->form_validation->set_rules('cmbTattica', 'Tattica', 'trim|required');
             $this->form_validation->set_rules('cmbCampionato', 'Campionato');
 
             if ($this->form_validation->run()) {
