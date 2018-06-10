@@ -786,6 +786,7 @@
                                                     <li>Playoff rinnovati</li>
                                                     <li>Precedenti storici</li>
                                                     <li>Statistiche aggiornate in tempo reale</li>
+                                                    <li>Selezione automatica dei rigoristi</li>
                                                 </ul>
                                             </div>
                                             <div class="posts__more">

@@ -2357,6 +2357,14 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('fantavoto');
     }
+    
+    public function getCriterioSostituzione($id_criterio) {
+        $this->db->select('descrizione');
+        $this->db->where('id_criterio', $id_criterio);
+        $this->db->from('tb_criterio_sostituzioni');
+
+        return $this->db->get()->row('descrizione');
+    }
 
     public function getGiocatore($id_giocatore) {
         $this->db->select('*');
@@ -2436,6 +2444,10 @@ class mdl_team extends CI_Model {
         $this->db->insert('tb_formazionit_coppa', array('id_utente' => $id_utente, 'id_giocatore' => $id_giocatore, 'ruolo' => $ruolo));
     }
 
+    public function insertCriteriSostituzione($id_utente, $giornata, $criterio, $competizione) {
+        $this->db->insert('tb_criterio_squadre_sostituzioni', array('id_utente' => $id_utente, 'metodo' => $criterio, 'giornata' => $giornata, 'competizione' => $competizione));
+    }
+    
     public function insertModuloTattico($id_utente, $giornata, $modulo) {
         $this->db->insert('tb_tattica_campionato', array('id_utente' => $id_utente, 'tattica' => $modulo, 'giornata' => $giornata));
     }
@@ -2444,6 +2456,13 @@ class mdl_team extends CI_Model {
         $this->db->where('id_utente', $id_utente);
         $this->db->where('giornata', $giornata);
         $this->db->delete('tb_tattica_campionato');
+    }
+    
+    public function deleteCriteriSostituzione($id_utente, $giornata, $competizione) {
+        $this->db->where('id_utente', $id_utente);
+        $this->db->where('giornata', $giornata);
+        $this->db->where('competizione', $competizione);
+        $this->db->delete('tb_criterio_squadre_sostituzioni');
     }
 
     public function insertFormazioneP($dataP) {

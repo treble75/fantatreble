@@ -3491,6 +3491,7 @@ class Utente extends CI_Controller {
                 if ($orario <= $blocco) {
                     $this->form_validation->set_rules('cmbTattica', 'Tattica', 'trim|required');
                     $this->form_validation->set_rules('cmbCampionato', 'Campionato', 'trim|required');
+                    $this->form_validation->set_rules('cmbCriterioSostituzione', 'Criterio Sostituzione', 'trim|required');
                     $this->form_validation->set_rules('cmbPortieri', '1');
                     $this->form_validation->set_rules('cmbDifensori1', '2');
                     $this->form_validation->set_rules('cmbDifensori2', '3');
@@ -3601,9 +3602,36 @@ class Utente extends CI_Controller {
                             //Prima cancello quello precedente
                             $this->mdl_team->deleteModuloTattico($_SESSION['id_utente'], $_SESSION['giornata']);
                             $this->mdl_team->insertModuloTattico($_SESSION['id_utente'], $_SESSION['giornata'], $modulo);
+                            
+                            //Inserisco criterio di sostituzione per le competizioni.
+                            $criterio_sostituzione = $this->input->post('cmbCriterioSostituzione');
+                            
+                            //Prima cancello quelli precedenti
+                            if ($this->input->post('cmbCampionato') == 1 || $this->input->post('cmbCampionato') == 3) {
+                                $this->mdl_team->deleteCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], "coppa");
+                                $this->mdl_team->insertCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], $criterio_sostituzione, "coppa");
+                            }
+                            if ($this->input->post('cmbCampionato') == 1 || $this->input->post('cmbCampionato') == 2) {
+                                $this->mdl_team->deleteCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], "campionato");
+                                $this->mdl_team->insertCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], $criterio_sostituzione, "campionato");
+                            }
                         }
 
                         if ($this->input->post('cmbCampionato') == 1 || $this->input->post('cmbCampionato') == 3) {
+                            
+                            //Inserisco criterio di sostituzione per le competizioni.
+                            $criterio_sostituzione = $this->input->post('cmbCriterioSostituzione');
+                            
+                            //Prima cancello quelli precedenti
+                            if ($this->input->post('cmbCampionato') == 1 || $this->input->post('cmbCampionato') == 3) {
+                                $this->mdl_team->deleteCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], "coppa");
+                                $this->mdl_team->insertCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], $criterio_sostituzione, "coppa");
+                            }
+                            if ($this->input->post('cmbCampionato') == 1 || $this->input->post('cmbCampionato') == 2) {
+                                $this->mdl_team->deleteCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], "campionato");
+                                $this->mdl_team->insertCriteriSostituzione($_SESSION['id_utente'], $_SESSION['giornata'], $criterio_sostituzione, "campionato");
+                            }
+                            
                             //Cancello vecchia formazione Coppa e imposto la nuova
                             $this->mdl_team->delFormazioneTCoppa($_SESSION['id_utente']);
                             $this->mdl_team->delFormazionePCoppa($_SESSION['id_utente']);
@@ -3660,6 +3688,7 @@ class Utente extends CI_Controller {
                         //Invio la mail all'utente
                         $message = "<u>Formazione " . $this->mdl_utenti->getSquadra($_SESSION['id_utente']) . " inviata da " . $_SESSION['utente'] . "</u><br><br>";
                         $message .= "<u>FORMAZIONE TITOLARE SCHIERATA PER " . $selCampionato . "</u><br><br>";
+                        $message .= "Criterio di sostituzione : <b>" . $this->mdl_team->getCriterioSostituzione($criterio_sostituzione) . "</b><br><br>";
                         $playerP = $this->mdl_team->getGiocatore($this->input->post('cmbPortieri'));
                         $message .= "<u>Portiere</u><br>";
                         $message .= $playerP[0]['cognome'] . " " . $playerP[0]['nome'] . "<br><br>";

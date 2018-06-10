@@ -233,10 +233,6 @@
                                 }
                                 ?>
 
-                                <header class="product-tabs__header">
-                                    <h2>Impostazioni</h2>
-                                </header>
-
                                 <!-- Reviews Form -->
                                 <!-- <form action="#" class="reviews-form"> -->
                                 <?php
