@@ -2365,6 +2365,18 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('descrizione');
     }
+    
+    public function getCriterioSquadra($id_utente, $giornata, $competizione) {
+        $this->db->select('metodo');
+        $this->db->where('id_utente', $id_utente);
+        $this->db->where('giornata', $giornata);
+        $this->db->where('competizione', $competizione);
+        $this->db->from('tb_criterio_squadre_sostituzioni');
+        
+        $criterio = $this->getCriterioSostituzione($this->db->get()->row('metodo'));
+
+        return $criterio;
+    }
 
     public function getGiocatore($id_giocatore) {
         $this->db->select('*');

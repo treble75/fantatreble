@@ -700,6 +700,12 @@
                                                     <!-- Modificatore Difesa squadra in casa / END -->
 
                                                     <tr style="vertical-align: middle;">
+                                                        <th colspan="2" class="lineup__subheader">Criterio sostituzione</th>
+                                                        <th class="lineup__subheader" style="text-align: center;">&nbsp;</th>
+                                                        <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED;"><?= $this->mdl_team->getCriterioSquadra($row['id1'], $giornata, "coppa") ?></th>
+                                                    </tr>
+                                                    
+                                                    <tr style="vertical-align: middle;">
                                                         <th colspan="2" class="lineup__subheader">Totale Parziale</th>
                                                         <th class="lineup__subheader" style="text-align: center;">&nbsp;</th>
                                                         <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $totaleA ?></th>
@@ -1345,12 +1351,18 @@
                                                             </tr>
 
                                                         <!-- Modificatore Difesa squadra in trasferta / END --> 
-                                                               
+                                           
                                                         <tr style="vertical-align: middle;">
-                                                        <th colspan="2" class="lineup__subheader">Totale Parziale</th>
-                                                        <th class="lineup__subheader" style="text-align: center;">&nbsp;</th>
-                                                        <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $totaleB ?></th>
-                                                    </tr>
+                                                            <th colspan="2" class="lineup__subheader">Criterio sostituzione</th>
+                                                            <th class="lineup__subheader" style="text-align: center;">&nbsp;</th>
+                                                            <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED;"><?= $this->mdl_team->getCriterioSquadra($row['id2'], $giornata, "coppa") ?></th>
+                                                        </tr>
+                                                        
+                                                        <tr style="vertical-align: middle;">
+                                                            <th colspan="2" class="lineup__subheader">Totale Parziale</th>
+                                                            <th class="lineup__subheader" style="text-align: center;">&nbsp;</th>
+                                                            <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $totaleB ?></th>
+                                                        </tr>
 
                                                     </tbody>
                                                 </table>

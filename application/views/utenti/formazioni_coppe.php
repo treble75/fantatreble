@@ -605,8 +605,13 @@
                                                     ?>
                                                         
                                                     <tr>
+                                                        <th colspan="2" class="lineup__subheader">Criterio di Sostituzione</th>
+                                                        <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED;"><?= $this->mdl_team->getCriterioSquadra($row['id1'], $giornata, "coppa") ?></th>
+                                                    </tr>  
+
+                                                    <tr>
                                                         <th colspan="2" class="lineup__subheader">Totale Parziale ( <?=$txt?> )</th>
-                                                        <th colspan="2" class="lineup__subheader" style="text-align:center"><?= $totaleA ?></th>
+                                                        <th colspan="2" class="lineup__subheader" style="text-align:center; color: #1892ED;"><?= $totaleA ?></th>
                                                     </tr>
 
                                                     </tbody>
@@ -1130,9 +1135,15 @@
                                                             }
                                                         }
                                                         ?>
+                                                                
+                                                        <tr>
+                                                            <th colspan="2" class="lineup__subheader">Criterio di Sostituzione</th>
+                                                            <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED;"><?= $this->mdl_team->getCriterioSquadra($row['id2'], $giornata, "coppa") ?></th>
+                                                        </tr>         
+                                                                
                                                         <tr>
                                                             <th colspan="2" class="lineup__subheader">Totale Parziale</th>
-                                                            <th colspan="2" class="lineup__subheader" style="text-align: center"><?= $totaleB ?></th>
+                                                            <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED;"><?= $totaleB ?></th>
                                                         </tr>
 
                                                     </tbody>
