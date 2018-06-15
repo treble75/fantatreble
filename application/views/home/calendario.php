@@ -20,12 +20,12 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/campionato" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
                     <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/calendario" class="content-filter__link"><small>Treble League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Treble League</small>Gallery</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti" class="content-filter__link"><small>Treble League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
         </nav>
@@ -41,45 +41,6 @@
                 <div class="card card--has-table">
                     <div class="card__header card__header--has-btn">
                         <h4>Calendario 2017/18</h4>
-                        <!-- Result Filter -->
-                        <ul class="team-result-filter">
-                            <!-- Selettore stagione Treble League 
-                            <li class="team-result-filter__item">
-                              <select class="form-control input-xs">
-                                <option>Treble League 2016</option>
-                                <option>Treble League 2015</option>
-                                <option>Treble League 2014</option>
-                              </select>
-                            </li>
-                            ---->
-                            <li class="team-result-filter__item">
-                                <select class="form-control input-xs">
-                                    <option>Giornata</option>
-                                    <option>December 2016</option>
-                                    <option>November 2016</option>
-                                    <option>October 2016</option>
-                                    <option>September 2016</option>
-                                    <option>August 2016</option>
-                                    <option>July 2016</option>
-                                    <option>June 2016</option>
-                                    <option>May 2016</option>
-                                    <option>April 2016</option>
-                                    <option>March 2016</option>
-                                    <option>February 2016</option>
-                                    <option>January 2016</option>
-                                </select>
-                            </li>
-                            <li class="team-result-filter__item">
-                                <select class="form-control input-xs">
-                                    <option>Ascending</option>
-                                    <option>Descending</option>
-                                </select>
-                            </li>
-                            <li class="team-result-filter__item">
-                                <button type="submit" class="btn btn-default btn-outline btn-xs card-header__button">Filter Latest Results</button>
-                            </li>
-                        </ul>
-                        <!-- Result Filter / End -->
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">

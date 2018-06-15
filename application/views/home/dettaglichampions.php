@@ -1717,11 +1717,17 @@
                                                         <tr style="vertical-align: middle;">
                                                             <th colspan="2" class="lineup__subheader">Modificatore Difesa</th>
                                                             <th class="lineup__subheader" style="text-align: center">
-                                                    <figure>
-                                                        <?= $abilitazione ?>
-                                                    </figure>
-                                                    </th>
-                                                    <th colspan="2" class="lineup__subheader" style="text-align: center"><?= $media_difensori . " / " . $media . " -> + " . $row['bonus_modificatore1'] ?></th>
+                                                            <figure>
+                                                                <?= $abilitazione ?>
+                                                            </figure>
+                                                            </th>
+                                                            <th colspan="2" class="lineup__subheader" style="text-align: center"><?= $media_difensori . " / " . $media . " -> + " . $row['bonus_modificatore1'] ?></th>
+                                                        </tr>
+                                                    
+                                                    <tr style="vertical-align: middle;">
+                                                        <th colspan="2" class="lineup__subheader">Criterio di Sostituzione</th>
+                                                        <th class="lineup__subheader" style="text-align: center">&nbsp;</th>
+                                                        <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $this->mdl_team->getCriterioSquadra($row['id1'], $giornata, "coppa")?></th>
                                                     </tr>
 
                                                     <tr style="vertical-align: middle;">
@@ -3397,6 +3403,12 @@
                                                             <th colspan="2" class="lineup__subheader">Modificatore Difesa</th>
                                                             <th class="lineup__subheader" style="text-align: center"><?= $abilitazione ?></th>
                                                             <th colspan="2" class="lineup__subheader" style="text-align: center"><?= $media_difensori . " / " . $media . " -> + " . $row['bonus_modificatore2'] ?></th>
+                                                        </tr>
+                                                        
+                                                        <tr style="vertical-align: middle;">
+                                                            <th colspan="2" class="lineup__subheader">Criterio di Sostituzione</th>
+                                                            <th class="lineup__subheader" style="text-align: center">&nbsp;</th>
+                                                            <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $this->mdl_team->getCriterioSquadra($row['id2'], $giornata, "coppa")?></th>
                                                         </tr>
 
                                                         <tr style="vertical-align: middle;">

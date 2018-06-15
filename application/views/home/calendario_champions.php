@@ -2,13 +2,13 @@
 
         <!-- Page Heading
         ================================================== -->
-        <div class="page-heading">
+        <div class="page-heading page-heading-champions-calendario">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Champions</span> League</h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Detentore: Frank One</li>
+                            <li>&nbsp;</li>
                         </ol>
                     </div>
                 </div>

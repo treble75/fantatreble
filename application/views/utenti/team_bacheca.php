@@ -223,15 +223,19 @@
                                             
                                             switch ($row['tipologia']) {
                                                 case ($row['tipologia'] == "acquisto"):
-                                                    $type = 'join';
+                                                    $type = 'acquisto';
                                                     $text_news = "Acquistato <strong><span style='color: #1892ED; font-size: 12px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span></strong> per " . $row['costo'] . " FantaMilioni";
                                                     break;
                                                 case ($row['tipologia'] == "vendita");
-                                                    $type = 'exit';
+                                                    $type = 'vendita';
                                                     $text_news = "Venduto <strong><span style='color: #1892ED; font-size: 12px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span></strong> per " . $row['costo'] . " FantaMilioni";
                                                     break;
                                                 case ($row['tipologia'] == "infortunio");
-                                                    $type = 'injury';
+                                                    $type = 'infortunato';
+                                                    $text_news = "<strong><span style='color: #1892ED; font-size: 12px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span></strong> " . $row['testo_news'];
+                                                    break;
+                                                case ($row['tipologia'] == "cessione");
+                                                    $type = 'cessione';
                                                     $text_news = "<strong><span style='color: #1892ED; font-size: 12px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span></strong> " . $row['testo_news'];
                                                     break;
                                             }

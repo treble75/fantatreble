@@ -8,9 +8,6 @@
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <h1 class="page-heading__title">Coppa <span class="highlight">Treble</span></h1>
-            <ol class="page-heading__breadcrumb breadcrumb">
-              <li>Detentore: All Blacks</li>
-            </ol>
           </div>
         </div>
       </div>

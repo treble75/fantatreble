@@ -168,11 +168,24 @@
                             <div class="spacer"></div>
 
                             <h4>Sostituzioni</h4>
-                            Potranno essere effettuate <u>massimo 3 sostituzioni</u>, in caso di numero superiore di giocatori da sostituire, verranno cambiati prima i portieri, poi i difensori, i centrocampisti ed infine gli attaccanti, in ordine di schieramento. <br />
+                            Potranno essere effettuate <u>massimo 3 sostituzioni</u>, in caso di numero superiore di giocatori da sostituire, verranno effettuati i cambi in base al criterio di sostituzione scelto. <br />
                             A partire dalla Stagione 2017/18 tutti i giocatori NON titolari sono disponibili in panchina per una eventuale sostituzione.<br>
-                            Ad esclusione dei 2 portieri (che potranno subentrare solo al portiere titolare), dovranno essere selezionati i giocatori degli altri ruoli, NELL'ORDINE IN CUI DOVRANNO ESSERE UTILIZZATI IN CASO DI SUBENTRO PER UNA SOSTITUZIONE.<br>
+                            Ad esclusione dei 2 portieri (che potranno subentrare solo al portiere titolare), dovranno essere selezionati i giocatori degli altri ruoli, NELL'ORDINE IN CUI DOVRANNO ESSERE UTILIZZATI IN CASO DI SUBENTRO PER UNA SOSTITUZIONE relativamente al criterio selezionato.<br>
                             I giocatori presenti in panchina verranno quindi selezionati per la sostituzione nell'ordine in cui sono stati disposti dall'utente, a patto che venga SEMPRE rispettato un modulo tattico tra quelli disponibili.<br>
-                            Nel caso in cui un panchinaro non soddisfi un modulo tattico abilitato, verrà selezionato il giocatore successivo, finchè le sostituzioni non siano state eseguite tutte (per un massimo di 3).<br><br>
+                            Nel caso in cui un panchinaro non soddisfi un modulo tattico abilitato, verrà selezionato il giocatore successivo, finchè le sostituzioni non siano state eseguite tutte (per un massimo di 3).<br>
+                            I criteri di sostituzione disponibili sono : <br><br>
+                            <ul class="list">
+                                <li><span style="color: #1892ED">Ordine Panchina</span></li>
+                                <li><span style="color: #1892ED">P-D-C-A</span></li>
+                                <li><span style="color: #1892ED">A-C-D-P</span></li>
+                            </ul>
+                            
+                            <u>Ordine Panchina</u> : Verranno selezionate le sostituzioni nell'ordine preciso in cui sono stati disposti i giocatori in panchina (ad eccezione dei 2 portieri che possono sostituire solo il portiere titolare), senza criteri di medesimo ruolo, a patto che venga rispettato uno dei moduli tattici a disposizione.<br><br>
+                            <u>P-D-C-A</u> : Le sostituzioni verranno effettuate rispettando il ruolo del giocatore uscente, nell'ordine in cui sono stati disposti i giocatori in panchina, a patto che venga rispettato uno dei moduli tattici a disposizione. Le sostituzioni daranno precedenza al portiere, quindi ai difensori, poi i centrocampisti ed infine gli attaccanti.<br> 
+                            In caso, quindi, di numero di sostituzioni superiore a 3, verranno penalizzati maggiormente gli attaccanti.<br><br>
+                            <u>A-C-D-P</u> : Le sostituzioni verranno effettuate rispettando il ruolo del giocatore uscente, nell'ordine in cui sono stati disposti i giocatori in panchina, a patto che venga rispettato uno dei moduli tattici a disposizione. Le sostituzioni daranno precedenza agli attaccanti, quindi ai centrocampisti, poi i difensori ed infine i portieri.<br>
+                            In caso, quindi, di numero di sostituzioni superiore a 3, verranno penalizzati maggiormente i portieri.<br><br>
+                            
                             <span style="color: #1892ED"><u><b>GIOCATORI SENZA VOTO</b></u></span><br>
                             I calciatori titolari che abbiano ottenuto un voto pari a S.V., cio&eacute; Senza Voto, anche se scesi in campo, verranno sostituiti da un giocatore in panchina secondo l'ordine stabilito dall'utente, a patto che venga rispettato uno dei moduli tattici a disposizione.<br />
                             Nel caso in cui non ci siano giocatori disponibili alla sostituzione, al portiere (che ha ricevuto S.V. anche se sceso in campo) viene assegnato 3 d'ufficio, per gli altri ruoli viene assegnato 4, a patto che il numero di sostituzioni totali sia al massimo 3 (attribuire 3 o 4 ad un giocatore S.V. comporta di fatto 1 sostituzione).<br>

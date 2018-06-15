@@ -2724,7 +2724,7 @@ select.form-control {
 }
 
 select.Portieri {
-  background-color: rgba(249,52,105,.5) !important;
+  background-color: rgba(128,128,128,.5) !important;
   color: #fff !important;
   height: 30px !important;
   padding-top: 0px !important;
@@ -2732,7 +2732,7 @@ select.Portieri {
 }
 
 select.Difensori {
-  background-color: rgba(252,116,34,.5) !important;
+  background-color: rgba(20,134,244,.5) !important;
   color: #fff !important;
   height: 30px !important;
   padding-top: 0px !important;
@@ -2740,7 +2740,7 @@ select.Difensori {
 }
 
 select.Centrocampisti {
-  background-color: rgba(20,134,244,.5) !important;
+  background-color: rgba(249,52,105,.5) !important;
   color: #fff !important;
   height: 30px !important;
   padding-top: 0px !important;
@@ -7648,6 +7648,26 @@ input.header-mobile__search-control:focus {
   text-align: center;
   padding: 50px 0;
   position: relative;
+}
+
+.page-heading-champions {
+  background-image: url("../images/soccer/sfondo_champions.jpg") !important;
+}
+
+.page-heading-coppa-calendario {
+  background-image: url("../images/soccer/sfondo_coppa_calendario.jpg") !important;
+}
+
+.page-heading-champions-calendario {
+  background-image: url("../images/soccer/sfondo_champions_calendario.jpg") !important;
+}
+
+.page-heading-champions-statistiche {
+  background-image: url("../images/soccer/sfondo_champions_statistiche.jpg") !important;
+}
+
+.page-heading-prepartita {
+  background-image: url("../images/soccer/sfondo_prepartita.jpg") !important;
 }
 
 @media (min-width: 992px) {
@@ -14102,6 +14122,34 @@ ul.posts:not(.post-grid) {
   background-size: 18px 19px;
   width: 18px;
   height: 19px;
+}
+
+.newslog__item--vendita .newslog__item-inner::before {
+  background-image: url("../images/soccer/vendita.png");
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.newslog__item--infortunato .newslog__item-inner::before {
+  background-image: url("../images/soccer/infortunato.png");
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.newslog__item--acquisto .newslog__item-inner::before {
+  background-image: url("../images/soccer/acquisto.png");
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.newslog__item--cessione .newslog__item-inner::before {
+  background-image: url("../images/soccer/cessione.png");
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .newslog__item-inner {

@@ -104,6 +104,7 @@
                                             <label for="account-email">Seleziona Tipologia</label>
                                             <select name="cmbNews" id="account-city" class="form-control">
                                                 <option value="infortunio">Infortunio</option>
+                                                <option value="cessione">Cessione</option>
                                             </select>
                                     </div>
                                 </div>
