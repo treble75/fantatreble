@@ -8304,6 +8304,11 @@ ul.posts:not(.post-grid) {
   background-color: #9fe900;
 }
 
+.posts__item--category-4 .posts__cat-label,
+.posts__item--category-4 .posts__cta {
+  background-color: #f80606;
+}
+
 .posts__thumb {
   float: left;
   margin: 0 10px 0 0;
