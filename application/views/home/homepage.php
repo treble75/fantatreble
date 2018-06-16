@@ -493,7 +493,7 @@
                                                         <h3 class="match-preview__title match-preview__title--lg"><?= $chk ?></h3>
                                                     <?php
                                                     } else { ?>
-                                                        <span class="label posts__cat-label">Stagione Terminata</span>
+                                                        <span class="label posts__cat-label">Da Definire</span>
                                                         <div class="spacer"></div>
                                                     <?php 
                                                     }
@@ -547,10 +547,10 @@
                                                 <div class="match-preview__action match-preview__action--ticket">
                                                     <a href="<?= base_url('/') ?>index.php/home/<?= $gara ?>" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
                                                 </div>
-                                            <?php
-                                            }
-                                            ?>  
-                                        </div>
+                                                <?php
+                                                }
+                                                ?>  
+                                            </div>
                                         <!--  Match Clou   / End -->
 
                                     </div>

@@ -150,8 +150,8 @@
                                                             if ($_SESSION['username'] == "treble") {
                                                                 ?>
                                                                 <footer class="product__footer">
-                                                                    <a href='<?= base_url('/') . "index.php/utente/closeofferta/" . $row['id_offerta'] ?>' class="btn btn-primary-inverse btn-icon product__add-to-cart"><i class="icon-bag"></i> Chiudi offerta</a>
-                                                                    <a href='<?= base_url('/') . "index.php/utente/delofferta/" . $row['id_offerta'] ?>' class="btn btn-default btn-single-icon product__wish"><i class="icon-eye"></i></a>
+                                                                    <a href='<?= base_url('/') . "index.php/utente/closeofferta/" . $row['id_offerta'] ?>' class="btn btn-primary-inverse btn-icon product__add-to-cart"></i> Chiudi offerta</a>
+                                                                    <a href='<?= base_url('/') . "index.php/utente/delofferta/" . $row['id_offerta'] ?>' class="btn btn-default btn-icon"></i> Cancella offerta</a>
                                                                 </footer>
                                                                 <?php
                                                             }
