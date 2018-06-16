@@ -223,6 +223,31 @@ class mdl_utenti extends CI_Model {
         return $query->result_array();
     }
     
+    public function getNews() {
+        $this->db->order_by('data', 'desc');
+        $this->db->limit(5);
+        $query = $this->db->get("tb_news");
+        return $query->result_array();
+    }
+    
+    public function getNewsInfortuni() {
+        $this->db->where('tipologia', 'infortunio');
+        $this->db->order_by('data', 'desc');
+        $this->db->limit(5);
+        $query = $this->db->get("tb_news");
+        return $query->result_array();
+    }
+    
+    public function getNewsTrasferimenti() {
+        $this->db->where('tipologia', 'vendita');
+        $this->db->or_where('tipologia', 'acquisto');
+        $this->db->or_where('tipologia', 'cessione');
+        $this->db->order_by('data', 'desc');
+        $this->db->limit(5);
+        $query = $this->db->get("tb_news");
+        return $query->result_array();
+    }
+    
     public function getNewsDesktop($competizione) {
         $this->db->where('tipologia', $competizione);
         $query = $this->db->get("tb_news_desktop");

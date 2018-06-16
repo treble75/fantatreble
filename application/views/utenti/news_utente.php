@@ -129,7 +129,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="account-first-name">Testo News</label>
-                                            <input type="text" class="form-control" value="" name="testo_news" id="account-first-name" maxlength="80" placeholder="Max 80 caratteri" >
+                                            <input type="text" class="form-control" value="" name="testo_news" id="account-first-name" maxlength="256" placeholder="Max 256 caratteri" >
                                         </div>
                                     </div>
                                 </div>

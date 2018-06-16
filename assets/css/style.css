@@ -7658,6 +7658,10 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_coppa_calendario.jpg") !important;
 }
 
+.page-heading-coppa {
+  background-image: url("../images/soccer/sfondo_coppa.jpg") !important;
+}
+
 .page-heading-champions-calendario {
   background-image: url("../images/soccer/sfondo_champions_calendario.jpg") !important;
 }

@@ -800,85 +800,6 @@
                         </div>
                         <!-- Main News Banner / End -->
 
-                        <!-- Lates News -->
-                        <div class="card card--clean">
-                            <header class="card__header card__header--has-btn">
-                                <h4>Latest News</h4>
-                                <a href="#" class="btn btn-default btn-outline btn-xs card-header__button">See All Posts</a>
-                            </header>
-
-                            <div class="card__content">
-
-                                <!-- Post Area 4 -->
-                                <div class="posts posts--cards post-grid row">
-
-                                    <div class="post-grid__item col-sm-6">
-                                        <div class="posts__item posts__item--card posts__item--category-2 card">
-                                            <figure class="posts__thumb">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label">Injuries</span>
-                                                </div>
-                                                <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img1.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner card__content">
-                                                <a href="#" class="posts__cta"></a>
-                                                <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                <h6 class="posts__title"><a href="#">Franklin Stevens has a knee fracture and is gonna be out</a></h6>
-                                            </div>
-                                            <footer class="posts__footer card__footer">
-                                                <div class="post-author">
-                                                    <figure class="post-author__avatar">
-                                                        <img src="<?= base_url('/') ?>assets/images/samples/avatar-1.jpg" alt="Post Author Avatar">
-                                                    </figure>
-                                                    <div class="post-author__info">
-                                                        <h4 class="post-author__name">James Spiegel</h4>
-                                                    </div>
-                                                </div>
-                                                <ul class="post__meta meta">
-                                                    <li class="meta__item meta__item--views">2369</li>
-                                                    <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> 530</a></li>
-                                                    <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                                </ul>
-                                            </footer>
-                                        </div>
-                                    </div>
-
-                                    <div class="post-grid__item col-sm-6">
-                                        <div class="posts__item posts__item--card posts__item--category-1 card">
-                                            <figure class="posts__thumb">
-                                                <div class="posts__cat">
-                                                    <span class="label posts__cat-label">The Team</span>
-                                                </div>
-                                                <a href="#"><img src="<?= base_url('/') ?>assets/images/soccer/samples/_soccer_post-img4.jpg" alt=""></a>
-                                            </figure>
-                                            <div class="posts__inner card__content">
-                                                <a href="#" class="posts__cta"></a>
-                                                <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                <h6 class="posts__title"><a href="#">Jay Rorks is only 24 points away from breaking the record</a></h6>
-                                            </div>
-                                            <footer class="posts__footer card__footer">
-                                                <div class="post-author">
-                                                    <figure class="post-author__avatar">
-                                                        <img src="<?= base_url('/') ?>assets/images/samples/avatar-2.jpg" alt="Post Author Avatar">
-                                                    </figure>
-                                                    <div class="post-author__info">
-                                                        <h4 class="post-author__name">Jessica Hoops</h4>
-                                                    </div>
-                                                </div>
-                                                <ul class="post__meta meta">
-                                                    <li class="meta__item meta__item--views">2369</li>
-                                                    <li class="meta__item meta__item--likes"><a href="#"><i class="meta-like icon-heart"></i> 530</a></li>
-                                                    <li class="meta__item meta__item--comments"><a href="#">18</a></li>
-                                                </ul>
-                                            </footer>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!-- Post Area 4 / End -->
-                            </div>
-                        </div>
-                        <!-- Lates News / End -->
 
                     </div>
                     <!-- Content / End -->
@@ -1123,124 +1044,166 @@
                                         <!-- Newest -->
                                         <div role="tabpanel" class="tab-pane fade in active" id="widget-tabbed-sm-newest">
                                             <ul class="posts posts--simple-list">
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
+                                                
+                                                <?php
+                                                foreach ($newsAll as $row) { 
+                                                    if ($row['tipologia'] == "vendita" || $row['tipologia'] == "acquisto") {
+                                                        if ($row['tipologia'] == "vendita") {
+                                                            $type = "venduto";
+                                                        }
+                                                        if ($row['tipologia'] == "acquisto") {
+                                                            $type = "acquistato";
+                                                        }
+                                                        $category = 1;
+                                                        $label = "Trasferimenti";
+                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per una cifra di <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
+                                                    }
+                                                    if ($row['tipologia'] == "infortunio") {
+                                                        $category = 2;
+                                                        $label = "Infortunio";
+                                                        $testo_news = $row['testo_news'];
+                                                    }
+                                                    if ($row['tipologia'] == "cessione") {
+                                                        $category = 3;
+                                                        $label = "Cessione";
+                                                        $testo_news = $row['testo_news'];
+                                                    }
+                                                    
+                                                    if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
+                                                        $filename = $row['id_giocatore'] . ".png";
+                                                    } else
+                                                        $filename = "dummy.png";
+                                                    ?>
+                                                    <li class="posts__item posts__item--category-<?= $category ?>">
+                                                        <div class="posts__inner">
+                                                            <div class="posts__cat">
+                                                                <span class="label posts__cat-label"><?= $label ?></span>
+                                                            </div>
+                                                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" >
+                                                            </figure><br><br>
+                                                            <h6 class="posts__title"><?= $this->mdl_team->getNomeGiocatore($row['id_giocatore']) ?></h6>
+                                                            <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            <time datetime="<?= $row['data'] ?>" class="posts__date"><?= dataSettimanale($row['data']) ?></time>
+                                                            <div class="posts__excerpt">
+                                                                <?= $testo_news ?>
+                                                            </div>
                                                         </div>
-                                                        <h6 class="posts__title"><a href="#">Jake Dribbler Announced that he is retiring next mnonth</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
-                                                        </div>
-                                                        <h6 class="posts__title"><a href="#">The Alchemists news coach is bringin a new shooting guard</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
-                                                        </div>
-                                                        <h6 class="posts__title"><a href="#">This Saturday starts the intensive training for the Final</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                <?php
+                                                }
+                                                ?>
+                                                    
                                             </ul>
                                         </div>
                                         <!-- Commented -->
                                         <div role="tabpanel" class="tab-pane fade" id="widget-tabbed-sm-commented">
                                             <ul class="posts posts--simple-list">
-                                                <li class="posts__item posts__item--category-3">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">Playoffs</span>
+                                                
+                                                <?php
+                                                foreach ($newsInfortuni as $row) { 
+                                                    if ($row['tipologia'] == "vendita" || $row['tipologia'] == "acquisto") {
+                                                        if ($row['tipologia'] == "vendita") {
+                                                            $type = "venduto";
+                                                        }
+                                                        if ($row['tipologia'] == "acquisto") {
+                                                            $type = "acquistato";
+                                                        }
+                                                        $category = 1;
+                                                        $label = "Trasferimenti";
+                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per una cifra di <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
+                                                    }
+                                                    if ($row['tipologia'] == "infortunio") {
+                                                        $category = 2;
+                                                        $label = "Infortunio";
+                                                        $testo_news = $row['testo_news'];
+                                                    }
+                                                    if ($row['tipologia'] == "cessione") {
+                                                        $category = 3;
+                                                        $label = "Cessione";
+                                                        $testo_news = $row['testo_news'];
+                                                    }
+                                                    
+                                                    if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
+                                                        $filename = $row['id_giocatore'] . ".png";
+                                                    } else
+                                                        $filename = "dummy.png";
+                                                    ?>
+                                                    <li class="posts__item posts__item--category-<?= $category ?>">
+                                                        <div class="posts__inner">
+                                                            <div class="posts__cat">
+                                                                <span class="label posts__cat-label"><?= $label ?></span>
+                                                            </div>
+                                                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" >
+                                                            </figure><br><br>
+                                                            <h6 class="posts__title"><?= $this->mdl_team->getNomeGiocatore($row['id_giocatore']) ?></h6>
+                                                            <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            <time datetime="<?= $row['data'] ?>" class="posts__date"><?= dataSettimanale($row['data']) ?></time>
+                                                            <div class="posts__excerpt">
+                                                                <?= $testo_news ?>
+                                                            </div>
                                                         </div>
-                                                        <h6 class="posts__title"><a href="#">New York Islanders are now flying to California for the big game</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
-                                                        </div>
-                                                        <h6 class="posts__title"><a href="#">The Female Division is growing strong after their third game</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
-                                                        </div>
-                                                        <h6 class="posts__title"><a href="#">The Alchemists news coach is bringin a new shooting guard</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                <?php
+                                                }
+                                                ?>
+                                                
                                             </ul>
                                         </div>
                                         <!-- Popular -->
                                         <div role="tabpanel" class="tab-pane fade" id="widget-tabbed-sm-popular">
                                             <ul class="posts posts--simple-list">
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
+                                                
+                                                <?php
+                                                foreach ($newsTrasferimenti as $row) { 
+                                                    if ($row['tipologia'] == "vendita" || $row['tipologia'] == "acquisto") {
+                                                        if ($row['tipologia'] == "vendita") {
+                                                            $type = "venduto";
+                                                        }
+                                                        if ($row['tipologia'] == "acquisto") {
+                                                            $type = "acquistato";
+                                                        }
+                                                        $category = 1;
+                                                        $label = "Trasferimenti";
+                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per una cifra di <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
+                                                    }
+                                                    if ($row['tipologia'] == "infortunio") {
+                                                        $category = 2;
+                                                        $label = "Infortunio";
+                                                        $testo_news = $row['testo_news'];
+                                                    }
+                                                    if ($row['tipologia'] == "cessione") {
+                                                        $category = 3;
+                                                        $label = "Cessione";
+                                                        $testo_news = $row['testo_news'];
+                                                    }
+                                                    
+                                                    if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
+                                                        $filename = $row['id_giocatore'] . ".png";
+                                                    } else
+                                                        $filename = "dummy.png";
+                                                    ?>
+                                                    <li class="posts__item posts__item--category-<?= $category ?>">
+                                                        <div class="posts__inner">
+                                                            <div class="posts__cat">
+                                                                <span class="label posts__cat-label"><?= $label ?></span>
+                                                            </div>
+                                                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" >
+                                                            </figure><br><br>
+                                                            <h6 class="posts__title"><?= $this->mdl_team->getNomeGiocatore($row['id_giocatore']) ?></h6>
+                                                            <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            <time datetime="<?= $row['data'] ?>" class="posts__date"><?= dataSettimanale($row['data']) ?></time>
+                                                            <div class="posts__excerpt">
+                                                                <?= $testo_news ?>
+                                                            </div>
                                                         </div>
-                                                        <h6 class="posts__title"><a href="#">The Alchemists news coach is bringin a new shooting guard</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
-                                                        </div>
-                                                        <h6 class="posts__title"><a href="#">This Saturday starts the intensive training for the Final</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="posts__item posts__item--category-1">
-                                                    <div class="posts__inner">
-                                                        <div class="posts__cat">
-                                                            <span class="label posts__cat-label">The Team</span>
-                                                        </div>
-                                                        <h6 class="posts__title"><a href="#">Jake Dribbler Announced that he is retiring next mnonth</a></h6>
-                                                        <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                                        <div class="posts__excerpt">
-                                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                        </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
+                                                <?php
+                                                }
+                                                ?>
+                                                
                                             </ul>
                                         </div>
                                     </div>

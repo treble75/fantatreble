@@ -64,6 +64,9 @@ class Home extends CI_Controller {
         $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
         
         $data['topmatch'] = $this->mdl_team->getTopMatch($_SESSION['giornata']);
+        $data['newsAll'] = $this->mdl_utenti->getNews();
+        $data['newsInfortuni'] = $this->mdl_utenti->getNewsInfortuni();
+        $data['newsTrasferimenti'] = $this->mdl_utenti->getNewsTrasferimenti();
 
         $this->show('home/homepage', $data);
     }
@@ -95,6 +98,9 @@ class Home extends CI_Controller {
         $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
         
         $data['topmatch'] = $this->mdl_team->getTopMatch($_SESSION['giornata']);
+        $data['newsAll'] = $this->mdl_utenti->getNews();
+        $data['newsInfortuni'] = $this->mdl_utenti->getNewsInfortuni();
+        $data['newsTrasferimenti'] = $this->mdl_utenti->getNewsTrasferimenti();
 
         $this->show('home/homepage', $data);
     }
