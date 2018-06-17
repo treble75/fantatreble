@@ -257,7 +257,44 @@
                             </div>
                         </aside>
                         <!-- Widget: Player Newslog / End -->
-
+                        
+                        <?php
+                        $totale_trofei = $this->mdl_utenti->getTrofei($utente[0]['id_utente']);
+                        if ($totale_trofei > 0) {
+                            $trofei = $this->mdl_utenti->getDettaglioTrofei($utente[0]['nome'], $utente[0]['cognome']);
+                        ?>
+                        
+                            <!-- Widget: Awards -->
+                            <aside class="widget card widget--sidebar widget-awards">
+                                <div class="widget__title card__header">
+                                    <h4>Trofei</h4>
+                                </div>
+                                <div class="widget__content card__content">
+                                    <div class="awards awards--slider">
+                                        <?php
+                                        foreach ($trofei as $row) {
+                                        ?>
+                                        
+                                            <div class="awards__item">
+                                                <figure class="awards__figure awards__figure--space">
+                                                    <img src="<?= base_url('/') ?>images/trofei/<?= $row['immagine'] ?>" alt="">
+                                                </figure>
+                                                <div class="awards__desc">
+                                                    <h5 class="awards__name"><?= $row['trofeo'] ?></h5>
+                                                    <div class="awards__date">Stagione <?= $row['stagione'] ?></div>
+                                                </div>
+                                            </div>
+                                        
+                                        <?php
+                                        }
+                                        ?>
+                                        
+                                    </div>
+                                </div>
+                            </aside>
+                            <!-- Widget: Awards / End -->
+                        <?php
+                        } ?>
 
                     </div>
                     <!-- Sidebar / End -->

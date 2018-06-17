@@ -21,6 +21,8 @@ class mdl_utenti extends CI_Model {
             $_SESSION['id_utente'] = $query->row()->id_utente;
             $_SESSION['squadra'] = $query->row()->squadra;
             $_SESSION['id_fantaformazione'] = $query->row()->id_fantaformazione;
+            $_SESSION['nome'] = $query->row()->nome;
+            $_SESSION['cognome'] = $query->row()->cognome;
 
             /* $newdata = array(
               'username'  => $query->row()->username,
@@ -331,6 +333,21 @@ class mdl_utenti extends CI_Model {
         $this->db->select('*');
         $query = $this->db->get("tb_debito");
         return $query->result_array();
+    }
+    
+    public function getDettaglioTrofei($nome, $cognome) {
+        $this->db->select('*');
+        $this->db->where('nome_utente', $nome);
+        $this->db->where('cognome_utente', $cognome);
+        $this->db->order_by('stagione', 'asc');
+        $query = $this->db->get("tb_trofei");
+        return $query->result_array();
+    }
+    
+    public function getTrofei($id_utente) {
+        $query = $this->db->query('select sum( `scudetto`) + sum( `champions`) + sum( `coppa`) + sum( `supercoppa`) AS totale_trofei from tb_utenti where id_utente = ' . $id_utente );
+
+        return $query->row('totale_trofei');
     }
 
     public function getOfferte() {
