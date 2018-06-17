@@ -42,8 +42,8 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-justified nav-product-tabs" role="tablist">
                 <li role="presentation" class="active"><a href="#tab-precedenti" role="tab" data-toggle="tab"><small>Statistiche</small>Precedenti Storici</a></li>
-                <li role="presentation"><a href="#tab-desciption" role="tab" data-toggle="tab"><small>Product</small>Full Description</a></li>
-                <li role="presentation"><a href="#tab-info" role="tab" data-toggle="tab"><small>Product</small>Additional Information</a></li>
+                <li role="presentation"><a href="#tab-desciption" role="tab" data-toggle="tab"><small>Statistiche</small>Top Record</a></li>
+                <li role="presentation"><a href="#tab-info" role="tab" data-toggle="tab"><small>Statistiche</small>Flop Record</a></li>
             </ul>
 
             <!-- Tab panes -->
@@ -136,32 +136,21 @@
                 <!-- Tab: Description -->
                 <div role="tabpanel" class="tab-pane fade" id="tab-desciption">
 
-                    <header class="product-tabs__header">
-                        <h2>Product Full Description</h2>
-                    </header>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis eder nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                    <div class="spacer"></div>
-
-                    <h4>US and International Sneaker Size</h4>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                    <div class="spacer"></div>
-
                     <div class="row">
+                        
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-badge"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_vittorie_consecutive.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--lg">Quality Assurance</h4>
-                                    <div class="icobox__description">
-                                        Lorem ipsum dolor sit amet, consectetur enrume adipisicing elit, sed eiusmod tempor incididun labore dolore magna aliqua en lorem.
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Maggior numero di punti in Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -170,13 +159,136 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-energy"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_maggior_vittorie.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--lg">Ultra Durability</h4>
-                                    <div class="icobox__description">
-                                        Lorem ipsum dolor sit amet, consectetur enrume adipisicing elit, sed eiusmod tempor incididun labore dolore magna aliqua en lorem.
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Maggior numero di vittorie in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_maggior_pareggi.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">All Blacks</h4>
+                                    <span class="team-leader__player-position">Stagione 2012/13</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Maggior numero di pareggi in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="spacer"></div>
+
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-badge"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Minor numero di sconfitte in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_vittorie_consecutive.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">All Blacks</h4>
+                                    <span class="team-leader__player-position">Stagione 2011/12</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Vittorie consecutive in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_maggior_reti.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Maggior numero di reti in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="spacer"></div>
+
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_minor_subiti.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Bella Ciao</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Minor numero di gol subiti in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_maggior_punteggio.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Zacapa 23</h4>
+                                    <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Maggior punteggio singolo in Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -189,16 +301,17 @@
                                     <i class="icon-like"></i>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--lg">Super Comfort</h4>
-                                    <div class="icobox__description">
-                                        Lorem ipsum dolor sit amet, consectetur enrume adipisicing elit, sed eiusmod tempor incididun labore dolore magna aliqua en lorem.
+                                    <h4 class="icobox__title icobox__title--top">xxxxx</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #009900;">
+                                        Maggior numero di reti in Regular Season
                                     </div>
                                 </div>
                             </div>
                             <!-- Icobox / End -->
                         </div>
+                        
                     </div>
-
 
                 </div>
                 <!-- Tab: Description / End -->
@@ -206,20 +319,170 @@
                 <!-- Tab: Shipping -->
                 <div role="tabpanel" class="tab-pane fade" id="tab-info">
 
-                    <header class="product-tabs__header">
-                        <h2>Additional Information</h2>
-                    </header>
-
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-badge"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Maggior numero di punti in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-energy"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Maggior numero di vittorie in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-like"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">All Blacks</h4>
+                                    <span class="team-leader__player-position">Stagione 2012/13</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Maggior numero di pareggi in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        
+                    </div>
+                    
                     <div class="spacer"></div>
 
-                    <h4>About Our Sneakers</h4>
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-badge"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Minor numero di sconfitte in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-energy"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">All Blacks</h4>
+                                    <span class="team-leader__player-position">Stagione 2011/12</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Vittorie consecutive in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-like"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Maggior numero di reti in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="spacer"></div>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis eder nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-                    <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_maggior_golsubiti.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">All Blacks</h4>
+                                    <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Maggior numero di gol subiti in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-energy"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Zacapa 23</h4>
+                                    <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Maggior punteggio singolo in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
+                                    <i class="icon-like"></i>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">xxxxx</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Maggior numero di reti in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        
+                    </div>
 
                 </div>
                 <!-- Tab: Shipping / End -->

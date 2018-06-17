@@ -80,6 +80,12 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
+    public function getTotaleCartellini($id_utente) {
+        $query = $this->db->query('select *, sum( `ammonizioni`) + sum( `espulsioni`) AS totale_cartellini from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 and tb_giocatori.id_utente = ' . $id_utente . ' group by tb_giocatori.id_utente order by totale_cartellini DESC limit 1');
+
+        return $query->row('totale_cartellini');
+    }
+    
     public function getSquadraFallosaCoppa() {
         $query = $this->db->query('select *, sum( `ammonizioni`) + sum( `espulsioni`) AS totale_cartellini from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_utente order by totale_cartellini DESC limit 1');
 

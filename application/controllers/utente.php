@@ -3266,6 +3266,20 @@ class Utente extends CI_Controller {
         } else
             redirect('home/index');
     }
+    
+    public function myteam_statistiche() {
+        if (isset($_SESSION['id_utente'])) {
+            $this->load->model('mdl_utenti');
+            $this->load->model('mdl_team');
+            $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            
+            $data['giornata'] = $_SESSION['giornata'];
+            
+            $data['active'] = 3;
+            $this->show('utenti/myteam_statistiche', $data);
+        } else
+            redirect('home/index');
+    }
 
     public function myteam_bacheca() {
         if (isset($_SESSION['id_utente'])) {

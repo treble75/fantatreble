@@ -5682,6 +5682,10 @@ div.cs-skin-border li.cs-focus span {
   margin-bottom: 1.75em;
 }
 
+.icobox__title--top {
+  margin-bottom: 0em;
+}
+
 .icobox__icon--color--primary {
   color: #38a9ff;
 }

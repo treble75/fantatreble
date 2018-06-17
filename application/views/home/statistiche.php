@@ -150,7 +150,7 @@
                                             $inattivo = "color:#ff3d3d;";
                                         }
                                         if ($row['inattivo'] == 0) {
-                                            $inattivo = "color:#354d57;";
+                                            $inattivo = "color:#1892ED;";
                                         }
                                         ?>
 
