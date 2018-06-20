@@ -104,6 +104,18 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
+    public function getBestMatchTeam1($id_utente) {
+        $query = $this->db->query('select * from tb_calendario where id1 = ' . $id_utente . ' order by punteggio1 desc limit 5');
+
+        return $query->result_array();
+    }
+    
+    public function getBestMatchTeam2($id_utente) {
+        $query = $this->db->query('select * from tb_calendario where id2 = ' . $id_utente . ' order by punteggio2 desc limit 5');
+
+        return $query->result_array();
+    }
+    
     public function getBestMatchCoppa() {
         $query = $this->db->query('select *, sum(`punteggio1`) + sum(`punteggio2`) AS totale_punti from tb_coppa group by giornata, id1, id2 order by totale_punti DESC limit 5');
 

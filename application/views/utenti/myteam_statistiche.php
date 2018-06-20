@@ -194,167 +194,388 @@
                     <!-- Sidebar -->
                     <div class="sidebar col-md-4">
 
-                        <!-- Widget: Standings -->
-                        <aside class="widget card widget--sidebar widget-standings">
+                        <!-- Widget: Latest Results -->
+                        <aside class="widget card widget--sidebar widget-results">
                             <div class="widget__title card__header card__header--has-btn">
-                                <h4>West League 2016</h4>
-                                <a href="#" class="btn btn-default btn-outline btn-xs card-header__button">See All Stats</a>
+                                <h4>Top Match</h4>
+                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* Partite con maggior fantapunti</span>
                             </div>
                             <div class="widget__content card__content">
-                                <div class="table-responsive">
-                                    <table class="table table-hover table-standings">
-                                        <thead>
-                                            <tr>
-                                                <th>Team Positions</th>
-                                                <th>W</th>
-                                                <th>L</th>
-                                                <th>D</th>
-                                                <th>PTS</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/samples/logos/pirates_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">L.A Pirates</h6>
-                                                            <span class="team-meta__place">Bebop Institute</span>
-                                                        </div>
+                                <ul class="widget-results__list">
+
+                                    <?php
+                                    if ($bestmatch1[0]['punteggio1'] > $bestmatch2[0]['punteggio2']) {
+                                    ?>
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch1[0]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[0]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[0]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[0]['id1']) ?></span>
                                                     </div>
-                                                </td>
-                                                <td>36</td>
-                                                <td>14</td>
-                                                <td>10</td>
-                                                <td>118</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/samples/logos/sharks_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">Sharks</h6>
-                                                            <span class="team-meta__place">Marine College</span>
-                                                        </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[0]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch1[0]['punteggio1'] ?> - <?= $bestmatch1[0]['punteggio2'] ?></div>
                                                     </div>
-                                                </td>
-                                                <td>32</td>
-                                                <td>20</td>
-                                                <td>8</td>
-                                                <td>104</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/soccer/logos/alchemists_s_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">The Alchemists</h6>
-                                                            <span class="team-meta__place">Eric Bros School</span>
-                                                        </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[0]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[0]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[0]['id2']) ?></span>
                                                     </div>
-                                                </td>
-                                                <td>32</td>
-                                                <td>21</td>
-                                                <td>7</td>
-                                                <td>103</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/samples/logos/ocean_kings_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">Ocean Kings</h6>
-                                                            <span class="team-meta__place">Bay College</span>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 1;
+                                    $b = 0;
+                                    }
+                                    ?>
+                                        
+                                    <?php
+                                    if ($bestmatch1[0]['punteggio1'] < $bestmatch2[0]['punteggio2']) {
+                                    ?>
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch2[0]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[0]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[0]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[0]['id1']) ?></span>
                                                     </div>
-                                                </td>
-                                                <td>30</td>
-                                                <td>20</td>
-                                                <td>10</td>
-                                                <td>100</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/samples/logos/red_wings_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">Red Wings</h6>
-                                                            <span class="team-meta__place">Icarus College</span>
-                                                        </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
                                                     </div>
-                                                </td>
-                                                <td>28</td>
-                                                <td>24</td>
-                                                <td>8</td>
-                                                <td>92</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/samples/logos/lucky_clovers_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">Lucky Clovers</h6>
-                                                            <span class="team-meta__place">St. Patrick’s Institute</span>
-                                                        </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[0]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[0]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[0]['id2']) ?></span>
                                                     </div>
-                                                </td>
-                                                <td>27</td>
-                                                <td>24</td>
-                                                <td>9</td>
-                                                <td>90</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/samples/logos/draconians_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">Draconians</h6>
-                                                            <span class="team-meta__place">Draconians</span>
-                                                        </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 0;
+                                    $b = 1;
+                                    }
+                                    ?>    
+                                        
+                                    <?php
+                                    if ($a == 1 && $bestmatch1[1]['punteggio1'] > $bestmatch2[0]['punteggio2'] && $bestmatch1[1]['punteggio1'] > $bestmatch2[1]['punteggio2']) {
+                                    ?>
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch1[1]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[1]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[1]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[1]['id1']) ?></span>
                                                     </div>
-                                                </td>
-                                                <td>25</td>
-                                                <td>28</td>
-                                                <td>7</td>
-                                                <td>82</td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="team-meta">
-                                                        <figure class="team-meta__logo">
-                                                            <img src="<?= base_url('/') ?>assets/images/samples/logos/bloody_wave_shield.png" alt="">
-                                                        </figure>
-                                                        <div class="team-meta__info">
-                                                            <h6 class="team-meta__name">Bloody Wave</h6>
-                                                            <span class="team-meta__place">Atlantic School</span>
-                                                        </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[1]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch1[1]['punteggio1'] ?> - <?= $bestmatch1[1]['punteggio2'] ?></div>
                                                     </div>
-                                                </td>
-                                                <td>24</td>
-                                                <td>30</td>
-                                                <td>6</td>
-                                                <td>78</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[1]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[1]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[1]['id2']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 2;
+                                    $b = 0;
+                                    }
+                                    ?>
+                                        
+                                    <?php
+                                    if ($a == 1 && $bestmatch1[1]['punteggio1'] < $bestmatch2[0]['punteggio2']) {
+                                    ?>    
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch2[0]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[0]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[0]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[0]['id1']) ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[0]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[0]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[0]['id2']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 1;
+                                    $b = 1;
+                                    }
+                                    ?>   
+                                        
+                                    <?php
+                                    if ($b == 1 && $bestmatch1[0]['punteggio1'] < $bestmatch2[1]['punteggio2'] && $bestmatch1[1]['punteggio1'] < $bestmatch2[1]['punteggio2']) {
+                                    ?>
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch2[1]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[1]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[1]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[1]['id1']) ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[1]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch2[1]['punteggio1'] ?> - <?= $bestmatch2[1]['punteggio2'] ?></div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[1]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[1]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[1]['id2']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 0;
+                                    $b = 2;
+                                    }
+                                    ?>      
+                                    
+                                    <?php
+                                    if ($a == 2 && $bestmatch1[2]['punteggio1'] > $bestmatch2[0]['punteggio2'] && $bestmatch1[2]['punteggio1'] > $bestmatch2[1]['punteggio2'] && $bestmatch1[2]['punteggio1'] > $bestmatch2[2]['punteggio2']) {
+                                    ?>
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch1[2]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[2]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[2]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[2]['id1']) ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[2]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch1[2]['punteggio1'] ?> - <?= $bestmatch1[2]['punteggio2'] ?></div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[2]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[2]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[2]['id2']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 3;
+                                    $b = 0;
+                                    }
+                                    ?>
+                                        
+                                    <?php
+                                    if ($b == 2 && $bestmatch1[0]['punteggio1'] < $bestmatch2[2]['punteggio2'] && $bestmatch1[1]['punteggio1'] < $bestmatch2[2]['punteggio2'] && $bestmatch1[2]['punteggio1'] < $bestmatch2[2]['punteggio2']) {
+                                    ?>
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch2[2]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[2]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[2]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[2]['id1']) ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[2]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch2[2]['punteggio1'] ?> - <?= $bestmatch2[2]['punteggio2'] ?></div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[2]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[2]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[2]['id2']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 0;
+                                    $b = 3;
+                                    }
+                                    ?>
+                                        
+                                    <?php
+                                    if ($a == 2 && $bestmatch1[2]['punteggio1'] < $bestmatch2[0]['punteggio2']) {
+                                    ?>
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch2[0]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[0]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[0]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[0]['id1']) ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch2[0]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch2[0]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch2[0]['id2']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 2;
+                                    $b = 1;
+                                    }
+                                    ?>  
+                                        
+                                    <?php
+                                    if ($b == 2 && $bestmatch1[0]['punteggio1'] > $bestmatch2[2]['punteggio2']) {
+                                    ?>    
+                                        <!-- Game 3 -->
+                                        <li class="widget-results__item">
+                                            <h5 class="widget-results__title"><?= dataSettimanale($bestmatch1[0]['data']) ?></h5>
+                                            <div class="widget-results__content">
+                                                <div class="widget-results__team widget-results__team--first">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[0]['id1'] ?>.png" alt="" >
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[0]['id1']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[0]['id1']) ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__result">
+                                                    <div class="widget-results__score">
+                                                        <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[0]['risultato2'] ?></span>
+                                                        <div class="widget-results__status"><?= $bestmatch1[0]['punteggio1'] ?> - <?= $bestmatch1[0]['punteggio2'] ?></div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-results__team widget-results__team--second">
+                                                    <figure class="widget-results__team-logo">
+                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $bestmatch1[0]['id2'] ?>.png" alt="">
+                                                    </figure>
+                                                    <div class="widget-results__team-details">
+                                                        <h5 class="widget-results__team-name" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($bestmatch1[0]['id2']) ?></h5>
+                                                        <span class="widget-results__team-info"><?= $this->mdl_utenti->getNomeUtente($bestmatch1[0]['id2']) ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <!-- Game 3 / End -->
+                                    
+                                    <?php
+                                    $a = 1;
+                                    $b = 2;
+                                    }
+                                    ?>
+                                        
+                                </ul>
                             </div>
                         </aside>
-                        <!-- Widget: Standings / End -->
+                        <!-- Widget: Latest Results / End -->
 
 
                         <!-- Widget: Team Leaders -->

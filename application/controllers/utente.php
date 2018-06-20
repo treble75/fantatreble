@@ -3277,6 +3277,8 @@ class Utente extends CI_Controller {
             $_SESSION['giornata'] = $this->mdl_team->getGiornata();
             
             $data['giornata'] = $_SESSION['giornata'];
+            $data['bestmatch1'] = $this->mdl_team->getBestMatchTeam1($_SESSION['id_utente']);
+            $data['bestmatch2'] = $this->mdl_team->getBestMatchTeam2($_SESSION['id_utente']);
             
             $data['active'] = 3;
             $this->show('utenti/myteam_statistiche', $data);
