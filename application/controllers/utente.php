@@ -1727,7 +1727,7 @@ class Utente extends CI_Controller {
                     'smtp_host' => 'mail.fantatreble.it',
                     'smtp_port' => 587,
                     'smtp_user' => 'formazioni@fantatreble.it',
-                    'smtp_pass' => 'nxnddiYoO2Pd',
+                    'smtp_pass' => 'asdhISUDehd-980W',
                     'mailtype' => 'html'
                 );
 
@@ -2073,7 +2073,7 @@ class Utente extends CI_Controller {
                     'smtp_host' => 'mail.fantatreble.it',
                     'smtp_port' => 587,
                     'smtp_user' => 'formazioni@fantatreble.it',
-                    'smtp_pass' => 'nxnddiYoO2Pd',
+                    'smtp_pass' => 'asdhISUDehd-980W',
                     'mailtype' => 'html'
                 );
 
@@ -3716,7 +3716,7 @@ class Utente extends CI_Controller {
                             'smtp_host' => 'mail.fantatreble.it',
                             'smtp_port' => 587,
                             'smtp_user' => 'formazioni@fantatreble.it',
-                            'smtp_pass' => 'nxnddiYoO2Pd',
+                            'smtp_pass' => 'asdhISUDehd-980W',
                             'mailtype' => 'html'
                         );
                         $this->load->library('email', $config);
@@ -3933,7 +3933,7 @@ class Utente extends CI_Controller {
                     'smtp_host' => 'mail.fantatreble.it',
                     'smtp_port' => 587,
                     'smtp_user' => 'mercato@fantatreble.it',
-                    'smtp_pass' => '3ble160475',
+                    'smtp_pass' => 'asdhISUDehd-980W',
                     'mailtype' => 'html'
                 );
 
@@ -4100,7 +4100,7 @@ class Utente extends CI_Controller {
                         'smtp_host' => 'mail.fantatreble.it',
                         'smtp_port' => 587,
                         'smtp_user' => 'info@fantatreble.it',
-                        'smtp_pass' => '3ble160475',
+                        'smtp_pass' => 'asdhISUDehd-980W',
                         'mailtype' => 'html'
                     );
 
@@ -4183,7 +4183,7 @@ class Utente extends CI_Controller {
                         'smtp_host' => 'mail.fantatreble.it',
                         'smtp_port' => 587,
                         'smtp_user' => 'info@fantatreble.it',
-                        'smtp_pass' => '3ble160475',
+                        'smtp_pass' => 'asdhISUDehd-980W',
                         'mailtype' => 'html'
                     );
 
@@ -4394,7 +4394,7 @@ class Utente extends CI_Controller {
                             'smtp_host' => 'mail.fantatreble.it',
                             'smtp_port' => 587,
                             'smtp_user' => 'info@fantatreble.it',
-                            'smtp_pass' => '3ble160475',
+                            'smtp_pass' => 'asdhISUDehd-980W',
                             'mailtype' => 'html'
                         );
 
