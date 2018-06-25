@@ -78,7 +78,7 @@
                             <?php } else { ?>
                                 <li class="nav-account__item"><a href="#" data-toggle="modal" data-target="#modal-login-register-tabs">Login</a></li>
                             <?php } ?>
-                            <li class="nav-account__item nav-account__item--wishlist"><a href="_soccer_shop-wishlist.html">Wishlist <span class="highlight">8</span></a></li>
+                            <li class="nav-account__item nav-account__item--wishlist"><a href="<?= base_url('/') ?>index.php/home/gallery">Gallery</a></li>
                             <li class="nav-account__item"><a href="http://www.fantagiaveno.it/quotazioni-calciatori.asp" target="_blank">Quotazioni <span class="highlight">GDS</span></a>
                             </li>
                             <li class="nav-account__item nav-account__item--wishlist"><a href="<?= base_url('/') ?>index.php/home/regolamento">Regolamento</a></li>

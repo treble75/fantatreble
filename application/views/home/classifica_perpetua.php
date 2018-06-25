@@ -5,9 +5,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
-                        <h1 class="page-heading__title">Classifica <span class="highlight">Perpetua</span></h1>
+                        <h1 class="page-heading__title"><span class="highlight">Treble</span> League</h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Treble League</li>
+                            <li>Detentore: Frank One</li>
                         </ol>
                     </div>
                 </div>

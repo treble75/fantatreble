@@ -143,12 +143,13 @@
                             <div class="icobox icobox--center">
                                 <div>
                                     <figure>
-                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_vittorie_consecutive.png">
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_maggior_punti.png">
                                     </figure>
                                 </div>
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">Warriors</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">61</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Maggior numero di punti in Regular Season
                                     </div>
@@ -167,6 +168,7 @@
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">Warriors</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">18</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Maggior numero di vittorie in Regular Season
                                     </div>
@@ -185,6 +187,7 @@
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">All Blacks</h4>
                                     <span class="team-leader__player-position">Stagione 2012/13</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">14</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Maggior numero di pareggi in Regular Season
                                     </div>
@@ -202,12 +205,15 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-badge"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_minor_sconfitte.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <h4 class="icobox__title icobox__title--top" >Warriors</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">3</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Minor numero di sconfitte in Regular Season
                                     </div>
@@ -226,6 +232,7 @@
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">All Blacks</h4>
                                     <span class="team-leader__player-position">Stagione 2011/12</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">5</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Vittorie consecutive in Regular Season
                                     </div>
@@ -244,6 +251,7 @@
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">Warriors</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">57</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Maggior numero di reti in Regular Season
                                     </div>
@@ -269,6 +277,7 @@
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">Bella Ciao</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">28</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Minor numero di gol subiti in Regular Season
                                     </div>
@@ -287,6 +296,7 @@
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">Zacapa 23</h4>
                                     <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">103.0</h4>
                                     <div class="icobox__description" style="color: #009900;">
                                         Maggior punteggio singolo in Regular Season
                                     </div>
@@ -297,14 +307,17 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-like"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_vittorie_iniziali.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">xxxxx</h4>
+                                    <h4 class="icobox__title icobox__title--top">Erawan</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #009900">5</h4>
                                     <div class="icobox__description" style="color: #009900;">
-                                        Maggior numero di reti in Regular Season
+                                        Vittorie consecutive ad inizio della Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -324,14 +337,17 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-badge"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_minor_punti_classifica.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <h4 class="icobox__title icobox__title--top">M.L. Sampdoria</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">22</h4>
                                     <div class="icobox__description" style="color: #ff3d3d;">
-                                        Maggior numero di punti in Regular Season
+                                        Minor numero di punti in Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -340,30 +356,36 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-energy"></i>
-                                </div>
-                                <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
-                                    <span class="team-leader__player-position">Stagione 2014/15</span>
-                                    <div class="icobox__description" style="color: #ff3d3d;">
-                                        Maggior numero di vittorie in Regular Season
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Icobox / End -->
-                        </div>
-                        <div class="col-md-4">
-                            <!-- Icobox -->
-                            <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-like"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_minor_vittorie.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">All Blacks</h4>
                                     <span class="team-leader__player-position">Stagione 2012/13</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">3</h4>
                                     <div class="icobox__description" style="color: #ff3d3d;">
-                                        Maggior numero di pareggi in Regular Season
+                                        Minor numero di vittorie in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_minor_pareggi.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Sporting KRK</h4>
+                                    <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">2</h4>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Minor numero di pareggi in Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -379,14 +401,17 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-badge"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_maggior_sconfitte.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
+                                    <h4 class="icobox__title icobox__title--top">Zacapa 23</h4>
                                     <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">17</h4>
                                     <div class="icobox__description" style="color: #ff3d3d;">
-                                        Minor numero di sconfitte in Regular Season
+                                        Maggior numero di sconfitte in Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -395,30 +420,36 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-energy"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_sconfitte_consecutive.png">
+                                    </figure>
+                                </div>
+                                <div class="icobox__content">
+                                    <h4 class="icobox__title icobox__title--top">Zacapa 23</h4>
+                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">12</h4>
+                                    <div class="icobox__description" style="color: #ff3d3d;">
+                                        Sconfitte consecutive in Regular Season
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Icobox / End -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Icobox -->
+                            <div class="icobox icobox--center">
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_minor_reti.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">All Blacks</h4>
-                                    <span class="team-leader__player-position">Stagione 2011/12</span>
+                                    <span class="team-leader__player-position">Stagione 2012/13</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">24</h4>
                                     <div class="icobox__description" style="color: #ff3d3d;">
-                                        Vittorie consecutive in Regular Season
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Icobox / End -->
-                        </div>
-                        <div class="col-md-4">
-                            <!-- Icobox -->
-                            <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-like"></i>
-                                </div>
-                                <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">Warriors</h4>
-                                    <span class="team-leader__player-position">Stagione 2014/15</span>
-                                    <div class="icobox__description" style="color: #ff3d3d;">
-                                        Maggior numero di reti in Regular Season
+                                        Minor numero di reti in Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -442,6 +473,7 @@
                                 <div class="icobox__content">
                                     <h4 class="icobox__title icobox__title--top">All Blacks</h4>
                                     <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">56</h4>
                                     <div class="icobox__description" style="color: #ff3d3d;">
                                         Maggior numero di gol subiti in Regular Season
                                     </div>
@@ -452,14 +484,17 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-energy"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_minor_punti.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">Zacapa 23</h4>
-                                    <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <h4 class="icobox__title icobox__title--top">Ghost81</h4>
+                                    <span class="team-leader__player-position">Stagione 2015/16</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">49</h4>
                                     <div class="icobox__description" style="color: #ff3d3d;">
-                                        Maggior punteggio singolo in Regular Season
+                                        Minor punteggio singolo in Regular Season
                                     </div>
                                 </div>
                             </div>
@@ -468,14 +503,17 @@
                         <div class="col-md-4">
                             <!-- Icobox -->
                             <div class="icobox icobox--center">
-                                <div class="icobox__icon icobox__icon--filled icobox__icon--lg icobox__icon--circle">
-                                    <i class="icon-like"></i>
+                                <div>
+                                    <figure>
+                                        <img src="<?= base_url('/') ?>assets/images/soccer/icona_sconfitte_iniziali.png">
+                                    </figure>
                                 </div>
                                 <div class="icobox__content">
-                                    <h4 class="icobox__title icobox__title--top">xxxxx</h4>
-                                    <span class="team-leader__player-position">Stagione 2014/15</span>
+                                    <h4 class="icobox__title icobox__title--top">A.C. Tua</h4>
+                                    <span class="team-leader__player-position">Stagione 2016/17</span>
+                                    <h4 class="icobox__title icobox__title--top" style="color: #ff3d3d">6</h4>
                                     <div class="icobox__description" style="color: #ff3d3d;">
-                                        Maggior numero di reti in Regular Season
+                                        Sconfitte consecutive ad inizio della Regular Season
                                     </div>
                                 </div>
                             </div>

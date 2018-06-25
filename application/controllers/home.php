@@ -217,6 +217,70 @@ class Home extends CI_Controller {
         $data['active'] = 5;
         $this->show('home/classifica_perpetua', $data);
     }
+    
+    public function gallery() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery');
+    }
+    
+    public function gallery_2011_2012() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery_2011_12');
+    }
+    
+    public function gallery_2012_2013() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery_2012_13');
+    }
+    
+    public function gallery_2013_2014() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery_2013_14');
+    }
+    
+    public function gallery_2014_2015() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery_2014_15');
+    }
+    
+    public function gallery_2015_2016() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery_2015_16');
+    }
+    
+    public function gallery_2016_2017() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery_2016_17');
+    }
+    
+    public function gallery_2017_2018() {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+
+        $this->show('home/gallery_2017_18');
+    }
 
     public function calendario() {
 

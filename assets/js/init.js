@@ -964,14 +964,14 @@
 				var data = {
 					type: 'bar',
 					data: {
-						labels: ["2010", "2011", "2012", "2013", "2014", "2015"],
+						labels: ["2011-12", "2012-13", "2013-14", "2014-15", "2015-16", "2016-17", "2017-18"],
 						datasets: [{
-							label: 'WON',
-							data: [40, 45, 36, 28, 42, 35],
+							label: 'Vittorie',
+							data: [60, 45, 36, 28, 42, 35, 40],
 							backgroundColor: "#c2ff1f",
 						}, {
-							label: 'LOST',
-							data: [70, 67, 75, 86, 68, 76],
+							label: 'Sconfitte',
+							data: [51, 67, 75, 86, 68, 76, 71],
 							backgroundColor: "#38a9ff",
 						}]
 					},
