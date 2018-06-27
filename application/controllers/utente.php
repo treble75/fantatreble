@@ -4143,14 +4143,15 @@ class Utente extends CI_Controller {
             $this->load->model('mdl_utenti');
             $data['active'] = 3;
 
-            $this->form_validation->set_rules('nome', 'Nome', 'trim|required|min_length[2]|max_length[40]');
-            $this->form_validation->set_rules('cognome', 'Cognome', 'trim|required|min_length[2]|max_length[40]');
+            $this->form_validation->set_rules('nome', 'Nome', 'trim|min_length[2]|max_length[40]');
+            $this->form_validation->set_rules('cognome', 'Cognome', 'trim|min_length[2]|max_length[40]');
             $this->form_validation->set_rules('soprannome', 'Soprannome', 'trim|required|min_length[2]|max_length[40]');
-            $this->form_validation->set_rules('squadra', 'Nome Squadra', 'trim|required|min_length[2]|max_length[40]');
+            $this->form_validation->set_rules('squadra', 'Nome Squadra', 'trim|min_length[2]|max_length[40]');
             $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[2]|max_length[40]');
             $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[40]');
             $this->form_validation->set_rules('pwd1', 'Password 1');
             $this->form_validation->set_rules('pwd_utente', 'Conferma Password');
+            $this->form_validation->set_rules('cmbMaglia', 'Maglia', 'trim|required');
 
             if ($this->form_validation->run()) {
                 if ($this->input->post('pwd1') == $this->input->post('pwd_utente')) {
@@ -4173,7 +4174,8 @@ class Utente extends CI_Controller {
                             'soprannome' => ucwords($this->input->post('soprannome')),
                             'squadra' => ucwords($this->input->post('squadra')),
                             'email' => $this->input->post('email'),
-                            'username' => $this->input->post('username')
+                            'username' => $this->input->post('username'),
+                            'maglia' => $this->input->post('cmbMaglia')
                         );
                     }
                     $this->load->model('mdl_utenti');
@@ -4224,6 +4226,7 @@ class Utente extends CI_Controller {
 
                 $utente = $_SESSION['id_utente'];
 
+                $data['maglie'] = $this->mdl_categories->getMaglie();
                 $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
                 $this->show('utenti/profilo', $data);
 

@@ -60,6 +60,21 @@ class mdl_categories extends CI_Model {
         }
         return $return;
     }
+    
+    public function getMaglie($blank = false) {
+        $this->db->order_by('id_maglia');
+        $this->db->where('id_utente', '0');
+        $query = $this->db->get("tb_maglie");
+        $return = array();
+
+        if ($blank)
+            $return[] = '';
+
+        foreach ($query->result_array() as $row) {
+            $return[$row['id_maglia']] = $row['image'];
+        }
+        return $return;
+    }
 
     public function getGiocatori($blank = false, $ruolo) {
         $this->db->order_by('cognome');

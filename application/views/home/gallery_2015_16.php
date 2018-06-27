@@ -34,8 +34,8 @@
                                     <img src="<?= base_url('/') ?>assets/images/gallery/copertina_2015_16.jpg" alt="">
                                 </figure>
                                 <div class="album__item-desc">
-                                    <h4 class="album__item-title">I primi due classificati</h4>
-                                    <time class="album__item-date" datetime="2016-08-23">Giugno 2013</time>
+                                    <h4 class="album__item-title">Asta a casa Bonomo</h4>
+                                    <time class="album__item-date" datetime="2016-08-23">Settembre 2015</time>
                                     <span class="album__item-btn-fab btn-fab btn-fab--clean"></span>
                                 </div>
                             </a>
@@ -51,8 +51,8 @@
                                     <img src="<?= base_url('/') ?>assets/images/gallery/2015_16_1.jpg" alt="">
                                 </figure>
                                 <div class="album__item-desc">
-                                    <h4 class="album__item-title">Alla Warriors Arena prima della finalissima stravinta contro Erawan</h4>
-                                    <time class="album__item-date" datetime="2016-08-23">Giugno 2015</time>
+                                    <h4 class="album__item-title">Premiazione al Penelope</h4>
+                                    <time class="album__item-date" datetime="2016-08-23">Giugno 2016</time>
                                     <span class="album__item-btn-fab btn-fab btn-fab--clean"></span>
                                 </div>
                             </a>
@@ -65,8 +65,8 @@
                                     <img src="<?= base_url('/') ?>assets/images/gallery/2015_16_2.jpg" alt="">
                                 </figure>
                                 <div class="album__item-desc">
-                                    <h4 class="album__item-title">La delusione degli "sponsor"</h4>
-                                    <time class="album__item-date" datetime="2016-08-23">Giugno 2013</time>
+                                    <h4 class="album__item-title">Cena pre-playoff</h4>
+                                    <time class="album__item-date" datetime="2016-08-23">Aprile 2016</time>
                                     <span class="album__item-btn-fab btn-fab btn-fab--clean"></span>
                                 </div>
                             </a>
@@ -79,8 +79,8 @@
                                     <img src="<?= base_url('/') ?>assets/images/gallery/2015_16_3.jpg" alt="">
                                 </figure>
                                 <div class="album__item-desc">
-                                    <h4 class="album__item-title">Tutto pronto per l'asta</h4>
-                                    <time class="album__item-date" datetime="2016-08-23">Settembre 2012</time>
+                                    <h4 class="album__item-title">L'intervista a Teleuniverso del vincitore Frank One</h4>
+                                    <time class="album__item-date" datetime="2016-08-23">Giugno 2016</time>
                                     <span class="album__item-btn-fab btn-fab btn-fab--clean"></span>
                                 </div>
                             </a>

@@ -63,13 +63,13 @@
                                             <div class="col-md-6">
                                                 <div class="alc-staff-inner">
                                                     <header class="alc-staff__header">
-                                                        <h1 class="alc-staff__header-name"><span class="alc-staff__header-last-name"><?= $utente[0]['squadra'] ?></span></h1>
+                                                        <h1 class="alc-staff__header-name"><span class="alc-staff__header-last-name" style="text-align: center"><?= $utente[0]['squadra'] ?></span></h1>
                                                         <!-- <span class="alc-staff__header-role">Coach</span> -->
                                                     </header>
 
                                                     <!-- Excerpt -->
-                                                    <div class="alc-staff-excerpt">
-                                                        Sed ut perspiciatis unde omnis iste natus error sit lorel voluptatem accusantium doloremque de totam rem aperiam, eaque inventore veritatis.
+                                                    <div class="alc-staff-excerpt" style="text-align: center">
+                                                        <img src="<?= base_url('/') ?>images/maglie/<?= $utente[0]['maglia'] ?>.png" alt="">
                                                     </div>
                                                     <!-- Excerpt / End -->
 
