@@ -2230,6 +2230,22 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('ruolo');
     }
+    
+    public function getIdSquadraDaIdGiocatore($id_giocatore) {
+        $this->db->select('id_utente');
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_giocatori');
+
+        return $this->db->get()->row('id_utente');
+    }
+    
+    public function getIdMaglia($id_utente) {
+        $this->db->select('maglia');
+        $this->db->where('id_utente', $id_utente);
+        $this->db->from('tb_utenti');
+
+        return $this->db->get()->row('maglia');
+    }
 
     public function getNomeGiocatore($id_giocatore) {
         $this->db->select('*');

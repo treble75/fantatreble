@@ -4159,20 +4159,15 @@ class Utente extends CI_Controller {
 
                     if ($this->input->post('pwd1') != "") {
                         $data = array(
-                            'nome' => ucwords($this->input->post('nome')),
-                            'cognome' => ucwords($this->input->post('cognome')),
                             'soprannome' => ucwords($this->input->post('soprannome')),
-                            'squadra' => ucwords($this->input->post('squadra')),
                             'email' => $this->input->post('email'),
                             'username' => $this->input->post('username'),
-                            'pwd_utente' => md5($this->input->post('pwd_utente'))
+                            'pwd_utente' => md5($this->input->post('pwd_utente')),
+                            'maglia' => $this->input->post('cmbMaglia')
                         );
                     } else {
                         $data = array(
-                            'nome' => ucwords($this->input->post('nome')),
-                            'cognome' => ucwords($this->input->post('cognome')),
                             'soprannome' => ucwords($this->input->post('soprannome')),
-                            'squadra' => ucwords($this->input->post('squadra')),
                             'email' => $this->input->post('email'),
                             'username' => $this->input->post('username'),
                             'maglia' => $this->input->post('cmbMaglia')
@@ -4195,11 +4190,10 @@ class Utente extends CI_Controller {
 
                     $this->email->from('info@fantatreble.it', 'FantaTreble');
 
-                    $message = "Ciao <b>" . $data['nome'] . "</b><br><br>";
+                    $message = "Ciao <br><br>";
 
                     $message .= "Ecco di seguito le modifiche apportate al tuo account FantaTreble : <br><br>";
                     $message .= "Email : <b>" . $data['email'] . "</b><br><br>";
-                    $message .= "Squadra : <b>" . $data['squadra'] . "</b><br><br>";
                     $message .= "Username : <b>" . $data['username'] . "</b><br><br>";
                     $message .= "Password  : <b>" . $this->input->post('pwd_utente') . "</b><br>";
 

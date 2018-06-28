@@ -61,8 +61,10 @@
                                     $percentuale_presenze = ($row['presenze'] * 100) / 16;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 1) {
-                                        if ($i == 1)
+                                        if ($i == 1) {
                                             $portiere = $row['cognome'];
+                                            $maglia_portiere = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }    
                                         $i++;
                                     }
                                 }
@@ -72,12 +74,18 @@
                                     $percentuale_presenze = ($row['presenze'] * 100) / 16;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
-                                        if ($i == 1)
+                                        if ($i == 1) {
                                             $difensore1 = $row['cognome'];
-                                        if ($i == 2)
+                                            $maglia_difensore1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
+                                        if ($i == 2) {
                                             $difensore2 = $row['cognome'];
-                                        if ($i == 3)
+                                            $maglia_difensore2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
+                                        if ($i == 3) {
                                             $difensore3 = $row['cognome'];
+                                            $maglia_difensore3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
                                         $i++;
                                     }
                                 }
@@ -87,14 +95,22 @@
                                     $percentuale_presenze = ($row['presenze'] * 100) / 16;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 4) {
-                                        if ($i == 1)
+                                        if ($i == 1) {
                                             $centrocampista1 = $row['cognome'];
-                                        if ($i == 2)
+                                            $maglia_centrocampista1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
+                                        if ($i == 2) {
                                             $centrocampista2 = $row['cognome'];
-                                        if ($i == 3)
+                                            $maglia_centrocampista2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
+                                        if ($i == 3) {
                                             $centrocampista3 = $row['cognome'];
-                                        if ($i == 4)
+                                            $maglia_centrocampista3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
+                                        if ($i == 4) {
                                             $centrocampista4 = $row['cognome'];
+                                            $maglia_centrocampista4 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
                                         $i++;
                                     }
                                 }
@@ -104,12 +120,18 @@
                                     $percentuale_presenze = ($row['presenze'] * 100) / 16;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
-                                        if ($i == 1)
+                                        if ($i == 1) {
                                             $attaccante1 = $row['cognome'];
-                                        if ($i == 2)
+                                            $maglia_attaccante1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
+                                        if ($i == 2) {
                                             $attaccante2 = $row['cognome'];
-                                        if ($i == 3)
+                                            $maglia_attaccante2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
+                                        if ($i == 3) {
                                             $attaccante3 = $row['cognome'];
+                                            $maglia_attaccante3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                        }
                                         $i++;
                                     }
                                 }
@@ -140,35 +162,35 @@
 
                                     // Players Shirt
                                     var sources = {
-                                        player1: '<?= base_url('/') ?>assets/images/soccer/lineup_01.png',
-                                        player2: '<?= base_url('/') ?>assets/images/soccer/lineup_04.png',
-                                        player3: '<?= base_url('/') ?>assets/images/soccer/lineup_03.png',
-                                        player4: '<?= base_url('/') ?>assets/images/soccer/lineup_22.png',
-                                        player5: '<?= base_url('/') ?>assets/images/soccer/lineup_05.png',
-                                        player6: '<?= base_url('/') ?>assets/images/soccer/lineup_02.png',
-                                        player7: '<?= base_url('/') ?>assets/images/soccer/lineup_08.png',
-                                        player8: '<?= base_url('/') ?>assets/images/soccer/lineup_26.png',
-                                        player9: '<?= base_url('/') ?>assets/images/soccer/lineup_07.png',
-                                        player10: '<?= base_url('/') ?>assets/images/soccer/lineup_18.png',
-                                        player11: '<?= base_url('/') ?>assets/images/soccer/lineup_09.png',
+                                        player1: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_portiere ?>.png',
+                                        player2: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_difensore1 ?>.png',
+                                        player3: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_difensore2 ?>.png',
+                                        player4: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_difensore3 ?>.png',
+                                        player5: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_centrocampista1 ?>.png',
+                                        player6: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_centrocampista2 ?>.png',
+                                        player7: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_centrocampista3 ?>.png',
+                                        player8: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_centrocampista4 ?>.png',
+                                        player9: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_attaccante1 ?>.png',
+                                        player10: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_attaccante2 ?>.png',
+                                        player11: '<?= base_url('/') ?>images/maglie/mini<?= $maglia_attaccante3 ?>.png',
                                     };
 
                                     //Posizione magliette
                                     loadImages(sources, function (images) {
-                                        context.drawImage(images.player1, 142, 26);
+                                        context.drawImage(images.player1, 138, 26);
                                         //Difensori
-                                        context.drawImage(images.player2, 55, 115);
-                                        context.drawImage(images.player3, 230, 115);
-                                        context.drawImage(images.player4, 142, 95);
+                                        context.drawImage(images.player2, 51, 115);
+                                        context.drawImage(images.player3, 226, 115);
+                                        context.drawImage(images.player4, 138, 95);
                                         //Centrocampisti
-                                        context.drawImage(images.player5, 180, 200);
-                                        context.drawImage(images.player6, 103, 200);
-                                        context.drawImage(images.player7, 37, 230);
-                                        context.drawImage(images.player8, 247, 230);
+                                        context.drawImage(images.player5, 176, 200);
+                                        context.drawImage(images.player6, 99, 200);
+                                        context.drawImage(images.player7, 33, 230);
+                                        context.drawImage(images.player8, 243, 230);
                                         //Attaccanti
-                                        context.drawImage(images.player9, 60, 314);
-                                        context.drawImage(images.player10, 225, 314);
-                                        context.drawImage(images.player11, 142, 358);
+                                        context.drawImage(images.player9, 56, 314);
+                                        context.drawImage(images.player10, 221, 314);
+                                        context.drawImage(images.player11, 138, 358);
                                     });
 
                                     // Player Names
@@ -192,7 +214,7 @@
                                     drawTextBG(context, players.player3, 215, 155);
                                     drawTextBG(context, players.player4, 130, 135);
                                     drawTextBG(context, players.player5, 175, 240);
-                                    drawTextBG(context, players.player6, 80, 240);
+                                    drawTextBG(context, players.player6, 90, 240);
                                     drawTextBG(context, players.player7, 20, 270);
                                     drawTextBG(context, players.player8, 230, 270);
                                     drawTextBG(context, players.player9, 50, 354);
