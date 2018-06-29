@@ -4136,6 +4136,141 @@ class Utente extends CI_Controller {
         } else
             redirect('utente/login');
     }
+    
+    function password_dimenticata() {
+
+        $this->form_validation->set_rules('email_dimenticata1', 'Email 1', 'trim|min_length[2]|max_length[50]');
+        $this->form_validation->set_rules('email_dimenticata2', 'Email 2', 'trim|min_length[2]|max_length[50]');
+
+        if ($this->form_validation->run()) {
+            
+            if ($this->input->post('email_dimenticata1') == $this->input->post('email_dimenticata2')) {
+                $email = $this->input->post('email_dimenticata1');
+                $nuova_password = $this->generatePassword(8);
+                $this->mdl_utenti->changePassword($email, $nuova_password);
+
+                //Configuro l'invio mail
+                $config = Array(
+                    'protocol' => 'smtp',
+                    'smtp_host' => 'mail.fantatreble.it',
+                    'smtp_port' => 587,
+                    'smtp_user' => 'info@fantatreble.it',
+                    'smtp_pass' => 'asdhISUDehd-980W',
+                    'mailtype' => 'html'
+                );
+
+                $this->load->library('email', $config);
+
+                $this->email->from('info@fantatreble.it', 'FantaTreble');
+
+                $message = "Ciao <br><br>";
+
+                $message .= "Ecco di seguito le modifiche apportate al tuo account FantaTreble : <br><br>";
+                $message .= "Email : <b>" . $email . "</b><br><br>";
+                $message .= "Nuova Password  : <b>" . $nuova_password . "</b><br>";
+
+                //Invio la mail all'utente
+                $this->email->to($email);
+                $this->email->cc("guerrieriluca@gmail.com");
+                $this->email->bcc("info@fantatreble.it");
+                $this->email->subject("Modifiche al tuo account FantaTreble");
+                $this->email->message($message);
+
+                $this->email->send();
+                
+                $this->load->model('mdl_team');
+                $this->load->model('mdl_utenti');
+                $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+
+                //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
+                $giornata_posizione = ($_SESSION['giornata'] - 1);
+
+                $data['risultati'] = $this->mdl_team->getCalendario1A();
+                $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
+                $data['giornata'] = $_SESSION['giornata'];
+                $data['risultati_giornata'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata'] - 1);
+                $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
+                $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
+                $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
+
+                $giornataTop = ($_SESSION['giornata'] - 1);
+                $data['top'] = $this->mdl_team->getTop($giornataTop);
+                $data['topCampionato'] = $this->mdl_team->getTopCampionato();
+                $data['offerte'] = $this->mdl_team->getLastOfferte();
+
+                $data['news_coppa'] = $this->mdl_utenti->getNewsDesktop("coppa");
+                $data['news_champions'] = $this->mdl_utenti->getNewsDesktop("champions");
+                $data['news_supercoppa'] = $this->mdl_utenti->getNewsDesktop("super");
+                $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
+
+                $data['topmatch'] = $this->mdl_team->getTopMatch($_SESSION['giornata']);
+                $data['newsAll'] = $this->mdl_utenti->getNews();
+                $data['newsInfortuni'] = $this->mdl_utenti->getNewsInfortuni();
+                $data['newsTrasferimenti'] = $this->mdl_utenti->getNewsTrasferimenti();
+
+                $data['message'] = "<span style='color:green;'>Nuova password inviata con successo !</span>";
+                $this->show('home/homepage', $data);
+            }
+            else {
+                
+                $this->load->model('mdl_team');
+                $this->load->model('mdl_utenti');
+                $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+
+                //La giornata utile per calcolare la posizione attuale in classifica deve essere relativa a quella precedente !
+                $giornata_posizione = ($_SESSION['giornata'] - 1);
+
+                $data['risultati'] = $this->mdl_team->getCalendario1A();
+                $data['classifica'] = $this->mdl_team->getClassifica($giornata_posizione);
+                $data['giornata'] = $_SESSION['giornata'];
+                $data['risultati_giornata'] = $this->mdl_team->getCalendariogiornata($_SESSION['giornata'] - 1);
+                $data['ultima_champions'] = $this->mdl_team->getUltimaGiornataChampions($_SESSION['giornata']);
+                $data['ultima_coppa'] = $this->mdl_team->getUltimaGiornataCoppa($_SESSION['giornata']);
+                $data['bomber'] = $this->mdl_team->getBomberCampionato($_SESSION['giornata']);
+
+                $giornataTop = ($_SESSION['giornata'] - 1);
+                $data['top'] = $this->mdl_team->getTop($giornataTop);
+                $data['topCampionato'] = $this->mdl_team->getTopCampionato();
+                $data['offerte'] = $this->mdl_team->getLastOfferte();
+
+                $data['news_coppa'] = $this->mdl_utenti->getNewsDesktop("coppa");
+                $data['news_champions'] = $this->mdl_utenti->getNewsDesktop("champions");
+                $data['news_supercoppa'] = $this->mdl_utenti->getNewsDesktop("super");
+                $data['news_league'] = $this->mdl_utenti->getNewsDesktop("league");
+
+                $data['topmatch'] = $this->mdl_team->getTopMatch($_SESSION['giornata']);
+                $data['newsAll'] = $this->mdl_utenti->getNews();
+                $data['newsInfortuni'] = $this->mdl_utenti->getNewsInfortuni();
+                $data['newsTrasferimenti'] = $this->mdl_utenti->getNewsTrasferimenti();
+                
+                $data['message'] = "<span style='color:red;'>Gli indirizzi email inseriti non coincidono !</span>";
+                $this->show('home/homepage', $data);
+            }
+        }
+    }
+    
+    private function generatePassword($length) {
+         //impostiamo a 15 il limite massimo dei carratteri che formeranno la password da generare
+        $limit=15;
+        if($length>$limit) {$length=$limit;}
+        srand(time());
+        //consideriamo i caratteri da randommizzare
+        $alfa_number="abcdefghijlmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ0123456789_?*+&%!#@";
+        $len_alfa_number=strlen($alfa_number);
+
+        $pass_random="";
+        $i=0;
+        //vado a pescare i caratteri uno per uno finche'con raggiungo il valore di $length
+        while($i<$length)
+        {
+        //con rand trovo l'indice casuale
+        $number_random=rand(0,$len_alfa_number-1);
+        $pass_random.=$alfa_number[$number_random];
+        $i++;
+        }
+
+        return $pass_random;
+    }
 
     function profilo() {
         if (isset($_SESSION['id_utente'])) {

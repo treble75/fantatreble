@@ -103,7 +103,11 @@
 
                 <div class="modal-account-holder">
                     <div class="modal-account__item modal-account__item--logo">
-                        <p class="modal-account__item-register-txt">Don’t have an account? <a href="#">Register Now</a> and enjoy all our benefits!</p>
+                    <?php
+                    //Includo frasi random per la finestra di login
+                    include 'randomquotes.php';
+                    ?>
+                        <p class="modal-account__item-register-txt" style="color: #fff"><?= $txt ?></p>
                     </div>
                     <div class="modal-account__item">
 
@@ -122,39 +126,38 @@
                                     'class' => 'modal-form'
                                 ));
                                 ?>
-                                <h5>Login</h5>
-                                <div class="form-group">
-                                    <input type="username " class="form-control" maxlength="16"  name="utente" placeholder="Inserisci il tuo username...">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" maxlength="16"  name="password" placeholder="Inserisci la tua password...">
-                                </div>
-                                <div class="form-group form-group--pass-reminder">
-                                    <label class="checkbox checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox1" value="option1" checked> Ricordami
-                                        <span class="checkbox-indicator"></span>
-                                    </label>
-                                    <a href="#">Password dimenticata ?</a>
-                                </div>
-                                <div class="form-group form-group--submit">
-                                    <!-- Button 
-                                    <a href="shop-account.html" class="btn btn-primary-inverse btn-block">Entra</a>
-                                    -->
-                                    <input type="submit" value="Login" class="btn btn-primary-inverse btn-block" />
-                                </div>
+                                    <h5>Login</h5>
+                                    <div class="form-group">
+                                        <input type="username" class="form-control" maxlength="16"  name="utente" placeholder="Inserisci il tuo username...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" maxlength="16"  name="password" placeholder="Inserisci la tua password...">
+                                    </div>
+                                    <div class="form-group form-group--pass-reminder">
+                                        <label class="checkbox checkbox-inline">
+                                            <input type="checkbox" id="inlineCheckbox1" value="option1" checked> Ricordami
+                                            <span class="checkbox-indicator"></span>
+                                        </label>
+                                    </div>
+                                    <div class="form-group form-group--submit">
+                                        <!-- Button 
+                                        <a href="shop-account.html" class="btn btn-primary-inverse btn-block">Entra</a>
+                                        -->
+                                        <input type="submit" value="Login" class="btn btn-primary-inverse btn-block" />
+                                    </div>
 
-                                <div class="modal-form--social">
-                                    <h7>
-                                        <?php
-                                        if (validation_errors()) {
-                                            echo validation_errors();
-                                        }
-                                        if (@$message) {
-                                            echo @$message;
-                                        }
-                                        ?> 
-                                    </h7>
-                                </div>
+                                    <div class="modal-form--social">
+                                        <h7>
+                                            <?php
+                                            if (validation_errors()) {
+                                                echo validation_errors();
+                                            }
+                                            if (@$message) {
+                                                echo @$message;
+                                            }
+                                            ?> 
+                                        </h7>
+                                    </div>
                                 </form>
                                 <!-- Login Form / End -->
 
@@ -165,21 +168,43 @@
                             <div role="tabpanel" class="tab-pane fade" id="tab-register">
 
                                 <!-- Register Form -->
-                                <form action="#" class="modal-form">
-                                    <h5>Registrati!</h5>
+                                <?php
+                                echo form_open('utente/password_dimenticata', array(
+                                    'class' => 'modal-form'
+                                ));
+                                ?>
+                                    <h5>Password dimenticata</h5>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Enter your email address...">
+                                        <input type="email" class="form-control" maxlength="50"  name="email_dimenticata1" placeholder="Inserisci indirizzo email...">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Enter your password...">
+                                        <input type="email" class="form-control" maxlength="50"  name="email_dimenticata2" placeholder="Ripeti indirizzo email...">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Repeat your password...">
+                                    <div class="form-group form-group--pass-reminder">
+                                        <label class="checkbox checkbox-inline">
+                                            <input type="checkbox" id="inlineCheckbox1" value="option1" checked> Ricordami
+                                            <span class="checkbox-indicator"></span>
+                                        </label>
                                     </div>
                                     <div class="form-group form-group--submit">
-                                        <a href="shop-account.html" class="btn btn-success btn-block">Create Your Account</a>
+                                        <!-- Button 
+                                        <a href="shop-account.html" class="btn btn-primary-inverse btn-block">Entra</a>
+                                        -->
+                                        <input type="submit" value="Invia nuova password" class="btn btn-primary-inverse btn-block" />
                                     </div>
-                                    <div class="modal-form--note">You’ll receive a confirmation email in your inbox with a link to activate your account. </div>
+
+                                    <div class="modal-form--social">
+                                        <h7>
+                                            <?php
+                                            if (validation_errors()) {
+                                                echo validation_errors();
+                                            }
+                                            if (@$message) {
+                                                echo @$message;
+                                            }
+                                            ?> 
+                                        </h7>
+                                    </div>
                                 </form>
                                 <!-- Register Form / End -->
 
@@ -192,7 +217,7 @@
                         <div class="nav-tabs-login-wrapper">
                             <ul class="nav nav-tabs nav-justified nav-tabs--login" role="tablist">
                                 <li role="presentation" class="active"><a href="#tab-login" role="tab" data-toggle="tab">Login</a></li>
-                                <li role="presentation"><a href="#tab-register" role="tab" data-toggle="tab">Registrati</a></li>
+                                <li role="presentation"><a href="#tab-register" role="tab" data-toggle="tab">Password dimenticata ?</a></li>
                             </ul>
                         </div>
                         <!-- Nav tabs / End -->

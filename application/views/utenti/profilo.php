@@ -168,6 +168,16 @@
                                     <div class="form-group form-group--sm">
                                         <input type="radio" name="cmbMaglia" id="inlineRadio17" value="17">
                                         <label for="inlineRadio17"><img src="<?= base_url('/') ?>images/maglie/17.png"></label>
+                                        <input type="radio" name="cmbMaglia" id="inlineRadio18" value="18">
+                                        <label for="inlineRadio18"><img src="<?= base_url('/') ?>images/maglie/18.png"></label>
+                                        <div style="width: 40px;">&nbsp;</div>
+                                        <input type="radio" name="cmbMaglia" id="inlineRadio19" value="19">
+                                        <label for="inlineRadio19"><img src="<?= base_url('/') ?>images/maglie/19.png"></label>
+                                        <input type="radio" name="cmbMaglia" id="inlineRadio20" value="20">
+                                        <label for="inlineRadio20"><img src="<?= base_url('/') ?>images/maglie/20.png"></label>
+                                        <div style="width: 40px;">&nbsp;</div>
+                                        <input type="radio" name="cmbMaglia" id="inlineRadio21" value="21">
+                                        <label for="inlineRadio21"><img src="<?= base_url('/') ?>images/maglie/21.png"></label>
                                     </div>
                                 </div>
 

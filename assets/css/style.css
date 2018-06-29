@@ -23332,7 +23332,7 @@ td.team-leader__goals {
 .modal--login .modal-account__item--logo {
   background-image: url("../images/soccer/samples/login_register_bg.jpg");
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: 0% 0%;
   background-size: cover;
   color: #fff;
   position: relative;
