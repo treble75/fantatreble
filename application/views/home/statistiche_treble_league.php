@@ -7,9 +7,6 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Treble</span> League</h1>
-                        <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Detentore: Frank One</li>
-                        </ol>
                     </div>
                 </div>
             </div>

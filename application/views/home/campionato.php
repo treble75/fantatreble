@@ -6,9 +6,6 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Treble</span> League</h1>
-                        <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Detentore: Frank One</li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -83,13 +80,15 @@
                                             case 4;
                                             case 5;
                                             case 6;
-                                            case 7;
                                                 $color = "";
+                                                break;
+                                            case 7;
+                                                $color = 'bgcolor="#fff3f4"';
                                                 break;
                                             case 8;
                                             case 9;
                                             case 10;
-                                                $color = 'bgcolor="#ffebec"';
+                                                $color = 'bgcolor="#ffe0e2"';
                                                 break;
                                         }
                                         $chk = "";

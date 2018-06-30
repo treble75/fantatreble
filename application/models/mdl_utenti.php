@@ -433,6 +433,11 @@ class mdl_utenti extends CI_Model {
         $this->db->update('tb_utenti', $data);
     }
     
+    public function updateMagliaUtente($id_utente,$maglia) {
+        $this->db->where('id_maglia', $maglia);
+        $this->db->update('tb_maglie', array('id_utente' => $id_utente));
+    }
+    
     public function changePassword($email, $nuova_password) {
         $this->db->where('email', $email);
         $this->db->update('tb_utenti', array('pwd_utente' => md5($nuova_password)));

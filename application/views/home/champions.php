@@ -25,8 +25,7 @@
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori_champions" class="content-filter__link"><small>Champions League</small>Marcatori</a></li>
                     <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario_champions" class="content-filter__link"><small>Champions League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-schedule.html" class="content-filter__link"><small>Champions League</small>Schedule</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Champions League</small>Gallery</a></li>
+                    <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Champions League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
         </nav>

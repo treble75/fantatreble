@@ -778,15 +778,16 @@
                                                 <span class="label posts__cat-label">Le Novità per la stagione 2018/19</span>
                                             </div>
                                             <h6 class="posts__title"><a href="#">Cambia il modo di gestire le <span class="main-news-banner__highlight">Sostituzioni !</span></a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">1 Settembre 2018</time>
+                                            <time datetime="2016-08-23" class="posts__date" style="color: #fff">1 Settembre 2018</time>
                                             <div class="spacer"></div>
                                             <div class="posts__excerpt">
-                                                <ul class="list">
+                                                <ul class="list" style="color: #fff">
                                                     <li>3 Criteri di sostituzione</li>
                                                     <li>Playoff rinnovati</li>
                                                     <li>Precedenti storici</li>
                                                     <li>Statistiche aggiornate in tempo reale</li>
                                                     <li>Selezione automatica dei rigoristi</li>
+                                                    <li>Classifica Perpetua dal 2011 ad oggi</li>
                                                 </ul>
                                             </div>
                                             <div class="posts__more">

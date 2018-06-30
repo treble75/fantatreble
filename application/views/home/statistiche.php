@@ -11,15 +11,19 @@
         switch ($ruolo) {
             case 1:
                 $titolo = "Portieri";
+                $sfondo = " page-heading-statistiche-portieri";
                 break;
             case 2:
                 $titolo = "Difensori";
+                $sfondo = " page-heading-statistiche-difensori";
                 break;
             case 3:
                 $titolo = "Centrocampisti";
+                $sfondo = " page-heading-statistiche-centrocampisti";
                 break;
             case 4:
                 $titolo = "Attaccanti";
+                $sfondo = " page-heading-statistiche-attaccanti";
                 break;
         }
 
@@ -62,7 +66,7 @@
         <!-- Page Heading
         ================================================== -->
 
-        <div class="page-heading">
+        <div class="page-heading<?= $sfondo ?>">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">

@@ -7674,6 +7674,42 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_champions_statistiche.jpg") !important;
 }
 
+.page-heading-profilo {
+  background-image: url("../images/soccer/sfondo_profilo.jpg") !important;
+}
+
+.page-heading-myteam-risultati {
+  background-image: url("../images/soccer/sfondo_myteam_risultati.jpg") !important;
+}
+
+.page-heading-statistiche-portieri {
+  background-image: url("../images/soccer/sfondo_statistiche_portieri.jpg") !important;
+}
+
+.page-heading-statistiche-centrocampisti {
+  background-image: url("../images/soccer/sfondo_statistiche_centrocampisti.jpg") !important;
+}
+
+.page-heading-myteam-marcatori {
+  background-image: url("../images/soccer/sfondo_myteam_marcatori.jpg") !important;
+}
+
+.page-heading-calciomercato {
+  background-image: url("../images/soccer/sfondo_calciomercato.jpg") !important;
+}
+
+.page-heading-team-calendario {
+  background-image: url("../images/soccer/sfondo_team_calendario.jpg") !important;
+}
+
+.page-heading-statistiche-coppa {
+  background-image: url("../images/soccer/sfondo_statistiche_coppa.jpg") !important;
+}
+
+.page-heading-marcatori {
+  background-image: url("../images/soccer/sfondo_marcatori.jpg") !important;
+}
+
 .page-heading-prepartita {
   background-image: url("../images/soccer/sfondo_prepartita.jpg") !important;
 }
@@ -22571,38 +22607,45 @@ td.team-leader__goals {
 @media (max-width: 1199px) {
   .main-news-banner--soccer-ball {
     background-size: 40% auto;
+    background-image: none !important;
   }
 }
 
 .main-news-banner--soccer-ball .main-news-banner__inner {
   padding-right: 20%;
+    background-image: none !important;
 }
 
 @media (min-width: 992px) {
   .main-news-banner--soccer-ball .main-news-banner__inner {
     padding-right: 30%;
+    background-image: none;
   }
 }
 
 @media (min-width: 1200px) {
   .main-news-banner--soccer-ball .main-news-banner__inner {
     padding-right: 30%;
+    background-image: none !important;
   }
 }
 
 .main-news-banner--soccer-ball .posts__excerpt {
   padding-right: 20px;
+    background-image: none !important;
 }
 
 @media (min-width: 992px) {
   .main-news-banner--soccer-ball .posts__excerpt {
     padding-right: 40px;
+    background-image: none !important;
   }
 }
 
 @media (min-width: 1200px) {
   .main-news-banner--soccer-ball .posts__excerpt {
     padding-right: 60px;
+    background-image: none !important;
   }
 }
 

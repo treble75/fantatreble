@@ -7,10 +7,6 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Champions</span> League</h1>
-                        <!-- Detentore DA MODIFICARE -->
-                        <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Detentore: Sporting KRK</li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -25,8 +21,7 @@
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori_champions" class="content-filter__link"><small>Champions League</small>Marcatori</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario_champions" class="content-filter__link"><small>Champions League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-schedule.html" class="content-filter__link"><small>Champions League</small>Schedule</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Champions League</small>Gallery</a></li>
+                    <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Champions League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
         </nav>

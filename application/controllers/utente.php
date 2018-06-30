@@ -4283,7 +4283,7 @@ class Utente extends CI_Controller {
             $this->form_validation->set_rules('soprannome', 'Soprannome', 'trim|required|min_length[2]|max_length[40]');
             $this->form_validation->set_rules('squadra', 'Nome Squadra', 'trim|min_length[2]|max_length[40]');
             $this->form_validation->set_rules('email', 'Email', 'trim|required|min_length[2]|max_length[40]');
-            $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[6]|max_length[40]');
+            $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[2]|max_length[40]');
             $this->form_validation->set_rules('pwd1', 'Password 1');
             $this->form_validation->set_rules('pwd_utente', 'Conferma Password');
             $this->form_validation->set_rules('cmbMaglia', 'Maglia', 'trim|required');
@@ -4310,6 +4310,8 @@ class Utente extends CI_Controller {
                     }
                     $this->load->model('mdl_utenti');
                     $this->mdl_utenti->updateUtente($utente, $data);
+                    //Aggiungo id_utente in tb_maglie
+                    $this->mdl_utenti->updateMagliaUtente($utente, $this->input->post('cmbMaglia'));
 
                     //Configuro l'invio mail
                     $config = Array(
@@ -4342,11 +4344,13 @@ class Utente extends CI_Controller {
                     $this->email->send();
 
                     $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
+                    $data['maglie'] = $this->mdl_categories->getMaglie();
                     $data['message'] = "<span style='color:green;'>Utente modificato con successo !</span>";
                     $this->show('utenti/profilo', $data);
                     return;
                 } else {
                     $data['dettagliUtente'] = $this->mdl_utenti->getDatiUtente($utente);
+                    $data['maglie'] = $this->mdl_categories->getMaglie();
                     $data['message'] = "<p style='color:red;'>Le password inserite non combaciano</p>";
                     $this->show('utenti/profilo', $data);
                     return;

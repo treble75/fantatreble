@@ -3,14 +3,11 @@
 
         <!-- Page Heading
         ================================================== -->
-        <div class="page-heading">
+        <div class="page-heading page-heading-marcatori">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Treble</span> League</h1>
-                        <ol class="page-heading__breadcrumb breadcrumb">
-                            <li>Detentore: Frank One</li>
-                        </ol>
                     </div>
                 </div>
             </div>
@@ -119,7 +116,7 @@
                                                             <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" width="50px" >
                                                         </figure>
                                                     </td>
-                                                    <td class="team-roster-table__name" style="vertical-align: middle; width: 15%;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
+                                                    <td class="team-roster-table__name" style="vertical-align: middle; width: 15%; color: #1892ED;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
                                                     <td class="team-roster-table__height" style="vertical-align: middle; width: 8%;"><?= number_format($row['voto'], 2) ?></td>
