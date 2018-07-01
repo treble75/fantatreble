@@ -206,6 +206,12 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
+    public function getTopPlayerTeam($id_utente) {
+        $query = $this->db->query('select *, avg(fantavoto) AS fv, sum( `gol`) + sum( `assist`) AS totale_bonus from tb_voti, tb_giocatori where tb_giocatori.id_giocatore = tb_voti.id_giocatore and schierato = 1 and id_utente = ' .$id_utente . ' group by tb_giocatori.id_giocatore order by totale_bonus DESC, fv  DESC limit 5');
+
+        return $query->result_array();
+    }
+    
     public function getTopPlayerCoppa() {
         $query = $this->db->query('select *, avg(fantavoto) AS fv, sum( `gol`) + sum( `assist`) AS totale_bonus from tb_voti_coppa, tb_giocatori where tb_giocatori.id_giocatore = tb_voti_coppa.id_giocatore and giornata in (4,7,10,11,15,20,26,31) and schierato = 1 group by tb_giocatori.id_giocatore order by totale_bonus DESC, fv  DESC limit 5');
 

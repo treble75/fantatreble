@@ -108,70 +108,71 @@
                                 </aside>
                                 <!-- Widget: Team Stats / End -->
 
-
                             </div>
                             <div class="col-md-6">
 
-                                <!-- Widget: Awards -->
-                                <aside class="widget card widget--sidebar widget-awards">
+                                <!-- Widget: Team Leaders -->
+                                <aside class="widget widget--sidebar card card--has-table widget-leaders">
                                     <div class="widget__title card__header">
-                                        <h4>Our Awards</h4>
+                                        <h4>Top Players</h4>
+                                        <span class="team-leader__player-position"  style="text-transform: capitalize;">* MPP : Media gol+assist per partite in cui è stato schierato</span>
                                     </div>
                                     <div class="widget__content card__content">
-                                        <div class="awards awards--slider">
-                                            <div class="awards__item">
-                                                <figure class="awards__figure awards__figure--space">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/trophy-04.svg" alt="">
-                                                </figure>
-                                                <div class="awards__desc">
-                                                    <h5 class="awards__name">West League Champions</h5>
-                                                    <div class="awards__date">December 2012</div>
-                                                    <div class="awards__stars">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="awards__item">
-                                                <figure class="awards__figure awards__figure--space">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/trophy-04.svg" alt="">
-                                                </figure>
-                                                <div class="awards__desc">
-                                                    <h5 class="awards__name">East League Champions</h5>
-                                                    <div class="awards__date">November 2010</div>
-                                                    <div class="awards__stars">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="awards__item">
-                                                <figure class="awards__figure awards__figure--space">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/trophy-04.svg" alt="">
-                                                </figure>
-                                                <div class="awards__desc">
-                                                    <h5 class="awards__name">Big League Champions</h5>
-                                                    <div class="awards__date">December 2012</div>
-                                                    <div class="awards__stars">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
+
+                                        <!-- Leader: Points -->
+                                        <div class="table-responsive">
+                                            <table class="table team-leader">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                        <th class="team-leader__goals">Gol</th>
+                                                        <th class="team-leader__gp">Ass</th>
+                                                        <th class="team-leader__avg">MPP</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    foreach ($topplayer as $row) {
+                                                        ?>
+                                                        <tr>
+                                                            <td class="team-leader__player">
+                                                                <div class="team-leader__player-info">
+                                                                    <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                        <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
+                                                                    </figure>
+                                                                    <div class="team-leader__player-inner">
+                                                                        <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
+                                                                        <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="team-leader__goals"><?= $this->mdl_team->getGolCampionato($row['id_giocatore']) ?></td>
+                                                            <td class="team-leader__gp"><?= $this->mdl_team->getAssist($row['id_giocatore']) ?></td>
+                                                            <?php
+                                                            $partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                            $mpp = ($row['totale_bonus'] / $partite_schierato);
+                                                            ?>
+                                                            <td class="team-leader__avg">
+                                                                <div class="circular">
+                                                                    <div class="circular__bar" data-percent="<?= ( $mpp * 100 ) ?>">
+                                                                        <span class="circular__percents"><?= number_format($mpp, 2) ?></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <?php
+                                                    }
+                                                    ?>
+
+                                                </tbody>
+                                            </table>
                                         </div>
+                                        <!-- Leader: Points / End -->
+
                                     </div>
                                 </aside>
-                                <!-- Widget: Awards / End -->
-
+                                <!-- Widget: Team Leaders / End -->
 
                             </div>
                         </div>

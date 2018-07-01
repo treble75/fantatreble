@@ -7690,6 +7690,10 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_statistiche_centrocampisti.jpg") !important;
 }
 
+.page-heading-statistiche-campionato {
+  background-image: url("../images/soccer/sfondo_statistiche_campionato.jpg") !important;
+}
+
 .page-heading-myteam-marcatori {
   background-image: url("../images/soccer/sfondo_myteam_marcatori.jpg") !important;
 }

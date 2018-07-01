@@ -43,13 +43,11 @@
 
                             <p>Le quote da versare sono le seguenti:</p>
                             <ul class="list">
-                                <li>5 &euro; x 3 turni di Regular Season</li>
-                                <li>4 &euro; x 27 partite di campionato</li>
-                                <li>3 &euro; per la cena di fine Torneo</li>
-                                <li>4 &euro; come contributo Coppe</li>
-                                <li>5 &euro; per spese di hosting e acquisto trofei </li>
+                                <li>130 &euro; x Stagione</li>
+                                <li>4 &euro; per la cena di fine Torneo</li>
+                                <li>11 &euro; per contributo spese di hosting e acquisto trofei </li>
                             </ul>
-                            <p>Per un totale di <span style="color: #1892ED">135 &euro;</span> cadauno x 10 partecipanti, da versare entro la fine delle 27 giornate di Regular Season.</p>
+                            <p>Per un totale di <span style="color: #1892ED">145 &euro;</span> cadauno x 10 partecipanti, da versare entro la fine delle 27 giornate di Regular Season.</p>
 
                             <div class="spacer"></div>
 
@@ -59,9 +57,8 @@
                                 <li>1&deg; Classificato Treble League :	 <span style="color: #1892ED">600 &euro;</span></li>
                                 <li>2&deg; Classificato Treble League : 	 <span style="color: #1892ED">200 &euro;</span></li>
                                 <li>Vincitore Champions League :  	   <span style="color: #1892ED">300 &euro;</span></li>
-                                <li>Vincitore Coppa Treble :  	   <span style="color: #1892ED">150 &euro;</span></li>
-                                <li>Vincitore SuperCoppa :  	   <span style="color: #1892ED">20 &euro;</span></li>
-                                <li>Minitorneo Cena Fantatreble :  	   <span style="color: #1892ED">30 &euro;</span></li>
+                                <li>Vincitore Coppa Treble :  	   <span style="color: #1892ED">200 &euro;</span></li>
+                                <li>Minitorneo Cena Fantatreble :  	   <span style="color: #1892ED">40 &euro;</span></li>
                             </ul>
 
                             <div class="spacer"></div>
@@ -218,22 +215,58 @@
                                 <li>Differenza Reti</li>
                                 <li>Maggior numero di gol segnati</li>
                             </ol>
-                            <p>Il primo classificato parteciper&aacute; direttamente alla Finalissima, le altre prime 6 squadre qualificate si affronteranno in partite di playoff cos&iacute; suddivise:</p>
+                            <p>Al termine della Regular Season, nel caso in cui la differenza punti in classifica, tra il primo ed il secondo classificato, <span style="color: #1892ED">sia superiore a 8 punti</span>, il vincitore diretto sarà il primo classificato,
+                            altrimenti verranno disputati i playoff a cui parteciperà anche il primo classificato, disputando soltanto le due partite di finalissima.</p>
+                            
+                            <h4>Playoff in caso di vincitore diretto</h4>
+                            <p>Il secondo classificato parteciper&aacute; direttamente alla Finalissima, le altre prime 6 squadre qualificate si affronteranno in partite di playoff cos&iacute; suddivise:</p>
                             <p>Preliminari:</p>
                             <ol class="list">
                                 <li><span style="color: #1892ED">7&deg;</span> classificata - <span style="color: #1892ED">4&deg;</span> classificata (partite di andata e ritorno)</li>
                                 <li><span style="color: #1892ED">6&deg;</span> classificata - <span style="color: #1892ED">5&deg;</span> classificata (partite di andata e ritorno)</li>
                             </ol>
-
-                            <p>Le vincenti delle 2 partite preliminari affronteranno in semifinale il 2&deg; e 3&deg; classificato secondo il seguente criterio:</p>
-                            <ol class="list">
-                                <li><span style="color: #1892ED">A)</span> Vincente preliminari peggio classificata in Regular Season - <span style="color: #1892ED">2&deg;</span> classificata (partite di andata e ritorno)</li>
-                                <li><span style="color: #1892ED">B)</span> Vincente preliminari meglio classificata in Regular Season - <span style="color: #1892ED">3&deg;</span> classificata (partite di andata e ritorno)</li>
-                            </ol>
+                            <p>Le vincenti di queste 2 partite preliminari si affronteranno in partite di andata e ritorno, per determinare chi andrà ad affrontare il terzo classificato.</p>
 
                             <p>Finale Playoff:</p>
                             <ul class="list">
-                                <li>Vincente match <span style="color: #1892ED">A</span> - Vincente match <span style="color: #1892ED">B</span> (partite di andata e ritorno)</li>
+                                <li>Vincente match preliminari - <span style="color: #1892ED">3&deg;</span> classificato (partite di andata e ritorno)</li>
+                            </ul>
+
+                            <p>Finalissima:</p>
+                            <ul class="list">
+                                <li>Vincente Finale Playoff - <span style="color: #1892ED">2&deg;</span> classificato (partite di andata e ritorno)</li>
+                            </ul>
+
+                            <p>In queste fasi finali di Treble League, in caso di parit&aacute; di reti segnate, tra partita di andata e quella di ritorno, risulter&aacute; vincente chi avr&aacute; ottenuto il piazzamento migliore durante la Regular Season, a prescindere se i gol siano stati realizzati in trasferta o meno.</p>
+
+                            <p>Esempio:</p>
+                            <ul class="list">
+                                <li>Andata-> 	4&deg; Posto - 7&deg; Posto 	2 - 1</li>
+                                <li>Ritorno->	7&deg; Posto - 4&deg; Posto	    1 - 0</li>
+                            </ul>
+
+                            <p>Passer&aacute; il turno la squadra che si &egrave;  piazzata al 4&deg; posto.</p>
+                            <h4>Minitorneo cena</h4>
+                            <p>Le ultime 3 squadre si affronteranno seguendo il criterio di eliminazione diretta:</p>
+                            <ul class="list">
+                                <li><span style="color: #1892ED">10&deg;</span> classificato - <span style="color: #1892ED">9&deg;</span> classificato (partite di andata e ritorno)</li>
+                            </ul>
+                            <p>Il vincitore affronter&aacute; l' <span style="color: #1892ED">8&deg;</span> classificato, in partite di andata e ritorno per conquistare il diritto al pagamento della cena di fine Torneo.</p>
+                            <p>In caso di parità di gol tra la partita di andata e quella di ritorno relative alle fasi finali del minitorneo per il pagamento della cena, verranno tirati i calci di rigore per designare il vincitore.</p>
+
+                            
+                            <h4>Playoff senza vincitore diretto</h4>
+                            <p>Il primo classificato parteciper&aacute; direttamente alla Finalissima, le altre prime 5 squadre qualificate si affronteranno in partite di playoff cos&iacute; suddivise:</p>
+                            <p>Preliminari:</p>
+                            <ol class="list">
+                                <li><span style="color: #1892ED">6&deg;</span> classificata - <span style="color: #1892ED">3&deg;</span> classificata (partite di andata e ritorno)</li>
+                                <li><span style="color: #1892ED">5&deg;</span> classificata - <span style="color: #1892ED">4&deg;</span> classificata (partite di andata e ritorno)</li>
+                            </ol>
+                            <p>Le vincenti di queste 2 partite preliminari si affronteranno in partite di andata e ritorno, per determinare chi andrà ad affrontare il secondo classificato.</p>
+
+                            <p>Finale Playoff:</p>
+                            <ul class="list">
+                                <li>Vincente match preliminari - <span style="color: #1892ED">2&deg;</span> classificato (partite di andata e ritorno)</li>
                             </ul>
 
                             <p>Finalissima:</p>
@@ -250,11 +283,12 @@
                             </ul>
 
                             <p>Passer&aacute; il turno la squadra che si &egrave;  piazzata al 4&deg; posto.</p>
-                            <p>Le ultime 3 squadre si affronteranno seguendo il criterio di eliminazione diretta:</p>
+                            <h4>Minitorneo cena</h4>
+                            <p>Le ultime 4 squadre si affronteranno seguendo il criterio di eliminazione diretta:</p>
                             <ul class="list">
-                                <li><span style="color: #1892ED">10&deg;</span> classificato - <span style="color: #1892ED">9&deg;</span> classificato (partite di andata e ritorno)</li>
+                                <li><span style="color: #1892ED">10&deg;</span> classificato - <span style="color: #1892ED">7&deg;</span> classificato (partite di andata e ritorno)</li>
+                                <li><span style="color: #1892ED">9&deg;</span> classificato - <span style="color: #1892ED">8&deg;</span> classificato (partite di andata e ritorno)</li>
                             </ul>
-                            <p>Il vincitore affronter&aacute; l' <span style="color: #1892ED">8&deg;</span> classificato, in partite di andata e ritorno per conquistare il diritto al pagamento della cena di fine Torneo.</p>
                             <p>In caso di parità di gol tra la partita di andata e quella di ritorno relative alle fasi finali del minitorneo per il pagamento della cena, verranno tirati i calci di rigore per designare il vincitore.</p>
 
 
