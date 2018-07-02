@@ -9046,6 +9046,15 @@ ul.posts:not(.post-grid) {
   overflow: hidden;
 }
 
+.post-logo-storico {
+  width: 40px !important;
+  height: 40px !important;
+  margin-right: 4px;
+  vertical-align: middle;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .posts__item--card .post-author__avatar img {
   vertical-align: top;
 }

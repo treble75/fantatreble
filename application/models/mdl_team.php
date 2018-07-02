@@ -1813,6 +1813,22 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getClassificaPrecedente($stagione) {
+
+        //Ricavo classifica aggiornata
+        $this->db->select('*');
+        $this->db->select('(gol_fatti-gol_subiti) as DIFF');
+        $this->db->from('tb_classifica_' . $stagione);
+        $this->db->order_by('punti', 'desc');
+        $this->db->order_by('fanta_punteggio', 'desc');
+        $this->db->order_by('DIFF', 'desc');
+        $this->db->order_by('gol_fatti', 'desc');
+        $this->db->order_by('id_squadra', 'desc');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function insertClassifica($id_squadra, $data) {
         $query = $this->db->query("update tb_classifica set partite_giocate = (partite_giocate+1), punti = (punti+" . $data['punti'] . "), 
