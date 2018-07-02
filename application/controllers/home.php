@@ -220,8 +220,17 @@ class Home extends CI_Controller {
 
         $this->load->model('mdl_team');
         $this->load->model('mdl_utenti');
+        
+        //Seleziono ultima giornata di campionato - DA MODIFICARE
+        if ( $stagione == "2011_12" || $stagione == "2012_13" || $stagione == "2013_14"  || $stagione == "2014_15" || $stagione == "2015_16" ) {
+            $ultima_giornata_regular = 28;
+        }
+        
+        if ( $stagione == "2016_17" || $stagione == "2017_18" ) {
+            $ultima_giornata_regular = 27;
+        }
 
-        $data['classifica'] = $this->mdl_team->getClassificaPrecedente($stagione);
+        $data['classifica'] = $this->mdl_team->getClassificaPrecedente($stagione, $ultima_giornata_regular);
         $data['stagione'] = $stagione;
 
         $data['active'] = 5;

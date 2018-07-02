@@ -34,7 +34,7 @@
 
         <!-- Page Heading
         ================================================== -->
-        <div class="page-heading">
+        <div class="page-heading page-heading-campionati_precedenti">
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
@@ -121,7 +121,7 @@
                                                     case 6;
                                                     case 7;
                                                     case 8;
-                                                        $color = 'bgcolor="#ffe0e2"';
+                                                        $color = 'bgcolor="#fff3f4"';
                                                         break;
                                                 }
                                             }
@@ -142,7 +142,7 @@
                                                     case 6;
                                                     case 7;
                                                     case 8;
-                                                        $color = 'bgcolor="#ffe0e2"';
+                                                        $color = 'bgcolor="#fff3f4"';
                                                         break;
                                                 }
                                             }
@@ -164,7 +164,7 @@
                                                 case 8;
                                                 case 9;
                                                 case 10;
-                                                    $color = 'bgcolor="#ffe0e2"';
+                                                    $color = 'bgcolor="#fff3f4"';
                                                     break;
                                             }
                                         }
@@ -178,7 +178,7 @@
                                                         <img src="<?= base_url('/') ?>images/albo/logo/<?= $this->mdl_utenti->getLogoStorico($row['id_squadra'], str_replace("_", "-" , $stagione)) ?>" width="30px">
                                                     </figure>
                                                     <div class="team-meta__info">
-                                                        <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/utente/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadraPrecedente($row['id_squadra'], str_replace("_", "-" , $stagione)) ?></a>
+                                                        <h6 class="team-meta__name" style="color:#1892ED;"><?= $this->mdl_utenti->getSquadraPrecedente($row['id_squadra'], str_replace("_", "-" , $stagione)) ?>
                                                             <?php
                                                             //Inserire ID della squadra scudettata
                                                             if ($row['id_squadra'] == $scudettato) {

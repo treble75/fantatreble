@@ -142,7 +142,7 @@
                                                 <td class="game-player-result__fc">50</td>
                                                 <td class="game-player-result__fs">32</td>
                                                 <td class="game-player-result__yc">+18</td>
-                                                <td class="game-player-result__rc">1970.0</td>
+                                                <td class="game-player-result__rc">2037.0</td>
                                             </tr>
                                             <tr>
                                                 <td class="game-player-result__date">2014 / 15</td>

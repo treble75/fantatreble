@@ -7670,6 +7670,10 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_champions_calendario.jpg") !important;
 }
 
+.page-heading-campionati_precedenti {
+  background-image: url("../images/soccer/sfondo_campionati_precedenti.jpg") !important;
+}
+
 .page-heading-champions-statistiche {
   background-image: url("../images/soccer/sfondo_champions_statistiche.jpg") !important;
 }

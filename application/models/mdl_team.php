@@ -1598,6 +1598,19 @@ class mdl_team extends CI_Model {
 
         return $totale;
     }
+    
+    public function getFantaPuntiTotaliPrecedenti($id_squadra, $stagione, $ultima_giornata_regular) {
+        //Limitare la query all'ultima giornata di campionato, in questo caso la 27
+        $query1 = $this->db->query('select SUM(punteggio1) as somma1 from tb_calendario_' . $stagione . ' where id1 = ' . $id_squadra . ' and giornata <= ' . $ultima_giornata_regular . ';');
+        $parziale1 = $query1->row('somma1');
+
+        $query2 = $this->db->query('select SUM(punteggio2) as somma2 from tb_calendario_' . $stagione . ' where id2 = ' . $id_squadra . ' and giornata <= ' . $ultima_giornata_regular . ';');
+        $parziale2 = $query2->row('somma2');
+
+        $totale = ( $parziale1 + $parziale2 );
+
+        return $totale;
+    }
 
     public function getFantaPuntiTotaliChampionsAB($id_squadra) {
         //Limitare la query all'ultima giornata di campionato, in questo caso la 22
@@ -1814,7 +1827,17 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
     
-    public function getClassificaPrecedente($stagione) {
+    public function getClassificaPrecedente($stagione, $ultima_giornata_regular) {
+        
+        //Prima aggiorno la tabella tb_classifica con il totale fantapunteggio
+        $i = "";
+        for ($i = 1; $i <= 10; $i++) {
+
+            $totale = $this->getFantaPuntiTotaliPrecedenti($i, $stagione, $ultima_giornata_regular);
+
+            $this->db->where('id_squadra', $i);
+            $this->db->update('tb_classifica_' . $stagione, array('fanta_punteggio' => $totale));
+        }
 
         //Ricavo classifica aggiornata
         $this->db->select('*');

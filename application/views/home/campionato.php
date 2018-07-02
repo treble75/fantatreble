@@ -83,12 +83,12 @@
                                                 $color = "";
                                                 break;
                                             case 7;
-                                                $color = 'bgcolor="#fff3f4"';
+                                                $color = 'bgcolor="#fff7f8"';
                                                 break;
                                             case 8;
                                             case 9;
                                             case 10;
-                                                $color = 'bgcolor="#ffe0e2"';
+                                                $color = 'bgcolor="#ffedee"';
                                                 break;
                                         }
                                         $chk = "";
