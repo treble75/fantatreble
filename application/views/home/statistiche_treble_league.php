@@ -724,8 +724,8 @@
                         <!-- Widget: Team Leaders -->
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
-                                <h4>Flop Media FantaVoto</h4>
-                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* MFV : Media Fantavoto per partite ( almeno 30% ) in cui è stato schierato</span>
+                                <h4>Flop Media Voto</h4>
+                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* MFV : Media Voto per partite ( almeno 30% ) in cui è stato schierato</span>
                             </div>
                             <div class="widget__content card__content">
 

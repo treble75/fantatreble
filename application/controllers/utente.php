@@ -3275,11 +3275,15 @@ class Utente extends CI_Controller {
             $this->load->model('mdl_utenti');
             $this->load->model('mdl_team');
             $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            $data['giornata_media'] = ($_SESSION['giornata'] - 1);
             
             $data['giornata'] = $_SESSION['giornata'];
             $data['bestmatch1'] = $this->mdl_team->getBestMatchTeam1($_SESSION['id_utente']);
             $data['bestmatch2'] = $this->mdl_team->getBestMatchTeam2($_SESSION['id_utente']);
             $data['topplayer'] = $this->mdl_team->getTopPlayerTeam($_SESSION['id_utente']);
+            $data['assistmen'] = $this->mdl_team->getAssistmenTeam($_SESSION['id_utente']);
+            $data['fallosi'] = $this->mdl_team->getFallosiTeam($_SESSION['id_utente']);
+            $data['flopmediavoto'] = $this->mdl_team->getFlopMediaVotoTeam($_SESSION['id_utente'], $data['giornata_media']);
             
             $data['active'] = 3;
             $this->show('utenti/myteam_statistiche', $data);
@@ -3292,12 +3296,16 @@ class Utente extends CI_Controller {
             $this->load->model('mdl_utenti');
             $this->load->model('mdl_team');
             $_SESSION['giornata'] = $this->mdl_team->getGiornata();
+            $data['giornata_media'] = ($_SESSION['giornata'] - 1);
             
             $data['giornata'] = $_SESSION['giornata'];
             $data['utente'] = $this->mdl_utenti->getDatiUtente($team);
             $data['bestmatch1'] = $this->mdl_team->getBestMatchTeam1($team);
             $data['bestmatch2'] = $this->mdl_team->getBestMatchTeam2($team);
             $data['topplayer'] = $this->mdl_team->getTopPlayerTeam($team);
+            $data['assistmen'] = $this->mdl_team->getAssistmenTeam($team);
+            $data['fallosi'] = $this->mdl_team->getFallosiTeam($team);
+            $data['flopmediavoto'] = $this->mdl_team->getFlopMediaVotoTeam($team, $data['giornata_media']);
             
             $data['active'] = 4;
             $this->show('utenti/team_statistiche', $data);

@@ -177,19 +177,7 @@
 
                             </div>
                         </div>
-
-                        <!-- Points History -->
-                        <div class="card">
-                            <div class="card__header card__header--has-legend">
-                                <h4>Storico punti</h4>
-                                <div id="gamesPoinstsLegendSoccer" class="chart-legend"></div>
-                            </div>
-                            <div class="card__content">
-                                <canvas id="points-history-soccer" class="points-history-chart" height="135"></canvas>
-                            </div>
-                        </div>
-                        <!-- Points History / End -->
-
+                        
                     </div>
                     <!-- Content / End -->
 
@@ -1440,11 +1428,19 @@
                         </aside>
                         <!-- Widget: Latest Results / End -->
 
+                    </div>
+                    <!-- Sidebar / End -->
+                </div>
+                
+                <div class="row">
+
+                    <div class="col-md-4">
 
                         <!-- Widget: Team Leaders -->
                         <aside class="widget widget--sidebar card card--has-table widget-leaders">
                             <div class="widget__title card__header">
-                                <h4>Team Goalscorers</h4>
+                                <h4>Assistmen</h4>
+                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* MPP : Media assist per partite in cui è stato schierato</span>
                             </div>
                             <div class="widget__content card__content">
 
@@ -1453,294 +1449,196 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">West League 2016</th>
-                                                <th class="team-leader__goals">G</th>
-                                                <th class="team-leader__gp">P</th>
-                                                <th class="team-leader__avg">AVG</th>
+                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__gp">Ass</th>
+                                                <th class="team-leader__avg">MPP</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="team-leader__player">
-                                                    <div class="team-leader__player-info">
-                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>assets/images/soccer/samples/goalscorer_01.jpg" alt="">
-                                                        </figure>
-                                                        <div class="team-leader__player-inner">
-                                                            <h5 class="team-leader__player-name">James Messinal</h5>
-                                                            <span class="team-leader__player-position">Forward</span>
+                                            <?php
+                                            foreach ($assistmen as $row) {
+                                                ?>
+                                                <tr>
+                                                    <td class="team-leader__player">
+                                                        <div class="team-leader__player-info">
+                                                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
+                                                            </figure>
+                                                            <div class="team-leader__player-inner">
+                                                                <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
+                                                                <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                                <td class="team-leader__goals">11</td>
-                                                <td class="team-leader__gp">12</td>
-                                                <td class="team-leader__avg">
-                                                    <div class="circular">
-                                                        <div class="circular__bar" data-percent="91">
-                                                            <span class="circular__percents">0.91</span>
+                                                    </td>
+                                                    <td class="team-leader__gp"><?= $row['totale_assist'] ?></td>
+                                                    <?php
+                                                    $partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                    $mpp = ($row['totale_assist'] / $partite_schierato);
+                                                    ?>
+                                                    <td class="team-leader__avg">
+                                                        <div class="circular">
+                                                            <div class="circular__bar" data-percent="<?= ( $mpp * 100 ) ?>">
+                                                                <span class="circular__percents"><?= number_format($mpp, 2) ?></span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="team-leader__player">
-                                                    <div class="team-leader__player-info">
-                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>assets/images/soccer/samples/goalscorer_02.jpg" alt="">
-                                                        </figure>
-                                                        <div class="team-leader__player-inner">
-                                                            <h5 class="team-leader__player-name">David Hawkins</h5>
-                                                            <span class="team-leader__player-position">Forward</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="team-leader__goals">10</td>
-                                                <td class="team-leader__gp">12</td>
-                                                <td class="team-leader__avg">
-                                                    <div class="circular">
-                                                        <div class="circular__bar" data-percent="83">
-                                                            <span class="circular__percents">0.83</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="team-leader__player">
-                                                    <div class="team-leader__player-info">
-                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>assets/images/soccer/samples/goalscorer_01.jpg" alt="">
-                                                        </figure>
-                                                        <div class="team-leader__player-inner">
-                                                            <h5 class="team-leader__player-name">Griffin Peterson</h5>
-                                                            <span class="team-leader__player-position">Midfielder</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="team-leader__goals">8</td>
-                                                <td class="team-leader__gp">10</td>
-                                                <td class="team-leader__avg">
-                                                    <div class="circular">
-                                                        <div class="circular__bar" data-percent="80">
-                                                            <span class="circular__percents">0.80</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="team-leader__player">
-                                                    <div class="team-leader__player-info">
-                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>assets/images/soccer/samples/goalscorer_02.jpg" alt="">
-                                                        </figure>
-                                                        <div class="team-leader__player-inner">
-                                                            <h5 class="team-leader__player-name">Christofer Grass</h5>
-                                                            <span class="team-leader__player-position">Midfielder</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="team-leader__goals">7</td>
-                                                <td class="team-leader__gp">10</td>
-                                                <td class="team-leader__avg">
-                                                    <div class="circular">
-                                                        <div class="circular__bar" data-percent="70">
-                                                            <span class="circular__percents">0.70</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="team-leader__player">
-                                                    <div class="team-leader__player-info">
-                                                        <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                            <img src="<?= base_url('/') ?>assets/images/soccer/samples/goalscorer_01.jpg" alt="">
-                                                        </figure>
-                                                        <div class="team-leader__player-inner">
-                                                            <h5 class="team-leader__player-name">Mark Ironson</h5>
-                                                            <span class="team-leader__player-position">Defender</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="team-leader__goals">5</td>
-                                                <td class="team-leader__gp">10</td>
-                                                <td class="team-leader__avg">
-                                                    <div class="circular">
-                                                        <div class="circular__bar" data-percent="50">
-                                                            <span class="circular__percents">0.50</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
+
+                                                <?php
+                                            }
+                                            ?>
 
                                         </tbody>
                                     </table>
                                 </div>
                                 <!-- Leader: Points / End -->
 
+                            </div>
+                        </aside>
+                        <!-- Widget: Team Leaders / End -->
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <!-- Widget: Team Leaders -->
+                        <aside class="widget widget--sidebar card card--has-table widget-leaders">
+                            <div class="widget__title card__header">
+                                <h4>Giocatori Più Fallosi</h4>
+                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* MPP : Media cartellino per partite in cui è stato schierato</span>
+                            </div>
+                            <div class="widget__content card__content">
+
+                                <!-- Leader: Points -->
+                                <div class="table-responsive">
+                                    <table class="table team-leader">
+                                        <thead>
+                                            <tr>
+                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__goals"><img src="<?= base_url('/') ?>images/ammo.png"></th>
+                                                <th class="team-leader__gp"><img src="<?= base_url('/') ?>images/espu.png"></th>
+                                                <th class="team-leader__avg">MPP</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ($fallosi as $row) {
+                                                ?>
+                                                <tr>
+                                                    <td class="team-leader__player">
+                                                        <div class="team-leader__player-info">
+                                                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
+                                                            </figure>
+                                                            <div class="team-leader__player-inner">
+                                                                <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
+                                                                <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="team-leader__goals"><?= $this->mdl_team->getSommaAmmonizioniSchierato($row['id_giocatore']) ?></td>
+                                                    <td class="team-leader__gp"><?= $this->mdl_team->getSommaEspulsioniSchierato($row['id_giocatore']) ?></td>
+                                                    <?php
+                                                    $partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                    $mpp = ($row['totale_cartellini'] / $partite_schierato);
+                                                    ?>
+                                                    <td class="team-leader__avg">
+                                                        <div class="circular">
+                                                            <div class="circular__bar" data-percent="<?= ( $mpp * 100 ) ?>">
+                                                                <span class="circular__percents"><?= number_format($mpp, 2) ?></span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <?php
+                                            }
+                                            ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Leader: Points / End -->
 
                             </div>
                         </aside>
                         <!-- Widget: Team Leaders / End -->
 
+                    </div>
+                    <div class="col-md-4">
 
-                        <!-- Widget: Latest Results -->
-                        <aside class="widget card widget--sidebar widget-results">
-                            <div class="widget__title card__header card__header--has-btn">
-                                <h4>Latest Results</h4>
-                                <a href="#" class="btn btn-default btn-outline btn-xs card-header__button">See Full Results</a>
+                        <!-- Widget: Team Leaders -->
+                        <aside class="widget widget--sidebar card card--has-table widget-leaders">
+                            <div class="widget__title card__header">
+                                <h4>Flop Media Voto</h4>
+                                <span class="team-leader__player-position"  style="text-transform: capitalize;">* MFV : Media Voto per partite ( almeno 30% ) in cui è stato schierato</span>
                             </div>
                             <div class="widget__content card__content">
-                                <ul class="widget-results__list">
 
-                                    <!-- Game 1 -->
-                                    <li class="widget-results__item">
-                                        <h5 class="widget-results__title">Saturday, March 24</h5>
-                                        <div class="widget-results__content">
-                                            <div class="widget-results__team widget-results__team--first">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/alchemists_b_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">Alchemists</h5>
-                                                    <span class="widget-results__team-info">Elric Bros School</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__result">
-                                                <div class="widget-results__score">
-                                                    <span class="widget-results__score-winner">2</span> - <span class="widget-results__score-loser">0</span>
-                                                    <div class="widget-results__status">Home</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__team widget-results__team--second">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/sharks_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">Sharks</h5>
-                                                    <span class="widget-results__team-info">Marine College</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- Game 1 / End -->
+                                <!-- Leader: Points -->
+                                <div class="table-responsive">
+                                    <table class="table team-leader">
+                                        <thead>
+                                            <tr>
+                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__gp">Presenze</th>
+                                                <th class="team-leader__avg">MFV</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            $i = 1;
+                                            foreach ($flopmediavoto as $row) {
+                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
 
-                                    <!-- Game 2 -->
-                                    <li class="widget-results__item">
-                                        <h5 class="widget-results__title">Friday, March 16</h5>
-                                        <div class="widget-results__content">
-                                            <div class="widget-results__team widget-results__team--first">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/pirates_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">L.A. Pirates</h5>
-                                                    <span class="widget-results__team-info">Bebop Institute</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__result">
-                                                <div class="widget-results__score">
-                                                    <span class="widget-results__score-winner">4</span> - <span class="widget-results__score-loser">2</span>
-                                                    <div class="widget-results__status">Away</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__team widget-results__team--second">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/alchemists_b_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">Alchemists</h5>
-                                                    <span class="widget-results__team-info">Eric Bros School</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- Game 2 / End -->
+                                                //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                                if ($percentuale_presenze >= 30 && $i <= 5) {
+                                                    ?>
+                                                    <tr>
+                                                        <td class="team-leader__player">
+                                                            <div class="team-leader__player-info">
+                                                                <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                    <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
+                                                                </figure>
+                                                                <div class="team-leader__player-inner">
+                                                                    <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
+                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td class="team-leader__gp"><?= $row['presenze'] ?></td>
+                                                        <?php
+                                                        //$partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                        //$mpp = ($row['totale_assist'] / $partite_schierato);
+                                                        ?>
+                                                        <td class="team-leader__avg">
+                                                            <div class="circular">
+                                                                <div class="circular__bar" data-percent="<?= ( $row['media_voto'] * 10 ) ?>">
+                                                                    <span class="circular__percents"><?= number_format($row['media_voto'], 2) ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
 
-                                    <!-- Game 3 -->
-                                    <li class="widget-results__item">
-                                        <h5 class="widget-results__title">Saturday, March 10</h5>
-                                        <div class="widget-results__content">
-                                            <div class="widget-results__team widget-results__team--first">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/alchemists_b_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">Alchemists</h5>
-                                                    <span class="widget-results__team-info">Eric Bros School</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__result">
-                                                <div class="widget-results__score">
-                                                    <span class="widget-results__score-draw">0</span> - <span class="widget-results__score-draw">0</span>
-                                                    <div class="widget-results__status">Home</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__team widget-results__team--second">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/lucky_clovers_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">Clovers</h5>
-                                                    <span class="widget-results__team-info">St. Patrick’s Inst</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- Game 3 / End -->
+                                                    <?php
+                                                    $i++;
+                                                }
+                                            }
+                                            ?>
 
-                                    <!-- Game 4 -->
-                                    <li class="widget-results__item">
-                                        <h5 class="widget-results__title">Friday, March 4</h5>
-                                        <div class="widget-results__content">
-                                            <div class="widget-results__team widget-results__team--first">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/ocean_kings_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">Ocean Kings</h5>
-                                                    <span class="widget-results__team-info">Bay College</span>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__result">
-                                                <div class="widget-results__score">
-                                                    <span class="widget-results__score-loser">2</span> - <span class="widget-results__score-winner">3</span>
-                                                    <div class="widget-results__status">Away</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-results__team widget-results__team--second">
-                                                <figure class="widget-results__team-logo">
-                                                    <img src="<?= base_url('/') ?>assets/images/samples/logos/alchemists_b_shield.png" alt="">
-                                                </figure>
-                                                <div class="widget-results__team-details">
-                                                    <h5 class="widget-results__team-name">Alchemists</h5>
-                                                    <span class="widget-results__team-info">Eric Bros School</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <!-- Game 4 / End -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Leader: Points / End -->
 
-                                </ul>
                             </div>
                         </aside>
-                        <!-- Widget: Latest Results / End -->
-
-
-                        <!-- Widget: Games History -->
-                        <aside class="widget card widget--sidebar widget-games-history">
-                            <div class="widget__title card__header card__header--has-legend">
-                                <h4>Games History</h4>
-                                <div id="gamesHistoryLegendSoccer" class="chart-legend chart-legend--games-history"></div>
-                            </div>
-                            <div class="widget__content card__content">
-                                <canvas id="games-history-soccer" class="games-history-chart" height="230"></canvas>
-                            </div>
-                        </aside>
-                        <!-- Widget: Games History / End -->
-
+                        <!-- Widget: Team Leaders / End -->
 
                     </div>
-                    <!-- Sidebar / End -->
+
                 </div>
+                
             </div>
         </div>
 
