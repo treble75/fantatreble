@@ -1,4 +1,37 @@
 
+        <?php
+        switch ($stagione) {
+            case "2011_12":
+                $scudettato = 7;
+                $partecipanti = 8;
+                break;
+            case "2012_13":
+                $scudettato = 1;
+                $partecipanti = 8;
+                break;
+            case "2013_14":
+                $scudettato = 1;
+                $partecipanti = 8;
+                break;
+            case "2014_15":
+                $scudettato = 1;
+                $partecipanti = 8;
+                break;
+            case "2015_16":
+                $scudettato = 3;
+                $partecipanti = 8;
+                break;
+            case "2016_17":
+                $scudettato = 5;
+                $partecipanti = 10;
+                break;
+            case "2017_18":
+                $scudettato = 7;
+                $partecipanti = 10;
+                break;
+        }
+        ?>
+
         <!-- Page Heading
         ================================================== -->
         <div class="page-heading">
@@ -6,6 +39,11 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title">Stagione <span class="highlight"><?= str_replace("_", "/" , $stagione) ?></span></h1>
+                        <ol class="page-heading__breadcrumb breadcrumb">
+                          <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
+                          <li><a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti">Stagioni Precedenti</a></li>
+                          <li class="active">Stagione <?= str_replace("_", "/" , $stagione) ?></li>
+                        </ol>
                     </div>
                 </div>
             </div>
@@ -16,12 +54,10 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/campionato" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario" class="content-filter__link"><small>Treble League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti" class="content-filter__link"><small>Treble League</small>Stagioni Precedenti</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori_precedenti/<?= $stagione ?>" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/<?= $stagione ?>" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendari_precedenti/<?= $stagione ?>" class="content-filter__link"><small>Treble League</small>Risultati</a></li>
                 </ul>
             </div>
         </nav>
@@ -61,7 +97,6 @@
                                         <th class="team-standings__goals-diff">Diff. Gol</th>
                                         <th class="team-standings__total-points">Punti</th>
                                         <th class="team-standings__points-diff">Fanta Punti</th>
-                                        <th class="team-standings__points-diff">Forma Squadra</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -71,25 +106,67 @@
                                     $i = 1;
                                     foreach ($classifica as $row) {
                                         
-                                        switch ($i) {
-                                            case 1:
-                                                $color = 'bgcolor="#f2fff0"';
-                                                break;
-                                            case 2;
-                                            case 3;
-                                            case 4;
-                                            case 5;
-                                            case 6;
-                                                $color = "";
-                                                break;
-                                            case 7;
-                                                $color = 'bgcolor="#fff3f4"';
-                                                break;
-                                            case 8;
-                                            case 9;
-                                            case 10;
-                                                $color = 'bgcolor="#ffe0e2"';
-                                                break;
+                                        if ($partecipanti == 8) {
+                                            if ($stagione == "2011_12" || $stagione == "2012_13" || $stagione == "2013_14") {
+                                                switch ($i) {
+                                                    case 1:
+                                                        $color = 'bgcolor="#f2fff0"';
+                                                        break;
+                                                    case 2;
+                                                    case 3;
+                                                    case 4;
+                                                        $color = "";
+                                                        break;
+                                                    case 5;
+                                                    case 6;
+                                                    case 7;
+                                                    case 8;
+                                                        $color = 'bgcolor="#ffe0e2"';
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                        
+                                        if ($partecipanti == 8) {
+                                            if ($stagione == "2013_14" || $stagione == "2014_15" || $stagione == "2015_16") {
+                                                switch ($i) {
+                                                    case 1:
+                                                        $color = 'bgcolor="#f2fff0"';
+                                                        break;
+                                                    case 2;
+                                                    case 3;
+                                                    case 4;
+                                                    case 5;
+                                                        $color = "";
+                                                        break;
+                                                    case 6;
+                                                    case 7;
+                                                    case 8;
+                                                        $color = 'bgcolor="#ffe0e2"';
+                                                        break;
+                                                }
+                                            }
+                                        }
+                                        
+                                        if ($partecipanti == 10) {
+                                            switch ($i) {
+                                                case 1:
+                                                    $color = 'bgcolor="#f2fff0"';
+                                                    break;
+                                                case 2;
+                                                case 3;
+                                                case 4;
+                                                case 5;
+                                                case 6;
+                                                case 7;
+                                                    $color = "";
+                                                    break;
+                                                case 8;
+                                                case 9;
+                                                case 10;
+                                                    $color = 'bgcolor="#ffe0e2"';
+                                                    break;
+                                            }
                                         }
                                         $chk = "";
                                         ?>  
@@ -98,47 +175,25 @@
                                             <td class="team-standings__team">
                                                 <div class="team-meta">
                                                     <figure class="team-meta__logo">
-                                                        <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_squadra'] ?>.png" width="30px">
+                                                        <img src="<?= base_url('/') ?>images/albo/logo/<?= $this->mdl_utenti->getLogoStorico($row['id_squadra'], str_replace("_", "-" , $stagione)) ?>" width="30px">
                                                     </figure>
                                                     <div class="team-meta__info">
-                                                        <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/utente/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></a>
+                                                        <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/utente/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadraPrecedente($row['id_squadra'], str_replace("_", "-" , $stagione)) ?></a>
                                                             <?php
                                                             //Inserire ID della squadra scudettata
-                                                            if ($row['id_squadra'] == 10) {
+                                                            if ($row['id_squadra'] == $scudettato) {
                                                                 ?>
                                                                 <img src="<?= base_url('/') ?>images/scudetto.png" width="12" height="15" />
                                                             <?php }
                                                             ?> 
                                                         </h6>
-                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id_squadra']) ?></span>
+                                                        <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtentePrecedente($row['id_squadra'], str_replace("_", "-" , $stagione)) ?></span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <?php
-                                            //Calcolo arrow di posizione
-                                            $giornata = $row['partite_giocate'];
-                                            $pos = $this->mdl_team->getArrow($row['id_squadra'], $giornata);
-                                            if ($pos == 2) {
-                                                $chk = '<img src="' . base_url('/') . 'images/down.png" width="17px" />';
-                                            }
-                                            if ($pos == 1) {
-                                                $chk = '<img src="' . base_url('/') . 'images/up.png" width="16px" />';
-                                            }
-                                            if ($pos == "") {
-                                                $chk = "";
-                                            }
-                                            // Se sono state giocate le 27 giornate di Regular Season, non faccio vedere il posizionamento
-                                            if ($giornata < 27) {
-                                                $chkVisible = $chk;
-                                            } else {
-                                                $chkVisible = "";
-                                            }
-                                            ?>
 
                                             <td class="team-standings__pos" align='center'>
-                                                <figure class="team-meta__logo">
-                                                    <?= $chkVisible ?>
-                                                </figure>
+                                                &nbsp;
                                             </td>
                                             <td class="team-standings__played"><?= $row['partite_giocate'] ?></td>
                                             <td class="team-standings__win"><?= $row['vittorie'] ?></td>
@@ -156,43 +211,6 @@
                                             </td>
                                             <td class="team-standings__total-points" style="color: #1892ED; font-size: 14px;"><?= $row['punti'] ?></td>
                                             <td class="team-standings__points-diff"><?= $row['fanta_punteggio'] ?></td>
-                                            <td class="team-standings__points-diff">
-                                                
-                                                <?php
-                                                $forma = $this->mdl_team->getFormaSquadra($row['id_squadra']);
-                                                
-                                                foreach ($forma as $team) {
-                                                    if ($row['id_squadra'] == $team['id1']) {
-                                                        if ($team['risultato1'] > $team['risultato2']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/v.png">
-                                                        <?php
-                                                        }
-                                                        if ($team['risultato1'] == $team['risultato2']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/n.png">
-                                                        <?php
-                                                        }
-                                                        if ($team['risultato1'] < $team['risultato2']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/p.png">
-                                                        <?php
-                                                        }
-                                                    }
-                                                    if ($row['id_squadra'] == $team['id2']) {
-                                                        if ($team['risultato2'] > $team['risultato1']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/v.png">
-                                                        <?php
-                                                        }
-                                                        if ($team['risultato2'] == $team['risultato1']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/n.png">
-                                                        <?php
-                                                        }
-                                                        if ($team['risultato2'] < $team['risultato1']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/p.png">
-                                                        <?php
-                                                        }
-                                                    }
-                                                }
-                                                ?>
-                                            </td>
                                         </tr>
                                         <?php
                                         $i++;

@@ -73,7 +73,7 @@
                                         <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt=""></a>
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="#" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2016_17" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">August 23rd, 2018</time>
                                         <h6 class="posts__title"><a href="#">The Planetrotters will perform this May 4th at Madison Cube</a></h6>
                                         <div class="posts__excerpt">
@@ -112,7 +112,7 @@
                                         <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt=""></a>
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="#" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2015_16" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">August 23rd, 2018</time>
                                         <h6 class="posts__title"><a href="#">The Planetrotters will perform this May 4th at Madison Cube</a></h6>
                                         <div class="posts__excerpt">
@@ -151,7 +151,7 @@
                                         <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt=""></a>
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="#" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2014_15" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">August 23rd, 2018</time>
                                         <h6 class="posts__title"><a href="#">The Planetrotters will perform this May 4th at Madison Cube</a></h6>
                                         <div class="posts__excerpt">
@@ -190,7 +190,7 @@
                                         <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt=""></a>
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="#" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2013_14" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">August 23rd, 2018</time>
                                         <h6 class="posts__title"><a href="#">The Planetrotters will perform this May 4th at Madison Cube</a></h6>
                                         <div class="posts__excerpt">
@@ -229,7 +229,7 @@
                                         <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt=""></a>
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="#" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2012_13" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">August 23rd, 2018</time>
                                         <h6 class="posts__title"><a href="#">The Planetrotters will perform this May 4th at Madison Cube</a></h6>
                                         <div class="posts__excerpt">
@@ -268,7 +268,7 @@
                                         <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt=""></a>
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="#" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2011_12" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">August 23rd, 2018</time>
                                         <h6 class="posts__title"><a href="#">All Blacks vince il torneo d'esordio del FantaTreble</a></h6>
                                         <div class="posts__excerpt">
