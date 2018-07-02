@@ -379,24 +379,24 @@
                         <!-- Widget: Tag Cloud -->
                         <aside class="widget widget--side-panel widget-tagcloud">
                             <div class="widget__title">
-                                <h4>Popular Tags</h4>
+                                <h4>Tags Popolari</h4>
                             </div>
                             <div class="widget__content">
                                 <div class="tagcloud">
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">PLAYOFFS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">ALCHEMISTS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">INJURIES</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">TEAM</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">INCORPORATIONS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">UNIFORMS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">CHAMPIONS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">PROFESSIONAL</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">COACH</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">STADIUM</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">NEWS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">PLAYERS</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">WOMEN DIVISION</a>
-                                    <a href="#" class="btn btn-primary btn-xs btn-outline btn-sm">AWARDS</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/campionato" class="btn btn-primary btn-xs btn-outline btn-sm">Treble League</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/champions" class="btn btn-primary btn-xs btn-outline btn-sm">Champions League</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/coppa" class="btn btn-primary btn-xs btn-outline btn-sm">Coppa Treble</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/albo" class="btn btn-primary btn-xs btn-outline btn-sm">Albo d'oro</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/albo_statistiche" class="btn btn-primary btn-xs btn-outline btn-sm">Precedenti Storici</a>
+                                    <a href="<?= base_url('/') ?>index.php/utente/trasferimenti" class="btn btn-primary btn-xs btn-outline btn-sm">Trasferimenti</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/statistiche/4" class="btn btn-primary btn-xs btn-outline btn-sm">Statistiche Attaccanti</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/regolamento" class="btn btn-primary btn-xs btn-outline btn-sm">Regolamento</a>
+                                    <a href="<?= base_url('/') ?>index.php/utente/calciomercato" class="btn btn-primary btn-xs btn-outline btn-sm">Calciomercato</a>
+                                    <a href="<?= base_url('/') ?>index.php/utente/elenco_rigoristi" class="btn btn-primary btn-xs btn-outline btn-sm">Rigoristi</a>
+                                    <a href="<?= base_url('/') ?>index.php/utente/myteam_bacheca" class="btn btn-primary btn-xs btn-outline btn-sm">Bacheca</a>
+                                    <a href="<?= base_url('/') ?>index.php/utente/formazioni_campionato" class="btn btn-primary btn-xs btn-outline btn-sm">Formazioni Schierate</a>
+                                    <a href="<?= base_url('/') ?>index.php/utente/schiera_formazione" class="btn btn-primary btn-xs btn-outline btn-sm">Schiera Formazione</a>
+                                    <a href="<?= base_url('/') ?>index.php/utente/trattative" class="btn btn-primary btn-xs btn-outline btn-sm">Trattative Aperte</a>
                                 </div>
                             </div>
                         </aside>

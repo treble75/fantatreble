@@ -37,25 +37,20 @@
         <!-- Sponsors -->
         <div class="container">
             <div class="sponsors">
-                <h6 class="sponsors-title">Our Sponsors:</h6>
+                <h6 class="sponsors-title">Link Utili</h6>
                 <ul class="sponsors-logos">
                     <li class="sponsors__item">
-                        <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/sponsor-visa.png" alt=""></a>
+                        <a href="http://www.gazzetta.it" target="blank"><img src="<?= base_url('/') ?>images/logo/gds.png" alt=""></a>
                     </li>
                     <li class="sponsors__item">
-                        <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/sponsor-discover.png" alt=""></a>
+                        <a href="http://www.corrieredellosport.it/" target="blank"><img src="<?= base_url('/') ?>images/logo/cds.png" alt=""></a>
                     </li>
                     <li class="sponsors__item">
-                        <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/sponsor-paypal.png" alt=""></a>
+                        <a href="http://www.fantapazz.it/" target="blank"><img src="<?= base_url('/') ?>images/logo/fantapazz.png" alt=""></a>
                     </li>
                     <li class="sponsors__item">
-                        <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/sponsor-skrill.png" alt=""></a>
+                        <a href="http://www.fantagazzetta.com/" target="blank"><img src="<?= base_url('/') ?>images/logo/fg.png" alt=""></a>
                     </li>
-                    <li class="sponsors__item">
-                        <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/sponsor-westernunion.png" alt=""></a>
-                    </li>
-                    <li class="sponsors__item">
-                        <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/sponsor-payoneer.png" alt=""></a>
                     </li>
                 </ul>
             </div>
