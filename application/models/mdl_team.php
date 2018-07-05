@@ -1645,6 +1645,15 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getTeamGiornataPrecedente($giornata, $stagione) {
+        $this->db->select('*');
+        $this->db->where('giornata', $giornata);
+        $this->db->from('tb_formazioni_schierate_' . $stagione);
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function getTeamGiornataCoppa($giornata) {
         $this->db->select('*');
@@ -1670,6 +1679,16 @@ class mdl_team extends CI_Model {
         $this->db->where('id_giocatore', $id_giocatore);
         $this->db->where('giornata', $giornata);
         $this->db->from('tb_voti');
+        $query = $this->db->get();
+
+        return $row = $query->row('schierato');
+    }
+    
+    public function getSchieratoCampionatoPrecedente($id_giocatore, $giornata, $stagione) {
+        $this->db->select('schierato');
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->where('giornata', $giornata);
+        $this->db->from('tb_voti_' . $stagione);
         $query = $this->db->get();
 
         return $row = $query->row('schierato');
@@ -1708,6 +1727,17 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getRigoristiSchieratiPrecedenti($id_utente, $giornata, $stagione) {
+        $this->db->select('*');
+        $this->db->where('giornata', $giornata);
+        $this->db->where('id_utente', $id_utente);
+        $this->db->order_by('ordine', 'asc');
+        $this->db->from('tb_rigoristi_' . $stagione);
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function getSchierati() {
         $this->db->select('*');
@@ -1742,6 +1772,16 @@ class mdl_team extends CI_Model {
         $this->db->where('id_giocatore', $giocatore);
         $this->db->where('giornata', $giornata);
         $this->db->from('tb_voti');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+    
+    public function getVotiGiornataPrecedente($giocatore, $giornata, $stagione) {
+        $this->db->select('*');
+        $this->db->where('id_giocatore', $giocatore);
+        $this->db->where('giornata', $giornata);
+        $this->db->from('tb_voti_' . $stagione);
         $query = $this->db->get();
 
         return $query->result_array();
@@ -2278,6 +2318,25 @@ class mdl_team extends CI_Model {
         }
         return $ruolo;
     }
+    
+    public function getNomeRuoloPrecedente($id_giocatore, $stagione) {
+        $this->db->select('ruolo');
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_giocatori_' . $stagione);
+
+        $ruolo = $this->db->get()->row('ruolo');
+        switch ($ruolo) {
+            case 1 : $ruolo = "P";
+                break;
+            case 2 : $ruolo = "D";
+                break;
+            case 3 : $ruolo = "C";
+                break;
+            case 4 : $ruolo = "A";
+                break;
+        }
+        return $ruolo;
+    }
 
     public function getDescrizioneRuolo($id_giocatore) {
         $this->db->select('ruolo');
@@ -2335,6 +2394,20 @@ class mdl_team extends CI_Model {
 
         return $nome;
     }
+    
+    public function getNomeGiocatorePrecedente($id_giocatore, $stagione) {
+        $this->db->select('*');
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_giocatori_' . $stagione);
+        $cog = $this->db->get()->row('cognome');
+        $this->db->select('*');
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_giocatori_' . $stagione);
+        $nom = $this->db->get()->row('nome');
+        $nome = $cog . " " . $nom;
+
+        return $nome;
+    }
 
     public function getNome($id_giocatore) {
         $this->db->select('*');
@@ -2362,12 +2435,30 @@ class mdl_team extends CI_Model {
 
         return $this->db->get()->row('fantavoto');
     }
+    
+    public function getFVPrecedente($id_giocatore, $giornata, $stagione) {
+        $this->db->select('fantavoto');
+        $this->db->where('giornata', $giornata);
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_voti_' . $stagione);
+
+        return $this->db->get()->row('fantavoto');
+    }
 
     public function getVoto($id_giocatore, $giornata) {
         $this->db->select('voto');
         $this->db->where('giornata', $giornata);
         $this->db->where('id_giocatore', $id_giocatore);
         $this->db->from('tb_voti');
+
+        return $this->db->get()->row('voto');
+    }
+    
+    public function getVotoPrecedente($id_giocatore, $giornata, $stagione) {
+        $this->db->select('voto');
+        $this->db->where('giornata', $giornata);
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_voti_' . $stagione);
 
         return $this->db->get()->row('voto');
     }
@@ -2486,11 +2577,32 @@ class mdl_team extends CI_Model {
 
         return $criterio;
     }
+    
+    public function getCriterioSquadraPrecedente($id_utente, $giornata, $competizione, $stagione) {
+        $this->db->select('metodo');
+        $this->db->where('id_utente', $id_utente);
+        $this->db->where('giornata', $giornata);
+        $this->db->where('competizione', $competizione);
+        $this->db->from('tb_criterio_squadre_sostituzioni_' . $stagione);
+        
+        $criterio = $this->getCriterioSostituzione($this->db->get()->row('metodo'));
+
+        return $criterio;
+    }
 
     public function getGiocatore($id_giocatore) {
         $this->db->select('*');
         $this->db->where('id_giocatore', $id_giocatore);
         $this->db->from('tb_giocatori');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+    
+    public function getGiocatorePrecedenti($id_giocatore, $stagione) {
+        $this->db->select('*');
+        $this->db->where('id_giocatore', $id_giocatore);
+        $this->db->from('tb_giocatori_' . $stagione);
         $query = $this->db->get();
 
         return $query->result_array();
@@ -2614,6 +2726,27 @@ class mdl_team extends CI_Model {
 
         return $totale_modificatore;
     }
+    
+    public function getDettagliCampionatoTotaleModificatorePrecedenti($id_utente, $giornata, $chk, $stagione) {
+        if ($chk == 1) {
+
+            $this->db->select('totale_modificatore1');
+            $this->db->where('giornata', $giornata);
+            $this->db->where('id1', $id_utente);
+            $this->db->from('tb_calendario_' . $stagione);
+
+            $totale_modificatore = $this->db->get()->row('totale_modificatore1');
+        } else {
+            $this->db->select('totale_modificatore2');
+            $this->db->where('giornata', $giornata);
+            $this->db->where('id2', $id_utente);
+            $this->db->from('tb_calendario_' . $stagione);
+
+            $totale_modificatore = $this->db->get()->row('totale_modificatore2');
+        }
+
+        return $totale_modificatore;
+    }
 
     public function getDettagliCampionatoTotaleModificatoreCoppa($id_utente, $giornata, $chk, $competition) {
         if ($chk == 1) {
@@ -2695,6 +2828,27 @@ class mdl_team extends CI_Model {
         foreach ($result as $row) {
             for ($i = 1; $i <= 17; $i++) {
                 $query2 = $this->db->query('select count(*) as num from tb_giocatori, tb_voti where tb_giocatori.id_giocatore = tb_voti.id_giocatore and tb_voti.giornata = ' . $giornata . ' and tb_voti.id_giocatore = ' . $row['id' . $i] . ' and ruolo = 2 and schierato = 1;');
+
+                foreach ($query2->result_array() as $row2) {
+                    $numero += $row2['num'];
+                }
+            }
+        }
+
+        return $numero;
+    }
+    
+    public function getNumeroDifensoriSchieratiPrecedenti($id_utente, $giornata, $stagione) {
+        //Recupero la formazione schierata per la giornata e l'utente
+        $query = $this->db->query('select T2 as id1, T3 as id2, T4 as id3, T5 as id4, T6 as id5, P3 as id6, P4 as id7, P5 as id8, P6 as id9, P7 as id10, P8 as id11, P9 as id12, P10 as id13, P11 as id14, P12 as id15, P13 as id16, P14 as id17 from tb_formazioni_schierate_' . $stagione . ' where id_utente = ' . $id_utente . ' and giornata = ' . $giornata . ';');
+        $result = $query->result_array();
+
+        $numero = 0;
+
+        //Verifico per ogni id_giocatore che si tratti di un difensore, che sia schierato e li conto
+        foreach ($result as $row) {
+            for ($i = 1; $i <= 17; $i++) {
+                $query2 = $this->db->query('select count(*) as num from tb_giocatori_' . $stagione . ', tb_voti_' . $stagione . ' where tb_giocatori_' . $stagione . '.id_giocatore = tb_voti_' . $stagione . '.id_giocatore and tb_voti_' . $stagione . '.giornata = ' . $giornata . ' and tb_voti_' . $stagione . '.id_giocatore = ' . $row['id' . $i] . ' and ruolo = 2 and schierato = 1;');
 
                 foreach ($query2->result_array() as $row2) {
                     $numero += $row2['num'];
@@ -3066,6 +3220,12 @@ class mdl_team extends CI_Model {
     public function getCalendariogiornata($giornata) {
         $this->db->where('giornata', $giornata);
         $query = $this->db->get('tb_calendario');
+        return $query->result_array();
+    }
+    
+    public function getCalendariogiornataPrecedente($giornata, $stagione) {
+        $this->db->where('giornata', $giornata);
+        $query = $this->db->get('tb_calendario_' . $stagione);
         return $query->result_array();
     }
 

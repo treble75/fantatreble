@@ -252,7 +252,7 @@
                                                         <?php
                                                         if ($row['risultato1'] != "" && $row['risultato2'] != "") {
                                                             ?>
-                                                            <a href="<?= base_url('/') ?>index.php/home/dettagli/<?= $i ?>" class="btn btn-xs btn-default btn-outline btn-block"> Dettagli partita </a>
+                                                            <a href="<?= base_url('/') ?>index.php/home/dettagli_precedenti/<?= $i ?>/<?= $stagione ?>" class="btn btn-xs btn-default btn-outline btn-block"> Dettagli partita </a>
                                                             <?php
                                                         }
                                                         ?>
