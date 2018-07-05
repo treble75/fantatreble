@@ -237,6 +237,28 @@ class Home extends CI_Controller {
         $this->show('home/campionati_precedenti', $data);
     }
     
+    public function marcatori_precedenti($stagione) {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+        
+        //Seleziono ultima giornata di campionato - DA MODIFICARE
+        if ( $stagione == "2011_12" || $stagione == "2012_13" || $stagione == "2013_14"  || $stagione == "2014_15" || $stagione == "2015_16" ) {
+            $ultima_giornata_regular = 28;
+        }
+        
+        if ( $stagione == "2016_17" || $stagione == "2017_18" ) {
+            $ultima_giornata_regular = 27;
+        }
+
+        $data['bomber'] = $this->mdl_team->getBomberCampionatiPrecedenti($stagione);
+        $data['stagione'] = $stagione;
+        $data['giornata'] = 1;
+
+        $data['active'] = 5;
+        $this->show('home/marcatori_precedenti', $data);
+    }
+    
     public function calendari_precedenti($stagione) {
 
         $this->load->model('mdl_team');

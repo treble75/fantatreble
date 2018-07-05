@@ -54,7 +54,6 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori_precedenti/<?= $stagione ?>" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
                     <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/<?= $stagione ?>" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendari_precedenti/<?= $stagione ?>" class="content-filter__link"><small>Treble League</small>Risultati</a></li>

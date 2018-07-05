@@ -970,6 +970,18 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getBomberCampionatiPrecedenti($stagione) {
+        $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori_' . $stagione . '.id_giocatore, tb_giocatori_' . $stagione . '.ruolo, tb_giocatori_' . $stagione . '.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_' . $stagione . '.voto) as voto, avg(tb_voti_' . $stagione . '.fantavoto) as fv
+                                                        FROM tb_voti_' . $stagione . '
+                                                        join tb_giocatori_' . $stagione . ' on tb_voti_' . $stagione . '.id_giocatore = tb_giocatori_' . $stagione . '.id_giocatore
+                                                        and schierato = 1 
+                                                        group by cognome
+                                                        order by gol desc, fv desc, voto desc
+                                                        ;');
+
+        return $query->result_array();
+    }
 
     public function getBomberCoppa($giornata) {
         //Inserire le giornate di Coppa Treble
