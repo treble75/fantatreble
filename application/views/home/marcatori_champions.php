@@ -118,7 +118,13 @@
                                                     <td class="team-roster-table__name" style="vertical-align: middle; width: 15%;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
-                                                    <td class="team-roster-table__height" style="vertical-align: middle; width: 8%;"><?= number_format($row['voto'], 2) ?></td>
+                                                    <?php
+                                                    if ($row['voto'] >= 6)
+                                                        $colorefont = "#009900";
+                                                    if ($row['voto'] < 6)
+                                                        $colorefont = "#ff3d3d";
+                                                    ?>
+                                                    <td class="team-roster-table__height" style="vertical-align: middle; width: 8%; color: <?= $colorefont ?>;"><?= number_format($row['voto'], 2) ?></td>
                                                     <td class="team-roster-table__weight team-leader__avg" style="vertical-align: middle; width: 8%;">
                                                         <div class="circular">
                                                             <?php $percentuale = number_format(($row['fv'] * 10), 2); ?>

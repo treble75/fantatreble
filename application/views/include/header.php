@@ -397,6 +397,7 @@
                                     <a href="<?= base_url('/') ?>index.php/utente/formazioni_campionato" class="btn btn-primary btn-xs btn-outline btn-sm">Formazioni Schierate</a>
                                     <a href="<?= base_url('/') ?>index.php/utente/schiera_formazione" class="btn btn-primary btn-xs btn-outline btn-sm">Schiera Formazione</a>
                                     <a href="<?= base_url('/') ?>index.php/utente/trattative" class="btn btn-primary btn-xs btn-outline btn-sm">Trattative Aperte</a>
+                                    <a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti" class="btn btn-primary btn-xs btn-outline btn-sm">Stagioni Precedenti</a>
                                 </div>
                             </div>
                         </aside>

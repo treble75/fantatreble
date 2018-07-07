@@ -167,7 +167,14 @@
                                             <td class="team-roster-table__position" style="width: 6%; vertical-align: middle; text-align: center;"><?= $ut ?></td>
                                             <td class="team-roster-table__number" style="width: 6%; vertical-align: middle; text-align: center;"><?= substr($this->mdl_team->getSquadraA($row['squadra']), 0, 3) ?></td>
                                             <td class="team-roster-table__age" style="width: 6%; vertical-align: middle; text-align: center;"><?= $PG ?></td>
-                                            <td class="team-roster-table__foot" style="width: 6%; vertical-align: middle; text-align: center;"><?= $voto ?></td>
+                                            <!-- Setto rosso sotto il 6 e verde sopra il 6 -->
+                                            <?php
+                                            if ($voto >= 6)
+                                                $colorefont = "#009900";
+                                            if ($voto < 6)
+                                                $colorefont = "#ff3d3d";
+                                            ?>
+                                            <td class="team-roster-table__foot" style="width: 6%; vertical-align: middle; text-align: center; color: <?= $colorefont ?>;"><?= $voto ?></td>
                                             <td class="team-roster-table__weight team-leader__avg" style="width: 6%; vertical-align: middle; text-align: center;">
                                                 <div class="circular">
                                                     <?php $percentuale = number_format(($fantavoto * 10), 2); ?>

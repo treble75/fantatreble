@@ -7658,6 +7658,10 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_champions.jpg") !important;
 }
 
+.page-heading-formazioni-coppe {
+  background-image: url("../images/soccer/sfondo_formazioni_coppe.jpg") !important;
+}
+
 .page-heading-coppa-calendario {
   background-image: url("../images/soccer/sfondo_coppa_calendario.jpg") !important;
 }
@@ -7678,6 +7682,10 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_champions_statistiche.jpg") !important;
 }
 
+.page-heading-marcatori-coppa {
+  background-image: url("../images/soccer/sfondo_coppa_marcatori.jpg") !important;
+}
+
 .page-heading-profilo {
   background-image: url("../images/soccer/sfondo_profilo.jpg") !important;
 }
@@ -7688,6 +7696,10 @@ input.header-mobile__search-control:focus {
 
 .page-heading-statistiche-portieri {
   background-image: url("../images/soccer/sfondo_statistiche_portieri.jpg") !important;
+}
+
+.page-heading-statistiche-difensori {
+  background-image: url("../images/soccer/sfondo_statistiche_difensori.jpg") !important;
 }
 
 .page-heading-statistiche-centrocampisti {

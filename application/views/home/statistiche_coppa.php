@@ -1,4 +1,6 @@
-
+        <?php
+        error_reporting (E_ALL ^ E_NOTICE);
+        ?>
 
         <!-- Page Heading
         ================================================== -->
@@ -758,7 +760,7 @@
                                                                 </figure>
                                                                 <div class="team-leader__player-inner">
                                                                     <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    <span class="team-leader__player-position"><?= @$this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
                                                                 </div>
                                                             </div>
                                                         </td>
