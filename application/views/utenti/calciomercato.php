@@ -216,10 +216,10 @@
                                                     $utente = $this->mdl_utenti->getDatiUtente($row['id_utente']);
                                                     ?>
                                                     <tr>
-                                                        <td class="team-leader__player">
-                                                            <div class="team-leader__player-info">
-                                                                <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                                    <img src="<?= base_url('/') ?>images/users/<?= $row['id_utente'] ?>.png" >
+                                                        <td class="team-leader__player" style="vertical-align:middle !important;">
+                                                            <div class="team-leader__player-info" style="vertical-align:middle !important;">
+                                                                <figure style="border-radius: 0% !important; vertical-align:middle !important; display: inline-block !important; margin-right: 20px !important; overflow: hidden !important;">
+                                                                    <img src="<?= base_url('/') ?>images/users/<?= $row['id_utente'] ?>.png" width="50px" >
                                                                 </figure>
                                                                 <div class="team-leader__player-inner">
                                                                     <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $utente[0]['nome'] . " " . $utente[0]['cognome'] ?></h5>

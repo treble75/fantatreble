@@ -10,10 +10,20 @@
         <meta name="description" content="FantaTreble">
         <meta name="author" content="Luca Guerrieri">
         <meta name="keywords" content="Fantacalcio Calcio Sport Campionato Treble">
+        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121974831-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-121974831-1');
+        </script>
 
         <!-- Favicons
         ================================================== -->
-        <link rel="shortcut icon" href="<?= base_url('/') ?>assets/images/soccer/favicons/favicon.ico">
+        <link rel="shortcut icon" href="<?= base_url('/') ?>images/favicon.ico">
         <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url('/') ?>assets/images/soccer/favicons/favicon-120.png">
         <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url('/') ?>assets/images/soccer/favicons/favicon-152.png">
 

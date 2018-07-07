@@ -11985,20 +11985,29 @@ ul.posts:not(.post-grid) {
 }
 
 .comments-list__header {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   overflow: hidden;
   position: relative;
   padding-right: 40px;
 }
 
 .comments-list__avatar {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   overflow: hidden;
-  border-radius: 50%;
   display: inline-block;
-  vertical-align: middle;
-  margin-right: 7px;
+  vertical-align: top;
+  margin-right: 15px;
+}
+
+.comments-list__avatar_corretto {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  text-align: top;
+  margin-right: 15px;
 }
 
 .comments-list__info {
@@ -12060,7 +12069,6 @@ ul.posts:not(.post-grid) {
 .comments-list--alt .comments-list__avatar {
   float: left;
   margin-right: 10px;
-  border-radius: 4px;
 }
 
 .comments-list--alt .comments-list__info {

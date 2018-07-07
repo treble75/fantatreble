@@ -75,10 +75,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -154,10 +160,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -233,10 +245,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -317,10 +335,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -396,10 +420,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -475,10 +505,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -559,10 +595,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -638,10 +680,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -717,10 +765,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>
@@ -805,10 +859,16 @@
                                                     </td>
                                                     <?php
                                                     $media_voto = $this->mdl_team->getMediaVotoGiocatore($row['id_giocatore']);
-                                                    if ($media_voto >= 6)
-                                                        $colorefont = "#009900";
-                                                    if ($media_voto < 6)
+                                                    
+                                                    if (count($media_voto)>0 && $media_voto != "") {
+                                                        if ($media_voto >= 6)
+                                                            $colorefont = "#009900";
+                                                        if ($media_voto < 6)
+                                                            $colorefont = "#ff3d3d";
+                                                    } else {
+                                                        $media_voto = 0.00;
                                                         $colorefont = "#ff3d3d";
+                                                    }
                                                     ?>
                                                     <td class="team-leader__gp" style="color: <?= $colorefont ?>;"><?= number_format(($media_voto), 2); ?></td>
                                                 </tr>

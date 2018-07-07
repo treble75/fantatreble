@@ -572,9 +572,9 @@
                                                 foreach (@$offerte as $row) {
                                                     ?>
                                                     <li class="comments-list__item">
-                                                        <header class="comments-list__header">
-                                                            <figure class="comments-list__avatar">
-                                                                <img src="<?= base_url('/') ?>images/users/<?= $row['id_utente'] ?>.png" alt="">
+                                                        <header class="comments-list__header" style="vertical-align:middle !important;">
+                                                            <figure style="border-radius: 0% !important; vertical-align:middle !important; margin-right: 20px !important; display: inline-block !important; overflow: hidden !important;">
+                                                                <img src="<?= base_url('/') ?>images/users/<?= $row['id_utente'] ?>.png" width="60px">
                                                             </figure>
                                                             <div class="comments-list__info">
                                                                 <h5 class="comments-list__author-name"><?= $this->mdl_utenti->getNomeUtente($row['id_utente']) ?></h5>

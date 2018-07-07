@@ -3283,7 +3283,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedenti($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";
@@ -3299,7 +3299,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedenti($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";
@@ -3318,7 +3318,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiChampions($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";
@@ -3334,7 +3334,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiChampions($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";
@@ -3353,7 +3353,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiCoppa($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";
@@ -3369,7 +3369,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiCoppa($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";
@@ -3388,7 +3388,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";
@@ -3404,7 +3404,7 @@ class mdl_team extends CI_Model {
             $id2 = $this->getUtenteIdSquadra($squadra2, $stagione);
 
             //Se la squadra è presente in quella stagione cerco nei calendari precedenti: INSERIRE OGNI ANNO LA STAGIONE ARCHIVIATA !!!
-            if ($id1 != "" && $id2 != "") {
+            if (count($id1)>0 && $id1 != "" && count($id2)>0 && $id2 != "") {
                 $precedenti = $this->getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db);
             } else {
                 $precedenti = "";

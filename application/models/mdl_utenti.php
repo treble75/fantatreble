@@ -137,6 +137,12 @@ class mdl_utenti extends CI_Model {
         $this->db->from('tb_trasferimenti');
 
         $costo_acquisto = $this->db->get()->row('costo');
+        if (count($costo_acquisto)>0) {
+            $costo_acquisto = $costo_acquisto;
+        }
+        else {
+            $costo_acquisto = "";
+        }
 
         if ($costo_acquisto == ""){
             $plusvalenza = 0;            
