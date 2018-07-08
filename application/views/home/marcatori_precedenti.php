@@ -133,7 +133,13 @@
                                                     <td class="team-roster-table__assists" style="vertical-align: middle; width: 8%; color:#009900;"><?= $row['assist'] ?></td>
                                                     <td class="team-roster-table__fouls" style="vertical-align: middle; width: 8%; color:#e69500;"><?= $row['ammo'] ?></td>
                                                     <td class="team-roster-table__card-y" style="vertical-align: middle; width: 8%; color:#ff3d3d;"><?= $row['espu'] ?></td>
-                                                    <td class="team-roster-table__name" style="vertical-align: middle; width: 14%;"><?= $this->mdl_utenti->getSquadraPrecedente($row['id_utente'], str_replace("_", "-" , $stagione)) ?></td>
+                                                    <?php
+                                                    $squadra_precedente = $this->mdl_utenti->getSquadraPrecedente($row['id_utente'], str_replace("_", "-" , $stagione));
+                                                    if (is_array($squadra_precedente) && count($squadra_precedente) == 0) {
+                                                        $squadra_precedente = "";
+                                                    }
+                                                    ?>
+                                                    <td class="team-roster-table__name" style="vertical-align: middle; width: 14%;"><?= $squadra_precedente ?></td>
                                                 </tr>
                                                 <?php
                                             }

@@ -927,7 +927,13 @@
                                                                 </figure>
                                                                 <div class="team-leader__player-inner">
                                                                     <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    <?php
+                                                                    $squadra_giocatore = $this->mdl_team->getSquadraBomber($row['id_giocatore']);
+                                                                    if (is_array($squadra_giocatore) && count($squadra_giocatore) == 0) {
+                                                                        $squadra_giocatore = "";
+                                                                    }
+                                                                    ?>
+                                                                    <span class="team-leader__player-position"><?= $squadra_giocatore ?></span>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -977,7 +983,13 @@
                                                                 </figure>
                                                                 <div class="team-leader__player-inner">
                                                                     <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    <?php
+                                                                    $squadra_giocatore = $this->mdl_team->getSquadraBomber($row['id_giocatore']);
+                                                                    if (is_array($squadra_giocatore) && count($squadra_giocatore) == 0) {
+                                                                        $squadra_giocatore = "";
+                                                                    }
+                                                                    ?>
+                                                                    <span class="team-leader__player-position"><?= $squadra_giocatore ?></span>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -1002,7 +1014,13 @@
                                                                 </figure>
                                                                 <div class="team-leader__player-inner">
                                                                     <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    <?php
+                                                                    $squadra_giocatore = $this->mdl_team->getSquadraBomber($row['id_giocatore']);
+                                                                    if (is_array($squadra_giocatore) && count($squadra_giocatore) == 0) {
+                                                                        $squadra_giocatore = "";
+                                                                    }
+                                                                    ?>
+                                                                    <span class="team-leader__player-position"><?= $squadra_giocatore ?></span>
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -1084,7 +1102,13 @@
                                                                 <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" >
                                                             </figure><br><br>
                                                             <h6 class="posts__title"><?= $this->mdl_team->getNomeGiocatore($row['id_giocatore']) ?></h6>
-                                                            <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            <?php
+                                                            $squadra_giocatore = $this->mdl_team->getSquadraBomber($row['id_giocatore']);
+                                                            if (is_array($squadra_giocatore) && count($squadra_giocatore) == 0) {
+                                                                $squadra_giocatore = "";
+                                                            }
+                                                            ?>
+                                                            <span class="team-leader__player-position"><?= $squadra_giocatore ?></span>
                                                             <time datetime="<?= $row['data'] ?>" class="posts__date"><?= dataSettimanale($row['data']) ?></time>
                                                             <div class="posts__excerpt">
                                                                 <?= $testo_news ?>
@@ -1139,7 +1163,13 @@
                                                                 <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" >
                                                             </figure><br><br>
                                                             <h6 class="posts__title"><?= $this->mdl_team->getNomeGiocatore($row['id_giocatore']) ?></h6>
-                                                            <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            <?php
+                                                            $squadra_giocatore = $this->mdl_team->getSquadraBomber($row['id_giocatore']);
+                                                            if (is_array($squadra_giocatore) && count($squadra_giocatore) == 0) {
+                                                                $squadra_giocatore = "";
+                                                            }
+                                                            ?>
+                                                            <span class="team-leader__player-position"><?= $squadra_giocatore ?></span>
                                                             <time datetime="<?= $row['data'] ?>" class="posts__date"><?= dataSettimanale($row['data']) ?></time>
                                                             <div class="posts__excerpt">
                                                                 <?= $testo_news ?>
@@ -1194,7 +1224,13 @@
                                                                 <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" >
                                                             </figure><br><br>
                                                             <h6 class="posts__title"><?= $this->mdl_team->getNomeGiocatore($row['id_giocatore']) ?></h6>
-                                                            <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                            <?php
+                                                            $squadra_giocatore = $this->mdl_team->getSquadraBomber($row['id_giocatore']);
+                                                            if (is_array($squadra_giocatore) && count($squadra_giocatore) == 0) {
+                                                                $squadra_giocatore = "";
+                                                            }
+                                                            ?>
+                                                            <span class="team-leader__player-position"><?= $squadra_giocatore ?></span>
                                                             <time datetime="<?= $row['data'] ?>" class="posts__date"><?= dataSettimanale($row['data']) ?></time>
                                                             <div class="posts__excerpt">
                                                                 <?= $testo_news ?>
