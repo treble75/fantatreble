@@ -469,19 +469,19 @@
                                                     $blocco = $this->mdl_utenti->getBlocco();
                                                     if (is_array(@$topmatch) && @$topmatch[0] != "") {
                                                         switch ($topmatch[0]['competizione']) {
-                                                            case "supercoppa": 
-                                                                $chk  = "SuperCoppa Treble";
+                                                            case "supercoppa":
+                                                                $chk = "SuperCoppa Treble";
                                                                 $gara = "supercoppa";
                                                                 break;
-                                                            case "league": 
+                                                            case "league":
                                                                 $chk = "Treble League";
                                                                 $gara = "calendario";
                                                                 break;
-                                                            case "champions": 
+                                                            case "champions":
                                                                 $chk = "Champions League";
                                                                 $gara = "champions";
                                                                 break;
-                                                            case "coppa": 
+                                                            case "coppa":
                                                                 $chk = "Coppa Treble";
                                                                 $gara = "coppa";
                                                                 break;
@@ -489,19 +489,19 @@
                                                                 break;
                                                         }
                                                         ?> 
-                                                        <time class="match-preview__date" datetime="<?= substr($blocco,0,10) ?>"><?= dataSettimanale($blocco) ?></time>
+                                                        <time class="match-preview__date" datetime="<?= substr($blocco, 0, 10) ?>"><?= dataSettimanale($blocco) ?></time>
                                                         <h3 class="match-preview__title match-preview__title--lg"><?= $chk ?></h3>
-                                                    <?php
-                                                    } else { ?>
+                                                    <?php } else {
+                                                        ?>
                                                         <span class="label posts__cat-label">Da Definire</span>
                                                         <div class="spacer"></div>
-                                                    <?php 
+                                                        <?php
                                                     }
                                                     ?>
                                                 </header>
                                                 <?php
-                                                    if (is_array(@$topmatch) && @$topmatch[0] != "") {
-                                                ?>
+                                                if (is_array(@$topmatch) && @$topmatch[0] != "") {
+                                                    ?>
                                                     <div class="match-preview__content">
 
                                                         <!-- 1st Team -->
@@ -517,7 +517,7 @@
                                                         <div class="match-preview__vs">
                                                             <div class="match-preview__conj">VS</div>
                                                             <div class="match-preview__match-info">
-                                                                <time class="match-preview__match-time" datetime="<?= $blocco ?>"><?= substr($blocco,11,5) ?></time>
+                                                                <time class="match-preview__match-time" datetime="<?= $blocco ?>"><?= substr($blocco, 11, 5) ?></time>
                                                                 <div class="match-preview__match-place"></div>
                                                             </div>
                                                         </div>
@@ -533,13 +533,13 @@
                                                         <!-- 2nd Team / End -->
 
                                                     </div>
-                                                <?php
-                                                    }
+                                                    <?php
+                                                }
                                                 ?>    
                                             </section>
                                             <?php
-                                                if (is_array(@$topmatch) && @$topmatch[0] != "") {
-                                            ?>
+                                            if (is_array(@$topmatch) && @$topmatch[0] != "") {
+                                                ?>
                                                 <div class="countdown__content">
                                                     <!-- Conto alla rovescia Top Match --->                                        
                                                     <div class="countdown-counter" data-date="<?= $blocco ?>"></div>
@@ -548,9 +548,9 @@
                                                     <a href="<?= base_url('/') ?>index.php/home/<?= $gara ?>" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
                                                 </div>
                                                 <?php
-                                                }
-                                                ?>  
-                                            </div>
+                                            }
+                                            ?>  
+                                        </div>
                                         <!--  Match Clou   / End -->
 
                                     </div>
@@ -590,10 +590,11 @@
                                                     </li>
                                                     <?php
                                                 }
-                                            } else { ?>
-                                                    <span class="label posts__cat-label">Non sono presenti offerte di mercato</span>
-                                                    <div class="spacer"></div>
-                                            <?php
+                                            } else {
+                                                ?>
+                                                <span class="label posts__cat-label">Non sono presenti offerte di mercato</span>
+                                                <div class="spacer"></div>
+                                                <?php
                                             }
                                             ?>
 
@@ -697,72 +698,79 @@
                             </div>
 
                             <div class="col-sm-6">
-                                <!-- Widget: Top Player -->
-                                <aside class="widget card widget--sidebar widget-player widget-player--soccer">
+                                <!-- Widget: Match Announcement -->
+
+                                <aside class="widget widget--sidebar card widget-preview">
                                     <div class="widget__title card__header">
-                                        <h4>Top Player</h4>
+                                        <h4>Prossima Giornata</h4>
                                     </div>
                                     <div class="widget__content card__content">
-                                        <div class="widget-player__ribbon">
-                                            <div class="fa fa-star"></div>
-                                        </div>
-                                        <figure class="widget-player__photo">
-                                            <img src="<?= base_url('/') ?>assets/images/soccer/samples/_soccer_widget-featured-player.png" alt="">
-                                        </figure>
-                                        <header class="widget-player__header clearfix">
-                                            <div class="widget-player__number">07</div>
-                                            <h4 class="widget-player__name">
-                                                <span class="widget-player__first-name">James</span>
-                                                <span class="widget-player__last-name">Messinal</span>
-                                            </h4>
-                                        </header>
-                                        <div class="widget-player__content">
-                                            <div class="widget-player__content-inner">
 
-                                                <div class="widget-player__stat widget-player__goals">
-                                                    <div class="widget-player__stat-number">104</div>
-                                                    <h6 class="widget-player__stat-label">Goals</h6>
-                                                </div>
-                                                <div class="widget-player__stat widget-player__shots">
-                                                    <div class="widget-player__stat-number">129</div>
-                                                    <h6 class="widget-player__stat-label">Shots</h6>
-                                                </div>
-                                                <div class="widget-player__stat widget-player__assists">
-                                                    <div class="widget-player__stat-number">57</div>
-                                                    <h6 class="widget-player__stat-label">Assists</h6>
-                                                </div>
-                                                <div class="widget-player__stat widget-player__games">
-                                                    <div class="widget-player__stat-number">86</div>
-                                                    <h6 class="widget-player__stat-label">Games</h6>
-                                                </div>
+                                        <!-- Match Preview -->
+                                        <div class="match-preview">
+                                            <section class="match-preview__body">
+                                                <?php
+                                                if ($prossima_giornata[0]['giornata'] == 36) { ?>
+                                                    <header class="match-preview__header">
+                                                        <h3 class="match-preview__title match-preview__title--lg">Stagione terminata</h3>
+                                                    </header>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <header class="match-preview__header">
+                                                        <time class="match-preview__date"><?= dataSettimanale($prossima_giornata[0]['data']) ?></time>
+                                                        <h3 class="match-preview__title match-preview__title--lg">Treble League</h3>
+                                                        <time class="match-preview__date">Giornata <?= $prossima_giornata[0]['giornata'] ?></time>
+                                                    </header>
+                                                    <?php
+                                                    foreach ($prossima_giornata as $row) {
+                                                    ?>
+                                                        <div class="match-preview__content">
+
+                                                            <!-- 1st Team -->
+                                                            <div class="match-preview__team match-preview__team--first">
+                                                                <figure class="match-preview__team-logo">
+                                                                    <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png" alt="">
+                                                                </figure>
+                                                                <h5 class="match-preview__team-name"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h5>
+                                                                <div class="match-preview__team-info"><?= $this->mdl_utenti->getNomeUtente($row['id1']) ?></div>
+                                                            </div>
+                                                            <!-- 1st Team / End -->
+
+                                                            <div class="match-preview__vs">
+                                                                <div class="match-preview__conj">-</div>
+                                                            </div>
+
+                                                            <!-- 2nd Team -->
+                                                            <div class="match-preview__team match-preview__team--second">
+                                                                <figure class="match-preview__team-logo">
+                                                                    <img src="<?= base_url('/') ?>images/users/mini<?= $row['id2'] ?>.png" alt="">
+                                                                </figure>
+                                                                <h5 class="match-preview__team-name"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h5>
+                                                                <div class="match-preview__team-info"><?= $this->mdl_utenti->getNomeUtente($row['id2']) ?></div>
+                                                            </div>
+                                                            <!-- 2nd Team / End -->
+
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                }
+                                                ?>
+                                                
+                                            </section>
+                                            <div class="countdown__content">
+                                                <div class="countdown-counter" data-date="<?= substr($blocco, 5, 2) ?> <?= substr($blocco, 8, 2) ?>, <?= substr($blocco, 0, 4) ?> <?= substr($blocco,10, 8) ?>"></div>
                                             </div>
-
-                                            <div class="widget-player__content-alt">
-                                                <!-- Progress: Shot Accuracy -->
-                                                <div class="progress-stats">
-                                                    <div class="progress__label">SHOT ACC</div>
-                                                    <div class="progress">
-                                                        <div class="progress__bar progress__bar--success progress__bar-width-90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="progress__number">96%</div>
-                                                </div>
-                                                <!-- Progress: Shot Accuracy / End -->
-
-                                                <!-- Progress: Pass Accuracy -->
-                                                <div class="progress-stats">
-                                                    <div class="progress__label">PASS ACC</div>
-                                                    <div class="progress">
-                                                        <div class="progress__bar progress__bar--success progress__bar-width-70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                    <div class="progress__number">74%</div>
-                                                </div>
-                                                <!-- Progress: Pass Accuracy / End -->
+                                            <div class="match-preview__action match-preview__action--ticket">
+                                                <a href="<?= base_url('/') ?>index.php/home/calendario" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
                                             </div>
                                         </div>
+                                        <!-- Match Preview / End -->
 
                                     </div>
                                 </aside>
-                                <!-- Widget: Top Player / End -->
+                                <!-- Widget: Match Announcement / End -->
+
                             </div>
                         </div>
                         <!-- Post Area 3 / End -->
@@ -1043,7 +1051,7 @@
                         </aside>
                         <!-- Widget: TOP 11 Giornata / End -->
 
-                        
+
                         <!-- Widget: Ultime News -->
                         <aside class="widget widget--sidebar card widget-tabbed">
                             <div class="widget__title card__header">
@@ -1063,9 +1071,9 @@
                                         <!-- Newest -->
                                         <div role="tabpanel" class="tab-pane fade in active" id="widget-tabbed-sm-newest">
                                             <ul class="posts posts--simple-list">
-                                                
+
                                                 <?php
-                                                foreach ($newsAll as $row) { 
+                                                foreach ($newsAll as $row) {
                                                     if ($row['tipologia'] == "vendita" || $row['tipologia'] == "acquisto") {
                                                         if ($row['tipologia'] == "vendita") {
                                                             $type = "venduto";
@@ -1087,7 +1095,7 @@
                                                         $label = "Cessione";
                                                         $testo_news = $row['testo_news'];
                                                     }
-                                                    
+
                                                     if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
                                                         $filename = $row['id_giocatore'] . ".png";
                                                     } else
@@ -1115,18 +1123,18 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
-                                                    
+
                                             </ul>
                                         </div>
                                         <!-- Commented -->
                                         <div role="tabpanel" class="tab-pane fade" id="widget-tabbed-sm-commented">
                                             <ul class="posts posts--simple-list">
-                                                
+
                                                 <?php
-                                                foreach ($newsInfortuni as $row) { 
+                                                foreach ($newsInfortuni as $row) {
                                                     if ($row['tipologia'] == "vendita" || $row['tipologia'] == "acquisto") {
                                                         if ($row['tipologia'] == "vendita") {
                                                             $type = "venduto";
@@ -1148,7 +1156,7 @@
                                                         $label = "Cessione";
                                                         $testo_news = $row['testo_news'];
                                                     }
-                                                    
+
                                                     if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
                                                         $filename = $row['id_giocatore'] . ".png";
                                                     } else
@@ -1176,18 +1184,18 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
-                                                
+
                                             </ul>
                                         </div>
                                         <!-- Popular -->
                                         <div role="tabpanel" class="tab-pane fade" id="widget-tabbed-sm-popular">
                                             <ul class="posts posts--simple-list">
-                                                
+
                                                 <?php
-                                                foreach ($newsTrasferimenti as $row) { 
+                                                foreach ($newsTrasferimenti as $row) {
                                                     if ($row['tipologia'] == "vendita" || $row['tipologia'] == "acquisto") {
                                                         if ($row['tipologia'] == "vendita") {
                                                             $type = "venduto";
@@ -1209,7 +1217,7 @@
                                                         $label = "Cessione";
                                                         $testo_news = $row['testo_news'];
                                                     }
-                                                    
+
                                                     if (file_exists("images/giocatori/" . $row['id_giocatore'] . ".png")) {
                                                         $filename = $row['id_giocatore'] . ".png";
                                                     } else
@@ -1237,10 +1245,10 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                <?php
+                                                    <?php
                                                 }
                                                 ?>
-                                                
+
                                             </ul>
                                         </div>
                                     </div>
