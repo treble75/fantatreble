@@ -625,7 +625,7 @@
                                                 <thead>
                                                     <tr>
                                                         <!-- Anno da modificare -->
-                                                        <th class="team-leader__type">Treble League 2017/18</th>
+                                                        <th class="team-leader__type">Treble League 2018/19</th>
                                                         <th class="team-leader__goals">Gol</th>
                                                         <th class="team-leader__avg">Media</th>
                                                     </tr>
@@ -681,8 +681,12 @@
                                                             <?php
                                                             $i++;
                                                         }
-                                                    } else
-                                                        echo "<h6>Nessuna partita ancora disputata</h6>"
+                                                    }   else { ?>
+                                                            <div class="spacer"></div>
+                                                            <span class="label posts__cat-label" style="text-align: center; font-size: 10px; margin-left: 25px;">Nessuna partita ancora disputata</span>
+                                                            <div class="spacer"></div>
+                                                        <?php
+                                                        }
                                                         ?>
 
                                                 </tbody>
@@ -867,7 +871,7 @@
                                                                 <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_squadra'] ?>.png" width="30" >
                                                             </figure>
                                                             <div class="team-meta__info">
-                                                                <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></h6>
+                                                                <h6 class="team-meta__name" style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></h6>
                                                                 <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id_squadra']) ?></span>
                                                             </div>
                                                         </div>
