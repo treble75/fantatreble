@@ -91,7 +91,7 @@ class mdl_utenti extends CI_Model {
     }
     
     public function getPartecipazioni($nome, $cognome) {
-        $query = $this->db->query('select count(*) from tb_all_teams where nome = "' . $nome . '" and cognome = "' . $cognome . '"');
+        $query = $this->db->query('select count(*) from tb_all_teams where stagione <> "2018-19" and nome = "' . $nome . '" and cognome = "' . $cognome . '"');
 
         return $query->row('count(*)');
     }
