@@ -80,7 +80,7 @@
                                                         <dd class="alc-staff-details__value"><?= $utente[0]['nome'] . " " . $utente[0]['cognome'] ?></dd>
                                                         
                                                         <dt class="alc-staff-details__label">Partecipazioni</dt>
-                                                        <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getPartecipazioni($utente[0]['nome'],$utente[0]['cognome']) ?></dd>
+                                                        <dd class="alc-staff-details__value"><?= $this->mdl_utenti->getPartecipazioniBacheca($utente[0]['nome'],$utente[0]['cognome']) ?></dd>
 
                                                         <dt class="alc-staff-details__label">Miglior Piazzamento</dt>
                                                         <dd class="alc-staff-details__value"><?= $utente[0]['piazzamento'] ?></dd>
