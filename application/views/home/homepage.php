@@ -237,8 +237,12 @@
                                                                     <h5 class="widget-results__title"><?= dataSettimanale($row['data']) ?></h5>
                                                                     <?php
                                                                 }
-                                                            } else
-                                                                echo "<div align='center'>Nessuna partita ancora disputata</div>"
+                                                            }   else { ?>
+                                                                    <div class="spacer"></div>
+                                                                    <div align='center'>Nessuna partita ancora disputata</div>
+                                                                    <div class="spacer"></div>
+                                                                <?php
+                                                                }
                                                                 ?>
 
                                                         </li>
@@ -342,8 +346,12 @@
                                                                     <h5 class="widget-results__title"><?= dataSettimanale($row['data']) ?></h5>
                                                                     <?php
                                                                 }
-                                                            } else
-                                                                echo "<div align='center'>Nessuna partita ancora disputata</div>"
+                                                            }   else { ?>
+                                                                    <div class="spacer"></div>
+                                                                    <div align='center'>Nessuna partita ancora disputata</div>
+                                                                    <div class="spacer"></div>
+                                                                <?php
+                                                                }
                                                                 ?>
 
                                                         </li>
@@ -426,8 +434,12 @@
                                                                     <h5 class="widget-results__title"><?= dataSettimanale($row['data']) ?></h5>
                                                                     <?php
                                                                 }
-                                                            } else
-                                                                echo "<div align='center'>Nessuna partita ancora disputata</div>"
+                                                            }   else { ?>
+                                                                    <div class="spacer"></div>
+                                                                    <div align='center'>Nessuna partita ancora disputata</div>
+                                                                    <div class="spacer"></div>
+                                                                <?php
+                                                                }
                                                                 ?>
 
                                                         </li>
@@ -823,7 +835,7 @@
                         <aside class="widget card widget--sidebar widget-standings">
                             <div class="widget__title card__header card__header--has-btn">
                                 <!-- ANNO - Modifica annuale -->
-                                <h4>Treble League 2017/18</h4>
+                                <h4>Treble League 2018/19</h4>
                                 <a href="<?= base_url('/') ?>index.php/home/campionato" class="btn btn-default btn-outline btn-xs card-header__button">Vedi Classifica</a>
                             </div>
                             <div class="widget__content card__content">
