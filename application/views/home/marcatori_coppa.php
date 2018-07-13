@@ -115,7 +115,7 @@
                                                             <img src="<?= base_url('/') ?>images/giocatori/<?= $filename ?>" width="50px" >
                                                         </figure>
                                                     </td>
-                                                    <td class="team-roster-table__name" style="vertical-align: middle; width: 15%;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
+                                                    <td class="team-roster-table__name" style="vertical-align: middle; width: 15%; color: #1892ED;"><?= $row['cognome'] . " " . $row['nome'] ?></td>
                                                     <td class="team-roster-table__age" style="color: #1892ED; font-size: 14px; vertical-align: middle; width: 8%;"><?= $row['gol'] ?></td>
                                                     <td class="team-roster-table__foot" style="vertical-align: middle; width: 8%;"><?= $row['pg'] ?></td>
                                                     <?php
