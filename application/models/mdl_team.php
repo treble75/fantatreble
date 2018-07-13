@@ -441,8 +441,8 @@ class mdl_team extends CI_Model {
         return $query->result_array();
     }
 
-    public function getFormaSquadraChampions($id_squadra) {
-        $query = $this->db->query('select * from tb_champions where id1 = ' . $id_squadra . ' or id2 = ' . $id_squadra . ' order by giornata desc limit 5');
+    public function getFormaSquadraChampions($id_squadra, $giornata) {
+        $query = $this->db->query('select * from tb_champions where risultato1 IS NOT NULL and id1 = ' . $id_squadra . ' or risultato2 IS NOT NULL and id2 = ' . $id_squadra . ' order by giornata desc limit 5');
 
         return $query->result_array();
     }
