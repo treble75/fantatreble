@@ -53,82 +53,84 @@
                                 <?php
                                 //Setto i nomi dei top 11 campionato
                                 $i = 1;
-                                foreach ($topCampionato['P'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
-                                    if ($percentuale_presenze >= 30 && $i <= 1) {
-                                        if ($i == 1) {
-                                            $portiere = $row['cognome'];
-                                            $maglia_portiere = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }    
-                                        $i++;
+                                if ($giornata_media > 0) {
+                                    foreach ($topCampionato['P'] as $row) {
+                                        $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                        //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                        if ($percentuale_presenze >= 30 && $i <= 1) {
+                                            if ($i == 1) {
+                                                $portiere = $row['cognome'];
+                                                $maglia_portiere = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }    
+                                            $i++;
+                                        }
                                     }
-                                }
 
-                                $i = 1;
-                                foreach ($topCampionato['D'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
-                                    if ($percentuale_presenze >= 30 && $i <= 3) {
-                                        if ($i == 1) {
-                                            $difensore1 = $row['cognome'];
-                                            $maglia_difensore1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                    $i = 1;
+                                    foreach ($topCampionato['D'] as $row) {
+                                        $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                        //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                        if ($percentuale_presenze >= 30 && $i <= 3) {
+                                            if ($i == 1) {
+                                                $difensore1 = $row['cognome'];
+                                                $maglia_difensore1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            if ($i == 2) {
+                                                $difensore2 = $row['cognome'];
+                                                $maglia_difensore2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            if ($i == 3) {
+                                                $difensore3 = $row['cognome'];
+                                                $maglia_difensore3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            $i++;
                                         }
-                                        if ($i == 2) {
-                                            $difensore2 = $row['cognome'];
-                                            $maglia_difensore2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }
-                                        if ($i == 3) {
-                                            $difensore3 = $row['cognome'];
-                                            $maglia_difensore3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }
-                                        $i++;
                                     }
-                                }
 
-                                $i = 1;
-                                foreach ($topCampionato['C'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
-                                    if ($percentuale_presenze >= 30 && $i <= 4) {
-                                        if ($i == 1) {
-                                            $centrocampista1 = $row['cognome'];
-                                            $maglia_centrocampista1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                    $i = 1;
+                                    foreach ($topCampionato['C'] as $row) {
+                                        $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                        //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                        if ($percentuale_presenze >= 30 && $i <= 4) {
+                                            if ($i == 1) {
+                                                $centrocampista1 = $row['cognome'];
+                                                $maglia_centrocampista1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            if ($i == 2) {
+                                                $centrocampista2 = $row['cognome'];
+                                                $maglia_centrocampista2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            if ($i == 3) {
+                                                $centrocampista3 = $row['cognome'];
+                                                $maglia_centrocampista3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            if ($i == 4) {
+                                                $centrocampista4 = $row['cognome'];
+                                                $maglia_centrocampista4 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            $i++;
                                         }
-                                        if ($i == 2) {
-                                            $centrocampista2 = $row['cognome'];
-                                            $maglia_centrocampista2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }
-                                        if ($i == 3) {
-                                            $centrocampista3 = $row['cognome'];
-                                            $maglia_centrocampista3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }
-                                        if ($i == 4) {
-                                            $centrocampista4 = $row['cognome'];
-                                            $maglia_centrocampista4 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }
-                                        $i++;
                                     }
-                                }
 
-                                $i = 1;
-                                foreach ($topCampionato['A'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
-                                    //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
-                                    if ($percentuale_presenze >= 30 && $i <= 3) {
-                                        if ($i == 1) {
-                                            $attaccante1 = $row['cognome'];
-                                            $maglia_attaccante1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                    $i = 1;
+                                    foreach ($topCampionato['A'] as $row) {
+                                        $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                        //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate del FantaTreble
+                                        if ($percentuale_presenze >= 30 && $i <= 3) {
+                                            if ($i == 1) {
+                                                $attaccante1 = $row['cognome'];
+                                                $maglia_attaccante1 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            if ($i == 2) {
+                                                $attaccante2 = $row['cognome'];
+                                                $maglia_attaccante2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            if ($i == 3) {
+                                                $attaccante3 = $row['cognome'];
+                                                $maglia_attaccante3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
+                                            }
+                                            $i++;
                                         }
-                                        if ($i == 2) {
-                                            $attaccante2 = $row['cognome'];
-                                            $maglia_attaccante2 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }
-                                        if ($i == 3) {
-                                            $attaccante3 = $row['cognome'];
-                                            $maglia_attaccante3 = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }
-                                        $i++;
                                     }
                                 }
                                 ?>
@@ -327,16 +329,18 @@
 
                                     <?php
                                     //Calcolo maggior mediaassist - DA MODIFICARE se più di 10 utenti
-                                    $media1 = ( $this->mdl_team->getMediaAssistFatti(1) / $this->mdl_team->getPartiteGiocateTL(1));
-                                    $media2 = ( $this->mdl_team->getMediaAssistFatti(2) / $this->mdl_team->getPartiteGiocateTL(2));
-                                    $media3 = ( $this->mdl_team->getMediaAssistFatti(3) / $this->mdl_team->getPartiteGiocateTL(3));
-                                    $media4 = ( $this->mdl_team->getMediaAssistFatti(4) / $this->mdl_team->getPartiteGiocateTL(4));
-                                    $media5 = ( $this->mdl_team->getMediaAssistFatti(5) / $this->mdl_team->getPartiteGiocateTL(5));
-                                    $media6 = ( $this->mdl_team->getMediaAssistFatti(6) / $this->mdl_team->getPartiteGiocateTL(6));
-                                    $media7 = ( $this->mdl_team->getMediaAssistFatti(7) / $this->mdl_team->getPartiteGiocateTL(7));
-                                    $media8 = ( $this->mdl_team->getMediaAssistFatti(8) / $this->mdl_team->getPartiteGiocateTL(8));
-                                    $media9 = ( $this->mdl_team->getMediaAssistFatti(9) / $this->mdl_team->getPartiteGiocateTL(9));
-                                    $media10 = ( $this->mdl_team->getMediaAssistFatti(10) / $this->mdl_team->getPartiteGiocateTL(10));
+                                    if ($giornata_media > 0) {
+                                        $media1 = ( $this->mdl_team->getMediaAssistFatti(1) / $this->mdl_team->getPartiteGiocateTL(1));
+                                        $media2 = ( $this->mdl_team->getMediaAssistFatti(2) / $this->mdl_team->getPartiteGiocateTL(2));
+                                        $media3 = ( $this->mdl_team->getMediaAssistFatti(3) / $this->mdl_team->getPartiteGiocateTL(3));
+                                        $media4 = ( $this->mdl_team->getMediaAssistFatti(4) / $this->mdl_team->getPartiteGiocateTL(4));
+                                        $media5 = ( $this->mdl_team->getMediaAssistFatti(5) / $this->mdl_team->getPartiteGiocateTL(5));
+                                        $media6 = ( $this->mdl_team->getMediaAssistFatti(6) / $this->mdl_team->getPartiteGiocateTL(6));
+                                        $media7 = ( $this->mdl_team->getMediaAssistFatti(7) / $this->mdl_team->getPartiteGiocateTL(7));
+                                        $media8 = ( $this->mdl_team->getMediaAssistFatti(8) / $this->mdl_team->getPartiteGiocateTL(8));
+                                        $media9 = ( $this->mdl_team->getMediaAssistFatti(9) / $this->mdl_team->getPartiteGiocateTL(9));
+                                        $media10 = ( $this->mdl_team->getMediaAssistFatti(10) / $this->mdl_team->getPartiteGiocateTL(10));
+                                    }
 
                                     $medie_assist = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -366,11 +370,15 @@
                                             <img src="<?= base_url('/') ?>assets/images/soccer/yellow-red_card.png" alt="" class="team-stats__icon-primary">
                                         </div>
                                         <?php
-                                        $partite_giocate = $this->mdl_team->getPartiteGiocateTL($topTeamFallosa[0]['id_utente']);
-                                        $pca = ($topTeamFallosa[0]['totale_cartellini'] / $partite_giocate);
+                                        $nome_team = "";
+                                        if ($giornata_media > 0) {
+                                            $partite_giocate = $this->mdl_team->getPartiteGiocateTL($topTeamFallosa[0]['id_utente']);
+                                            $pca = ($topTeamFallosa[0]['totale_cartellini'] / $partite_giocate);
+                                            $nome_team = $this->mdl_team->getNomeTeam($topTeamFallosa[0]['id_utente']);
+                                        }
                                         ?>
-                                        <div class="team-stats__value"><?= number_format($pca, 2) ?></div>
-                                        <div class="team-stats__label" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($topTeamFallosa[0]['id_utente']) ?></div>
+                                        <div class="team-stats__value"><?= number_format(@$pca, 2) ?></div>
+                                        <div class="team-stats__label" style="color: #1892ED;"><?= $nome_team ?></div>
                                     </li>
                                 </ul>
                             </div>
@@ -458,7 +466,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__goals">Gol</th>
                                                 <th class="team-leader__gp">Ass</th>
                                                 <th class="team-leader__avg">MPP</th>
@@ -525,7 +533,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Assist</th>
                                                 <th class="team-leader__avg">MPP</th>
                                             </tr>
@@ -590,7 +598,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__goals"><img src="<?= base_url('/') ?>images/ammo.png"></th>
                                                 <th class="team-leader__gp"><img src="<?= base_url('/') ?>images/espu.png"></th>
                                                 <th class="team-leader__avg">MPP</th>
@@ -662,7 +670,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MFV</th>
                                             </tr>
@@ -670,40 +678,42 @@
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            foreach ($topmediafantavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                            if ($giornata_media > 0) {
+                                                foreach ($topmediafantavoto as $row) {
+                                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
 
-                                                //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
-                                                if ($percentuale_presenze >= 30 && $i <= 5) {
-                                                    ?>
-                                                    <tr>
-                                                        <td class="team-leader__player">
-                                                            <div class="team-leader__player-info">
-                                                                <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                                    <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
-                                                                </figure>
-                                                                <div class="team-leader__player-inner">
-                                                                    <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="team-leader__gp"><?= $row['presenze'] ?></td>
-                                                        <?php
-                                                        //$partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
-                                                        //$mpp = ($row['totale_assist'] / $partite_schierato);
+                                                    //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
+                                                    if ($percentuale_presenze >= 30 && $i <= 5) {
                                                         ?>
-                                                        <td class="team-leader__avg">
-                                                            <div class="circular">
-                                                                <div class="circular__bar" data-percent="<?= ( $row['media_voto'] * 10 ) ?>">
-                                                                    <span class="circular__percents"><?= number_format($row['media_voto'], 2) ?></span>
+                                                        <tr>
+                                                            <td class="team-leader__player">
+                                                                <div class="team-leader__player-info">
+                                                                    <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                        <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
+                                                                    </figure>
+                                                                    <div class="team-leader__player-inner">
+                                                                        <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
+                                                                        <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                            <td class="team-leader__gp"><?= $row['presenze'] ?></td>
+                                                            <?php
+                                                            //$partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                            //$mpp = ($row['totale_assist'] / $partite_schierato);
+                                                            ?>
+                                                            <td class="team-leader__avg">
+                                                                <div class="circular">
+                                                                    <div class="circular__bar" data-percent="<?= ( $row['media_voto'] * 10 ) ?>">
+                                                                        <span class="circular__percents"><?= number_format($row['media_voto'], 2) ?></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
 
-                                                    <?php
-                                                    $i++;
+                                                        <?php
+                                                        $i++;
+                                                    }
                                                 }
                                             }
                                             ?>
@@ -734,7 +744,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MFV</th>
                                             </tr>
@@ -742,40 +752,42 @@
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            foreach ($flopmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                            if ($giornata_media > 0) {
+                                                foreach ($flopmediavoto as $row) {
+                                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
 
-                                                //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
-                                                if ($percentuale_presenze >= 30 && $i <= 5) {
-                                                    ?>
-                                                    <tr>
-                                                        <td class="team-leader__player">
-                                                            <div class="team-leader__player-info">
-                                                                <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                                    <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
-                                                                </figure>
-                                                                <div class="team-leader__player-inner">
-                                                                    <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="team-leader__gp"><?= $row['presenze'] ?></td>
-                                                        <?php
-                                                        //$partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
-                                                        //$mpp = ($row['totale_assist'] / $partite_schierato);
+                                                    //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
+                                                    if ($percentuale_presenze >= 30 && $i <= 5) {
                                                         ?>
-                                                        <td class="team-leader__avg">
-                                                            <div class="circular">
-                                                                <div class="circular__bar" data-percent="<?= ( $row['media_voto'] * 10 ) ?>">
-                                                                    <span class="circular__percents"><?= number_format($row['media_voto'], 2) ?></span>
+                                                        <tr>
+                                                            <td class="team-leader__player">
+                                                                <div class="team-leader__player-info">
+                                                                    <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                        <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
+                                                                    </figure>
+                                                                    <div class="team-leader__player-inner">
+                                                                        <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
+                                                                        <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                            <td class="team-leader__gp"><?= $row['presenze'] ?></td>
+                                                            <?php
+                                                            //$partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                            //$mpp = ($row['totale_assist'] / $partite_schierato);
+                                                            ?>
+                                                            <td class="team-leader__avg">
+                                                                <div class="circular">
+                                                                    <div class="circular__bar" data-percent="<?= ( $row['media_voto'] * 10 ) ?>">
+                                                                        <span class="circular__percents"><?= number_format($row['media_voto'], 2) ?></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
 
-                                                    <?php
-                                                    $i++;
+                                                        <?php
+                                                        $i++;
+                                                    }
                                                 }
                                             }
                                             ?>
@@ -805,7 +817,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MV</th>
                                             </tr>
@@ -813,39 +825,41 @@
                                         <tbody>
                                             <?php
                                             $i = 1;
-                                            foreach ($topmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
+                                            if ($giornata_media > 0) {
+                                                foreach ($topmediavoto as $row) {
+                                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornata_media;
 
-                                                if ($percentuale_presenze >= 30 && $i <= 5) {
-                                                    ?>
-                                                    <tr>
-                                                        <td class="team-leader__player">
-                                                            <div class="team-leader__player-info">
-                                                                <figure class="team-leader__player-img team-leader__player-img--sm">
-                                                                    <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
-                                                                </figure>
-                                                                <div class="team-leader__player-inner">
-                                                                    <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="team-leader__gp"><?= $row['presenze'] ?></td>
-                                                        <?php
-                                                        //$partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
-                                                        //$mpp = ($row['totale_assist'] / $partite_schierato);
+                                                    if ($percentuale_presenze >= 30 && $i <= 5) {
                                                         ?>
-                                                        <td class="team-leader__avg">
-                                                            <div class="circular">
-                                                                <div class="circular__bar" data-percent="<?= ( $row['media_voto'] * 10 ) ?>">
-                                                                    <span class="circular__percents"><?= number_format($row['media_voto'], 2) ?></span>
+                                                        <tr>
+                                                            <td class="team-leader__player">
+                                                                <div class="team-leader__player-info">
+                                                                    <figure class="team-leader__player-img team-leader__player-img--sm">
+                                                                        <img src="<?= base_url('/') ?>images/giocatori/<?= $row['id_giocatore'] ?>.png" alt="">
+                                                                    </figure>
+                                                                    <div class="team-leader__player-inner">
+                                                                        <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
+                                                                        <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
+                                                            </td>
+                                                            <td class="team-leader__gp"><?= $row['presenze'] ?></td>
+                                                            <?php
+                                                            //$partite_schierato = $this->mdl_team->getPartite_schierato($row['id_giocatore']);
+                                                            //$mpp = ($row['totale_assist'] / $partite_schierato);
+                                                            ?>
+                                                            <td class="team-leader__avg">
+                                                                <div class="circular">
+                                                                    <div class="circular__bar" data-percent="<?= ( $row['media_voto'] * 10 ) ?>">
+                                                                        <span class="circular__percents"><?= number_format($row['media_voto'], 2) ?></span>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
 
-                                                    <?php
-                                                    $i++;
+                                                        <?php
+                                                        $i++;
+                                                    }
                                                 }
                                             }
                                             ?>
@@ -882,7 +896,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Reti</th>
                                                 <th class="team-leader__avg">MPP</th>
                                             </tr>
@@ -947,7 +961,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Rigori Parati</th>
                                             </tr>
                                         </thead>
@@ -999,7 +1013,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Rigori Sbagliati</th>
                                             </tr>
                                         </thead>
