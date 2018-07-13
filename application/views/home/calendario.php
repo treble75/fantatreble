@@ -37,7 +37,7 @@
                 <!-- Team Latest Results -->
                 <div class="card card--has-table">
                     <div class="card__header card__header--has-btn">
-                        <h4>Calendario 2017/18</h4>
+                        <h4>Calendario 2018/19</h4>
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">
@@ -93,11 +93,18 @@
                                                             <figure class="team-meta__logoCalendar">
                                                                 <?php if ($row['id1'] != $row['id2']) { ?>
                                                                     <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                <?php } ?>
+                                                                <?php 
+                                                                    $nome_squadra = $this->mdl_utenti->getSquadra($row['id1']);
+                                                                    $nome_utente = $this->mdl_utenti->getNomeUtente($row['id1']);
+                                                                } else {
+                                                                    $nome_utente = "";
+                                                                    $nome_squadra = "";
+                                                                }
+                                                                ?>
                                                             </figure>
                                                             <div class="team-meta__info">
-                                                                <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></h6>
-                                                                <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id1']) ?></span>
+                                                                <h6 class="team-meta__name"><?= $nome_squadra ?></h6>
+                                                                <span class="team-meta__place"><?= $nome_utente ?></span>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -105,8 +112,16 @@
                                                     <td class="team-result__status" align='right' style="width: 18%">
                                                         <div class="team-meta" style="text-align: right;">
                                                             <div class="team-meta__info" align='right'>
-                                                                <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
-                                                                <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id2']) ?></span>
+                                                                <?php if ($row['id1'] != $row['id2']) { 
+                                                                    $nome_squadra = $this->mdl_utenti->getSquadra($row['id2']);
+                                                                    $nome_utente = $this->mdl_utenti->getNomeUtente($row['id2']);
+                                                                } else {
+                                                                    $nome_utente = "";
+                                                                    $nome_squadra = "";
+                                                                }
+                                                                ?>
+                                                                <h6 class="team-meta__name"><?= $nome_squadra ?></h6>
+                                                                <span class="team-meta__place"><?= $nome_utente ?></span>
                                                             </div>
                                                             <figure class="team-meta__logoCalendar">
                                                                 <?php if ($row['id1'] != $row['id2']) { ?>

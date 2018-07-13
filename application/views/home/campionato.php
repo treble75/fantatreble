@@ -42,7 +42,7 @@
                 <div class="card card--has-table">
                     <div class="card__header">
                         <!-- Anno da modificare -->
-                        <h4>Classifica 2017/18</h4>
+                        <h4>Classifica 2018/19</h4>
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">
@@ -104,7 +104,7 @@
                                                         <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/utente/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></a>
                                                             <?php
                                                             //Inserire ID della squadra scudettata
-                                                            if ($row['id_squadra'] == 10) {
+                                                            if ($row['id_squadra'] == 1) {
                                                                 ?>
                                                                 <img src="<?= base_url('/') ?>images/scudetto.png" width="12" height="15" />
                                                             <?php }
@@ -162,32 +162,34 @@
                                                 $forma = $this->mdl_team->getFormaSquadra($row['id_squadra']);
                                                 
                                                 foreach ($forma as $team) {
-                                                    if ($row['id_squadra'] == $team['id1']) {
-                                                        if ($team['risultato1'] > $team['risultato2']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/v.png">
-                                                        <?php
+                                                    if ($team['risultato1'] != null && $team['risultato2'] != null) {
+                                                        if ($row['id_squadra'] == $team['id1']) {
+                                                            if ($team['risultato1'] > $team['risultato2']){ ?>
+                                                                <img src="<?= base_url('/') ?>images/v.png">
+                                                            <?php
+                                                            }
+                                                            if ($team['risultato1'] == $team['risultato2']){ ?>
+                                                                <img src="<?= base_url('/') ?>images/n.png">
+                                                            <?php
+                                                            }
+                                                            if ($team['risultato1'] < $team['risultato2']){ ?>
+                                                                <img src="<?= base_url('/') ?>images/p.png">
+                                                            <?php
+                                                            }
                                                         }
-                                                        if ($team['risultato1'] == $team['risultato2']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/n.png">
-                                                        <?php
-                                                        }
-                                                        if ($team['risultato1'] < $team['risultato2']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/p.png">
-                                                        <?php
-                                                        }
-                                                    }
-                                                    if ($row['id_squadra'] == $team['id2']) {
-                                                        if ($team['risultato2'] > $team['risultato1']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/v.png">
-                                                        <?php
-                                                        }
-                                                        if ($team['risultato2'] == $team['risultato1']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/n.png">
-                                                        <?php
-                                                        }
-                                                        if ($team['risultato2'] < $team['risultato1']){ ?>
-                                                            <img src="<?= base_url('/') ?>images/p.png">
-                                                        <?php
+                                                        if ($row['id_squadra'] == $team['id2']) {
+                                                            if ($team['risultato2'] > $team['risultato1']){ ?>
+                                                                <img src="<?= base_url('/') ?>images/v.png">
+                                                            <?php
+                                                            }
+                                                            if ($team['risultato2'] == $team['risultato1']){ ?>
+                                                                <img src="<?= base_url('/') ?>images/n.png">
+                                                            <?php
+                                                            }
+                                                            if ($team['risultato2'] < $team['risultato1']){ ?>
+                                                                <img src="<?= base_url('/') ?>images/p.png">
+                                                            <?php
+                                                            }
                                                         }
                                                     }
                                                 }
