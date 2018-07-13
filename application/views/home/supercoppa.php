@@ -28,7 +28,7 @@
                 <div class="card card--has-table">
                     <div class="card__header">
                         <!-- Anno da modificare -->
-                        <h4>SuperCoppa Treble 2017/18</h4>
+                        <h4>SuperCoppa Treble 2018/19</h4>
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">
@@ -38,7 +38,7 @@
                                     <table class="table table-hover team-result">
                                         <thead>
                                             <tr>
-                                                <th class="team-result__date" style="width: 12%">Data</th>
+                                                <th class="team-result__date" style="width: 13%">Data</th>
                                                 <th class="team-result__status" style="width: 10%">&nbsp;</th>
                                                 <th class="team-result__status" style="width: 18%">&nbsp;</th>
                                                 <th class="team-result__score" style="width: 12%">Risultato</th>
@@ -52,7 +52,7 @@
                                             <!-- Generazione Calendario  --->
 
                                             <tr>
-                                                <td class="team-result__date" style="width: 12%"><?= dataSettimanale($risultati_supercoppa[0]['data']) ?></td>
+                                                <td class="team-result__date" style="width: 13%"><?= dataSettimanale($risultati_supercoppa[0]['data']) ?></td>
                                                 <td class="team-result__status" style="width: 10%">&nbsp;</td>
                                                 <td class="team-result__status" style="width: 18%">
                                                     <div class="team-meta">
