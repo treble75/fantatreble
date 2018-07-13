@@ -88,7 +88,7 @@
                     <div class="card__header">
 
                         <!-- Anno da modificare -->
-                        <h4>Statistiche 2017/18 
+                        <h4>Statistiche 2018/19 
 
                             <?php if (@$order != "") { ?>
                                 &nbsp;&nbsp; <a href="<?= base_url('/') ?>index.php/home/statistiche/<?= $ruolo ?>"><img src="<?= base_url('/') ?>images/refresh.png" title="Aggiorna"></a>

@@ -2573,7 +2573,13 @@ class mdl_team extends CI_Model {
         $this->db->where('competizione', $competizione);
         $this->db->from('tb_criterio_squadre_sostituzioni');
         
-        $criterio = $this->getCriterioSostituzione($this->db->get()->row('metodo'));
+        $metodo = $this->db->get()->row('metodo');
+        
+        if (count($metodo) > 0 && $metodo != "") {
+            $criterio = $this->getCriterioSostituzione($metodo);
+        } else {
+            $criterio = "";
+        }
 
         return $criterio;
     }
