@@ -36,7 +36,7 @@
                 <!-- Team Latest Results -->
                 <div class="card card--has-table">
                     <div class="card__header card__header--has-btn">
-                        <h4>Calendario 2017/18</h4>
+                        <h4>Calendario 2018/19</h4>
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">
@@ -99,7 +99,10 @@
 
                                         foreach ($risultati_coppa as $row) {
                                             if ($row['giornata'] == $i) {
+                                                $nome_squadra = "";
+                                                $nome_utente = "";
                                                 //Segnalo squadre qualificate
+                                                /*
                                                 if ($i == 7) {
                                                     //Segnalo in verde le squadre qualificate : inserire id delle squadre eliminate
                                                     if ($row['id1'] != 1 && $row['id1'] != 2 && $row['id1'] != 6 && $row['id1'] != 7 && $row['id1'] != 9) {
@@ -134,7 +137,7 @@
                                                         $ok2 = " * ";
                                                     } else
                                                         $ok2 = "";
-                                                }
+                                                } */
                                                 ?>
 
                                                 <tr <?= $color ?> >
@@ -145,20 +148,27 @@
                                                             <figure class="team-meta__logoCalendar">
                                                                 <?php if ($row['id1'] != $row['id2']) { ?>
                                                                     <img src="<?= base_url('/') ?>images/users/mini<?= $row['id1'] ?>.png">
-                                                                <?php } ?>
+                                                                <?php 
+                                                                    $nome_squadra = $this->mdl_utenti->getSquadra($row['id1']);
+                                                                    $nome_utente = $this->mdl_utenti->getNomeUtente($row['id1']);
+                                                                } ?>
                                                             </figure>
                                                             <div class="team-meta__info">
-                                                                <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($row['id1']) . " " . "<span style='color: #1892ED; font-size: 14px;'>" . $ok1 . "</span>" ?></h6>
-                                                                <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id1']) ?></span>
+                                                                <h6 class="team-meta__name"><?= $nome_squadra . " " . "<span style='color: #1892ED; font-size: 14px;'>" . $ok1 . "</span>" ?></h6>
+                                                                <span class="team-meta__place"><?= $nome_utente ?></span>
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td class="team-result__score" style="color: #1892ED; font-size: 14px; width: 12%;"><?= $row['risultato1'] . " - " . $row['risultato2'] ?></td>
                                                     <td class="team-result__status" align='right' style="width: 18%">
                                                         <div class="team-meta" style="text-align: right;">
+                                                                <?php if ($row['id1'] != $row['id2']) { 
+                                                                    $nome_squadra = $this->mdl_utenti->getSquadra($row['id2']);
+                                                                    $nome_utente = $this->mdl_utenti->getNomeUtente($row['id2']);
+                                                                } ?>
                                                             <div class="team-meta__info" align='right'>
-                                                                <h6 class="team-meta__name"><?= "<span style='color: #1892ED; font-size: 14px;'>" . $ok2 . "</span> " . $this->mdl_utenti->getSquadra($row['id2']) ?></h6>
-                                                                <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id2']) ?></span>
+                                                                <h6 class="team-meta__name"><?= "<span style='color: #1892ED; font-size: 14px;'>" . $ok2 . "</span> " . $nome_squadra ?></h6>
+                                                                <span class="team-meta__place"><?= $nome_utente ?></span>
                                                             </div>
                                                             <figure class="team-meta__logoCalendar">
                                                                 <?php if ($row['id1'] != $row['id2']) { ?>
