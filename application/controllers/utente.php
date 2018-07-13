@@ -5024,7 +5024,7 @@ class Utente extends CI_Controller {
 
             //Inserisco news desktop
             if ($this->input->post('but_inserisci')) {
-                $this->form_validation->set_rules('cmbSquadra', 'Squadra', 'trim|required');
+                $this->form_validation->set_rules('cmbSquadra', 'Squadra');
                 $this->form_validation->set_rules('cmbNews', 'Tipologia', 'trim|required');
                 $this->form_validation->set_rules('testo_news', 'Testo News', 'trim|required');
                 $this->form_validation->set_rules('cmbGiocatore', 'Giocatore', 'trim|required');

@@ -86,9 +86,11 @@
                                                 </div>
                                                 <?php
                                                 //Calcolo maggior mediagolsubiti
-                                                $media = ( $this->mdl_team->getMediaAssistFatti($utente[0]['id_utente']) / $this->mdl_team->getPartiteGiocateTL($utente[0]['id_utente']));
+                                                if ($giornata_media > 0) {
+                                                    $media = ( $this->mdl_team->getMediaAssistFatti($utente[0]['id_utente']) / $this->mdl_team->getPartiteGiocateTL($utente[0]['id_utente']));
+                                                }
                                                 ?>
-                                                <div class="team-stats__value"><?= number_format($media, 2) ?></div>
+                                                <div class="team-stats__value"><?= number_format(@$media, 2) ?></div>
                                                 <div class="team-stats__label">Assist</div>
                                             </li>
                                             <li class="team-stats__item team-stats__item--clean">
@@ -98,9 +100,11 @@
                                                 <?php
                                                 $partite_giocate = $this->mdl_team->getPartiteGiocateTL($utente[0]['id_utente']);
                                                 $totale_cartellini = $this->mdl_team->getTotaleCartellini($utente[0]['id_utente']);
-                                                $media = ($totale_cartellini / $partite_giocate);
+                                                if ($giornata_media > 0) {
+                                                    $media = ($totale_cartellini / $partite_giocate);
+                                                }
                                                 ?>
-                                                <div class="team-stats__value"><?= number_format($media, 2) ?></div>
+                                                <div class="team-stats__value"><?= number_format(@$media, 2) ?></div>
                                                 <div class="team-stats__label">Numero Cartellini</div>
                                             </li>
                                         </ul>
@@ -125,7 +129,7 @@
                                             <table class="table team-leader">
                                                 <thead>
                                                     <tr>
-                                                        <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                        <th class="team-leader__type">Treble League 2018 / 19</th>
                                                         <th class="team-leader__goals">Gol</th>
                                                         <th class="team-leader__gp">Ass</th>
                                                         <th class="team-leader__avg">MPP</th>
@@ -1449,7 +1453,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Ass</th>
                                                 <th class="team-leader__avg">MPP</th>
                                             </tr>
@@ -1514,7 +1518,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__goals"><img src="<?= base_url('/') ?>images/ammo.png"></th>
                                                 <th class="team-leader__gp"><img src="<?= base_url('/') ?>images/espu.png"></th>
                                                 <th class="team-leader__avg">MPP</th>
@@ -1580,7 +1584,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Treble League 2017 / 18</th>
+                                                <th class="team-leader__type">Treble League 2018 / 19</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MFV</th>
                                             </tr>
