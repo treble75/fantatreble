@@ -43,7 +43,7 @@
                 <div class="card card--has-table">
 
                     <div class="card__header">
-                        <h4>Rosa Giocatori</h4>
+                        <h4>Rosa Giocatori 2018/19</h4>
                     </div>
                     <div class="card__content">
                         <div class="table-responsive">

@@ -42,7 +42,7 @@
                 <!-- Single Product Tabbed Content -->
                 <div class="product-tabs card card--xlg">
                     <div class="card__header">
-                        <h4>Calendario</h4>
+                        <h4>Calendario 2018/19</h4>
                     </div>
 
                     <!-- Nav tabs -->
