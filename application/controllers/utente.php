@@ -4152,8 +4152,8 @@ class Utente extends CI_Controller {
     
     function password_dimenticata() {
 
-        $this->form_validation->set_rules('email_dimenticata1', 'Email 1', 'trim|min_length[2]|max_length[50]|required');
-        $this->form_validation->set_rules('email_dimenticata2', 'Email 2', 'trim|min_length[2]|max_length[50]|required');
+        $this->form_validation->set_rules('email_dimenticata1', 'Email 1', 'trim|min_length[2]|max_length[50]');
+        $this->form_validation->set_rules('email_dimenticata2', 'Email 2', 'trim|min_length[2]|max_length[50]');
 
         if ($this->form_validation->run()) {
             
