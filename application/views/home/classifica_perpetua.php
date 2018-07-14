@@ -41,7 +41,6 @@
                 <!-- Team Standings -->
                 <div class="card card--has-table">
                     <div class="card__header">
-                        <!-- Anno da modificare -->
                         <h4>Classifica Perpetua Treble League</h4>
                         <span style="font-size: 12px;">* Risultati relativi alla regular season aggiornati alla Stagione 2017/18</span>
                     </div>

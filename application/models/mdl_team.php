@@ -3423,7 +3423,7 @@ class mdl_team extends CI_Model {
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
     private function getPartitePrecedenti($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
-        if ($db != "2017_18") {
+        if ($db != "2018_19") {
             $query = $this->db->query('Select * from tb_calendario_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         } else {
             $query = $this->db->query('Select * from tb_calendario where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
@@ -3435,7 +3435,7 @@ class mdl_team extends CI_Model {
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
     private function getPartitePrecedentiChampions($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
-        if ($db != "2017_18") {
+        if ($db != "2018_19") {
             $query = $this->db->query('Select * from tb_champions_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         } else {
             $query = $this->db->query('Select * from tb_champions where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
@@ -3447,7 +3447,7 @@ class mdl_team extends CI_Model {
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
     private function getPartitePrecedentiCoppa($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
-        if ($db != "2017_18") {
+        if ($db != "2018_19") {
             $query = $this->db->query('Select * from tb_coppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         } else {
             $query = $this->db->query('Select * from tb_coppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');
@@ -3459,7 +3459,7 @@ class mdl_team extends CI_Model {
     // Seleziono partite precedenti passando gli id degli utenti selezionati e la stagione
     private function getPartitePrecedentiSuperCoppa($id1, $id2, $stagione, $db) {
         //Modificare db per query precedenti stagione in corso
-        if ($db != "2017_18") {
+        if ($db != "2018_19") {
             $query = $this->db->query('Select * from tb_supercoppa_' . $db . ' where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' order by data DESC;');
         } else {
             $query = $this->db->query('Select * from tb_supercoppa where id1 = ' . $id1 . ' and id2 = ' . $id2 . ' and giocata = 1 or id1 = ' . $id2 . ' and id2 = ' . $id1 . ' and giocata = 1 order by data DESC;');

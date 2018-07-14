@@ -35,7 +35,6 @@
                 <!-- Team Standings -->
                 <div class="card card--has-table">
                     <div class="card__header">
-                        <!-- Anno da modificare -->
                         <h4>Coppa Treble</h4>
                     </div>
                 </div>
