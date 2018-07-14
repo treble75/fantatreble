@@ -8,8 +8,8 @@
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Prepartita</span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                            <li><a href="<?= base_url('/') ?>index.php/utente/myteam">My Team</a></li>
+                            <li><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
+                            <li><a href="<?= base_url('/') ?>utente/myteam">My Team</a></li>
                             <li class="active">Prepartita</li>
                         </ol>
                     </div>

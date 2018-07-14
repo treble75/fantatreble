@@ -86,7 +86,7 @@
                                                     <?php
                                                     if ($risultati_supercoppa[0]['risultato1'] != "" && $risultati_supercoppa[0]['risultato2'] != "") {
                                                         ?>
-                                                        <a href="<?= base_url('/') ?>index.php/home/dettaglisupercoppa/1" class="btn btn-xs btn-default btn-outline btn-block">Dettaglio giornata</a>
+                                                        <a href="<?= base_url('/') ?>home/dettaglisupercoppa/1" class="btn btn-xs btn-default btn-outline btn-block">Dettaglio giornata</a>
                                                         <?php
                                                     }
                                                     ?>

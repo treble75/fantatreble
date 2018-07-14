@@ -91,7 +91,7 @@
                         <h4>Statistiche 2018/19 
 
                             <?php if (@$order != "") { ?>
-                                &nbsp;&nbsp; <a href="<?= base_url('/') ?>index.php/home/statistiche/<?= $ruolo ?>"><img src="<?= base_url('/') ?>images/refresh.png" title="Aggiorna"></a>
+                                &nbsp;&nbsp; <a href="<?= base_url('/') ?>home/statistiche/<?= $ruolo ?>"><img src="<?= base_url('/') ?>images/refresh.png" title="Aggiorna"></a>
                             <?php } ?>
                         </h4>
                         <span style="color:#ff3d3d; font-size: 12px;">* I giocatori segnalati in rosso non giocano più in serie A</span>

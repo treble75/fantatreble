@@ -121,9 +121,9 @@
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Treble </span> League</h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                          <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                          <li><a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti">Stagioni Precedenti</a></li>
-                          <li class="active"><a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/<?=$stagione?>">Stagione <?= str_replace("_", "/" , $stagione) ?></a> - <?= $label ?></li>
+                          <li><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
+                          <li><a href="<?= base_url('/') ?>home/stagioni_precedenti">Stagioni Precedenti</a></li>
+                          <li class="active"><a href="<?= base_url('/') ?>home/campionati_precedenti/<?=$stagione?>">Stagione <?= str_replace("_", "/" , $stagione) ?></a> - <?= $label ?></li>
                         </ol>
                     </div>
                 </div>

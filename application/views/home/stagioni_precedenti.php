@@ -7,8 +7,8 @@
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title">Stagioni <span class="highlight">Precedenti</span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                          <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                          <li><a href="<?= base_url('/') ?>index.php/home/campionato">Treble League</a></li>
+                          <li><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
+                          <li><a href="<?= base_url('/') ?>home/campionato">Treble League</a></li>
                           <li class="active">Stagioni Precedenti</li>
                         </ol>
                     </div>
@@ -22,12 +22,12 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/campionato" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario" class="content-filter__link"><small>Treble League</small>Calendario</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti" class="content-filter__link"><small>Treble League</small>Stagioni Precedenti</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/campionato" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/calendario" class="content-filter__link"><small>Treble League</small>Calendario</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/stagioni_precedenti" class="content-filter__link"><small>Treble League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
         </nav>
@@ -55,7 +55,7 @@
                                         <img src="<?= base_url('/') ?>assets/images/gallery/copertina_2017_18.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2017_18" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>home/campionati_precedenti/2017_18" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">13 Maggio 2018</time>
                                         <h6 class="posts__title">Grande impresa ai playoff di Sporting KRK</h6>
                                     </div>
@@ -91,7 +91,7 @@
                                         <img src="<?= base_url('/') ?>assets/images/gallery/2016_17_10.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2016_17" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>home/campionati_precedenti/2016_17" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">21 Maggio 2017</time>
                                         <h6 class="posts__title">Frank One non è più una sorpresa, secondo campionato in bacheca</h6>
                                     </div>
@@ -127,7 +127,7 @@
                                         <img src="<?= base_url('/') ?>assets/images/gallery/copertina_2015_16.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2015_16" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>home/campionati_precedenti/2015_16" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">30 Aprile 2016</time>
                                         <h6 class="posts__title">Frank One stupisce tutti e si aggiudica il suo primo torneo</h6>
                                     </div>
@@ -163,7 +163,7 @@
                                         <img src="<?= base_url('/') ?>assets/images/gallery/copertina_2014_15.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2014_15" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>home/campionati_precedenti/2014_15" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">25 Aprile 2015</time>
                                         <h6 class="posts__title">Warriors domina il campionato ed è triplete</h6>
                                     </div>
@@ -199,7 +199,7 @@
                                         <img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2013_14" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>home/campionati_precedenti/2013_14" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">04 Maggio 2014</time>
                                         <h6 class="posts__title">Warriors batte Zacapa e fa il bis</h6>
                                     </div>
@@ -235,7 +235,7 @@
                                         <img src="<?= base_url('/') ?>assets/images/gallery/copertina_2012_13.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2012_13" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>home/campionati_precedenti/2012_13" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">27 Aprile 2013</time>
                                         <h6 class="posts__title">Warriors vince il suo primo scudetto</h6>
                                     </div>
@@ -271,7 +271,7 @@
                                         <img src="<?= base_url('/') ?>assets/images/gallery/copertina_2011_12.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2011_12" class="posts__cta"></a>
+                                        <a href="<?= base_url('/') ?>home/campionati_precedenti/2011_12" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">28 Aprile 2012</time>
                                         <h6 class="posts__title">All Blacks vince il torneo d'esordio del FantaTreble</h6>
                                     </div>

@@ -30,7 +30,7 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/campionato"><?= $news_league[0]['riga1'] ?></br><?= $news_league[0]['riga2'] ?></a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>home/campionato"><?= $news_league[0]['riga1'] ?></br><?= $news_league[0]['riga2'] ?></a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
@@ -64,7 +64,7 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/champions"><?= $news_champions[0]['riga1'] ?></br><?= $news_champions[0]['riga2'] ?></a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>home/champions"><?= $news_champions[0]['riga1'] ?></br><?= $news_champions[0]['riga2'] ?></a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
@@ -98,7 +98,7 @@
                                     <!-- Post Category / End -->
 
                                     <!-- Post Title -->
-                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>index.php/home/coppa"><?= $news_coppa[0]['riga1'] ?></br><?= $news_coppa[0]['riga2'] ?></a></h1>
+                                    <h1 class="page-heading__title"><a href="<?= base_url('/') ?>home/coppa"><?= $news_coppa[0]['riga1'] ?></br><?= $news_coppa[0]['riga2'] ?></a></h1>
                                     <!-- Post Title / End -->
 
                                     <!-- Post Meta Info -->
@@ -192,7 +192,7 @@
                                 <div class="slick posts posts--slider-featured posts-slider posts-slider--center">
 
                                     <div class="posts__item posts__item--category-1">
-                                        <a href="<?= base_url('/') ?>index.php/home/campionato" class="posts__link-wrapper">
+                                        <a href="<?= base_url('/') ?>home/campionato" class="posts__link-wrapper">
 
                                             <!-- Widget: Latest Results -->
                                             <aside class="widget card widget--sidebar widget-results">
@@ -257,7 +257,7 @@
                                     </div>
 
                                     <div class="posts__item posts__item--category-2">
-                                        <a href="<?= base_url('/') ?>index.php/home/champions" class="posts__link-wrapper">
+                                        <a href="<?= base_url('/') ?>home/champions" class="posts__link-wrapper">
 
                                             <!-- Widget: Latest Results -->
                                             <aside class="widget card widget--sidebar widget-results">
@@ -366,7 +366,7 @@
                                     </div>
 
                                     <div class="posts__item posts__item--category-3">
-                                        <a href="<?= base_url('/') ?>index.php/home/coppa" class="posts__link-wrapper">
+                                        <a href="<?= base_url('/') ?>home/coppa" class="posts__link-wrapper">
 
                                             <!-- Widget: Latest Results -->
                                             <aside class="widget card widget--sidebar widget-results">
@@ -557,7 +557,7 @@
                                                     <div class="countdown-counter" data-date="<?= $blocco ?>"></div>
                                                 </div>
                                                 <div class="match-preview__action match-preview__action--ticket">
-                                                    <a href="<?= base_url('/') ?>index.php/home/<?= $gara ?>" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
+                                                    <a href="<?= base_url('/') ?>home/<?= $gara ?>" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
                                                 </div>
                                                 <?php
                                             }
@@ -593,7 +593,7 @@
                                                                 <time class="comments-list__date" datetime="2016-08-23"><?= $this->mdl_utenti->getSquadra($row['id_utente']) ?></time>
                                                                 <time class="comments-list__date" datetime="2016-08-23"><?= $row['orario'] ?></time>
                                                             </div>
-                                                            <a href="<?= base_url('/') ?>index.php/utente/calciomercato" class="comments-list__link"><span class="icon-options"></span></a>
+                                                            <a href="<?= base_url('/') ?>utente/calciomercato" class="comments-list__link"><span class="icon-options"></span></a>
                                                         </header>
                                                         <div class="comments-list__body">
                                                             <br>
@@ -778,7 +778,7 @@
                                                 <div class="countdown-counter" data-date="<?= substr($blocco, 5, 2) ?> <?= substr($blocco, 8, 2) ?>, <?= substr($blocco, 0, 4) ?> <?= substr($blocco,10, 8) ?>"></div>
                                             </div>
                                             <div class="match-preview__action match-preview__action--ticket">
-                                                <a href="<?= base_url('/') ?>index.php/home/calendario" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
+                                                <a href="<?= base_url('/') ?>home/calendario" class="btn btn-primary-inverse btn-lg btn-block">Vedi Calendario</a>
                                             </div>
                                         </div>
                                         <!-- Match Preview / End -->
@@ -815,7 +815,7 @@
                                                 </ul>
                                             </div>
                                             <div class="posts__more">
-                                                <a href="<?= base_url('/') ?>index.php/home/regolamento" class="btn btn-inverse btn-sm btn-outline btn-icon-right btn-condensed">Vai al Regolamento</a>
+                                                <a href="<?= base_url('/') ?>home/regolamento" class="btn btn-inverse btn-sm btn-outline btn-icon-right btn-condensed">Vai al Regolamento</a>
                                             </div>
                                         </div>
                                     </div>
@@ -836,7 +836,7 @@
                             <div class="widget__title card__header card__header--has-btn">
                                 <!-- ANNO - Modifica annuale -->
                                 <h4>Treble League 2018/19</h4>
-                                <a href="<?= base_url('/') ?>index.php/home/campionato" class="btn btn-default btn-outline btn-xs card-header__button">Vedi Classifica</a>
+                                <a href="<?= base_url('/') ?>home/campionato" class="btn btn-default btn-outline btn-xs card-header__button">Vedi Classifica</a>
                             </div>
                             <div class="widget__content card__content">
                                 <div class="table-responsive">

@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="content-title">
                     <h2 class="content-title__h">Stagione 2013/14</h2>
-                    <a href="<?= base_url('/') ?>index.php/home/gallery" class="btn btn-xs btn-default btn-outline">Ritorna alla Gallery</a>
+                    <a href="<?= base_url('/') ?>home/gallery" class="btn btn-xs btn-default btn-outline">Ritorna alla Gallery</a>
                 </div>
             </div>
 

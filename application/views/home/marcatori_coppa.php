@@ -18,10 +18,10 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/statistiche_coppa" class="content-filter__link"><small>Coppa Treble</small>Statistiche</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/marcatori_coppa" class="content-filter__link"><small>Coppa Treble</small>Marcatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/coppa" class="content-filter__link"><small>Coppa Treble</small>Griglia</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario_coppa" class="content-filter__link"><small>Coppa Treble</small>Calendario</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/statistiche_coppa" class="content-filter__link"><small>Coppa Treble</small>Statistiche</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/marcatori_coppa" class="content-filter__link"><small>Coppa Treble</small>Marcatori</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/coppa" class="content-filter__link"><small>Coppa Treble</small>Griglia</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/calendario_coppa" class="content-filter__link"><small>Coppa Treble</small>Calendario</a></li>
                     <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Coppa Treble</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
