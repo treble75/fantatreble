@@ -7,8 +7,8 @@
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Calciomercato</span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                            <li><a href="<?= base_url('/') ?>index.php/utente/calciomercato">Calciomercato</a></li>
+                            <li><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
+                            <li><a href="<?= base_url('/') ?>utente/calciomercato">Calciomercato</a></li>
                             <li class="active">Offerte</li>
                         </ol>
                     </div>
@@ -150,8 +150,8 @@
                                                             if ($_SESSION['username'] == "treble") {
                                                                 ?>
                                                                 <footer class="product__footer">
-                                                                    <a href='<?= base_url('/') . "index.php/utente/closeofferta/" . $row['id_offerta'] ?>' class="btn btn-primary-inverse btn-icon product__add-to-cart"></i> Chiudi offerta</a>
-                                                                    <a href='<?= base_url('/') . "index.php/utente/delofferta/" . $row['id_offerta'] ?>' class="btn btn-default btn-icon"></i> Cancella offerta</a>
+                                                                    <a href='<?= base_url('/') . "utente/closeofferta/" . $row['id_offerta'] ?>' class="btn btn-primary-inverse btn-icon product__add-to-cart"></i> Chiudi offerta</a>
+                                                                    <a href='<?= base_url('/') . "utente/delofferta/" . $row['id_offerta'] ?>' class="btn btn-default btn-icon"></i> Cancella offerta</a>
                                                                 </footer>
                                                                 <?php
                                                             }

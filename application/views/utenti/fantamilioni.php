@@ -30,22 +30,22 @@
                                 <nav class="df-account-navigation">
                                     <ul>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/registra_utente" >Registra Utente</a>
+                                            <a href="<?= base_url('/') ?>utente/registra_utente" >Registra Utente</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/modifica_utente" >Modifica Utente</a>
+                                            <a href="<?= base_url('/') ?>utente/modifica_utente" >Modifica Utente</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/fantamilioni" >FantaMilioni</a>
+                                            <a href="<?= base_url('/') ?>utente/fantamilioni" >FantaMilioni</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/quote" >Quote</a>
+                                            <a href="<?= base_url('/') ?>utente/quote" >Quote</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/news_desktop" >News Desktop</a>
+                                            <a href="<?= base_url('/') ?>utente/news_desktop" >News Desktop</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/news_utente" >News Utente</a>
+                                            <a href="<?= base_url('/') ?>utente/news_utente" >News Utente</a>
                                         </li>
                                     </ul>
                                 </nav>

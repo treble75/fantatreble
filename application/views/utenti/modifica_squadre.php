@@ -13,7 +13,7 @@
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title"><span class="highlight">Modifica </span> Squadre</h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
+                            <li><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
                             <li class="active">Modifica Squadre</li>
                         </ol>
                     </div>
@@ -39,22 +39,22 @@
                                 <nav class="df-account-navigation">
                                     <ul>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/crea_giocatore">Crea Giocatore</a>
+                                            <a href="<?= base_url('/') ?>utente/crea_giocatore">Crea Giocatore</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/assegna_giocatore">Assegna Giocatore</a>
+                                            <a href="<?= base_url('/') ?>utente/assegna_giocatore">Assegna Giocatore</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/modifica_giocatore">Modifica Giocatore</a>
+                                            <a href="<?= base_url('/') ?>utente/modifica_giocatore">Modifica Giocatore</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/modifica_squadre">Modifica Squadre</a>
+                                            <a href="<?= base_url('/') ?>utente/modifica_squadre">Modifica Squadre</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/esegui_scambio">Esegui Scambio</a>
+                                            <a href="<?= base_url('/') ?>utente/esegui_scambio">Esegui Scambio</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/modifica_voto">Modifica Voto</a>
+                                            <a href="<?= base_url('/') ?>utente/modifica_voto">Modifica Voto</a>
                                         </li>
                                     </ul>
                                 </nav>

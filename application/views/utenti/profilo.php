@@ -30,7 +30,7 @@
                                 <nav class="df-account-navigation">
                                     <ul>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/profilo" >Informazioni personali</a>
+                                            <a href="<?= base_url('/') ?>utente/profilo" >Informazioni personali</a>
                                         </li>
                                     </ul>
                                 </nav>

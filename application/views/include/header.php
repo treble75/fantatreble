@@ -226,7 +226,16 @@
                                         </li>
                                         <li class="<?= $active_myteam ?>"><a href="#"><?= $_SESSION['squadra'] ?></a>
                                             <ul class="main-nav__sub">
-                                                <li><a href="<?= base_url('/') ?>utente/myteam">Rosa Giocatori</a></li>
+                                                <li><a href="#">Squadra</a>
+                                                    <ul class="main-nav__sub-2">
+                                                        <li><a href="<?= base_url('/') ?>utente/myteam">Rosa Giocatori</a></li>
+                                                        <li><a href="<?= base_url('/') ?>utente/myteam_marcatori">Marcatori</a></li>
+                                                        <li><a href="<?= base_url('/') ?>utente/myteam_statistiche">Statistiche</a></li>
+                                                        <li><a href="<?= base_url('/') ?>utente/myteam_risultati">Risultati</a></li>
+                                                        <li><a href="<?= base_url('/') ?>utente/myteam_calendario">Calendario</a></li>
+                                                        <li><a href="<?= base_url('/') ?>utente/myteam_bacheca">Bacheca</a></li>
+                                                    </ul>
+                                                </li>
                                                 <li><a href="<?= base_url('/') ?>utente/schiera_formazione">Schiera Formazione</a></li>
                                                 <li><a href="#">Rigoristi</a>
                                                     <ul class="main-nav__sub-2">
@@ -314,77 +323,6 @@
                         </div>
                     </header>
                     <div class="pushy-panel__content">
-
-                        <!-- Widget: Posts -->
-                        <aside class="widget widget-popular-posts widget--side-panel">
-                            <div class="widget__content">
-
-                                <ul class="posts posts--simple-list">
-                                    <li class="posts__item posts__item--category-1">
-                                        <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img19-xs.jpg" alt=""></a>
-                                        </figure>
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">The team</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">The Team will make a small vacation to the Caribbean</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                        </div>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                        </div>
-                                    </li>
-                                    <li class="posts__item posts__item--category-2">
-                                        <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img18-xs.jpg" alt=""></a>
-                                        </figure>
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">Injuries</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">Jenny Jackson won't be able to play the next game</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                        </div>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                        </div>
-                                    </li>
-                                    <li class="posts__item posts__item--category-1">
-                                        <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img8-xs.jpg" alt=""></a>
-                                        </figure>
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">The Team</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">The team is starting a new power breakfast regimen</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                        </div>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                        </div>
-                                    </li>
-                                    <li class="posts__item posts__item--category-3">
-                                        <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img20-xs.jpg" alt=""></a>
-                                        </figure>
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">The League</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">The Alchemists need two win the next two games</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">August 23rd, 2016</time>
-                                        </div>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi ng elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                        </div>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </aside>
-                        <!-- Widget: Posts / End -->
 
                         <!-- Widget: Tag Cloud -->
                         <aside class="widget widget--side-panel widget-tagcloud">

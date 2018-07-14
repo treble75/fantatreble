@@ -8,8 +8,8 @@
                     <div class="col-md-10 col-md-offset-1">
                         <h1 class="page-heading__title">Statistiche <span class="highlight"><?= $utente[0]['squadra'] ?></span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
-                            <li><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                            <li><a href="<?= base_url('/') ?>index.php/utente/team/<?= $utente[0]['id_utente'] ?>">Team</a></li>
+                            <li><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
+                            <li><a href="<?= base_url('/') ?>utente/team/<?= $utente[0]['id_utente'] ?>">Team</a></li>
                             <li class="active">Risultati</li>
                         </ol>
                     </div>
@@ -22,12 +22,12 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Rosa Giocatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_marcatori/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Marcatori</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/utente/team_statistiche/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_risultati/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Risultati</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_calendario/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/utente/team_bacheca/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Bacheca</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>utente/team/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Rosa Giocatori</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>utente/team_marcatori/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Marcatori</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>utente/team_statistiche/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>utente/team_risultati/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Risultati</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>utente/team_calendario/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Calendario</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>utente/team_bacheca/<?= $utente[0]['id_utente'] ?>" class="content-filter__link"><small>Team</small>Bacheca</a></li>
                 </ul>
             </div>
         </nav>

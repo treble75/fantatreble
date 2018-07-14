@@ -29,13 +29,13 @@
                                 <nav class="df-account-navigation">
                                     <ul>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/rigoristi">Ripristina Rigoristi</a>
+                                            <a href="<?= base_url('/') ?>utente/rigoristi">Ripristina Rigoristi</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/reset_rigoristi">Resetta Rigoristi</a>
+                                            <a href="<?= base_url('/') ?>utente/reset_rigoristi">Resetta Rigoristi</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/selezione_automatica_rigoristi">Selezione Automatica</a>
+                                            <a href="<?= base_url('/') ?>utente/selezione_automatica_rigoristi">Selezione Automatica</a>
                                         </li>
                                     </ul>
                                 </nav>
