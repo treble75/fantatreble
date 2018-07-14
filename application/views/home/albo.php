@@ -18,11 +18,11 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/albo_statistiche" class="content-filter__link"><small>Albo d'oro</small>Statistiche</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/albo" class="content-filter__link"><small>Albo d'oro</small>Treble League</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/albo_champions" class="content-filter__link"><small>Albo d'oro</small>Champions League</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/albo_coppa" class="content-filter__link"><small>Albo d'oro</small>Coppa Treble</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/albo_supercoppa" class="content-filter__link"><small>Albo d'oro</small>SuperCoppa Treble</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/albo_statistiche" class="content-filter__link"><small>Albo d'oro</small>Statistiche</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/albo" class="content-filter__link"><small>Albo d'oro</small>Treble League</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/albo_champions" class="content-filter__link"><small>Albo d'oro</small>Champions League</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/albo_coppa" class="content-filter__link"><small>Albo d'oro</small>Coppa Treble</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/albo_supercoppa" class="content-filter__link"><small>Albo d'oro</small>SuperCoppa Treble</a></li>
                 </ul>
             </div>
         </nav>
@@ -52,7 +52,7 @@
                             <div class="card__header card__header--has-btn">
                                 <h4>Albo d'oro</h4>
                                 <br><span style="font-size: 12px;">* Risultati relativi alla regular season</span>
-                                <a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="btn btn-default btn-outline btn-xs card-header__button">Vedi Classifica Perpetua</a>
+                                <a href="<?= base_url('/') ?>home/classifica_perpetua" class="btn btn-default btn-outline btn-xs card-header__button">Vedi Classifica Perpetua</a>
                             </div>
                             <div class="card__content">
                                 <div class="table-responsive">

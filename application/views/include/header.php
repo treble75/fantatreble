@@ -65,7 +65,7 @@
             <!-- Header Mobile -->
             <div class="header-mobile clearfix" id="header-mobile">
                 <div class="header-mobile__logo">
-                    <a href="<?= base_url('/') ?>index.php/home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-mobile__logo-img"></a>
+                    <a href="<?= base_url('/') ?>home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-mobile__logo-img"></a>
                 </div>
                 <div class="header-mobile__inner">
                     <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
@@ -84,18 +84,18 @@
 
                             <!-- Se sono loggato faccio vedere la voce di menu Profilo altrimenti Login --> 
                             <?php if (isset($_SESSION['id_utente'])) { ?>
-                                <li class="nav-account__item"><a href="<?= base_url('/') ?>index.php/utente/profilo">Profilo</a></li>
+                                <li class="nav-account__item"><a href="<?= base_url('/') ?>utente/profilo">Profilo</a></li>
                             <?php } else { ?>
                                 <li class="nav-account__item"><a href="#" data-toggle="modal" data-target="#modal-login-register-tabs">Login</a></li>
                             <?php } ?>
-                            <li class="nav-account__item nav-account__item--wishlist"><a href="<?= base_url('/') ?>index.php/home/gallery">Gallery</a></li>
+                            <li class="nav-account__item nav-account__item--wishlist"><a href="<?= base_url('/') ?>home/gallery">Gallery</a></li>
                             <li class="nav-account__item"><a href="http://www.fantagiaveno.it/quotazioni-calciatori.asp" target="_blank">Quotazioni <span class="highlight">GDS</span></a>
                             </li>
-                            <li class="nav-account__item nav-account__item--wishlist"><a href="<?= base_url('/') ?>index.php/home/regolamento">Regolamento</a></li>
+                            <li class="nav-account__item nav-account__item--wishlist"><a href="<?= base_url('/') ?>home/regolamento">Regolamento</a></li>
 
                             <!-- Se sono loggato faccio vedere la voce di menu Logout --> 
                             <?php if (isset($_SESSION['id_utente'])) { ?>
-                                <li class="nav-account__item nav-account__item--logout"><a href="<?= base_url('/') ?>index.php/utente/logout">Logout</a></li>
+                                <li class="nav-account__item nav-account__item--logout"><a href="<?= base_url('/') ?>utente/logout">Logout</a></li>
                             <?php } ?>
                         </ul>
                         <!-- Account Navigation / End -->
@@ -142,7 +142,7 @@
                                 <use xlink:href="<?= base_url('/') ?>assets/images/icons-soccer.svg#soccer-ball"/>
                                 </svg>
                                 <h6 class="info-block__heading">Benvenuto al FantaTreble</h6>
-                                <a class="info-block__link" href="<?= base_url('/') ?>index.php/home/homepage">Homepage</a>
+                                <a class="info-block__link" href="<?= base_url('/') ?>home/homepage">Homepage</a>
                             </li>
 
                             <!-- Icona utente -->
@@ -151,7 +151,7 @@
                                     <svg role="img" class="df-icon df-icon--whistle">
                                     <h6 class="info-block__heading">Bentornato <?= $_SESSION['utente'] ?></h6>
                                     </svg>
-                                    <a class="info-block__link" href="<?= base_url('/') ?>index.php/utente/myteam"><?= $_SESSION['squadra'] ?></a>
+                                    <a class="info-block__link" href="<?= base_url('/') ?>utente/myteam"><?= $_SESSION['squadra'] ?></a>
                                 </li>
                                 <li class="info-block__item info-block__item--contact-primary info-block-user">
                                     <svg role="img" class="df-icon">
@@ -173,7 +173,7 @@
 
                             <!-- Header Logo -->
                             <div class="header-logo">
-                                <a href="<?= base_url('/') ?>index.php/home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-logo__img"></a>
+                                <a href="<?= base_url('/') ?>home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="<?= base_url('/') ?>assets/images/soccer/logo@2x.png 2x" alt="FantaTreble" class="header-logo__img"></a>
                             </div>
                             <!-- Header Logo / End -->
 
@@ -187,31 +187,31 @@
                                             <div class="main-nav__megamenu clearfix">
                                                 <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
                                                     <li class="main-nav__title">Giocatori</li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/crea_giocatore">Crea Giocatore</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/assegna_giocatore">Assegna Giocatore</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/modifica_giocatore">Modifica Giocatore</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/modifica_squadre">Modifica Squadre</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/esegui_scambio">Esegui Scambio</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/modifica_voto">Modifica Voto</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/crea_giocatore">Crea Giocatore</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/assegna_giocatore">Assegna Giocatore</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/modifica_giocatore">Modifica Giocatore</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/modifica_squadre">Modifica Squadre</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/esegui_scambio">Esegui Scambio</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/modifica_voto">Modifica Voto</a></li>
                                                 </ul>
                                                 <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
                                                     <li class="main-nav__title">Utenti</li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/registra_utente">Registra Utente</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/modifica_utente">Modifica Utente</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/fantamilioni">Fantamilioni</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/quote">Quote</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/news_desktop">News Desktop</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/news_utente">News Utente</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/registra_utente">Registra Utente</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/modifica_utente">Modifica Utente</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/fantamilioni">Fantamilioni</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/quote">Quote</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/news_desktop">News Desktop</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/news_utente">News Utente</a></li>
                                                 </ul>
                                                 <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
                                                     <li class="main-nav__title">Campionati</li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/inserisci_voti">Inserisci Voti</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/inserisci_risultati">Inserisci Risultati Campionato</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/inserisci_risultati_Coppe">Inserisci Risultati Coppe</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/aggiorna_coppe">Aggiorna Coppe</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/blocco">Blocco Formazioni</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/gestione_rigoristi">Gestione Rigoristi</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/topmatch">Top Match</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/inserisci_voti">Inserisci Voti</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/inserisci_risultati">Inserisci Risultati Campionato</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/inserisci_risultati_Coppe">Inserisci Risultati Coppe</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/aggiorna_coppe">Aggiorna Coppe</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/blocco">Blocco Formazioni</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/gestione_rigoristi">Gestione Rigoristi</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/topmatch">Top Match</a></li>
                                                 </ul>
                                             </div>
                                         </li>
@@ -219,22 +219,22 @@
                                     <?php if (isset($_SESSION['id_utente'])) { ?>
                                         <li class="<?= $active_calciomercato ?>"><a href="#">Calciomercato</a>
                                             <ul class="main-nav__sub">
-                                                <li><a href="<?= base_url('/') ?>index.php/utente/calciomercato">Offerte</a></li>
-                                                <li><a href="<?= base_url('/') ?>index.php/utente/trattative">Trattative Aperte</a></li>
-                                                <li><a href="<?= base_url('/') ?>index.php/utente/trasferimenti">Trasferimenti</a></li>
+                                                <li><a href="<?= base_url('/') ?>utente/calciomercato">Offerte</a></li>
+                                                <li><a href="<?= base_url('/') ?>utente/trattative">Trattative Aperte</a></li>
+                                                <li><a href="<?= base_url('/') ?>utente/trasferimenti">Trasferimenti</a></li>
                                             </ul>
                                         </li>
                                         <li class="<?= $active_myteam ?>"><a href="#"><?= $_SESSION['squadra'] ?></a>
                                             <ul class="main-nav__sub">
-                                                <li><a href="<?= base_url('/') ?>index.php/utente/myteam">Rosa Giocatori</a></li>
-                                                <li><a href="<?= base_url('/') ?>index.php/utente/schiera_formazione">Schiera Formazione</a></li>
+                                                <li><a href="<?= base_url('/') ?>utente/myteam">Rosa Giocatori</a></li>
+                                                <li><a href="<?= base_url('/') ?>utente/schiera_formazione">Schiera Formazione</a></li>
                                                 <li><a href="#">Rigoristi</a>
                                                     <ul class="main-nav__sub-2">
-                                                        <li><a href="<?= base_url('/') ?>index.php/utente/rigoristi">Seleziona Rigoristi</a></li>
-                                                        <li><a href="<?= base_url('/') ?>index.php/utente/elenco_rigoristi">Rigoristi Schierati</a></li>
+                                                        <li><a href="<?= base_url('/') ?>utente/rigoristi">Seleziona Rigoristi</a></li>
+                                                        <li><a href="<?= base_url('/') ?>utente/elenco_rigoristi">Rigoristi Schierati</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="<?= base_url('/') ?>index.php/home/prepartita">Prepartita</a></li>
+                                                <li><a href="<?= base_url('/') ?>home/prepartita">Prepartita</a></li>
                                             </ul>
                                         </li>
 
@@ -250,7 +250,7 @@
                                                 foreach ($squadreMenu as $row) {
                                                     if ($_SESSION['id_utente'] != $row['id_utente']) {
                                                         ?>
-                                                        <li><a href="<?= base_url('/') ?>index.php/utente/team_bacheca/<?= $row['id_utente'] ?>" ><span>
+                                                        <li><a href="<?= base_url('/') ?>utente/team_bacheca/<?= $row['id_utente'] ?>" ><span>
                                                                     <figure class="widget-results__team-logo">
                                                                         <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_utente'] ?>.png" >
                                                                     </figure>
@@ -265,26 +265,26 @@
                                     <?php } ?>
                                     <li class="<?= $active_competitions ?>"><a href="#">Competitions</a>
                                         <ul class="main-nav__sub">
-                                            <li><a href="<?= base_url('/') ?>index.php/home/campionato">Treble League</a></li>
-                                            <li><a href="<?= base_url('/') ?>index.php/home/champions">Champions League</a></li>
-                                            <li><a href="<?= base_url('/') ?>index.php/home/coppa">Coppa Treble</a></li>
-                                            <li><a href="<?= base_url('/') ?>index.php/home/supercoppa">SuperCoppa Treble</a></li>
+                                            <li><a href="<?= base_url('/') ?>home/campionato">Treble League</a></li>
+                                            <li><a href="<?= base_url('/') ?>home/champions">Champions League</a></li>
+                                            <li><a href="<?= base_url('/') ?>home/coppa">Coppa Treble</a></li>
+                                            <li><a href="<?= base_url('/') ?>home/supercoppa">SuperCoppa Treble</a></li>
                                             <li><a href="#">Formazioni Schierate</a>
                                                 <ul class="main-nav__sub-2">
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/formazioni_campionato">Treble League</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/utente/formazioni_coppe">Coppe</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/formazioni_campionato">Treble League</a></li>
+                                                    <li><a href="<?= base_url('/') ?>utente/formazioni_coppe">Coppe</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#">Statistiche Giocatori</a>
                                                 <ul class="main-nav__sub-2">
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/statistiche/1">Portieri</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/statistiche/2">Difensori</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/statistiche/3">Centrocampisti</a></li>
-                                                    <li><a href="<?= base_url('/') ?>index.php/home/statistiche/4">Attaccanti</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/statistiche/1">Portieri</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/statistiche/2">Difensori</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/statistiche/3">Centrocampisti</a></li>
+                                                    <li><a href="<?= base_url('/') ?>home/statistiche/4">Attaccanti</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="<?= base_url('/') ?>index.php/home/albo">Albo d'Oro</a></li>
-                                            <!-- <li><a href="<?= base_url('/') ?>index.php/home/premi">Premi</a></li> -->
+                                            <li><a href="<?= base_url('/') ?>home/albo">Albo d'Oro</a></li>
+                                            <!-- <li><a href="<?= base_url('/') ?>home/premi">Premi</a></li> -->
                                         </ul>
                                     </li>
                                 </ul>
@@ -310,7 +310,7 @@
                 <div class="pushy-panel__inner">
                     <header class="pushy-panel__header">
                         <div class="pushy-panel__logo">
-                            <a href="<?= base_url('/') ?>index.php/home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="assets/images/soccer/logo@2x.png 2x" alt="FantaTreble"></a>
+                            <a href="<?= base_url('/') ?>home/homepage"><img src="<?= base_url('/') ?>assets/images/soccer/logoFT.png" srcset="assets/images/soccer/logo@2x.png 2x" alt="FantaTreble"></a>
                         </div>
                     </header>
                     <div class="pushy-panel__content">
@@ -393,21 +393,21 @@
                             </div>
                             <div class="widget__content">
                                 <div class="tagcloud">
-                                    <a href="<?= base_url('/') ?>index.php/home/campionato" class="btn btn-primary btn-xs btn-outline btn-sm">Treble League</a>
-                                    <a href="<?= base_url('/') ?>index.php/home/champions" class="btn btn-primary btn-xs btn-outline btn-sm">Champions League</a>
-                                    <a href="<?= base_url('/') ?>index.php/home/coppa" class="btn btn-primary btn-xs btn-outline btn-sm">Coppa Treble</a>
-                                    <a href="<?= base_url('/') ?>index.php/home/albo" class="btn btn-primary btn-xs btn-outline btn-sm">Albo d'oro</a>
-                                    <a href="<?= base_url('/') ?>index.php/home/albo_statistiche" class="btn btn-primary btn-xs btn-outline btn-sm">Precedenti Storici</a>
-                                    <a href="<?= base_url('/') ?>index.php/utente/trasferimenti" class="btn btn-primary btn-xs btn-outline btn-sm">Trasferimenti</a>
-                                    <a href="<?= base_url('/') ?>index.php/home/statistiche/4" class="btn btn-primary btn-xs btn-outline btn-sm">Statistiche Attaccanti</a>
-                                    <a href="<?= base_url('/') ?>index.php/home/regolamento" class="btn btn-primary btn-xs btn-outline btn-sm">Regolamento</a>
-                                    <a href="<?= base_url('/') ?>index.php/utente/calciomercato" class="btn btn-primary btn-xs btn-outline btn-sm">Calciomercato</a>
-                                    <a href="<?= base_url('/') ?>index.php/utente/elenco_rigoristi" class="btn btn-primary btn-xs btn-outline btn-sm">Rigoristi</a>
-                                    <a href="<?= base_url('/') ?>index.php/utente/myteam_bacheca" class="btn btn-primary btn-xs btn-outline btn-sm">Bacheca</a>
-                                    <a href="<?= base_url('/') ?>index.php/utente/formazioni_campionato" class="btn btn-primary btn-xs btn-outline btn-sm">Formazioni Schierate</a>
-                                    <a href="<?= base_url('/') ?>index.php/utente/schiera_formazione" class="btn btn-primary btn-xs btn-outline btn-sm">Schiera Formazione</a>
-                                    <a href="<?= base_url('/') ?>index.php/utente/trattative" class="btn btn-primary btn-xs btn-outline btn-sm">Trattative Aperte</a>
-                                    <a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti" class="btn btn-primary btn-xs btn-outline btn-sm">Stagioni Precedenti</a>
+                                    <a href="<?= base_url('/') ?>home/campionato" class="btn btn-primary btn-xs btn-outline btn-sm">Treble League</a>
+                                    <a href="<?= base_url('/') ?>home/champions" class="btn btn-primary btn-xs btn-outline btn-sm">Champions League</a>
+                                    <a href="<?= base_url('/') ?>home/coppa" class="btn btn-primary btn-xs btn-outline btn-sm">Coppa Treble</a>
+                                    <a href="<?= base_url('/') ?>home/albo" class="btn btn-primary btn-xs btn-outline btn-sm">Albo d'oro</a>
+                                    <a href="<?= base_url('/') ?>home/albo_statistiche" class="btn btn-primary btn-xs btn-outline btn-sm">Precedenti Storici</a>
+                                    <a href="<?= base_url('/') ?>utente/trasferimenti" class="btn btn-primary btn-xs btn-outline btn-sm">Trasferimenti</a>
+                                    <a href="<?= base_url('/') ?>home/statistiche/4" class="btn btn-primary btn-xs btn-outline btn-sm">Statistiche Attaccanti</a>
+                                    <a href="<?= base_url('/') ?>home/regolamento" class="btn btn-primary btn-xs btn-outline btn-sm">Regolamento</a>
+                                    <a href="<?= base_url('/') ?>utente/calciomercato" class="btn btn-primary btn-xs btn-outline btn-sm">Calciomercato</a>
+                                    <a href="<?= base_url('/') ?>utente/elenco_rigoristi" class="btn btn-primary btn-xs btn-outline btn-sm">Rigoristi</a>
+                                    <a href="<?= base_url('/') ?>utente/myteam_bacheca" class="btn btn-primary btn-xs btn-outline btn-sm">Bacheca</a>
+                                    <a href="<?= base_url('/') ?>utente/formazioni_campionato" class="btn btn-primary btn-xs btn-outline btn-sm">Formazioni Schierate</a>
+                                    <a href="<?= base_url('/') ?>utente/schiera_formazione" class="btn btn-primary btn-xs btn-outline btn-sm">Schiera Formazione</a>
+                                    <a href="<?= base_url('/') ?>utente/trattative" class="btn btn-primary btn-xs btn-outline btn-sm">Trattative Aperte</a>
+                                    <a href="<?= base_url('/') ?>home/stagioni_precedenti" class="btn btn-primary btn-xs btn-outline btn-sm">Stagioni Precedenti</a>
                                 </div>
                             </div>
                         </aside>

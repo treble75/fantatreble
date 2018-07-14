@@ -20,10 +20,10 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/statistiche_champions" class="content-filter__link"><small>Champions League</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori_champions" class="content-filter__link"><small>Champions League</small>Marcatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/calendario_champions" class="content-filter__link"><small>Champions League</small>Calendario</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/statistiche_champions" class="content-filter__link"><small>Champions League</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori_champions" class="content-filter__link"><small>Champions League</small>Marcatori</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/calendario_champions" class="content-filter__link"><small>Champions League</small>Calendario</a></li>
                     <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Champions League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
@@ -195,7 +195,7 @@
                                                         <?php
                                                         if ($row['risultato1'] != "" && $row['risultato2'] != "") {
                                                             ?>
-                                                            <a href="<?= base_url('/') ?>index.php/home/dettaglichampions/<?= $i ?>" class="btn btn-xs btn-default btn-outline btn-block">Dettaglio giornata</a>
+                                                            <a href="<?= base_url('/') ?>home/dettaglichampions/<?= $i ?>" class="btn btn-xs btn-default btn-outline btn-block">Dettaglio giornata</a>
                                                             <?php
                                                         }
                                                         ?>

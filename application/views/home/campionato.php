@@ -16,12 +16,12 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/marcatori" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>index.php/home/campionato" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/calendario" class="content-filter__link"><small>Treble League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>index.php/home/stagioni_precedenti" class="content-filter__link"><small>Treble League</small>Stagioni Precedenti</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/classifica_perpetua" class="content-filter__link"><small>Treble League</small>Classifica Perpetua</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/statistiche_treble_league" class="content-filter__link"><small>Treble League</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori" class="content-filter__link"><small>Treble League</small>Marcatori</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/campionato" class="content-filter__link"><small>Treble League</small>Classifica</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/calendario" class="content-filter__link"><small>Treble League</small>Calendario</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/stagioni_precedenti" class="content-filter__link"><small>Treble League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
         </nav>
@@ -101,7 +101,7 @@
                                                         <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_squadra'] ?>.png" width="30px">
                                                     </figure>
                                                     <div class="team-meta__info">
-                                                        <h6 class="team-meta__name"><a href="<?= base_url('/') ?>index.php/utente/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></a>
+                                                        <h6 class="team-meta__name"><a href="<?= base_url('/') ?>utente/team/<?= $row['id_squadra'] ?>"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></a>
                                                             <?php
                                                             //Inserire ID della squadra scudettata
                                                             if ($row['id_squadra'] == 1) {

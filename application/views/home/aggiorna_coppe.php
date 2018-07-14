@@ -35,25 +35,25 @@
                                 <nav class="df-account-navigation">
                                     <ul>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/inserisci_voti" >Inserisci Voti</a>
+                                            <a href="<?= base_url('/') ?>utente/inserisci_voti" >Inserisci Voti</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/inserisci_risultati" >Inserisci Risultati Campionato</a>
+                                            <a href="<?= base_url('/') ?>utente/inserisci_risultati" >Inserisci Risultati Campionato</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/utente/inserisci_risultati_Coppe" >Inserisci Risultati Coppe</a>
+                                            <a href="<?= base_url('/') ?>utente/inserisci_risultati_Coppe" >Inserisci Risultati Coppe</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/home/aggiorna_coppe" >Aggiorna Coppe</a>
+                                            <a href="<?= base_url('/') ?>home/aggiorna_coppe" >Aggiorna Coppe</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/home/blocco" >Blocco Formazioni</a>
+                                            <a href="<?= base_url('/') ?>home/blocco" >Blocco Formazioni</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/home/gestione_rigoristi" >Gestione Rigoristi</a>
+                                            <a href="<?= base_url('/') ?>home/gestione_rigoristi" >Gestione Rigoristi</a>
                                         </li>
                                         <li class="df-account-navigation__link">
-                                            <a href="<?= base_url('/') ?>index.php/home/topmatch" >Top Match</a>
+                                            <a href="<?= base_url('/') ?>home/topmatch" >Top Match</a>
                                         </li>
                                     </ul>
                                 </nav>

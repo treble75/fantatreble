@@ -70,12 +70,12 @@
                     </div>
                     <div class="col-md-8">
                         <ul class="footer-nav footer-nav--right footer-nav--condensed footer-nav--sm">
-                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/homepage">Home</a></li>
-                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/utente/calciomercato">Calciomercato</a></li>
-                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/campionato">Treble League</a></li>
-                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/champions">Champions League</a></li>
-                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/coppa">Coppa Treble</a></li>
-                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>index.php/home/albo">Albo d'Oro</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>utente/calciomercato">Calciomercato</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>home/campionato">Treble League</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>home/champions">Champions League</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>home/coppa">Coppa Treble</a></li>
+                            <li class="footer-nav__item"><a href="<?= base_url('/') ?>home/albo">Albo d'Oro</a></li>
                         </ul>
                     </div>
                 </div>
