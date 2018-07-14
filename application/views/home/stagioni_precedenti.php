@@ -58,9 +58,6 @@
                                         <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2017_18" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">13 Maggio 2018</time>
                                         <h6 class="posts__title">Grande impresa ai playoff di Sporting KRK</h6>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                        </div>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
@@ -97,9 +94,6 @@
                                         <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2016_17" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">21 Maggio 2017</time>
                                         <h6 class="posts__title">Frank One non è più una sorpresa, secondo campionato in bacheca</h6>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                        </div>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
@@ -136,9 +130,6 @@
                                         <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2015_16" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">30 Aprile 2016</time>
                                         <h6 class="posts__title">Frank One stupisce tutti e si aggiudica il suo primo torneo</h6>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                        </div>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
@@ -175,9 +166,6 @@
                                         <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2014_15" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">25 Aprile 2015</time>
                                         <h6 class="posts__title">Warriors domina il campionato ed è triplete</h6>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                        </div>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
@@ -214,9 +202,6 @@
                                         <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2013_14" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">04 Maggio 2014</time>
                                         <h6 class="posts__title">Warriors batte Zacapa e fa il bis</h6>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                        </div>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
@@ -253,9 +238,6 @@
                                         <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2012_13" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">27 Aprile 2013</time>
                                         <h6 class="posts__title">Warriors vince il suo primo scudetto</h6>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                        </div>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
@@ -292,9 +274,6 @@
                                         <a href="<?= base_url('/') ?>index.php/home/campionati_precedenti/2011_12" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">28 Aprile 2012</time>
                                         <h6 class="posts__title">All Blacks vince il torneo d'esordio del FantaTreble</h6>
-                                        <div class="posts__excerpt">
-                                            Lorem ipsum dolor sit amet, consectetur adipisi nel elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mini veniam, quis nostrud en derum sum laborem.
-                                        </div>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">

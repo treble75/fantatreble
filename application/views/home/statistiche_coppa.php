@@ -329,16 +329,18 @@
 
                                     <?php
                                     //Calcolo maggior mediaassist - DA MODIFICARE se più di 10 utenti
-                                    $media1 = ( $this->mdl_team->getMediaAssistFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
-                                    $media2 = ( $this->mdl_team->getMediaAssistFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
-                                    $media3 = ( $this->mdl_team->getMediaAssistFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
-                                    $media4 = ( $this->mdl_team->getMediaAssistFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
-                                    $media5 = ( $this->mdl_team->getMediaAssistFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
-                                    $media6 = ( $this->mdl_team->getMediaAssistFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
-                                    $media7 = ( $this->mdl_team->getMediaAssistFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
-                                    $media8 = ( $this->mdl_team->getMediaAssistFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
-                                    $media9 = ( $this->mdl_team->getMediaAssistFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
-                                    $media10 = ( $this->mdl_team->getMediaAssistFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
+                                    if ($giornata_media > 0) {
+                                        $media1 = ( $this->mdl_team->getMediaAssistFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
+                                        $media2 = ( $this->mdl_team->getMediaAssistFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
+                                        $media3 = ( $this->mdl_team->getMediaAssistFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
+                                        $media4 = ( $this->mdl_team->getMediaAssistFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
+                                        $media5 = ( $this->mdl_team->getMediaAssistFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
+                                        $media6 = ( $this->mdl_team->getMediaAssistFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
+                                        $media7 = ( $this->mdl_team->getMediaAssistFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
+                                        $media8 = ( $this->mdl_team->getMediaAssistFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
+                                        $media9 = ( $this->mdl_team->getMediaAssistFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
+                                        $media10 = ( $this->mdl_team->getMediaAssistFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
+                                    }
 
                                     $medie_assist = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -369,10 +371,12 @@
                                             <img src="<?= base_url('/') ?>assets/images/soccer/yellow-red_card.png" alt="" class="team-stats__icon-primary">
                                         </div>
                                         <?php
-                                        $partite_giocate = $this->mdl_team->getStatsPartiteGiocateCoppa($topTeamFallosa[0]['id_utente']);
-                                        $pca = ($topTeamFallosa[0]['totale_cartellini'] / $partite_giocate);
+                                        if ($giornata_media > 0) {
+                                            $partite_giocate = $this->mdl_team->getStatsPartiteGiocateCoppa($topTeamFallosa[0]['id_utente']);
+                                            $pca = ($topTeamFallosa[0]['totale_cartellini'] / $partite_giocate);
+                                        }
                                         ?>
-                                        <div class="team-stats__value"><?= number_format($pca, 2) ?></div>
+                                        <div class="team-stats__value"><?= number_format(@$pca, 2) ?></div>
                                         <div class="team-stats__label" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($topTeamFallosa[0]['id_utente']) ?></div>
                                     </li>
                                 </ul>
@@ -461,7 +465,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__goals">Gol</th>
                                                 <th class="team-leader__gp">Ass</th>
                                                 <th class="team-leader__avg">MPP</th>
@@ -594,7 +598,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__goals"><img src="<?= base_url('/') ?>images/ammo.png"></th>
                                                 <th class="team-leader__gp"><img src="<?= base_url('/') ?>images/espu.png"></th>
                                                 <th class="team-leader__avg">MPP</th>
@@ -666,7 +670,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MFV</th>
                                             </tr>
@@ -738,7 +742,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MFV</th>
                                             </tr>
@@ -809,7 +813,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__gp">Presenze</th>
                                                 <th class="team-leader__avg">MV</th>
                                             </tr>
@@ -886,7 +890,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__gp">Reti</th>
                                                 <th class="team-leader__avg">MPP</th>
                                             </tr>
@@ -951,7 +955,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__gp">Rigori Parati</th>
                                             </tr>
                                         </thead>
@@ -1003,7 +1007,7 @@
                                     <table class="table team-leader">
                                         <thead>
                                             <tr>
-                                                <th class="team-leader__type">Coppa Treble 2017 / 18</th>
+                                                <th class="team-leader__type">Coppa Treble 2018 / 19</th>
                                                 <th class="team-leader__gp">Rigori Sbagliati</th>
                                             </tr>
                                         </thead>
