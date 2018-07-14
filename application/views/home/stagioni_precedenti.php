@@ -309,7 +309,7 @@
                         <!-- Widget: Popular News -->
                         <aside class="widget widget--sidebar card widget-popular-posts">
                             <div class="widget__title card__header">
-                                <h4>Popular News</h4>
+                                <h4>Precedenti Competizioni</h4>
                             </div>
                             <div class="widget__content card__content">
                                 <ul class="posts posts--simple-list">
@@ -320,46 +320,22 @@
                                         </figure>
                                         <div class="posts__inner">
                                             <div class="posts__cat">
-                                                <span class="label posts__cat-label">Injuries</span>
+                                                <span class="label posts__cat-label">Champions League</span>
                                             </div>
-                                            <h6 class="posts__title"><a href="#">Mark Johnson has a Tibia Fracture and is gonna be out</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">August 23rd, 2018</time>
+                                            <h6 class="posts__title"><a href="#">Sporting KRK trionfa vincendo anche la Champions League</a></h6>
+                                            <time class="posts__date">Stagione 2017/18</time>
                                         </div>
                                     </li>
-                                    <li class="posts__item posts__item--category-1">
+                                    <li class="posts__item posts__item--category-3">
                                         <figure class="posts__thumb">
                                             <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img2-xs.jpg" alt=""></a>
                                         </figure>
                                         <div class="posts__inner">
                                             <div class="posts__cat">
-                                                <span class="label posts__cat-label">The Team</span>
+                                                <span class="label posts__cat-label">Coppa Treble</span>
                                             </div>
-                                            <h6 class="posts__title"><a href="#">Jay Rorks is only 24 points away from breaking the record</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">August 22nd, 2018</time>
-                                        </div>
-                                    </li>
-                                    <li class="posts__item posts__item--category-1">
-                                        <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img3-xs.jpg" alt=""></a>
-                                        </figure>
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">The Team</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">The new eco friendly stadium won a Leafy Award in 2016</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">June 8th, 2018</time>
-                                        </div>
-                                    </li>
-                                    <li class="posts__item posts__item--category-1">
-                                        <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img4-xs.jpg" alt=""></a>
-                                        </figure>
-                                        <div class="posts__inner">
-                                            <div class="posts__cat">
-                                                <span class="label posts__cat-label">The Team</span>
-                                            </div>
-                                            <h6 class="posts__title"><a href="#">The team is starting a new power breakfast regimen</a></h6>
-                                            <time datetime="2016-08-23" class="posts__date">May 12th, 2018</time>
+                                            <h6 class="posts__title"><a href="#">Warriors salva la sua stagione, vincendo la Coppa Treble</a></h6>
+                                            <time class="posts__date">Stagione 2017/18</time>
                                         </div>
                                     </li>
 
