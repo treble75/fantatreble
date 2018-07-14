@@ -903,6 +903,7 @@
                                         </div>
                                         <?php
                                         $role = "";
+                                        $class = "";
                                         $role = $this->mdl_team->getNomeRuolo(@$panchinari[0]['P3']);
                                         if ($role == "P") {
                                             $class = "Portieri";
