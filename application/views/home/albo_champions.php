@@ -52,7 +52,6 @@
                             <div class="card__header card__header--has-btn">
                                 <h4>Albo d'oro</h4>
                                 <br><span style="font-size: 12px;">* Risultati relativi alla fase a gironi</span>
-                                <a href="_soccer_player-stats.html" class="btn btn-default btn-outline btn-xs card-header__button">See complete games log</a>
                             </div>
                             <div class="card__content">
                                 <div class="table-responsive">

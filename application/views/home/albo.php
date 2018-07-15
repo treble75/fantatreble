@@ -1,6 +1,4 @@
 
-
-
         <!-- Page Heading
         ================================================== -->
         <div class="page-heading">
@@ -242,6 +240,284 @@
                             </div>
                         </div>
                         <!-- Last Game Log / End -->
+                        
+                        <!-- Piazzamenti -->
+                        <div class="card card--has-table">
+                            <div class="card__header card__header--has-btn">
+                                <h4>Piazzamenti</h4>
+                            </div>
+                            <div class="card__content">
+                                <div class="table-responsive">
+                                    <table class="table table-hover game-player-result">
+                                        <thead>
+                                            <tr>
+                                                <th class="game-player-result__date">Stagione</th>
+                                                <th class="game-player-result__vs">Vincitore</th>
+                                                <th class="game-player-result__vs">2° Posto</th>
+                                                <th class="game-player-result__vs">3° Posto</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td class="game-player-result__date">2017 / 18</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/sportingkrk.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Sporting KRK</h6>
+                                                            <span class="team-meta__place">Francesco Carchedi</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/frankone.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Frank One</h6>
+                                                            <span class="team-meta__place">Antonio Francone</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/warriors2.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Warriors</h6>
+                                                            <span class="team-meta__place">Luca Guerrieri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="game-player-result__date">2016 / 17</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/frankone.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Frank One</h6>
+                                                            <span class="team-meta__place">Antonio Francone</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/sportingkrk.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Sporting KRK</h6>
+                                                            <span class="team-meta__place">Francesco Carchedi</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/scarsenal.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">S.C.Arsenal</h6>
+                                                            <span class="team-meta__place">Ivano Staccone</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="game-player-result__date">2015 / 16</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/frankone.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Frank One</h6>
+                                                            <span class="team-meta__place">Antonio Francone</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/scarsenal.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">S.C.Arsenal</h6>
+                                                            <span class="team-meta__place">Ivano Staccone</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/curvasud.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Curva Sud</h6>
+                                                            <span class="team-meta__place">Pietro Bonelli</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="game-player-result__date">2014 / 15</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/warriors2.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Warriors</h6>
+                                                            <span class="team-meta__place">Luca Guerrieri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/erawan.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Erawan</h6>
+                                                            <span class="team-meta__place">Alex Zangrilli</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/allblacks.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">All Blacks</h6>
+                                                            <span class="team-meta__place">Luca Cerri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="game-player-result__date">2013 / 14</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/warriors2.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Warriors</h6>
+                                                            <span class="team-meta__place">Luca Guerrieri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/zacapa23.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Zacapa 23</h6>
+                                                            <span class="team-meta__place">Claudio Frioni</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/allblacks.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">All Blacks</h6>
+                                                            <span class="team-meta__place">Luca Cerri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="game-player-result__date">2012 / 13</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/warriors1.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Warriors</h6>
+                                                            <span class="team-meta__place">Luca Guerrieri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/dreamteam.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Dream Team</h6>
+                                                            <span class="team-meta__place">Ivano Staccone</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/sangue&oro.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Sangue&Oro</h6>
+                                                            <span class="team-meta__place">Francesco Carriero</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="game-player-result__date">2011 / 12</td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/allblacks.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">All Blacks</h6>
+                                                            <span class="team-meta__place">Luca Cerri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/redbull.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Red Bull</h6>
+                                                            <span class="team-meta__place">Alex Zangrilli</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="game-player-result__vs">
+                                                    <div class="team-meta">
+                                                        <figure class="team-meta__logo">
+                                                            <img src="<?= base_url('/') ?>images/albo/logo/warriors1.png" alt="" width="30px">
+                                                        </figure>
+                                                        <div class="team-meta__info">
+                                                            <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Warriors</h6>
+                                                            <span class="team-meta__place">Luca Guerrieri</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Piazzamenti / End -->
 
 
                     </div>
