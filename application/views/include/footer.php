@@ -66,7 +66,7 @@
             <div class="footer-secondary__inner">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="footer-copyright"><a href="_soccer_index.html">FantaTreble </a> since 2010 &nbsp; | &nbsp; All Rights Reserved</div>
+                        <div class="footer-copyright"><a href="<?= base_url('/') ?>home/homepage">FantaTreble </a> since 2010 &nbsp; | &nbsp; All Rights Reserved</div>
                     </div>
                     <div class="col-md-8">
                         <ul class="footer-nav footer-nav--right footer-nav--condensed footer-nav--sm">
