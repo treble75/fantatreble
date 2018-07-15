@@ -7666,8 +7666,16 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_coppa_calendario.jpg") !important;
 }
 
+.page-heading-sfondo-myteam-calendario {
+  background-image: url("../images/soccer/sfondo_myteam_calendario.jpg") !important;
+}
+
 .page-heading-coppa {
   background-image: url("../images/soccer/sfondo_coppa.jpg") !important;
+}
+
+.page-heading-formazioni-campionato {
+  background-image: url("../images/soccer/sfondo_formazioni_campionato.jpg") !important;
 }
 
 .page-heading-champions-calendario {
