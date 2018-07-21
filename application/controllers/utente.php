@@ -5046,7 +5046,7 @@ class Utente extends CI_Controller {
                 }
             }
             
-            $data['Giocatori'] = $this->mdl_categories->getGiocatoriAssegnati(true);
+            $data['Giocatori'] = $this->mdl_categories->getGiocatoriTotali(true);
             $data['Squadre'] = $this->mdl_categories->getSquadre(true);
 
             $this->show('utenti/news_utente', $data);
