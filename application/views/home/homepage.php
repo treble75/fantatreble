@@ -883,7 +883,15 @@
                                                                 <img src="<?= base_url('/') ?>images/users/mini<?= $row['id_squadra'] ?>.png" width="30" >
                                                             </figure>
                                                             <div class="team-meta__info">
-                                                                <h6 class="team-meta__name" style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?></h6>
+                                                                <h6 class="team-meta__name" style="color: #1892ED;"><?= $this->mdl_utenti->getSquadra($row['id_squadra']) ?>
+                                                                <?php
+                                                                //Inserire ID della squadra scudettata
+                                                                if ($row['id_squadra'] == 1) {
+                                                                    ?>
+                                                                    <img src="<?= base_url('/') ?>images/scudetto.png" width="12" height="15" />
+                                                                <?php }
+                                                                ?> 
+                                                                </h6>
                                                                 <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($row['id_squadra']) ?></span>
                                                             </div>
                                                         </div>
