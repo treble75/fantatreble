@@ -316,25 +316,25 @@
 
                                     <li class="posts__item posts__item--category-2">
                                         <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img1-xs.jpg" alt=""></a>
+                                            <img src="<?= base_url('/') ?>images/logo_uefa_tondo.png" alt="">
                                         </figure>
                                         <div class="posts__inner">
                                             <div class="posts__cat">
                                                 <span class="label posts__cat-label">Champions League</span>
                                             </div>
-                                            <h6 class="posts__title"><a href="#">Sporting KRK trionfa vincendo anche la Champions League</a></h6>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/champions_precedenti/2017_18">Sporting KRK trionfa vincendo anche la Champions League</a></h6>
                                             <time class="posts__date">Stagione 2017/18</time>
                                         </div>
                                     </li>
                                     <li class="posts__item posts__item--category-3">
                                         <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img2-xs.jpg" alt=""></a>
+                                            <img src="<?= base_url('/') ?>images/logo_coppa_tondo.png" alt="">
                                         </figure>
                                         <div class="posts__inner">
                                             <div class="posts__cat">
                                                 <span class="label posts__cat-label">Coppa Treble</span>
                                             </div>
-                                            <h6 class="posts__title"><a href="#">Warriors salva la sua stagione, vincendo la Coppa Treble</a></h6>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/coppa_precedenti/2017_18">Warriors salva la sua stagione, vincendo la Coppa Treble</a></h6>
                                             <time class="posts__date">Stagione 2017/18</time>
                                         </div>
                                     </li>
