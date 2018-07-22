@@ -866,8 +866,10 @@
                                                     case 4;
                                                     case 5;
                                                     case 6;
-                                                    case 7;
                                                         $color = "";
+                                                        break;
+                                                    case 7;
+                                                        $color = 'bgcolor="#fff7f8"';
                                                         break;
                                                     case 8;
                                                     case 9;
