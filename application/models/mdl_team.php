@@ -3216,6 +3216,12 @@ class mdl_team extends CI_Model {
         $query = $this->db->get('tb_calendario_' . $stagione);
         return $query->result_array();
     }
+    
+    public function getCalendarioCoppaPrecedente($stagione) {
+        $this->db->order_by('giornata');
+        $query = $this->db->get('tb_coppa_' . $stagione);
+        return $query->result_array();
+    }
 
     public function getGiornataGiocata() {
         $this->db->where('giornata', $_SESSION['giornata']);
