@@ -1,5 +1,5 @@
         <?php
-        error_reporting (E_ALL ^ E_NOTICE);
+        error_reporting(E_ALL ^ E_NOTICE);
         ?>
 
         <!-- Page Heading
@@ -19,12 +19,12 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-              <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/statistiche_coppa" class="content-filter__link"><small>Coppa Treble</small>Statistiche</a></li>
-              <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori_coppa" class="content-filter__link"><small>Coppa Treble</small>Marcatori</a></li>
-              <li class="content-filter__item "><a href="<?= base_url('/') ?>home/coppa" class="content-filter__link"><small>Coppa Treble</small>Griglia</a></li>
-              <li class="content-filter__item "><a href="<?= base_url('/') ?>home/calendario_coppa" class="content-filter__link"><small>Coppa Treble</small>Calendario</a></li>
-              <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Coppa Treble</small>Stagioni Precedenti</a></li>
-            </ul>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/statistiche_coppa" class="content-filter__link"><small>Coppa Treble</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori_coppa" class="content-filter__link"><small>Coppa Treble</small>Marcatori</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/coppa" class="content-filter__link"><small>Coppa Treble</small>Griglia</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/calendario_coppa" class="content-filter__link"><small>Coppa Treble</small>Calendario</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/stagioni_precedenti_coppa" class="content-filter__link"><small>Coppa Treble</small>Stagioni Precedenti</a></li>
+                </ul>
             </div>
         </nav>
         <!-- Team Pages Filter / End -->
@@ -61,7 +61,7 @@
                                         if ($i == 1) {
                                             $portiere = $row['cognome'];
                                             $maglia_portiere = $this->mdl_team->getIdMaglia($this->mdl_team->getIdSquadraDaIdGiocatore($row['id_giocatore']));
-                                        }    
+                                        }
                                         $i++;
                                     }
                                 }
@@ -254,7 +254,7 @@
                                 <span class="team-leader__player-position"  style="text-transform: capitalize;">* Media per partita giocata</span>
                             </div>
                             <div class="widget__content card__content">
-                                
+
                                 <?php
                                 //Calcolo maggior mediagol - DA MODIFICARE se più di 10 utenti
                                 $media1 = ( $this->mdl_team->getMediaGolFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
@@ -280,7 +280,7 @@
                                     }
                                 }
                                 ?>
-                                
+
                                 <ul class="team-stats-box">
                                     <li class="team-stats__item team-stats__item--clean">
                                         <div class="team-stats__label">Reti Realizzate</div><br>
@@ -364,7 +364,7 @@
                                         <div class="team-stats__value"><?= number_format($topmediaassist, 2) ?></div>
                                         <div class="team-stats__label" style="color: #1892ED;"><?= $this->mdl_team->getNomeTeam($utente_mediaassist) ?></div>
                                     </li>
-                                    
+
                                     <li class="team-stats__item team-stats__item--clean">
                                         <div class="team-stats__label">Numero Cartellini</div><br>
                                         <div class="team-stats__icon team-stats__icon--circle team-stats__icon--assists">

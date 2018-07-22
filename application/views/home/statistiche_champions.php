@@ -17,11 +17,11 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/statistiche_champions" class="content-filter__link"><small>Champions League</small>Statistiche</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/statistiche_champions" class="content-filter__link"><small>Champions League</small>Statistiche</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori_champions" class="content-filter__link"><small>Champions League</small>Marcatori</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>home/calendario_champions" class="content-filter__link"><small>Champions League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="_soccer_team-gallery.html" class="content-filter__link"><small>Champions League</small>Stagioni Precedenti</a></li>
+                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/stagioni_precedenti_champions" class="content-filter__link"><small>Champions League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
         </nav>
