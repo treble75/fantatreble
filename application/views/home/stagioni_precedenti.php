@@ -88,7 +88,7 @@
                                         <div class="posts__cat">
                                             <span class="label posts__cat-label">Stagione 2016/17</span>
                                         </div>
-                                        <img src="<?= base_url('/') ?>assets/images/gallery/2016_17_10.jpg" alt="">
+                                        <img src="<?= base_url('/') ?>assets/images/gallery/precedenti_2016_17.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
                                         <a href="<?= base_url('/') ?>home/campionati_precedenti/2016_17" class="posts__cta"></a>
@@ -196,12 +196,12 @@
                                         <div class="posts__cat">
                                             <span class="label posts__cat-label">Stagione 2013/14</span>
                                         </div>
-                                        <img src="<?= base_url('/') ?>assets/images/samples/post-img4.jpg" alt="">
+                                        <img src="<?= base_url('/') ?>assets/images/gallery/precedenti_2013_14.jpg" alt="">
                                     </figure>
                                     <div class="posts__inner card__content">
                                         <a href="<?= base_url('/') ?>home/campionati_precedenti/2013_14" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">04 Maggio 2014</time>
-                                        <h6 class="posts__title">Warriors batte Zacapa e fa il bis</h6>
+                                        <h6 class="posts__title">Warriors batte Zacapa e fa il bis grazie al bomber Toni</h6>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
@@ -237,7 +237,7 @@
                                     <div class="posts__inner card__content">
                                         <a href="<?= base_url('/') ?>home/campionati_precedenti/2012_13" class="posts__cta"></a>
                                         <time datetime="2016-08-23" class="posts__date">27 Aprile 2013</time>
-                                        <h6 class="posts__title">Warriors vince il suo primo scudetto</h6>
+                                        <h6 class="posts__title">Warriors ingrana la marcia e vince il suo primo scudetto</h6>
                                     </div>
                                     <footer class="posts__footer card__footer">
                                         <div class="post-author">
