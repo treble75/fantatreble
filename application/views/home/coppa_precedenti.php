@@ -3,35 +3,22 @@
         // DA MODIFICARE
         switch ($stagione) {
             case "2015_16":
+                $preliminari = 0;
                 $quarti = 10;
                 $semi   = 24;
                 $finale = 32;
                 break;
             case "2016_17":
-                $cena1 = 6;
-                $cena2 = 7;
-                $cena3 = 10;
-                $scudettato = 5;
-                $partecipanti = 10;
-                $ultima_campionato = 27;
-                $prima_playoff = 28;
-                $ultima_playoff = 33;
-                $finale1 = 34;
-                $finale2 = 35;
-                $ultima_fittizia = 36;
+                $preliminari = 7;
+                $quarti = 11;
+                $semi   = 20;
+                $finale = 31;
                 break;
             case "2017_18":
-                $cena1 = 1;
-                $cena2 = 6;
-                $cena3 = 8;
-                $scudettato = 7;
-                $partecipanti = 10;
-                $ultima_campionato = 27;
-                $prima_playoff = 28;
-                $ultima_playoff = 33;
-                $finale1 = 34;
-                $finale2 = 35;
-                $ultima_fittizia = 36;
+                $preliminari = 7;
+                $quarti = 11;
+                $semi   = 20;
+                $finale = 31;
                 break;
         }
         ?>
@@ -59,7 +46,7 @@
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
                     <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori_precedenti_coppa/<?= $stagione ?>" class="content-filter__link"><small>Coppa Treble</small>Marcatori</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/calendari_precedenti_coppa/<?= $stagione ?>" class="content-filter__link"><small>Coppa Treble</small>Risultati</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/coppa_precedenti/<?= $stagione ?>" class="content-filter__link"><small>Coppa Treble</small>Risultati</a></li>
                 </ul>
             </div>
         </nav>
@@ -98,7 +85,10 @@
                                     for ($i = 1; $i <= $finale; $i++) {
 
                                         switch ($i) {
-                                            case ($i <= $quarti):
+                                            case ($i <= $preliminari):
+                                                $label = "Preliminari";
+                                                break;
+                                            case ($i > $preliminari && $i <= $quarti):
                                                 $label = "Quarti";
                                                 break;
                                             case ($i > $quarti && $i <= $semi):
@@ -111,25 +101,54 @@
 
                                         foreach ($risultati as $row) {
                                             if ($row['giornata'] == $i) {
-                                                switch ($i) {
-                                                    case ($i == 2):
-                                                        $color = 'bgcolor="#f2fff0"';
-                                                        break;
-                                                    case ($i == 10):
-                                                        $color = 'bgcolor="#ffffff"';
-                                                        break;
-                                                    case ($i == 18):
-                                                        $color = 'bgcolor="#f2fff0"';
-                                                        break;
-                                                    case ($i == 24):
-                                                        $color = 'bgcolor="#ffffff"';
-                                                        break;
-                                                    case ($i == 28):
-                                                        $color = 'bgcolor="#f2fff0"';
-                                                        break;
-                                                    case ($i == 32):
-                                                        $color = 'bgcolor="#ffffff"';
-                                                        break;
+                                                if ($stagione == "2015_16") {
+                                                    switch ($i) {
+                                                        case ($i == 2):
+                                                            $color = 'bgcolor="#f2fff0"';
+                                                            break;
+                                                        case ($i == 10):
+                                                            $color = 'bgcolor="#ffffff"';
+                                                            break;
+                                                        case ($i == 18):
+                                                            $color = 'bgcolor="#f2fff0"';
+                                                            break;
+                                                        case ($i == 24):
+                                                            $color = 'bgcolor="#ffffff"';
+                                                            break;
+                                                        case ($i == 28):
+                                                            $color = 'bgcolor="#f2fff0"';
+                                                            break;
+                                                        case ($i == 32):
+                                                            $color = 'bgcolor="#ffffff"';
+                                                            break;
+                                                    }
+                                                } else {
+                                                    switch ($i) {
+                                                        case ($i == 4):
+                                                            $color = 'bgcolor="#f2fff0"';
+                                                            break;
+                                                        case ($i ==7):
+                                                            $color = 'bgcolor="#ffffff"';
+                                                            break;
+                                                        case ($i == 10):
+                                                            $color = 'bgcolor="#f2fff0"';
+                                                            break;
+                                                        case ($i == 11):
+                                                            $color = 'bgcolor="#ffffff"';
+                                                            break;
+                                                        case ($i == 15):
+                                                            $color = 'bgcolor="#f2fff0"';
+                                                            break;
+                                                        case ($i == 20):
+                                                            $color = 'bgcolor="#ffffff"';
+                                                            break;
+                                                        case ($i == 26):
+                                                            $color = 'bgcolor="#f2fff0"';
+                                                            break;
+                                                        case ($i == 31):
+                                                            $color = 'bgcolor="#ffffff"';
+                                                            break;
+                                                    }
                                                 }
                                                 ?>
 

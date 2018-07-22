@@ -982,6 +982,31 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getBomberCoppaPrecedenti($stagione) {
+        if ($stagione == "2015_16") {
+            $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori_' . $stagione . '.id_giocatore, tb_giocatori_' . $stagione . '.ruolo, tb_giocatori_' . $stagione . '.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_' . $stagione . '.voto) as voto, avg(tb_voti_' . $stagione . '.fantavoto) as fv
+                                                        FROM tb_voti_' . $stagione . '
+                                                        join tb_giocatori_' . $stagione . ' on tb_voti_' . $stagione . '.id_giocatore = tb_giocatori_' . $stagione . '.id_giocatore
+                                                        where giornata in (2,10,18,24,28,32) 
+                                                        and schierato = 1 
+                                                        group by cognome
+                                                        order by gol desc, fv desc, voto desc
+                                                        ;');
+        }
+        else {
+            $query = $this->db->query('SELECT sum(gol) as gol,cognome, nome, tb_giocatori_' . $stagione . '.id_giocatore, tb_giocatori_' . $stagione . '.ruolo, tb_giocatori_' . $stagione . '.id_utente, sum(schierato) as pg, sum(espulsioni) as espu, sum(ammonizioni) as ammo, sum(assist) as assist, avg(tb_voti_coppa_' . $stagione . '.voto) as voto, avg(tb_voti_coppa_' . $stagione . '.fantavoto) as fv
+                                                        FROM tb_voti_coppa_' . $stagione . '
+                                                        join tb_giocatori_' . $stagione . ' on tb_voti_coppa_' . $stagione . '.id_giocatore = tb_giocatori_' . $stagione . '.id_giocatore
+                                                        where giornata in (4,7,10,11,15,20,26,31) 
+                                                        and schierato = 1 
+                                                        group by cognome
+                                                        order by gol desc, fv desc, voto desc
+                                                        ;');
+        }
+
+        return $query->result_array();
+    }
 
     public function getBomberCoppa($giornata) {
         //Inserire le giornate di Coppa Treble
