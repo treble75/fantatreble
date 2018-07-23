@@ -338,6 +338,56 @@
                                             <time class="posts__date">Stagione 2017/18</time>
                                         </div>
                                     </li>
+                                    
+                                    <li class="posts__item posts__item--category-2">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_uefa_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Champions League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/champions_precedenti/2016_17">Oltre allo scudetto, Frank One vince anche la Champions League</a></h6>
+                                            <time class="posts__date">Stagione 2016/17</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-3">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_coppa_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Coppa Treble</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/coppa_precedenti/2016_17">All Blacks si consola con la Coppa Treble</a></h6>
+                                            <time class="posts__date">Stagione 2016/17</time>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="posts__item posts__item--category-2">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_uefa_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Champions League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/champions_precedenti/2015_16">S.C.Arsenal si aggiudica il suo primo e unico trofeo</a></h6>
+                                            <time class="posts__date">Stagione 2015/16</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-3">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_coppa_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Coppa Treble</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/coppa_precedenti/2015_16">Zacapa 23 porta in bacheca il suo primo trofeo</a></h6>
+                                            <time class="posts__date">Stagione 2015/16</time>
+                                        </div>
+                                    </li>
 
                                 </ul>
                             </div>
