@@ -171,26 +171,124 @@
 
                                     <li class="posts__item posts__item--category-2">
                                         <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img1-xs.jpg" alt=""></a>
+                                            <img src="<?= base_url('/') ?>images/logo_uefa_tondo.png" alt="">
                                         </figure>
                                         <div class="posts__inner">
                                             <div class="posts__cat">
                                                 <span class="label posts__cat-label">Champions League</span>
                                             </div>
-                                            <h6 class="posts__title"><a href="#">Sporting KRK trionfa vincendo anche la Champions League</a></h6>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/champions_precedenti/2017_18">Sporting KRK trionfa vincendo anche la Champions League</a></h6>
                                             <time class="posts__date">Stagione 2017/18</time>
                                         </div>
                                     </li>
-                                    <li class="posts__item posts__item--category-3">
+                                    <li class="posts__item posts__item--category-1">
                                         <figure class="posts__thumb">
-                                            <a href="#"><img src="<?= base_url('/') ?>assets/images/samples/post-img2-xs.jpg" alt=""></a>
+                                            <img src="<?= base_url('/') ?>images/logo_scudetto_tondo.png" alt="">
                                         </figure>
                                         <div class="posts__inner">
                                             <div class="posts__cat">
-                                                <span class="label posts__cat-label">Coppa Treble</span>
+                                                <span class="label posts__cat-label">Treble League</span>
                                             </div>
-                                            <h6 class="posts__title"><a href="#">Warriors salva la sua stagione, vincendo la Coppa Treble</a></h6>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/campionati_precedenti/2017_18">Grande impresa ai playoff di Sporting KRK</a></h6>
                                             <time class="posts__date">Stagione 2017/18</time>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="posts__item posts__item--category-2">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_uefa_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Champions League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/champions_precedenti/2016_17">Oltre allo scudetto, Frank One vince anche la Champions League</a></h6>
+                                            <time class="posts__date">Stagione 2016/17</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-1">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_scudetto_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Treble League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/campionati_precedenti/2016_17">Frank One non è più una sorpresa, secondo campionato in bacheca</a></h6>
+                                            <time class="posts__date">Stagione 2016/17</time>
+                                        </div>
+                                    </li>
+                                    
+                                    <li class="posts__item posts__item--category-2">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_uefa_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Champions League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/champions_precedenti/2015_16">S.C.Arsenal si aggiudica il suo primo e unico trofeo</a></h6>
+                                            <time class="posts__date">Stagione 2015/16</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-1">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_scudetto_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Treble League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/campionati_precedenti/2015_16">Frank One stupisce tutti e si aggiudica il suo primo trofeo</a></h6>
+                                            <time class="posts__date">Stagione 2015/16</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-1">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_scudetto_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Treble League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/campionati_precedenti/2014_15">Warriors domina il campionato ed è triplete</a></h6>
+                                            <time class="posts__date">Stagione 2014/15</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-1">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_scudetto_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Treble League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/campionati_precedenti/2013_14">Warriors batte Zacapa 23 e fa il bis grazie al bomber Toni</a></h6>
+                                            <time class="posts__date">Stagione 2013/14</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-1">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_scudetto_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Treble League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/campionati_precedenti/2012_13">Warriors ingrana la marcia e vince il suo primo trofeo</a></h6>
+                                            <time class="posts__date">Stagione 2012/13</time>
+                                        </div>
+                                    </li>
+                                    <li class="posts__item posts__item--category-1">
+                                        <figure class="posts__thumb">
+                                            <img src="<?= base_url('/') ?>images/logo_scudetto_tondo.png" alt="">
+                                        </figure>
+                                        <div class="posts__inner">
+                                            <div class="posts__cat">
+                                                <span class="label posts__cat-label">Treble League</span>
+                                            </div>
+                                            <h6 class="posts__title"><a href="<?= base_url('/') ?>home/campionati_precedenti/2011_12">All Blacks vince il torneo d'esordio del FantaTreble</a></h6>
+                                            <time class="posts__date">Stagione 2011/12</time>
                                         </div>
                                     </li>
 
