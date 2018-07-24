@@ -3547,6 +3547,13 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    //Prossimi match di supercoppa treble
+    public function getProssimiMatchSuperCoppa($id_utente) {
+        $query = $this->db->query('select * from tb_supercoppa as t1 where t1.giocata = 0 and t1.id1 = ' . $id_utente . ' or t1.giocata = 0 and t1.id2 = ' . $id_utente . ';');
+
+        return $query->result_array();
+    }
 
     //Prossimi match di champions
     public function getProssimiMatchChampions($id_utente) {
