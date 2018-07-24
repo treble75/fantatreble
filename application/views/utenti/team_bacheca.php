@@ -63,7 +63,15 @@
                                             <div class="col-md-6">
                                                 <div class="alc-staff-inner">
                                                     <header class="alc-staff__header">
-                                                        <h1 class="alc-staff__header-name"><span class="alc-staff__header-last-name" style="text-align: center"><?= $utente[0]['squadra'] ?></span></h1>
+                                                        <?php
+                                                        //Modifico nome per squadre abbreviate
+                                                        if ($utente[0]['squadra'] == "Real B.B.") {
+                                                            $squadra = "Real Blues Brothers";
+                                                        } else {
+                                                            $squadra = $utente[0]['squadra'];
+                                                        }
+                                                        ?>
+                                                        <h1 class="alc-staff__header-name"><span class="alc-staff__header-last-name" style="text-align: center"><?= $squadra ?></span></h1>
                                                         <!-- <span class="alc-staff__header-role">Coach</span> -->
                                                     </header>
 

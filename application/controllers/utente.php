@@ -1754,8 +1754,9 @@ class Utente extends CI_Controller {
                 $mail8 = $this->mdl_utenti->getMail(8);
                 $mail9 = $this->mdl_utenti->getMail(9);
                 $mail10 = $this->mdl_utenti->getMail(10);
+                $mail_extra = "palozzidaniele@gmail.com";
 
-                $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10);
+                $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10, $mail_extra);
 
                 $this->email->to($list);
                 $this->email->cc($mail1);
@@ -2100,8 +2101,9 @@ class Utente extends CI_Controller {
                 $mail8 = $this->mdl_utenti->getMail(8);
                 $mail9 = $this->mdl_utenti->getMail(9);
                 $mail10 = $this->mdl_utenti->getMail(10);
+                $mail_extra = "palozzidaniele@gmail.com";
 
-                $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10);
+                $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10, $mail_extra);
 
                 $this->email->to($list);
                 $this->email->cc($mail1);
@@ -3724,7 +3726,7 @@ class Utente extends CI_Controller {
                                 break;
                         }
 
-                        //Configuro l'invio mail
+                        //Configuro l'invio mail - MODIFICARE EMAIL PER UTENTI DOPPI
                         $config = Array(
                             'protocol' => 'smtp',
                             'smtp_host' => 'mail.fantatreble.it',
@@ -3827,8 +3829,9 @@ class Utente extends CI_Controller {
                         $mail8 = $this->mdl_utenti->getMail(8);
                         $mail9 = $this->mdl_utenti->getMail(9);
                         $mail10 = $this->mdl_utenti->getMail(10);
+                        $mail_extra = "palozzidaniele@gmail.com";
 
-                        $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10);
+                        $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10, $mail_extra);
 
                         $this->email->to($list);
                         $this->email->cc($mail1);
@@ -3989,8 +3992,9 @@ class Utente extends CI_Controller {
                 $mail8 = $this->mdl_utenti->getMail(8);
                 $mail9 = $this->mdl_utenti->getMail(9);
                 $mail10 = $this->mdl_utenti->getMail(10);
+                $mail_extra = "palozzidaniele@gmail.com";
 
-                $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10);
+                $list = array($mail2, $mail3, $mail4, $mail5, $mail6, $mail7, $mail8, $mail9, $mail10, $mail_extra);
 
                 $this->email->to($list);
                 $this->email->cc($mail1);
