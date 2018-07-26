@@ -3499,6 +3499,7 @@ class Utente extends CI_Controller {
             $data['prossimiMatch'] = $this->mdl_team->getProssimiMatch($team);
             $data['prossimiMatchCoppa'] = $this->mdl_team->getProssimiMatchCoppa($team);
             $data['prossimiMatchChampions'] = $this->mdl_team->getProssimiMatchChampions($team);
+            $data['prossimiMatchSuperCoppa'] = $this->mdl_team->getProssimiMatchSuperCoppa($team);
 
             $data['active'] = 4;
             $this->show('utenti/team_calendario', $data);
