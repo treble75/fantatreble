@@ -19,7 +19,9 @@
                         <h1 class="page-heading__title"><span class="highlight">Trasferimenti</span></h1>
                         <ol class="page-heading__breadcrumb breadcrumb">
                             <!-- Anno da modificare -->
-                            <li>Stagione 2018/19</li>
+                            <li><a href="<?= base_url('/') ?>home/homepage">Home</a></li>
+                            <li><a href="<?= base_url('/') ?>utente/calciomercato">Calciomercato</a></li>
+                            <li class="active">Trasferimenti</li>
                         </ol>
                     </div>
                 </div>
@@ -35,7 +37,8 @@
                 <!-- Player Glossary -->
                 <div class="card">
                     <div class="card__header">
-                        <h4>Ricerca Trasferimenti</h4>
+                        <!-- MODIFICARE -->
+                        <h4>Ricerca Trasferimenti 2018/19</h4>
                     </div>
                     <div class="card__content">
                         <?php

@@ -602,7 +602,7 @@
                                                             <td class="team-result__fouls" align='center' style="width: 16%; text-align: center;"><div class="team-meta" style="text-align: center;">
 
                                                                     <figure class="team-meta__logoCalendar">
-                                                                        <img src="<?= base_url('/') ?>images/coppa.png" width="20px" />
+                                                                        <img src="<?= base_url('/') ?>images/supercoppa.png" width="20px" />
                                                                     </figure>
 
                                                             </td>

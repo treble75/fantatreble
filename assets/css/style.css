@@ -7714,6 +7714,22 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_statistiche_centrocampisti.jpg") !important;
 }
 
+.page-heading-statistiche-attaccanti {
+  background-image: url("../images/soccer/sfondo_statistiche_attaccanti.jpg") !important;
+}
+
+.page-heading-albo-campionato {
+  background-image: url("../images/soccer/sfondo_albo_campionato.jpg") !important;
+}
+
+.page-heading-albo-statistiche {
+  background-image: url("../images/soccer/sfondo_albo_statistiche.jpg") !important;
+}
+
+.page-heading-albo-champions {
+  background-image: url("../images/soccer/sfondo_albo_champions.jpg") !important;
+}
+
 .page-heading-statistiche-campionato {
   background-image: url("../images/soccer/sfondo_statistiche_campionato.jpg") !important;
 }
