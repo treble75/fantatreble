@@ -7734,6 +7734,10 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_albo_coppa.jpg") !important;
 }
 
+.page-heading-supercoppa {
+  background-image: url("../images/soccer/sfondo_supercoppa.jpg") !important;
+}
+
 .page-heading-albo-supercoppa {
   background-image: url("../images/soccer/sfondo_albo_supercoppa.jpg") !important;
 }
@@ -7760,6 +7764,10 @@ input.header-mobile__search-control:focus {
 
 .page-heading-marcatori {
   background-image: url("../images/soccer/sfondo_marcatori.jpg") !important;
+}
+
+.page-heading-marcatori-champions {
+  background-image: url("../images/soccer/sfondo_marcatori_champions.jpg") !important;
 }
 
 .page-heading-prepartita {
