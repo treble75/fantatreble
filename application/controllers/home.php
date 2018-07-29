@@ -248,6 +248,28 @@ class Home extends CI_Controller {
         $this->show('home/coppa_precedenti', $data);
     }
     
+    public function champions_precedenti($stagione) {
+
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+        
+        //Seleziono ultima giornata di fase a gironi - DA MODIFICARE
+        if ( $stagione == "2015_16" ) {
+            $ultima_giornata_regular = 16;
+        }
+        
+        if ( $stagione == "2016_17" || $stagione == "2017_18" ) {
+            $ultima_giornata_regular = 22;
+        }
+
+        $data['classifica_championsA'] = $this->mdl_team->getClassificaChampionsAPrecedente($stagione, $ultima_giornata_regular);
+        $data['classifica_championsB'] = $this->mdl_team->getClassificaChampionsBPrecedente($stagione, $ultima_giornata_regular);
+        $data['stagione'] = $stagione;
+
+        $data['active'] = 5;
+        $this->show('home/champions_precedenti', $data);
+    }
+    
     public function campionati_precedenti($stagione) {
 
         $this->load->model('mdl_team');

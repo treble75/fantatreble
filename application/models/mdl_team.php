@@ -1661,6 +1661,19 @@ class mdl_team extends CI_Model {
 
         return $totale;
     }
+    
+    public function getFantaPuntiTotaliChampionsABPrecedente($id_squadra, $stagione, $ultima_giornata_regular) {
+        //Limitare la query all'ultima giornata di campionato
+        $query1 = $this->db->query('select SUM(punteggio1) as somma1 from tb_champions_' . $stagione . ' where id1 = ' . $id_squadra . ' and giornata <= ' . $ultima_giornata_regular . ';');
+        $parziale1 = $query1->row('somma1');
+
+        $query2 = $this->db->query('select SUM(punteggio2) as somma2 from tb_champions_' . $stagione . ' where id2 = ' . $id_squadra . ' and giornata <= ' . $ultima_giornata_regular . ';');
+        $parziale2 = $query2->row('somma2');
+
+        $totale = ( $parziale1 + $parziale2 );
+
+        return $totale;
+    }
 
     public function getTeamGiornata($giornata) {
         $this->db->select('*');
@@ -3247,6 +3260,12 @@ class mdl_team extends CI_Model {
         $query = $this->db->get('tb_coppa_' . $stagione);
         return $query->result_array();
     }
+    
+    public function getCalendarioChampionsPrecedente($stagione) {
+        $this->db->order_by('giornata');
+        $query = $this->db->get('tb_champions_' . $stagione);
+        return $query->result_array();
+    }
 
     public function getGiornataGiocata() {
         $this->db->where('giornata', $_SESSION['giornata']);
@@ -3591,6 +3610,34 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getClassificaChampionsAPrecedente($stagione, $ultima_giornata_regular) {
+        //Prima aggiorno la tabella tb_classifica_championsA con il totale fantapunteggio
+        //Seleziono le squadre del girone A
+        $this->db->select('*');
+        $this->db->from('tb_classifica_championsA_' . $stagione);
+        $this->db->order_by('id_squadra');
+        $query = $this->db->get();
+
+        foreach ($query->result_array() as $row) {
+            $totale = $this->getFantaPuntiTotaliChampionsABPrecedente($row['id_squadra'], $stagione, $ultima_giornata_regular);
+
+            $this->db->where('id_squadra', $row['id_squadra']);
+            $this->db->update('tb_classifica_championsA_' . $stagione, array('fanta_punteggio' => $totale));
+        }
+
+        $this->db->select('*');
+        $this->db->select('(gol_fatti-gol_subiti) as DIFF');
+        $this->db->from('tb_classifica_championsA_' . $stagione);
+        $this->db->order_by('punti', 'desc');
+        $this->db->order_by('fanta_punteggio', 'desc');
+        $this->db->order_by('DIFF', 'desc');
+        $this->db->order_by('gol_fatti', 'desc');
+        $this->db->order_by('id_squadra', 'desc');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function getClassificaChampionsB() {
         //Prima aggiorno la tabella tb_classifica_championsB con il totale fantapunteggio
@@ -3610,6 +3657,34 @@ class mdl_team extends CI_Model {
         $this->db->select('*');
         $this->db->select('(gol_fatti-gol_subiti) as DIFF');
         $this->db->from('tb_classifica_championsB');
+        $this->db->order_by('punti', 'desc');
+        $this->db->order_by('fanta_punteggio', 'desc');
+        $this->db->order_by('DIFF', 'desc');
+        $this->db->order_by('gol_fatti', 'desc');
+        $this->db->order_by('id_squadra', 'desc');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
+    
+    public function getClassificaChampionsBPrecedente($stagione, $ultima_giornata_regular) {
+        //Prima aggiorno la tabella tb_classifica_championsB con il totale fantapunteggio
+        //Seleziono le squadre del girone B
+        $this->db->select('*');
+        $this->db->from('tb_classifica_championsB_' . $stagione);
+        $this->db->order_by('id_squadra');
+        $query = $this->db->get();
+
+        foreach ($query->result_array() as $row) {
+            $totale = $this->getFantaPuntiTotaliChampionsABPrecedente($row['id_squadra'], $stagione, $ultima_giornata_regular);
+
+            $this->db->where('id_squadra', $row['id_squadra']);
+            $this->db->update('tb_classifica_championsB_' . $stagione, array('fanta_punteggio' => $totale));
+        }
+
+        $this->db->select('*');
+        $this->db->select('(gol_fatti-gol_subiti) as DIFF');
+        $this->db->from('tb_classifica_championsB_' . $stagione);
         $this->db->order_by('punti', 'desc');
         $this->db->order_by('fanta_punteggio', 'desc');
         $this->db->order_by('DIFF', 'desc');
