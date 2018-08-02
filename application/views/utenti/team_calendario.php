@@ -621,7 +621,7 @@
                                         ?>
                                     <div class="spacer"></div>
                                         <div class = "alert alert-warning alert-dismissible">
-                                            <strong>Nessuna partita di Coppa Treble in programma</strong>
+                                            <strong>Nessuna partita di SuperCoppa Treble in programma</strong>
                                         </div>
                                         <?php
                                     }
