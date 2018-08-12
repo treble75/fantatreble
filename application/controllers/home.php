@@ -657,6 +657,19 @@ class Home extends CI_Controller {
         $data['active'] = 5;
         $this->show('home/dettagli_precedenti', $data);
     }
+    
+    public function dettagli_precedenti_champions($giornata, $stagione) {
+        $this->load->model('mdl_team');
+        $this->load->model('mdl_utenti');
+        $data['giornata'] = $giornata;
+        $data['stagione'] = $stagione;
+        
+        $data['risultati'] = $this->mdl_team->getCalendariogiornataPrecedenteChampions($giornata, $stagione);
+        $data['player'] = $this->mdl_team->getTeamGiornataPrecedenteCoppa($giornata, $stagione);
+
+        $data['active'] = 5;
+        $this->show('home/dettagli_precedenti_champions', $data);
+    }
 
     public function dettaglichampions($giornata) {
         if (isset($_SESSION['id_utente'])) {
