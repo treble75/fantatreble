@@ -7774,6 +7774,18 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_prepartita.jpg") !important;
 }
 
+.page-heading-precedenti-champions {
+  background-image: url("../images/soccer/sfondo_precedenti_champions.jpg") !important;
+}
+
+.page-heading-risultati-champions-precedenti {
+  background-image: url("../images/soccer/sfondo_risultati_champions_precedenti.jpg") !important;
+}
+
+.page-heading-regolamento {
+  background-image: url("../images/soccer/sfondo_regolamento.jpg") !important;
+}
+
 @media (min-width: 992px) {
   .page-heading {
     padding: 110px 0 106px 0;
