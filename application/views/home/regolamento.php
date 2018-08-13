@@ -219,7 +219,7 @@
                             altrimenti verranno disputati i playoff a cui parteciperà anche il primo classificato, disputando soltanto le due partite di finalissima.</p>
                             
                             <h4>Playoff in caso di vincitore diretto</h4>
-                            <p>Il secondo classificato parteciper&aacute; direttamente alla Finalissima, le altre prime 6 squadre qualificate si affronteranno in partite di playoff cos&iacute; suddivise:</p>
+                            <p>Il secondo classificato parteciper&aacute; direttamente alla Finalissima, le altre prime 5 squadre qualificate si affronteranno in partite di playoff cos&iacute; suddivise:</p>
                             <p>Preliminari:</p>
                             <ol class="list">
                                 <li><span style="color: #1892ED">7&deg;</span> classificata - <span style="color: #1892ED">4&deg;</span> classificata (partite di andata e ritorno)</li>

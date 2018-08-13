@@ -7782,6 +7782,10 @@ input.header-mobile__search-control:focus {
   background-image: url("../images/soccer/sfondo_risultati_champions_precedenti.jpg") !important;
 }
 
+.page-heading-stagioni-precedenti-champions {
+  background-image: url("../images/soccer/sfondo_stagioni_precedenti_champions.jpg") !important;
+}
+
 .page-heading-regolamento {
   background-image: url("../images/soccer/sfondo_regolamento.jpg") !important;
 }
