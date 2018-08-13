@@ -1865,6 +1865,20 @@ class mdl_team extends CI_Model {
 
         return $query->result_array();
     }
+    
+    public function getVotiGiornataPrecedenteCoppa($giocatore, $giornata, $stagione) {
+        $this->db->select('*');
+        $this->db->where('id_giocatore', $giocatore);
+        $this->db->where('giornata', $giornata);
+        if ($stagione == "2015_16") {
+            $this->db->from('tb_voti_' . $stagione);
+        } else {
+            $this->db->from('tb_voti_coppa_' . $stagione);
+        }
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 
     public function getVotiGiornataCoppa($giocatore, $giornata) {
         $this->db->select('*');
@@ -2520,6 +2534,19 @@ class mdl_team extends CI_Model {
         $this->db->where('giornata', $giornata);
         $this->db->where('id_giocatore', $id_giocatore);
         $this->db->from('tb_voti_' . $stagione);
+
+        return $this->db->get()->row('fantavoto');
+    }
+    
+    public function getFVPrecedenteCoppa($id_giocatore, $giornata, $stagione) {
+        $this->db->select('fantavoto');
+        $this->db->where('giornata', $giornata);
+        $this->db->where('id_giocatore', $id_giocatore);
+        if ($stagione == "2015_16") {
+            $this->db->from('tb_voti_' . $stagione);
+        } else {
+            $this->db->from('tb_voti_coppa_' . $stagione);
+        }
 
         return $this->db->get()->row('fantavoto');
     }
