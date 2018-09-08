@@ -28,7 +28,7 @@
                         <span style="font-size: 12px; color: #000000;">Alcuni consigli utili, ma ricordate... il vero fantacalcista segue l'istinto !</span>
                     </div>
                     
-                    <iframe src="http://www.fantaformazione.com/fantacalcio.formazioni_utente/formazione/Home.htm?idf=<?= @$_SESSION['id_fantaformazione'] ?>" width="100%" height="2000px" seamless></iframe>
+                    <iframe src="https://www.fantaformazione.com/fantaformazione/utenti_squadre/formazione/?id_utente_squadra=<?= @$_SESSION['id_fantaformazione'] ?>" width="100%" height="2000px" seamless></iframe>
 
                 </div>
             </div>
