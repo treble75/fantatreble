@@ -115,12 +115,12 @@
                                                                         <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($titolari[$c]['id_giocatore']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <?php
                                                                         $chk = $this->mdl_team->getFantavotoP($titolari[$c]['id_giocatore']);
-                                                                        $chk = (($chk == "") ? "" : "checked='checked'");
+                                                                        $chk = (($chk == "" || count($chk) == 0) ? "" : "checked='checked'");
                                                                         ?>
                                                                         <td class="lineup__info">
                                                                             <input type="checkbox" id="copy<?= $z . $titolari[$c]['id_utente'] ?>" value="Y" name="<?= $titolari[$c]['id_utente'] . 'Tcheck' . $z ?>" <?= $chk ?> />
@@ -167,7 +167,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P1']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -198,7 +198,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P2']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -229,7 +229,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P3']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -260,7 +260,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P4']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -291,7 +291,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P5']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -322,7 +322,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P6']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -353,7 +353,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P7']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -384,7 +384,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P8']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -415,7 +415,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P9']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -446,7 +446,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P10']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -477,7 +477,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P11']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -508,7 +508,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P12']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -539,7 +539,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P13']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -570,7 +570,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P14']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -648,12 +648,12 @@
                                                                         <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($titolari[$c]['id_giocatore']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <?php
                                                                         $chk = $this->mdl_team->getFantavotoP($titolari[$c]['id_giocatore']);
-                                                                        $chk = (($chk == "") ? "" : "checked='checked'");
+                                                                        $chk = (($chk == "" || count($chk) == 0) ? "" : "checked='checked'");
                                                                         ?>
                                                                         <td class="lineup__info">
                                                                             <input type="checkbox" id="copy<?= $z . $titolari[$c]['id_utente'] ?>" value="Y" name="<?= $titolari[$c]['id_utente'] . 'Tcheck' . $z ?>" <?= $chk ?> />
@@ -697,7 +697,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P1']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -728,7 +728,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P2']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -759,7 +759,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P3']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -790,7 +790,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P4']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -821,7 +821,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P5']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -852,7 +852,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P6']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -883,7 +883,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P7']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -914,7 +914,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P8']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -945,7 +945,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P9']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -976,7 +976,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P10']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -1007,7 +1007,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P11']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -1038,7 +1038,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P12']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -1069,7 +1069,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P13']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">
@@ -1100,7 +1100,7 @@
                                                                         <td class="lineup__name"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                         <?php
                                                                         $voto = $this->mdl_team->getFantavotoP($panchinari[$c]['P14']);
-                                                                        $voto = (($voto == "") ? "S.V." : $voto);
+                                                                        $voto = (($voto == "" || count($voto) == 0) ? "S.V." : $voto);
                                                                         ?>
                                                                         <td class="lineup__pos"><?= $voto ?></td>
                                                                         <td class="lineup__info">

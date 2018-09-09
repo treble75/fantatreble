@@ -900,8 +900,15 @@ class mdl_team extends CI_Model {
 
     public function getMediaVotoGiocatore($id) {
         $query = $this->db->query('SELECT avg(tb_voti.voto) as voto from tb_voti, tb_giocatori where tb_voti.id_giocatore = tb_giocatori.id_giocatore and tb_giocatori.id_giocatore = ' . $id . ' group by tb_giocatori.id_giocatore');
-
-        return $query->row('voto');
+        
+        $avg = $query->row('voto');
+        if ($avg == "" || count($avg) == 0) {
+            $voto = 0.00;
+        } else {
+            $voto = $avg;
+        }
+        
+        return $voto;
     }
 
     public function getSquadraBomber($id_giocatore) {
