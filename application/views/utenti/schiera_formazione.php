@@ -16,7 +16,8 @@
                     e[i].selectedIndex = 0;
 
                 }
-
+                
+                return;
             }
 
 

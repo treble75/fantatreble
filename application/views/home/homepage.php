@@ -1109,7 +1109,7 @@
                                                         }
                                                         $category = 1;
                                                         $label = "Trasferimenti";
-                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per una cifra di <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
+                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
                                                     }
                                                     if ($row['tipologia'] == "infortunio") {
                                                         $category = 4;
@@ -1170,7 +1170,7 @@
                                                         }
                                                         $category = 1;
                                                         $label = "Trasferimenti";
-                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per una cifra di <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
+                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
                                                     }
                                                     if ($row['tipologia'] == "infortunio") {
                                                         $category = 4;
@@ -1231,7 +1231,7 @@
                                                         }
                                                         $category = 1;
                                                         $label = "Trasferimenti";
-                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per una cifra di <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
+                                                        $testo_news = "<span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_utenti->getSquadra($row['id_utente']) . "</span> ha " . $type . " <span style='color: #1892ED; font-size: 14px;'>" . $this->mdl_team->getNomeGiocatore($row['id_giocatore']) . "</span> per <span style='color: #1892ED; font-size: 14px;'>" . $row['costo'] . "</span> fantamilioni";
                                                     }
                                                     if ($row['tipologia'] == "infortunio") {
                                                         $category = 4;
