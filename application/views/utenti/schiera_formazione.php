@@ -256,12 +256,27 @@
                                                 <option value="3">Coppa</option>
                                             </select>
                                         </div>
+                                        <?php
+                                        $cs1 = "";
+                                        $cs2 = "";
+                                        $cs3 = "";
+                                        if ($criterio_sostituzione == "Ordine Panchina"){
+                                            $cs1 = "selected";
+                                        }
+                                        if ($criterio_sostituzione == "P-D-C-A"){
+                                            $cs2 = "selected";
+                                        }
+                                        if ($criterio_sostituzione == "A-C-D-P"){
+                                            $cs3 = "selected";
+                                        }
+                                        echo $criterio_sostituzione;
+                                        ?>
                                         <label class="control-label" for="review-title">Criterio di sostituzione</label>
                                         <div class="form-group">
                                             <select name="cmbCriterioSostituzione" id="review-stars" class="form-control">
-                                                <option value="1">Ordine Panchina</option>
-                                                <option value="2">P-D-C-A</option>
-                                                <option value="3">A-C-D-P</option>
+                                                <option value="1" <?= @$cs1 ?>>Ordine Panchina</option>
+                                                <option value="2" <?= @$cs2 ?>>P-D-C-A</option>
+                                                <option value="3" <?= @$cs3 ?>>A-C-D-P</option>
                                             </select>
                                         </div>
                                         <label class="control-label" for="review-title">Blocco Formazioni</label>

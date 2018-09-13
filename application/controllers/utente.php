@@ -3853,6 +3853,7 @@ class Utente extends CI_Controller {
                         $data['Giocatori'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], "");
                         $data['titolari'] = $this->mdl_team->getFormazioneTUtente($_SESSION['id_utente']);
                         $data['panchinari'] = $this->mdl_team->getFormazionePUtente($_SESSION['id_utente']);
+                        $data['criterio_sostituzione'] = $this->mdl_team->getCriterioSquadra($_SESSION['id_utente'], $_SESSION['giornata'], "campionato");
 
                         $this->show('utenti/schiera_formazione', $data);
                         return;
@@ -3868,6 +3869,7 @@ class Utente extends CI_Controller {
                 $data['Giocatori'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], "");
                 $data['titolari'] = $this->mdl_team->getFormazioneTUtente($_SESSION['id_utente']);
                 $data['panchinari'] = $this->mdl_team->getFormazionePUtente($_SESSION['id_utente']);
+                $data['criterio_sostituzione'] = $this->mdl_team->getCriterioSquadra($_SESSION['id_utente'], $_SESSION['giornata'], "campionato");
 
                 $this->show('utenti/schiera_formazione', $data);
                 return;
@@ -3886,6 +3888,7 @@ class Utente extends CI_Controller {
                 $data['Giocatori'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], "");
                 $data['titolari'] = $this->mdl_team->getFormazioneTUtente($_SESSION['id_utente']);
                 $data['panchinari'] = $this->mdl_team->getFormazionePUtente($_SESSION['id_utente']);
+                $data['criterio_sostituzione'] = $this->mdl_team->getCriterioSquadra($_SESSION['id_utente'], $_SESSION['giornata'], "campionato");
 
                 $this->show('utenti/schiera_formazione', $data);
                 return;
@@ -3900,6 +3903,7 @@ class Utente extends CI_Controller {
             $data['Giocatori'] = $this->mdl_categories->getFormazione(true, $_SESSION['id_utente'], "");
             $data['titolari'] = $this->mdl_team->getFormazioneTUtente($_SESSION['id_utente']);
             $data['panchinari'] = $this->mdl_team->getFormazionePUtente($_SESSION['id_utente']);
+            $data['criterio_sostituzione'] = $this->mdl_team->getCriterioSquadra($_SESSION['id_utente'], $_SESSION['giornata'], "campionato");
 
             $this->show('utenti/schiera_formazione', $data);
         } else
