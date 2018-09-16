@@ -592,6 +592,15 @@
                                                                 <h5 class="comments-list__author-name"><?= $this->mdl_utenti->getNomeUtente($row['id_utente']) ?></h5>
                                                                 <time class="comments-list__date" datetime="2016-08-23"><?= $this->mdl_utenti->getSquadra($row['id_utente']) ?></time>
                                                                 <time class="comments-list__date" datetime="2016-08-23"><?= $row['orario'] ?></time>
+                                                                <?php
+                                                                if ($row['attiva'] == 0){
+                                                                    $led = "led_red.png";
+                                                                }
+                                                                if ($row['attiva'] == 1){
+                                                                    $led = "led_green.png";
+                                                                }
+                                                                ?>
+                                                                <img src="<?= base_url('/') ?>images/<?= $led ?>" width="15px">
                                                             </div>
                                                             <a href="<?= base_url('/') ?>utente/calciomercato" class="comments-list__link"><span class="icon-options"></span></a>
                                                         </header>

@@ -7,11 +7,11 @@
         if (count($risultati_supercoppa) < 1) {
             if (count($risultati_coppa) > 0 && count($risultati_champions) < 1) {
                 $competizione = "Coppa Treble";
-                $txt = "+2 in casa";
+                $txt = "( +2 in casa )";
             }
             if (count($risultati_coppa) < 1 && count($risultati_champions) > 0) {
                 $competizione = "Champions League";
-                $txt = "+2 in casa";
+                $txt = "( +2 in casa )";
             }
             if (count($risultati_coppa) < 1 && count($risultati_champions) < 1) {
                 $competizione = "";
@@ -134,7 +134,7 @@
                                                                     </td>
                                                                 </tr>
                                                                 <?php
-                                                                $totaleA = ((int) @$totaleA + (int) $voto);
+                                                                $totaleA = (round($totaleA, 2) + round($voto, 2));
                                                                 $z++;
                                                                 ?>
                                                                 <?php
@@ -596,7 +596,7 @@
                                                         </tr>  
 
                                                         <tr>
-                                                            <th colspan="2" class="lineup__subheader">Totale Parziale ( <?= $txt ?> )</th>
+                                                            <th colspan="2" class="lineup__subheader">Totale Parziale <?= $txt ?></th>
                                                             <th colspan="2" class="lineup__subheader" style="text-align:center; color: #1892ED;"><?= $totaleA ?></th>
                                                         </tr>
 
@@ -668,7 +668,7 @@
                                                                     </td>
                                                                 </tr>
                                                                 <?php
-                                                                $totaleB = ((int) @$totaleB + (int) $voto);
+                                                                $totaleB = (round($totaleB, 2) + round($voto, 2));
                                                                 $z++;
                                                             }
                                                         }
