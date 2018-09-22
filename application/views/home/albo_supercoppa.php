@@ -67,6 +67,34 @@
                     <tbody>
                         
                         <tr>
+                            <td class="game-player-result__date">2018 / 19</td>
+                            <td class="game-player-result__vs">
+                              <div class="team-meta">
+                                <figure class="team-meta__logo">
+                                  <img src="<?= base_url('/') ?>images/albo/logo/warriors3.png" alt="" width="30px">
+                                </figure>
+                                <div class="team-meta__info">
+                                  <h6 class="team-meta__name" style="color: #1892ED; font-size: 12px;">Warriors</h6>
+                                  <span class="team-meta__place">Luca Guerrieri</span>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="game-player-result__fc" style="color: #1892ED; font-size: 12px;">5 - 4 (d.c.r.)</td>
+                            <td class="game-player-result__finalista">
+                              <div class="team-meta" style="text-align: right;">
+                                <div class="team-meta__info" style="text-align: right;">
+                                  <h6 class="team-meta__name" style="color: #000000; font-size: 12px; text-align: right;">Sporting KRK</h6>
+                                  <span class="team-meta__place" style="text-align: right;">Francesco Carchedi</span>
+                                </div>
+                                <figure class="team-meta__logo" style="text-align: right;">
+                                  <img src="<?= base_url('/') ?>images/albo/logo/sportingkrk.png" alt="" width="30px">
+                                </figure>
+                              </div>
+                            </td>
+                            <td class="game-player-result__rc">70.0 - 68.0</td>
+                        </tr>
+                        
+                        <tr>
                             <td class="game-player-result__date">2017 / 18</td>
                             <td class="game-player-result__vs">
                               <div class="team-meta">
@@ -93,6 +121,7 @@
                             </td>
                             <td class="game-player-result__rc">75.0 - 70.0</td>
                         </tr>
+                        
                         <tr>
                             <td class="game-player-result__date">2016 / 17</td>
                             <td class="game-player-result__vs">
@@ -252,6 +281,50 @@
                               <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">HAMSIK Marek</h5>
                               <span class="team-leader__player-position" style="color: #000000;">Zacapa 23</span>
                               <span class="team-leader__player-position">Stagione 2016 / 17</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">1</td>
+                        <td class="team-leader__avg">
+                          <div class="circular">
+                            <div class="circular__bar" data-percent="100.0">
+                              <span class="circular__percents">10.00</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="team-leader__player">
+                          <div class="team-leader__player-info">
+                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                              <img src="<?= base_url('/') ?>images/albo/giocatori/insigne.png" alt="">
+                            </figure>
+                            <div class="team-leader__player-inner">
+                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">INSIGNE Lorenzo</h5>
+                              <span class="team-leader__player-position" style="color: #000000;">Warriors</span>
+                              <span class="team-leader__player-position">Stagione 2018 / 19</span>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="team-leader__goals" style="color: #1892ED; font-size: 12px;">1</td>
+                        <td class="team-leader__avg">
+                          <div class="circular">
+                            <div class="circular__bar" data-percent="100.0">
+                              <span class="circular__percents">10.00</span>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="team-leader__player">
+                          <div class="team-leader__player-info">
+                            <figure class="team-leader__player-img team-leader__player-img--sm">
+                              <img src="<?= base_url('/') ?>images/albo/giocatori/piatek.png" alt="">
+                            </figure>
+                            <div class="team-leader__player-inner">
+                              <h5 class="team-leader__player-name" style="color: #1892ED; font-size: 12px;">PIATEK Krzysztof</h5>
+                              <span class="team-leader__player-position" style="color: #000000;">Sporting KRK</span>
+                              <span class="team-leader__player-position">Stagione 2018 / 19</span>
                             </div>
                           </div>
                         </td>

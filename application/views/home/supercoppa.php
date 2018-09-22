@@ -65,11 +65,11 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="team-result__score" style="color: #1892ED; font-size: 14px; width: 12%;"><?= $risultati_supercoppa[0]['risultato1'] . " - " . $risultati_supercoppa[0]['risultato2'] ?></td>
+                                                <td class="team-result__score" style="color: #1892ED; font-size: 14px; width: 12%;"><?= $risultati_supercoppa[0]['risultato1'] . " - " . $risultati_supercoppa[0]['risultato2'] ?> (4-5 d.c.r.)</td>
                                                 <td class="team-result__status" align='right' style="width: 18%">
                                                     <div class="team-meta" style="text-align: right;">
                                                         <div class="team-meta__info" align='right'>
-                                                            <h6 class="team-meta__name"><?= $this->mdl_utenti->getSquadra($risultati_supercoppa[0]['id2']) ?></h6>
+                                                            <h6 class="team-meta__name">* <?= $this->mdl_utenti->getSquadra($risultati_supercoppa[0]['id2']) ?></h6>
                                                             <span class="team-meta__place"><?= $this->mdl_utenti->getNomeUtente($risultati_supercoppa[0]['id2']) ?></span>
                                                         </div>
                                                         <figure class="team-meta__logoCalendar">

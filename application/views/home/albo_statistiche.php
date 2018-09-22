@@ -573,7 +573,7 @@
                 if ($check == 1) {
                     ?>
 
-                    <!-- Related Products -->
+                    <!-- Related Products DA MODIFICARE : Aggiungere stagione in corso -->
                     <div class="card card--clean">
                         <header class="card__header">
                             <h4>Precedenti storici fra <span style="color: #1892ED;"><?= @$squadra1 ?></span> e <span style="color: #9edb00;"><?= @$squadra2 ?></span> </h4>

@@ -123,15 +123,15 @@
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVotoCoppa($titolari[$c]['id_giocatore'], $giornata);
-                                                                    $v = (($v == "") ? "S.V." : $v);
+                                                                    $v = (($v == "" || count($v) == 0) ? "S.V." : $v);
                                                                     $voto = $this->mdl_team->getFantavotoPCoppa($titolari[$c]['id_giocatore']);
-                                                                    $voto = (($voto == "") ? "" : $voto);
+                                                                    $voto = (($voto == "" || count($voto) == 0) ? "" : $voto);
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <input type="hidden" value="<?= $titolari[$c]['id_giocatore']?>" name="<?= $titolari[$c]['id_utente'] . "T" . $z ?>" />
                                                                     <?php
                                                                     $chk = $this->mdl_team->getFantavotoPCoppa($titolari[$c]['id_giocatore']);
-                                                                    $chk = (($chk == "") ? "" : "checked='checked'");
+                                                                    $chk = (($chk == "" || count($chk) == 0) ? "" : "checked='checked'");
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;">
                                                                         <input type="checkbox" id="copy<?= $z . $titolari[$c]['id_utente'] ?>" value="Y" name="<?= $titolari[$c]['id_utente'] . 'Tcheck' . $z ?>" <?= $chk ?> />
@@ -780,15 +780,15 @@
                                                                     <td class="lineup__name" style="color: #1892ED; font-size: 11px;"><?= $dettagli[0]['cognome'] . " " . $dettagli[0]['nome'] ?></td>
                                                                     <?php
                                                                     $v = $this->mdl_team->getVotoCoppa($titolari[$c]['id_giocatore'], $giornata);
-                                                                    $v = (($v == "") ? "S.V." : $v);
+                                                                    $v = (($v == "" || count($v) == 0) ? "S.V." : $v);
                                                                     $voto = $this->mdl_team->getFantavotoPCoppa($titolari[$c]['id_giocatore']);
-                                                                    $voto = (($voto == "") ? "" : $voto);
+                                                                    $voto = (($voto == "" || count($voto) == 0) ? "" : $voto);
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <input type="hidden" value="<?= $titolari[$c]['id_giocatore']?>" name="<?= $titolari[$c]['id_utente'] . "T" . $z ?>" />
                                                                     <?php
                                                                     $chk = $this->mdl_team->getFantavotoPCoppa($titolari[$c]['id_giocatore']);
-                                                                    $chk = (($chk == "") ? "" : "checked='checked'");
+                                                                    $chk = (($chk == "" || count($chk) == 0) ? "" : "checked='checked'");
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;">
                                                                         <input type="checkbox" id="copy<?= $z . $titolari[$c]['id_utente'] ?>" value="Y" name="<?= $titolari[$c]['id_utente'] . 'Tcheck' . $z ?>" <?= $chk ?> />

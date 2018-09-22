@@ -64,7 +64,7 @@
                                                 <table class="table lineup-table">
 
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #f2d376">
                                                             <th class="lineup__num" style="width: 40px; text-align: center;">&nbsp;</th>
                                                             <th class="lineup__name" style="width: 130px; text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></th>
                                                             <th class="lineup__pos" style="width: 55px; text-align: right;">&nbsp;</th>
@@ -1758,7 +1758,7 @@
                                                 <table class="table lineup-table">
 
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #f2d376">
                                                             <th class="lineup__num" style="width: 40px; text-align: center;">&nbsp;</th>
                                                             <th class="lineup__name" style="width: 130px; text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></th>
                                                             <th class="lineup__pos" style="width: 55px; text-align: right;">&nbsp;</th>

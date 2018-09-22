@@ -47,9 +47,9 @@
                                                 <table class="table lineup-table">
 
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #f2d376">
                                                             <th class="lineup__num" style="width: 40px; text-align: center;">&nbsp;</th>
-                                                            <th class="lineup__name" style="width: 130px; text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></th>
+                                                            <th class="lineup__name" style="width: 130px; text-align: center; color: #1892ED; font-size: 14px; text-align: center; background-color: #f2d376;"><?= $this->mdl_utenti->getSquadra($row['id1']) ?></th>
                                                             <th class="lineup__pos" style="width: 55px; text-align: right;">&nbsp;</th>
                                                             <th class="lineup__pos" style="width: 80px; text-align: center;">&nbsp;</th>
                                                             <th class="lineup__info" style="width: 50px; color: #1892ED; font-size: 14px; text-align: right;"><?= $row['risultato1'] ?></th>
@@ -1667,7 +1667,7 @@
                                                                             <td class="lineup__pos" style="vertical-align: middle;"><?= $schierato ?></td>
                                                                             <?php
                                                                             $icon = "";
-                                                                            if ($v != "" && $i <= 5 && $schierato != "") {
+                                                                            if ($v != "" && $i <= 7 && $schierato != "") {
                                                                                 if ($v < 6)
                                                                                     $icon = "<img src='" . base_url('/') . "images/rig_sbagliato.png' title='Rigore sbagliato' />";
                                                                                 if ($v >= 6)
@@ -1707,7 +1707,7 @@
                                                         </tr>
 
                                                         <tr style="vertical-align: middle;">
-                                                            <th colspan="2" class="lineup__subheader">Punteggio ( +2 in casa )</th>
+                                                            <th colspan="2" class="lineup__subheader">Punteggio</th>
                                                             <th class="lineup__subheader" style="text-align: center"><?= $parzialeA ?> + <?= $row['bonus_modificatore1'] ?></th>
                                                             <th colspan="2" class="lineup__subheader" style="text-align: center; color: #1892ED; font-size: 12px;"><?= $row['punteggio1'] ?></th>
                                                         </tr>
@@ -1738,7 +1738,7 @@
                                                 <table class="table lineup-table">
 
                                                     <thead>
-                                                        <tr>
+                                                        <tr style="background-color: #f2d376">
                                                             <th class="lineup__num" style="width: 40px; text-align: center;">&nbsp;</th>
                                                             <th class="lineup__name" style="width: 130px; text-align: center; color: #1892ED; font-size: 14px; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id2']) ?></th>
                                                             <th class="lineup__pos" style="width: 55px; text-align: right;">&nbsp;</th>
@@ -3352,7 +3352,8 @@
                                                                             <td class="lineup__pos" style="vertical-align: middle;"><?= $schierato ?></td>
                                                                             <?php
                                                                             $icon = "";
-                                                                            if ($v != "" && $i <= 5 && $schierato != "") {
+                                                                            // Per i calci di rigore a oltranza, aumentare la variabile $v
+                                                                            if ($v != "" && $i <= 7 && $schierato != "") {
                                                                                 if ($v < 6)
                                                                                     $icon = "<img src='" . base_url('/') . "images/rig_sbagliato.png' title='Rigore sbagliato' />";
                                                                                 if ($v >= 6)

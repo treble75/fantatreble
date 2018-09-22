@@ -159,7 +159,7 @@
                                             <td class="team-standings__points-diff">
                                                 
                                                 <?php
-                                                $forma = $this->mdl_team->getFormaSquadra($row['id_squadra']);
+                                                $forma = $this->mdl_team->getFormaSquadra($row['id_squadra'], $_SESSION['giornata']);
                                                 
                                                 foreach ($forma as $team) {
                                                     if ($team['risultato1'] != null && $team['risultato2'] != null) {

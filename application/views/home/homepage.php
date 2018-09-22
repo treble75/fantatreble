@@ -1001,7 +1001,13 @@
                                                                 </figure>
                                                                 <div class="team-leader__player-inner">
                                                                     <h5 class="team-leader__player-name" style="color: #1892ED;"><?= $row['cognome'] . " " . substr($row['nome'], 0, 1) . "." ?></h5>
-                                                                    <span class="team-leader__player-position"><?= $this->mdl_team->getSquadraBomber($row['id_giocatore']) ?></span>
+                                                                    <?php
+                                                                    $sqb = $this->mdl_team->getSquadraBomber($row['id_giocatore']);
+                                                                    if ($sqb == "" || count($sqb) == 0) {
+                                                                        $sqb = "";
+                                                                    }
+                                                                    ?>
+                                                                    <span class="team-leader__player-position"><?= $sqb ?></span>
                                                                 </div>
                                                             </div>
                                                         </td>

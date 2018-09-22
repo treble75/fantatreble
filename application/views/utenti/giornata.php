@@ -40,7 +40,7 @@
                                         <header class="game-result__header game-result__header--alt">
                                             <span class="game-result__league">Treble League 2018/19</span>
                                             <h3 class="game-result__title">Giornata <?= $giornata ?></h3>
-                                            <time class="game-result__date" datetime="2017-03-17">Saturday, March 17th, 2017</time>
+                                            <time class="game-result__date" datetime="2017-03-17"></time>
                                         </header>
 
                                         <?php

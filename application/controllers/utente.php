@@ -1433,6 +1433,16 @@ class Utente extends CI_Controller {
 
             if ($this->form_validation->run()) {
                 $data = array(
+                    'id_utente1' => $this->input->post('id_utente0'),
+                    'id_utente2' => $this->input->post('id_utente1'),
+                    'id_utente3' => $this->input->post('id_utente2'),
+                    'id_utente4' => $this->input->post('id_utente3'),
+                    'id_utente5' => $this->input->post('id_utente4'),
+                    'id_utente6' => $this->input->post('id_utente5'),
+                    'id_utente7' => $this->input->post('id_utente6'),
+                    'id_utente8' => $this->input->post('id_utente7'),
+                    'id_utente9' => $this->input->post('id_utente8'),
+                    'id_utente10' => $this->input->post('id_utente9'),
                     'totale1' => $this->input->post('totale0'),
                     'totale2' => $this->input->post('totale1'),
                     'totale3' => $this->input->post('totale2'),
@@ -1812,6 +1822,16 @@ class Utente extends CI_Controller {
 
             if ($this->form_validation->run()) {
                 $data = array(
+                    'id_utente1' => $this->input->post('id_utente0'),
+                    'id_utente2' => $this->input->post('id_utente1'),
+                    'id_utente3' => $this->input->post('id_utente2'),
+                    'id_utente4' => $this->input->post('id_utente3'),
+                    'id_utente5' => $this->input->post('id_utente4'),
+                    'id_utente6' => $this->input->post('id_utente5'),
+                    'id_utente7' => $this->input->post('id_utente6'),
+                    'id_utente8' => $this->input->post('id_utente7'),
+                    'id_utente9' => $this->input->post('id_utente8'),
+                    'id_utente10' => $this->input->post('id_utente9'),
                     'totale1' => $this->input->post('totale0'),
                     'totale2' => $this->input->post('totale1'),
                     'totale3' => $this->input->post('totale2'),
@@ -4973,7 +4993,7 @@ class Utente extends CI_Controller {
                     //Upload del file relativo allo sfondo della news
                     $config['upload_path']          = './assets/images/soccer/samples/';
                     $config['allowed_types']        = 'gif|jpg|png';
-                    $config['max_size']             = 10000;
+                    $config['max_size']             = 1000000;
                     $config['max_width']            = 5000;
                     $config['max_height']           = 4000;
                     $config['overwrite']            = TRUE;

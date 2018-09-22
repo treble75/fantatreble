@@ -493,7 +493,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label for="account-first-name">Voto Centrocampista</label>
+                                            <label for="account-first-name">Voto Attaccante</label>
                                             <input type="text" class="form-control" value="" name="txtVotoA" id="account-username" placeholder="Voto...">
                                         </div>
                                     </div>

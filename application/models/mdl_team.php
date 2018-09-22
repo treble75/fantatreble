@@ -321,10 +321,10 @@ class mdl_team extends CI_Model {
     }
     
     public function getPartiteGiocateTL($id_utente) {
-        $query = $this->db->query('select count(`id1`) as pg1 from tb_calendario where id1 = ' . $id_utente);
+        $query = $this->db->query('select count(`id1`) as pg1 from tb_calendario where id1 = ' . $id_utente . ' and giocata = 1');
         $match1 = $query->row('pg1');
         
-        $query = $this->db->query('select count(`id2`) as pg2 from tb_calendario where id2 = ' . $id_utente);
+        $query = $this->db->query('select count(`id2`) as pg2 from tb_calendario where id2 = ' . $id_utente . ' and giocata = 1');
         $match2 = $query->row('pg2');
         
         $somma_match = $match1 + $match2;
@@ -332,10 +332,10 @@ class mdl_team extends CI_Model {
     }
     
     public function getStatsPartiteGiocateCoppa($id_utente) {
-        $query = $this->db->query('select count(`id1`) as pg1 from tb_coppa where id1 = ' . $id_utente);
+        $query = $this->db->query('select count(`id1`) as pg1 from tb_coppa where id1 = ' . $id_utente . ' and giocata = 1');
         $match1 = $query->row('pg1');
         
-        $query = $this->db->query('select count(`id2`) as pg2 from tb_coppa where id2 = ' . $id_utente);
+        $query = $this->db->query('select count(`id2`) as pg2 from tb_coppa where id2 = ' . $id_utente . ' and giocata = 1');
         $match2 = $query->row('pg2');
         
         $somma_match = $match1 + $match2;
@@ -343,10 +343,10 @@ class mdl_team extends CI_Model {
     }
     
     public function getStatsPartiteGiocateChampions($id_utente) {
-        $query = $this->db->query('select count(`id1`) as pg1 from tb_champions where id1 = ' . $id_utente);
+        $query = $this->db->query('select count(`id1`) as pg1 from tb_champions where id1 = ' . $id_utente . ' and giocata = 1');
         $match1 = $query->row('pg1');
         
-        $query = $this->db->query('select count(`id2`) as pg2 from tb_champions where id2 = ' . $id_utente);
+        $query = $this->db->query('select count(`id2`) as pg2 from tb_champions where id2 = ' . $id_utente . ' and giocata = 1');
         $match2 = $query->row('pg2');
         
         $somma_match = $match1 + $match2;
@@ -435,8 +435,8 @@ class mdl_team extends CI_Model {
         return $this->db->get()->row('punti');
     }
 
-    public function getFormaSquadra($id_squadra) {
-        $query = $this->db->query('select * from tb_calendario where id1 = ' . $id_squadra . ' or id2 = ' . $id_squadra . ' order by giornata desc limit 5');
+    public function getFormaSquadra($id_squadra, $giornata) {
+        $query = $this->db->query('select * from tb_calendario where id1 = ' . $id_squadra . ' and giornata < ' . $giornata . ' or id2 = ' . $id_squadra . ' and giornata < ' . $giornata . ' order by giornata desc limit 5');
 
         return $query->result_array();
     }
@@ -2044,165 +2044,165 @@ class mdl_team extends CI_Model {
 
     public function insertPunteggi($data, $punteggi) {
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 1);
+        $this->db->where('id1', $data['id_utente1']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale1'], 'risultato1' => $punteggi['risultato1'], 'bonus_modificatore1' => $data['bonus1'], 'num_difensori1' => $data['num_difensori1'], 'totale_modificatore1' => $data['totale_modificatore1'], 'media_difensori1' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 1);
+        $this->db->where('id2', $data['id_utente1']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale1'], 'risultato2' => $punteggi['risultato1'], 'bonus_modificatore2' => $data['bonus1'], 'num_difensori2' => $data['num_difensori1'], 'totale_modificatore2' => $data['totale_modificatore1'], 'media_difensori2' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 2);
+        $this->db->where('id1', $data['id_utente2']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale2'], 'risultato1' => $punteggi['risultato2'], 'bonus_modificatore1' => $data['bonus2'], 'num_difensori1' => $data['num_difensori2'], 'totale_modificatore1' => $data['totale_modificatore2'], 'media_difensori1' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 2);
+        $this->db->where('id2', $data['id_utente2']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale2'], 'risultato2' => $punteggi['risultato2'], 'bonus_modificatore2' => $data['bonus2'], 'num_difensori2' => $data['num_difensori2'], 'totale_modificatore2' => $data['totale_modificatore2'], 'media_difensori2' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 3);
+        $this->db->where('id1', $data['id_utente3']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale3'], 'risultato1' => $punteggi['risultato3'], 'bonus_modificatore1' => $data['bonus3'], 'num_difensori1' => $data['num_difensori3'], 'totale_modificatore1' => $data['totale_modificatore3'], 'media_difensori1' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 3);
+        $this->db->where('id2', $data['id_utente3']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale3'], 'risultato2' => $punteggi['risultato3'], 'bonus_modificatore2' => $data['bonus3'], 'num_difensori2' => $data['num_difensori3'], 'totale_modificatore2' => $data['totale_modificatore3'], 'media_difensori2' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 4);
+        $this->db->where('id1', $data['id_utente4']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale4'], 'risultato1' => $punteggi['risultato4'], 'bonus_modificatore1' => $data['bonus4'], 'num_difensori1' => $data['num_difensori4'], 'totale_modificatore1' => $data['totale_modificatore4'], 'media_difensori1' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 4);
+        $this->db->where('id2', $data['id_utente4']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale4'], 'risultato2' => $punteggi['risultato4'], 'bonus_modificatore2' => $data['bonus4'], 'num_difensori2' => $data['num_difensori4'], 'totale_modificatore2' => $data['totale_modificatore4'], 'media_difensori2' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 5);
+        $this->db->where('id1', $data['id_utente5']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale5'], 'risultato1' => $punteggi['risultato5'], 'bonus_modificatore1' => $data['bonus5'], 'num_difensori1' => $data['num_difensori5'], 'totale_modificatore1' => $data['totale_modificatore5'], 'media_difensori1' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 5);
+        $this->db->where('id2', $data['id_utente5']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale5'], 'risultato2' => $punteggi['risultato5'], 'bonus_modificatore2' => $data['bonus5'], 'num_difensori2' => $data['num_difensori5'], 'totale_modificatore2' => $data['totale_modificatore5'], 'media_difensori2' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 6);
+        $this->db->where('id1', $data['id_utente6']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale6'], 'risultato1' => $punteggi['risultato6'], 'bonus_modificatore1' => $data['bonus6'], 'num_difensori1' => $data['num_difensori6'], 'totale_modificatore1' => $data['totale_modificatore6'], 'media_difensori1' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 6);
+        $this->db->where('id2', $data['id_utente6']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale6'], 'risultato2' => $punteggi['risultato6'], 'bonus_modificatore2' => $data['bonus6'], 'num_difensori2' => $data['num_difensori6'], 'totale_modificatore2' => $data['totale_modificatore6'], 'media_difensori2' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 7);
+        $this->db->where('id1', $data['id_utente7']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale7'], 'risultato1' => $punteggi['risultato7'], 'bonus_modificatore1' => $data['bonus7'], 'num_difensori1' => $data['num_difensori7'], 'totale_modificatore1' => $data['totale_modificatore7'], 'media_difensori1' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 7);
+        $this->db->where('id2', $data['id_utente7']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale7'], 'risultato2' => $punteggi['risultato7'], 'bonus_modificatore2' => $data['bonus7'], 'num_difensori2' => $data['num_difensori7'], 'totale_modificatore2' => $data['totale_modificatore7'], 'media_difensori2' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 8);
+        $this->db->where('id1', $data['id_utente8']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale8'], 'risultato1' => $punteggi['risultato8'], 'bonus_modificatore1' => $data['bonus8'], 'num_difensori1' => $data['num_difensori8'], 'totale_modificatore1' => $data['totale_modificatore8'], 'media_difensori1' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 8);
+        $this->db->where('id2', $data['id_utente8']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale8'], 'risultato2' => $punteggi['risultato8'], 'bonus_modificatore2' => $data['bonus8'], 'num_difensori2' => $data['num_difensori8'], 'totale_modificatore2' => $data['totale_modificatore8'], 'media_difensori2' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 9);
+        $this->db->where('id1', $data['id_utente9']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale9'], 'risultato1' => $punteggi['risultato9'], 'bonus_modificatore1' => $data['bonus9'], 'num_difensori1' => $data['num_difensori9'], 'totale_modificatore1' => $data['totale_modificatore9'], 'media_difensori1' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 9);
+        $this->db->where('id2', $data['id_utente9']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale9'], 'risultato2' => $punteggi['risultato9'], 'bonus_modificatore2' => $data['bonus9'], 'num_difensori2' => $data['num_difensori9'], 'totale_modificatore2' => $data['totale_modificatore9'], 'media_difensori2' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 10);
+        $this->db->where('id1', $data['id_utente10']);
         $this->db->update('tb_calendario', array('punteggio1' => $data['totale10'], 'risultato1' => $punteggi['risultato10'], 'bonus_modificatore1' => $data['bonus10'], 'num_difensori1' => $data['num_difensori10'], 'totale_modificatore1' => $data['totale_modificatore10'], 'media_difensori1' => $data['media_difensori10']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 10);
+        $this->db->where('id2', $data['id_utente10']);
         $this->db->update('tb_calendario', array('punteggio2' => $data['totale10'], 'risultato2' => $punteggi['risultato10'], 'bonus_modificatore2' => $data['bonus10'], 'num_difensori2' => $data['num_difensori10'], 'totale_modificatore2' => $data['totale_modificatore10'], 'media_difensori2' => $data['media_difensori10']));
     }
 
     public function insertPunteggiSuperCoppa($data, $punteggi) {
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 1);
+        $this->db->where('id1', $data['id_utente1']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale1'], 'risultato1' => $punteggi['risultato1'], 'bonus_modificatore1' => $data['bonus1'], 'num_difensori1' => $data['num_difensori1'], 'totale_modificatore1' => $data['totale_modificatore1'], 'media_difensori1' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 1);
+        $this->db->where('id2', $data['id_utente1']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale1'], 'risultato2' => $punteggi['risultato1'], 'bonus_modificatore2' => $data['bonus1'], 'num_difensori2' => $data['num_difensori1'], 'totale_modificatore2' => $data['totale_modificatore1'], 'media_difensori2' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 2);
+        $this->db->where('id1', $data['id_utente2']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale2'], 'risultato1' => $punteggi['risultato2'], 'bonus_modificatore1' => $data['bonus2'], 'num_difensori1' => $data['num_difensori2'], 'totale_modificatore1' => $data['totale_modificatore2'], 'media_difensori1' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 2);
+        $this->db->where('id2', $data['id_utente2']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale2'], 'risultato2' => $punteggi['risultato2'], 'bonus_modificatore2' => $data['bonus2'], 'num_difensori2' => $data['num_difensori2'], 'totale_modificatore2' => $data['totale_modificatore2'], 'media_difensori2' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 3);
+        $this->db->where('id1', $data['id_utente3']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale3'], 'risultato1' => $punteggi['risultato3'], 'bonus_modificatore1' => $data['bonus3'], 'num_difensori1' => $data['num_difensori3'], 'totale_modificatore1' => $data['totale_modificatore3'], 'media_difensori1' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 3);
+        $this->db->where('id2', $data['id_utente3']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale3'], 'risultato2' => $punteggi['risultato3'], 'bonus_modificatore2' => $data['bonus3'], 'num_difensori2' => $data['num_difensori3'], 'totale_modificatore2' => $data['totale_modificatore3'], 'media_difensori2' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 4);
+        $this->db->where('id1', $data['id_utente4']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale4'], 'risultato1' => $punteggi['risultato4'], 'bonus_modificatore1' => $data['bonus4'], 'num_difensori1' => $data['num_difensori4'], 'totale_modificatore1' => $data['totale_modificatore4'], 'media_difensori1' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 4);
+        $this->db->where('id2', $data['id_utente4']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale4'], 'risultato2' => $punteggi['risultato4'], 'bonus_modificatore2' => $data['bonus4'], 'num_difensori2' => $data['num_difensori4'], 'totale_modificatore2' => $data['totale_modificatore4'], 'media_difensori2' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 5);
+        $this->db->where('id1', $data['id_utente5']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale5'], 'risultato1' => $punteggi['risultato5'], 'bonus_modificatore1' => $data['bonus5'], 'num_difensori1' => $data['num_difensori5'], 'totale_modificatore1' => $data['totale_modificatore5'], 'media_difensori1' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 5);
+        $this->db->where('id2', $data['id_utente5']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale5'], 'risultato2' => $punteggi['risultato5'], 'bonus_modificatore2' => $data['bonus5'], 'num_difensori2' => $data['num_difensori5'], 'totale_modificatore2' => $data['totale_modificatore5'], 'media_difensori2' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 6);
+        $this->db->where('id1', $data['id_utente6']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale6'], 'risultato1' => $punteggi['risultato6'], 'bonus_modificatore1' => $data['bonus6'], 'num_difensori1' => $data['num_difensori6'], 'totale_modificatore1' => $data['totale_modificatore6'], 'media_difensori1' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 6);
+        $this->db->where('id2', $data['id_utente6']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale6'], 'risultato2' => $punteggi['risultato6'], 'bonus_modificatore2' => $data['bonus6'], 'num_difensori2' => $data['num_difensori6'], 'totale_modificatore2' => $data['totale_modificatore6'], 'media_difensori2' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 7);
+        $this->db->where('id1', $data['id_utente7']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale7'], 'risultato1' => $punteggi['risultato7'], 'bonus_modificatore1' => $data['bonus7'], 'num_difensori1' => $data['num_difensori7'], 'totale_modificatore1' => $data['totale_modificatore7'], 'media_difensori1' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 7);
+        $this->db->where('id2', $data['id_utente7']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale7'], 'risultato2' => $punteggi['risultato7'], 'bonus_modificatore2' => $data['bonus7'], 'num_difensori2' => $data['num_difensori7'], 'totale_modificatore2' => $data['totale_modificatore7'], 'media_difensori2' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 8);
+        $this->db->where('id1', $data['id_utente8']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale8'], 'risultato1' => $punteggi['risultato8'], 'bonus_modificatore1' => $data['bonus8'], 'num_difensori1' => $data['num_difensori8'], 'totale_modificatore1' => $data['totale_modificatore8'], 'media_difensori1' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 8);
+        $this->db->where('id2', $data['id_utente8']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale8'], 'risultato2' => $punteggi['risultato8'], 'bonus_modificatore2' => $data['bonus8'], 'num_difensori2' => $data['num_difensori8'], 'totale_modificatore2' => $data['totale_modificatore8'], 'media_difensori2' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 9);
+        $this->db->where('id1', $data['id_utente9']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale9'], 'risultato1' => $punteggi['risultato9'], 'bonus_modificatore1' => $data['bonus9'], 'num_difensori1' => $data['num_difensori9'], 'totale_modificatore1' => $data['totale_modificatore9'], 'media_difensori1' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 9);
+        $this->db->where('id2', $data['id_utente9']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale9'], 'risultato2' => $punteggi['risultato9'], 'bonus_modificatore2' => $data['bonus9'], 'num_difensori2' => $data['num_difensori9'], 'totale_modificatore2' => $data['totale_modificatore9'], 'media_difensori2' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 10);
+        $this->db->where('id1', $data['id_utente10']);
         $this->db->update('tb_supercoppa', array('punteggio1' => $data['totale10'], 'risultato1' => $punteggi['risultato10'], 'bonus_modificatore1' => $data['bonus10'], 'num_difensori1' => $data['num_difensori10'], 'totale_modificatore1' => $data['totale_modificatore10'], 'media_difensori1' => $data['media_difensori10']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 10);
+        $this->db->where('id2', $data['id_utente10']);
         $this->db->update('tb_supercoppa', array('punteggio2' => $data['totale10'], 'risultato2' => $punteggi['risultato10'], 'bonus_modificatore2' => $data['bonus10'], 'num_difensori2' => $data['num_difensori10'], 'totale_modificatore2' => $data['totale_modificatore10'], 'media_difensori2' => $data['media_difensori10']));
 
         //Chiudo giornata SuperCoppa
@@ -2212,83 +2212,83 @@ class mdl_team extends CI_Model {
 
     public function insertPunteggiCoppa($data, $punteggi) {
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 1);
+        $this->db->where('id1', $data['id_utente1']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale1'], 'risultato1' => $punteggi['risultato1'], 'bonus_modificatore1' => $data['bonus1'], 'num_difensori1' => $data['num_difensori1'], 'totale_modificatore1' => $data['totale_modificatore1'], 'media_difensori1' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 1);
+        $this->db->where('id2', $data['id_utente1']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale1'], 'risultato2' => $punteggi['risultato1'], 'bonus_modificatore2' => $data['bonus1'], 'num_difensori2' => $data['num_difensori1'], 'totale_modificatore2' => $data['totale_modificatore1'], 'media_difensori2' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 2);
+        $this->db->where('id1', $data['id_utente2']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale2'], 'risultato1' => $punteggi['risultato2'], 'bonus_modificatore1' => $data['bonus2'], 'num_difensori1' => $data['num_difensori2'], 'totale_modificatore1' => $data['totale_modificatore2'], 'media_difensori1' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 2);
+        $this->db->where('id2', $data['id_utente2']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale2'], 'risultato2' => $punteggi['risultato2'], 'bonus_modificatore2' => $data['bonus2'], 'num_difensori2' => $data['num_difensori2'], 'totale_modificatore2' => $data['totale_modificatore2'], 'media_difensori2' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 3);
+        $this->db->where('id1', $data['id_utente3']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale3'], 'risultato1' => $punteggi['risultato3'], 'bonus_modificatore1' => $data['bonus3'], 'num_difensori1' => $data['num_difensori3'], 'totale_modificatore1' => $data['totale_modificatore3'], 'media_difensori1' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 3);
+        $this->db->where('id2', $data['id_utente3']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale3'], 'risultato2' => $punteggi['risultato3'], 'bonus_modificatore2' => $data['bonus3'], 'num_difensori2' => $data['num_difensori3'], 'totale_modificatore2' => $data['totale_modificatore3'], 'media_difensori2' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 4);
+        $this->db->where('id1', $data['id_utente4']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale4'], 'risultato1' => $punteggi['risultato4'], 'bonus_modificatore1' => $data['bonus4'], 'num_difensori1' => $data['num_difensori4'], 'totale_modificatore1' => $data['totale_modificatore4'], 'media_difensori1' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 4);
+        $this->db->where('id2', $data['id_utente4']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale4'], 'risultato2' => $punteggi['risultato4'], 'bonus_modificatore2' => $data['bonus4'], 'num_difensori2' => $data['num_difensori4'], 'totale_modificatore2' => $data['totale_modificatore4'], 'media_difensori2' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 5);
+        $this->db->where('id1', $data['id_utente5']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale5'], 'risultato1' => $punteggi['risultato5'], 'bonus_modificatore1' => $data['bonus5'], 'num_difensori1' => $data['num_difensori5'], 'totale_modificatore1' => $data['totale_modificatore5'], 'media_difensori1' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 5);
+        $this->db->where('id2', $data['id_utente5']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale5'], 'risultato2' => $punteggi['risultato5'], 'bonus_modificatore2' => $data['bonus5'], 'num_difensori2' => $data['num_difensori5'], 'totale_modificatore2' => $data['totale_modificatore5'], 'media_difensori2' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 6);
+        $this->db->where('id1', $data['id_utente6']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale6'], 'risultato1' => $punteggi['risultato6'], 'bonus_modificatore1' => $data['bonus6'], 'num_difensori1' => $data['num_difensori6'], 'totale_modificatore1' => $data['totale_modificatore6'], 'media_difensori1' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 6);
+        $this->db->where('id2', $data['id_utente6']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale6'], 'risultato2' => $punteggi['risultato6'], 'bonus_modificatore2' => $data['bonus6'], 'num_difensori2' => $data['num_difensori6'], 'totale_modificatore2' => $data['totale_modificatore6'], 'media_difensori2' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 7);
+        $this->db->where('id1', $data['id_utente7']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale7'], 'risultato1' => $punteggi['risultato7'], 'bonus_modificatore1' => $data['bonus7'], 'num_difensori1' => $data['num_difensori7'], 'totale_modificatore1' => $data['totale_modificatore7'], 'media_difensori1' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 7);
+        $this->db->where('id2', $data['id_utente7']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale7'], 'risultato2' => $punteggi['risultato7'], 'bonus_modificatore2' => $data['bonus7'], 'num_difensori2' => $data['num_difensori7'], 'totale_modificatore2' => $data['totale_modificatore7'], 'media_difensori2' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 8);
+        $this->db->where('id1', $data['id_utente8']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale8'], 'risultato1' => $punteggi['risultato8'], 'bonus_modificatore1' => $data['bonus8'], 'num_difensori1' => $data['num_difensori8'], 'totale_modificatore1' => $data['totale_modificatore8'], 'media_difensori1' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 8);
+        $this->db->where('id2', $data['id_utente8']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale8'], 'risultato2' => $punteggi['risultato8'], 'bonus_modificatore2' => $data['bonus8'], 'num_difensori2' => $data['num_difensori8'], 'totale_modificatore2' => $data['totale_modificatore8'], 'media_difensori2' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 9);
+        $this->db->where('id1', $data['id_utente9']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale9'], 'risultato1' => $punteggi['risultato9'], 'bonus_modificatore1' => $data['bonus9'], 'num_difensori1' => $data['num_difensori9'], 'totale_modificatore1' => $data['totale_modificatore9'], 'media_difensori1' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 9);
+        $this->db->where('id2', $data['id_utente9']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale9'], 'risultato2' => $punteggi['risultato9'], 'bonus_modificatore2' => $data['bonus9'], 'num_difensori2' => $data['num_difensori9'], 'totale_modificatore2' => $data['totale_modificatore9'], 'media_difensori2' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 10);
+        $this->db->where('id1', $data['id_utente10']);
         $this->db->update('tb_coppa', array('punteggio1' => $data['totale10'], 'risultato1' => $punteggi['risultato10'], 'bonus_modificatore1' => $data['bonus10'], 'num_difensori1' => $data['num_difensori10'], 'totale_modificatore1' => $data['totale_modificatore10'], 'media_difensori1' => $data['media_difensori10']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 10);
+        $this->db->where('id2', $data['id_utente10']);
         $this->db->update('tb_coppa', array('punteggio2' => $data['totale10'], 'risultato2' => $punteggi['risultato10'], 'bonus_modificatore2' => $data['bonus10'], 'num_difensori2' => $data['num_difensori10'], 'totale_modificatore2' => $data['totale_modificatore10'], 'media_difensori2' => $data['media_difensori10']));
 
         //Chiudo giornata Coppa Treble
@@ -2298,83 +2298,83 @@ class mdl_team extends CI_Model {
 
     public function insertPunteggiChampions($data, $punteggi) {
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 1);
+        $this->db->where('id1', $data['id_utente1']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale1'], 'risultato1' => $punteggi['risultato1'], 'bonus_modificatore1' => $data['bonus1'], 'num_difensori1' => $data['num_difensori1'], 'totale_modificatore1' => $data['totale_modificatore1'], 'media_difensori1' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 1);
+        $this->db->where('id2', $data['id_utente1']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale1'], 'risultato2' => $punteggi['risultato1'], 'bonus_modificatore2' => $data['bonus1'], 'num_difensori2' => $data['num_difensori1'], 'totale_modificatore2' => $data['totale_modificatore1'], 'media_difensori2' => $data['media_difensori1']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 2);
+        $this->db->where('id1', $data['id_utente2']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale2'], 'risultato1' => $punteggi['risultato2'], 'bonus_modificatore1' => $data['bonus2'], 'num_difensori1' => $data['num_difensori2'], 'totale_modificatore1' => $data['totale_modificatore2'], 'media_difensori1' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 2);
+        $this->db->where('id2', $data['id_utente2']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale2'], 'risultato2' => $punteggi['risultato2'], 'bonus_modificatore2' => $data['bonus2'], 'num_difensori2' => $data['num_difensori2'], 'totale_modificatore2' => $data['totale_modificatore2'], 'media_difensori2' => $data['media_difensori2']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 3);
+        $this->db->where('id1', $data['id_utente3']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale3'], 'risultato1' => $punteggi['risultato3'], 'bonus_modificatore1' => $data['bonus3'], 'num_difensori1' => $data['num_difensori3'], 'totale_modificatore1' => $data['totale_modificatore3'], 'media_difensori1' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 3);
+        $this->db->where('id2', $data['id_utente3']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale3'], 'risultato2' => $punteggi['risultato3'], 'bonus_modificatore2' => $data['bonus3'], 'num_difensori2' => $data['num_difensori3'], 'totale_modificatore2' => $data['totale_modificatore3'], 'media_difensori2' => $data['media_difensori3']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 4);
+        $this->db->where('id1', $data['id_utente4']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale4'], 'risultato1' => $punteggi['risultato4'], 'bonus_modificatore1' => $data['bonus4'], 'num_difensori1' => $data['num_difensori4'], 'totale_modificatore1' => $data['totale_modificatore4'], 'media_difensori1' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 4);
+        $this->db->where('id2', $data['id_utente4']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale4'], 'risultato2' => $punteggi['risultato4'], 'bonus_modificatore2' => $data['bonus4'], 'num_difensori2' => $data['num_difensori4'], 'totale_modificatore2' => $data['totale_modificatore4'], 'media_difensori2' => $data['media_difensori4']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 5);
+        $this->db->where('id1', $data['id_utente5']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale5'], 'risultato1' => $punteggi['risultato5'], 'bonus_modificatore1' => $data['bonus5'], 'num_difensori1' => $data['num_difensori5'], 'totale_modificatore1' => $data['totale_modificatore5'], 'media_difensori1' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 5);
+        $this->db->where('id2', $data['id_utente5']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale5'], 'risultato2' => $punteggi['risultato5'], 'bonus_modificatore2' => $data['bonus5'], 'num_difensori2' => $data['num_difensori5'], 'totale_modificatore2' => $data['totale_modificatore5'], 'media_difensori2' => $data['media_difensori5']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 6);
+        $this->db->where('id1', $data['id_utente6']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale6'], 'risultato1' => $punteggi['risultato6'], 'bonus_modificatore1' => $data['bonus6'], 'num_difensori1' => $data['num_difensori6'], 'totale_modificatore1' => $data['totale_modificatore6'], 'media_difensori1' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 6);
+        $this->db->where('id2', $data['id_utente6']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale6'], 'risultato2' => $punteggi['risultato6'], 'bonus_modificatore2' => $data['bonus6'], 'num_difensori2' => $data['num_difensori6'], 'totale_modificatore2' => $data['totale_modificatore6'], 'media_difensori2' => $data['media_difensori6']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 7);
+        $this->db->where('id1', $data['id_utente7']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale7'], 'risultato1' => $punteggi['risultato7'], 'bonus_modificatore1' => $data['bonus7'], 'num_difensori1' => $data['num_difensori7'], 'totale_modificatore1' => $data['totale_modificatore7'], 'media_difensori1' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 7);
+        $this->db->where('id2', $data['id_utente7']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale7'], 'risultato2' => $punteggi['risultato7'], 'bonus_modificatore2' => $data['bonus7'], 'num_difensori2' => $data['num_difensori7'], 'totale_modificatore2' => $data['totale_modificatore7'], 'media_difensori2' => $data['media_difensori7']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 8);
+        $this->db->where('id1', $data['id_utente8']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale8'], 'risultato1' => $punteggi['risultato8'], 'bonus_modificatore1' => $data['bonus8'], 'num_difensori1' => $data['num_difensori8'], 'totale_modificatore1' => $data['totale_modificatore8'], 'media_difensori1' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 8);
+        $this->db->where('id2', $data['id_utente8']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale8'], 'risultato2' => $punteggi['risultato8'], 'bonus_modificatore2' => $data['bonus8'], 'num_difensori2' => $data['num_difensori8'], 'totale_modificatore2' => $data['totale_modificatore8'], 'media_difensori2' => $data['media_difensori8']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 9);
+        $this->db->where('id1', $data['id_utente9']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale9'], 'risultato1' => $punteggi['risultato9'], 'bonus_modificatore1' => $data['bonus9'], 'num_difensori1' => $data['num_difensori9'], 'totale_modificatore1' => $data['totale_modificatore9'], 'media_difensori1' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 9);
+        $this->db->where('id2', $data['id_utente9']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale9'], 'risultato2' => $punteggi['risultato9'], 'bonus_modificatore2' => $data['bonus9'], 'num_difensori2' => $data['num_difensori9'], 'totale_modificatore2' => $data['totale_modificatore9'], 'media_difensori2' => $data['media_difensori9']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id1', 10);
+        $this->db->where('id1', $data['id_utente10']);
         $this->db->update('tb_champions', array('punteggio1' => $data['totale10'], 'risultato1' => $punteggi['risultato10'], 'bonus_modificatore1' => $data['bonus10'], 'num_difensori1' => $data['num_difensori10'], 'totale_modificatore1' => $data['totale_modificatore10'], 'media_difensori1' => $data['media_difensori10']));
 
         $this->db->where('giornata', $_SESSION['giornata']);
-        $this->db->where('id2', 10);
+        $this->db->where('id2', $data['id_utente10']);
         $this->db->update('tb_champions', array('punteggio2' => $data['totale10'], 'risultato2' => $punteggi['risultato10'], 'bonus_modificatore2' => $data['bonus10'], 'num_difensori2' => $data['num_difensori10'], 'totale_modificatore2' => $data['totale_modificatore10'], 'media_difensori2' => $data['media_difensori10']));
 
         //Chiudo giornata Champions

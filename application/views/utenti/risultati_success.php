@@ -102,15 +102,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T1']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T1']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -142,15 +143,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T2']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T2']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -182,15 +184,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T3']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T3']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -222,15 +225,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T4']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T4']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -262,15 +266,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T5']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T5']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -302,15 +307,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T6']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T6']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -342,15 +348,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T7']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T7']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -382,15 +389,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T8']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T8']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -422,15 +430,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T9']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T9']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -462,15 +471,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T10']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T10']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -502,15 +512,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T11']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T11']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -548,15 +559,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P1']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P1']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -588,15 +601,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P2']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P2']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -628,15 +643,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P3']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P3']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -668,15 +685,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P4']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P4']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -708,15 +727,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P5']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P5']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -748,15 +769,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P6']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P6']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -788,15 +811,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P7']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P7']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -828,15 +853,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P8']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P8']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -868,15 +895,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P9']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P9']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -908,15 +937,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P10']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P10']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -948,15 +979,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P11']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P11']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -988,15 +1021,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P12']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P12']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1028,15 +1063,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P13']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P13']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1068,15 +1105,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P14']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P14']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleA[$c] = (@$totaleA[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1132,6 +1171,10 @@
                                                                 //Campo nascosto per il bonus modificatore
                                                                 echo "<input type='hidden' value=0 name='bonus" . $c . "' />";
                                                             }
+                                                            
+                                                            //Campo nascosto id_utente
+                                                            echo "<input type='hidden' value='" . $row['id1'] . "' name='id_utente" . $c . "' />";
+
 
                                                             //Campo nascosto per il totale parziale squadra in casa
                                                             echo "<input type='hidden' value='" . $totaleA . "' name='totale" . $c . "' />";
@@ -1198,10 +1241,10 @@
                                                                 $chkid = "";
 
                                                                 //Calcolo numeri difensori per Modificatore difesa
-                                                                @$num_difensori = $this->mdl_team->getNumeroDifensori($row['id2']);
+                                                                @$num_difensori = $this->mdl_team->getNumeroDifensoriSchierati($row['id2'], $_SESSION['giornata']);
 
                                                                 //Calcolo media voto difensori per Modificatore difesa
-                                                                @$media_difensori = $this->mdl_team->getMediaDifensori($row['id2'], $giornata);
+                                                                @$media_difensori = $this->mdl_team->getMediaDifensoriSchierati($row['id2'], $_SESSION['giornata']);
 
                                                                 $dettagli = $this->mdl_team->getGiocatore($schierati[$c]['T1']);
                                                                 $role = "";
@@ -1227,15 +1270,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T1']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T1']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1267,15 +1311,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T2']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T2']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1307,15 +1352,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T3']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T3']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1347,15 +1393,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T4']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T4']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1387,15 +1434,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T5']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T5']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1427,15 +1475,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T6']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T6']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1467,15 +1516,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T7']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T7']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1507,15 +1557,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T8']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T8']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1547,15 +1598,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T9']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T9']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1587,15 +1639,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T10']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T10']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1627,15 +1680,16 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['T11']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['T11']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto == "") { ?>
+                                                                        <?php if ($voto == "" || count($voto) == 0) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sv2.png" title="Sostituito" />
                                                                             <?php
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1671,15 +1725,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P1']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P1']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1711,15 +1767,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P2']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P2']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1751,15 +1809,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P3']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P3']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1791,15 +1851,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P4']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P4']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1831,15 +1893,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P5']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P5']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1871,15 +1935,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P6']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P6']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1911,15 +1977,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P7']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P7']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1951,15 +2019,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P8']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P8']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -1991,15 +2061,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P9']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P9']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -2031,15 +2103,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P10']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P10']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -2071,15 +2145,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P11']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P11']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -2111,15 +2187,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P12']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P12']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -2151,15 +2229,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P13']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P13']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -2191,15 +2271,17 @@
                                                                     $v = $this->mdl_team->getVotoS($schierati[$c]['P14']);
                                                                     $v = (is_Array($v) ? "" : $v);
                                                                     $voto = $this->mdl_team->getFantavotoS($schierati[$c]['P14']);
-                                                                    if ($voto != "") {
+                                                                    if ($voto != "" && is_array($voto) == false) {
                                                                         $totaleB[$c] = (@$totaleB[$c] + @$voto);
                                                                     }
                                                                     ?>
                                                                     <td class="lineup__pos" style="text-align: center;"><?= $v ?></td>
                                                                     <td class="lineup__pos" style="text-align: center;">
-                                                                        <?php if ($voto != "") { ?>
+                                                                        <?php if ($voto != "" && is_array($voto) == false) { ?>
                                                                             <img src="<?= base_url('/') ?>images/sost.png" title="Entrato in sostituzione" />
                                                                             <?php
+                                                                        } else {
+                                                                            $voto = "";
                                                                         }
                                                                         ?>
                                                                     </td>
@@ -2253,6 +2335,9 @@
                                                                 //Campo nascosto per il bonus modificatore
                                                                 echo "<input type='hidden' value=0 name='bonus" . $c . "' />";
                                                             }
+                                                            
+                                                            //Campo nascosto id_utente
+                                                            echo "<input type='hidden' value='" . $row['id2']. "' name='id_utente" . $c . "' />";
 
                                                             //Campo nascosto totale
                                                             echo "<input type='hidden' value='" . $totaleB . "' name='totale" . $c . "' />";

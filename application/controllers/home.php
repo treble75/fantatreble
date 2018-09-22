@@ -484,7 +484,7 @@ class Home extends CI_Controller {
             
             if ($squadra1 != $squadra2) {
             
-                //Seleziono i precedenti fra 2 squadre o fra 2 utenti
+                //Seleziono i precedenti fra 2 squadre o fra 2 utenti - DA MODIFICARE : Aggiungere stagione in corso
                 $data['precedenti2011_12'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2011-12", "2011_12");
                 if (is_array($data['precedenti2011_12']) && count($data['precedenti2011_12']) > 0) {
                     $data['message'] = "";
@@ -556,6 +556,26 @@ class Home extends CI_Controller {
                 }
                 $data['supercoppa2017_18'] = $this->mdl_team->getPrecedentiSuperCoppa($type, $squadra1, $squadra2, "2017-18", "2017_18");
                 if (is_array($data['supercoppa2017_18']) && count($data['supercoppa2017_18']) > 0) {
+                    $data['message'] = "";
+                    $data['check'] = 1;
+                }
+                $data['precedenti2018_19'] = $this->mdl_team->getPrecedenti($type, $squadra1, $squadra2, "2018-19", "2018_19");
+                if (is_array($data['precedenti2018_19']) && count($data['precedenti2018_19']) > 0) {
+                    $data['message'] = "";
+                    $data['check'] = 1;
+                }
+                $data['champions2018_19'] = $this->mdl_team->getPrecedentiChampions($type, $squadra1, $squadra2, "2018-19", "2018_19");
+                if (is_array($data['champions2018_19']) && count($data['champions2018_19']) > 0) {
+                    $data['message'] = "";
+                    $data['check'] = 1;
+                }
+                $data['coppa2018_19'] = $this->mdl_team->getPrecedentiCoppa($type, $squadra1, $squadra2, "2018-19", "2018_19");
+                if (is_array($data['coppa2018_19']) && count($data['coppa2018_19']) > 0) {
+                    $data['message'] = "";
+                    $data['check'] = 1;
+                }
+                $data['supercoppa2018_19'] = $this->mdl_team->getPrecedentiSuperCoppa($type, $squadra1, $squadra2, "2018-19", "2018_19");
+                if (is_array($data['supercoppa2018_19']) && count($data['supercoppa2018_19']) > 0) {
                     $data['message'] = "";
                     $data['check'] = 1;
                 }
@@ -978,7 +998,7 @@ class Home extends CI_Controller {
 
             if ($this->form_validation->run()) {
                 
-                if (($this->input->post('cmbGiornata') != 0) && ($this->input->post('cmbScelta') != 0) && ($this->input->post('cmbSquadra1') != 0) && ($this->input->post('cmbSquadra2') != 0)) {
+                if ($this->input->post('cmbSquadra1') != $this->input->post('cmbSquadra2')) {
 
                     $giornata       = $this->input->post('cmbGiornata');
                     $competizione   = $this->input->post('cmbScelta');
