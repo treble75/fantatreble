@@ -52,10 +52,39 @@
                                 </canvas>
 
                                 <?php
+                                $giornate_giocate = 0;
+                                //Determino giornate giocate di Coppa
+                                switch ($_SESSION['giornata']) {
+                                    case ($_SESSION['giornata'] >= 5 && $_SESSION['giornata'] < 8) :
+                                        $giornate_giocate = 1;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 8 && $_SESSION['giornata'] < 11) :
+                                        $giornate_giocate = 2;
+                                        break;
+                                    case ($_SESSION['giornata'] == 11) :
+                                        $giornate_giocate = 3;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 12 && $_SESSION['giornata'] < 16) :
+                                        $giornate_giocate = 4;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 16 && $_SESSION['giornata'] < 21) :
+                                        $giornate_giocate = 5;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 21 && $_SESSION['giornata'] < 27) :
+                                        $giornate_giocate = 6;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 27 && $_SESSION['giornata'] < 32) :
+                                        $giornate_giocate = 7;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 32) :
+                                        $giornate_giocate = 8;
+                                        break;
+                                }
+                                
                                 //Setto i nomi dei top 11 campionato; diviso per le 8 giornate di Coppa Treble
                                 $i = 1;
                                 foreach ($topCoppa['P'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 1) {
                                         if ($i == 1) {
@@ -68,7 +97,7 @@
 
                                 $i = 1;
                                 foreach ($topCoppa['D'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
                                         if ($i == 1) {
@@ -89,7 +118,7 @@
 
                                 $i = 1;
                                 foreach ($topCoppa['C'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 4) {
                                         if ($i == 1) {
@@ -114,7 +143,7 @@
 
                                 $i = 1;
                                 foreach ($topCoppa['A'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
                                         if ($i == 1) {
@@ -257,16 +286,16 @@
 
                                 <?php
                                 //Calcolo maggior mediagol - DA MODIFICARE se più di 10 utenti
-                                $media1 = ( $this->mdl_team->getMediaGolFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
-                                $media2 = ( $this->mdl_team->getMediaGolFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
-                                $media3 = ( $this->mdl_team->getMediaGolFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
-                                $media4 = ( $this->mdl_team->getMediaGolFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
-                                $media5 = ( $this->mdl_team->getMediaGolFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
-                                $media6 = ( $this->mdl_team->getMediaGolFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
-                                $media7 = ( $this->mdl_team->getMediaGolFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
-                                $media8 = ( $this->mdl_team->getMediaGolFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
-                                $media9 = ( $this->mdl_team->getMediaGolFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
-                                $media10 = ( $this->mdl_team->getMediaGolFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
+                                @$media1 = ( $this->mdl_team->getMediaGolFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
+                                @$media2 = ( $this->mdl_team->getMediaGolFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
+                                @$media3 = ( $this->mdl_team->getMediaGolFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
+                                @$media4 = ( $this->mdl_team->getMediaGolFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
+                                @$media5 = ( $this->mdl_team->getMediaGolFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
+                                @$media6 = ( $this->mdl_team->getMediaGolFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
+                                @$media7 = ( $this->mdl_team->getMediaGolFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
+                                @$media8 = ( $this->mdl_team->getMediaGolFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
+                                @$media9 = ( $this->mdl_team->getMediaGolFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
+                                @$media10 = ( $this->mdl_team->getMediaGolFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
 
                                 $medie_gol = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -293,16 +322,16 @@
 
                                     <?php
                                     //Calcolo maggior mediagolsubiti - DA MODIFICARE se più di 10 utenti
-                                    $media1 = ( $this->mdl_team->getMediaGolSubitiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
-                                    $media2 = ( $this->mdl_team->getMediaGolSubitiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
-                                    $media3 = ( $this->mdl_team->getMediaGolSubitiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
-                                    $media4 = ( $this->mdl_team->getMediaGolSubitiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
-                                    $media5 = ( $this->mdl_team->getMediaGolSubitiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
-                                    $media6 = ( $this->mdl_team->getMediaGolSubitiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
-                                    $media7 = ( $this->mdl_team->getMediaGolSubitiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
-                                    $media8 = ( $this->mdl_team->getMediaGolSubitiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
-                                    $media9 = ( $this->mdl_team->getMediaGolSubitiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
-                                    $media10 = ( $this->mdl_team->getMediaGolSubitiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
+                                    @$media1 = ( $this->mdl_team->getMediaGolSubitiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
+                                    @$media2 = ( $this->mdl_team->getMediaGolSubitiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
+                                    @$media3 = ( $this->mdl_team->getMediaGolSubitiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
+                                    @$media4 = ( $this->mdl_team->getMediaGolSubitiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
+                                    @$media5 = ( $this->mdl_team->getMediaGolSubitiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
+                                    @$media6 = ( $this->mdl_team->getMediaGolSubitiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
+                                    @$media7 = ( $this->mdl_team->getMediaGolSubitiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
+                                    @$media8 = ( $this->mdl_team->getMediaGolSubitiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
+                                    @$media9 = ( $this->mdl_team->getMediaGolSubitiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
+                                    @$media10 = ( $this->mdl_team->getMediaGolSubitiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
 
                                     $medie_golsubiti = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -330,16 +359,56 @@
                                     <?php
                                     //Calcolo maggior mediaassist - DA MODIFICARE se più di 10 utenti
                                     if ($giornata_media > 0) {
-                                        $media1 = ( $this->mdl_team->getMediaAssistFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
-                                        $media2 = ( $this->mdl_team->getMediaAssistFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
-                                        $media3 = ( $this->mdl_team->getMediaAssistFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
-                                        $media4 = ( $this->mdl_team->getMediaAssistFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
-                                        $media5 = ( $this->mdl_team->getMediaAssistFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
-                                        $media6 = ( $this->mdl_team->getMediaAssistFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
-                                        $media7 = ( $this->mdl_team->getMediaAssistFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
-                                        $media8 = ( $this->mdl_team->getMediaAssistFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
-                                        $media9 = ( $this->mdl_team->getMediaAssistFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
-                                        $media10 = ( $this->mdl_team->getMediaAssistFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(1) != 0) ) {
+                                            @$media1 = ( $this->mdl_team->getMediaAssistFattiCoppa(1) / $this->mdl_team->getStatsPartiteGiocateCoppa(1));
+                                        } else {
+                                            @$media1 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(2) != 0) ) {
+                                            @$media2 = ( $this->mdl_team->getMediaAssistFattiCoppa(2) / $this->mdl_team->getStatsPartiteGiocateCoppa(2));
+                                        } else {
+                                            @$media2 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(3) != 0) ) {
+                                            @$media3 = ( $this->mdl_team->getMediaAssistFattiCoppa(3) / $this->mdl_team->getStatsPartiteGiocateCoppa(3));
+                                        } else {
+                                            @$media3 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(4) != 0) ) {
+                                            @$media4 = ( $this->mdl_team->getMediaAssistFattiCoppa(4) / $this->mdl_team->getStatsPartiteGiocateCoppa(4));
+                                        } else {
+                                            @$media4 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(5) != 0) ) {
+                                            @$media5 = ( $this->mdl_team->getMediaAssistFattiCoppa(5) / $this->mdl_team->getStatsPartiteGiocateCoppa(5));
+                                        } else {
+                                            @$media5 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(6) != 0) ) {
+                                            @$media6 = ( $this->mdl_team->getMediaAssistFattiCoppa(6) / $this->mdl_team->getStatsPartiteGiocateCoppa(6));
+                                        } else {
+                                            @$media6 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(7) != 0) ) {
+                                            @$media7 = ( $this->mdl_team->getMediaAssistFattiCoppa(7) / $this->mdl_team->getStatsPartiteGiocateCoppa(7));
+                                        } else {
+                                            @$media7 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(8) != 0) ) {
+                                            @$media8 = ( $this->mdl_team->getMediaAssistFattiCoppa(8) / $this->mdl_team->getStatsPartiteGiocateCoppa(8));
+                                        } else {
+                                            @$media8 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(9) != 0) ) {
+                                            @$media9 = ( $this->mdl_team->getMediaAssistFattiCoppa(9) / $this->mdl_team->getStatsPartiteGiocateCoppa(9));
+                                        } else {
+                                            @$media9 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiCoppa(10) != 0) ) {
+                                            @$media10 = ( $this->mdl_team->getMediaAssistFattiCoppa(10) / $this->mdl_team->getStatsPartiteGiocateCoppa(10));
+                                        } else {
+                                            @$media10 = 0;
+                                        }
                                     }
 
                                     $medie_assist = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);

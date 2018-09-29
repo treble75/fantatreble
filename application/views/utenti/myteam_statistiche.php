@@ -223,6 +223,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[0]['punteggio1'] ?> - <?= $bestmatch1[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[0]['punteggio1'] + $bestmatch1[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -264,6 +265,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[0]['punteggio1'] + $bestmatch2[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -305,6 +307,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[1]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[1]['punteggio1'] ?> - <?= $bestmatch1[1]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[1]['punteggio1'] + $bestmatch1[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -346,6 +349,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[0]['punteggio1'] + $bestmatch2[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -387,6 +391,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[0]['punteggio1'] ?> - <?= $bestmatch1[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[0]['punteggio1'] + $bestmatch1[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -428,6 +433,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[1]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[1]['punteggio1'] ?> - <?= $bestmatch2[1]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[1]['punteggio1'] + $bestmatch2[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -469,6 +475,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[2]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[2]['punteggio1'] ?> - <?= $bestmatch1[2]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[2]['punteggio1'] + $bestmatch1[2]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -510,6 +517,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[2]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[2]['punteggio1'] ?> - <?= $bestmatch2[2]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[2]['punteggio1'] + $bestmatch2[2]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -551,6 +559,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[0]['punteggio1'] + $bestmatch2[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -592,6 +601,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[2]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[2]['punteggio1'] ?> - <?= $bestmatch1[2]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[2]['punteggio1'] + $bestmatch1[2]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -633,6 +643,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[3]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[3]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[3]['punteggio1'] ?> - <?= $bestmatch1[3]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[3]['punteggio1'] + $bestmatch1[3]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -674,6 +685,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[0]['punteggio1'] + $bestmatch2[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -715,6 +727,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[4]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[4]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[4]['punteggio1'] ?> - <?= $bestmatch1[4]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[4]['punteggio1'] + $bestmatch1[4]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -756,6 +769,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[3]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[3]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[3]['punteggio1'] ?> - <?= $bestmatch1[3]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[3]['punteggio1'] + $bestmatch1[3]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -797,6 +811,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[0]['punteggio1'] ?> - <?= $bestmatch2[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[0]['punteggio1'] + $bestmatch2[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -838,6 +853,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[0]['punteggio1'] ?> - <?= $bestmatch1[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[0]['punteggio1'] + $bestmatch1[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -879,6 +895,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[1]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[1]['punteggio1'] ?> - <?= $bestmatch1[1]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[1]['punteggio1'] + $bestmatch1[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -920,6 +937,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[1]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[1]['punteggio1'] ?> - <?= $bestmatch2[1]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[1]['punteggio1'] + $bestmatch2[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -961,6 +979,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[3]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[3]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[3]['punteggio1'] ?> - <?= $bestmatch2[3]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[3]['punteggio1'] + $bestmatch2[3]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1002,6 +1021,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[0]['punteggio1'] ?> - <?= $bestmatch1[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[0]['punteggio1'] + $bestmatch1[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1043,6 +1063,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[2]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[2]['punteggio1'] ?> - <?= $bestmatch2[2]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[2]['punteggio1'] + $bestmatch2[2]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1084,6 +1105,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[1]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[1]['punteggio1'] ?> - <?= $bestmatch1[1]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[1]['punteggio1'] + $bestmatch1[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1125,6 +1147,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[1]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[1]['punteggio1'] ?> - <?= $bestmatch2[1]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[1]['punteggio1'] + $bestmatch2[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1166,6 +1189,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[2]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[2]['punteggio1'] ?> - <?= $bestmatch1[2]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[2]['punteggio1'] + $bestmatch1[2]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1207,6 +1231,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[3]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[3]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[3]['punteggio1'] ?> - <?= $bestmatch1[3]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[1]['punteggio1'] + $bestmatch2[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1248,6 +1273,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[1]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[1]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[1]['punteggio1'] ?> - <?= $bestmatch1[1]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[1]['punteggio1'] + $bestmatch1[1]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1289,6 +1315,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[3]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[3]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[3]['punteggio1'] ?> - <?= $bestmatch2[3]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[3]['punteggio1'] + $bestmatch2[3]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1330,6 +1357,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch1[0]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch1[0]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch1[0]['punteggio1'] ?> - <?= $bestmatch1[0]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch1[0]['punteggio1'] + $bestmatch1[0]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1371,6 +1399,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[4]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[4]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[4]['punteggio1'] ?> - <?= $bestmatch2[4]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[4]['punteggio1'] + $bestmatch2[4]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">
@@ -1412,6 +1441,7 @@
                                                     <div class="widget-results__score">
                                                         <span class="widget-results__score-draw" style="font-size: 12px;"><?= $bestmatch2[2]['risultato1'] ?></span> - <span class="widget-results__score-draw"  style="font-size: 12px;"><?= $bestmatch2[2]['risultato2'] ?></span>
                                                         <div class="widget-results__status"><?= $bestmatch2[2]['punteggio1'] ?> - <?= $bestmatch2[2]['punteggio2'] ?></div>
+                                                        <div class="widget-results__status" style="color: #1892ED; font-size: 10px;"><?= ( $bestmatch2[2]['punteggio1'] + $bestmatch2[2]['punteggio2']) ?></div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-results__team widget-results__team--second">

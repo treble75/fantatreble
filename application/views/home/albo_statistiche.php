@@ -976,7 +976,7 @@
 
                                                     <tr>
                                                         <td class="team-result__date" style="width: 14%"><?= dataSettimanale($row['data']) ?></td>
-                                                        <td class="team-result__status" style="width: 14%">2017-18</td>
+                                                        <td class="team-result__status" style="width: 14%">2018-19</td>
                                                         <td class="team-result__status" style="width: 22%">
                                                             <div class="team-meta">
                                                                 <figure class="team-meta__logoCalendar">

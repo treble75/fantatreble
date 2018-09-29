@@ -17,11 +17,11 @@
             <div class="container">
                 <a href="#" class="content-filter__toggle"></a>
                 <ul class="content-filter__list">
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/statistiche_champions" class="content-filter__link"><small>Champions League</small>Statistiche</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/marcatori_champions" class="content-filter__link"><small>Champions League</small>Marcatori</a></li>
-                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/calendario_champions" class="content-filter__link"><small>Champions League</small>Calendario</a></li>
-                    <li class="content-filter__item "><a href="<?= base_url('/') ?>home/stagioni_precedenti_champions" class="content-filter__link"><small>Champions League</small>Stagioni Precedenti</a></li>
+                    <li class="content-filter__item content-filter__item--active"><a href="<?= base_url('/') ?>home/statistiche_champions" class="content-filter__link"><small>Champions League</small>Statistiche</a></li>
+                    <li class="content-filter__item"><a href="<?= base_url('/') ?>home/marcatori_champions" class="content-filter__link"><small>Champions League</small>Marcatori</a></li>
+                    <li class="content-filter__item"><a href="<?= base_url('/') ?>home/champions" class="content-filter__link"><small>Champions League</small>Classifica</a></li>
+                    <li class="content-filter__item"><a href="<?= base_url('/') ?>home/calendario_champions" class="content-filter__link"><small>Champions League</small>Calendario</a></li>
+                    <li class="content-filter__item"><a href="<?= base_url('/') ?>home/stagioni_precedenti_champions" class="content-filter__link"><small>Champions League</small>Stagioni Precedenti</a></li>
                 </ul>
             </div>
         </nav>
@@ -50,10 +50,63 @@
                                 </canvas>
 
                                 <?php
+                                $giornate_giocate = 0;
+                                //Determino giornate giocate di Champions
+                                switch ($_SESSION['giornata']) {
+                                    case ($_SESSION['giornata'] == 3) :
+                                        $giornate_giocate = 1;
+                                        break;
+                                    case ($_SESSION['giornata'] > 3 && $_SESSION['giornata'] < 7) :
+                                        $giornate_giocate = 2;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 7 && $_SESSION['giornata'] < 10) :
+                                        $giornate_giocate = 3;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 10 && $_SESSION['giornata'] < 13) :
+                                        $giornate_giocate = 4;
+                                        break;
+                                    case ($_SESSION['giornata'] == 13) :
+                                        $giornate_giocate = 5;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 14 && $_SESSION['giornata'] < 17) :
+                                        $giornate_giocate = 6;
+                                        break;
+                                    case ($_SESSION['giornata'] == 17) :
+                                        $giornate_giocate = 7;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 18 && $_SESSION['giornata'] < 20) :
+                                        $giornate_giocate = 8;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 20 && $_SESSION['giornata'] < 23) :
+                                        $giornate_giocate = 9;
+                                        break;
+                                    case ($_SESSION['giornata'] == 23) :
+                                        $giornate_giocate = 10;
+                                        break;
+                                    case ($_SESSION['giornata'] == 24) :
+                                        $giornate_giocate = 11;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 25 && $_SESSION['giornata'] < 28) :
+                                        $giornate_giocate = 12;
+                                        break;
+                                    case ($_SESSION['giornata'] == 28) :
+                                        $giornate_giocate = 13;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 29 && $_SESSION['giornata'] < 31) :
+                                        $giornate_giocate = 14;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 31 && $_SESSION['giornata'] < 34) :
+                                        $giornate_giocate = 15;
+                                        break;
+                                    case ($_SESSION['giornata'] >= 34 && $_SESSION['giornata'] < 37) :
+                                        $giornate_giocate = 16;
+                                        break;
+                                }
+                                
                                 //Setto i nomi dei top 11 campionato; diviso per le 8 giornate di Coppa Treble
                                 $i = 1;
                                 foreach ($topChampions['P'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 16;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 1) {
                                         if ($i == 1) {
@@ -66,7 +119,7 @@
 
                                 $i = 1;
                                 foreach ($topChampions['D'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 16;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
                                         if ($i == 1) {
@@ -87,7 +140,7 @@
 
                                 $i = 1;
                                 foreach ($topChampions['C'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 16;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 4) {
                                         if ($i == 1) {
@@ -112,7 +165,7 @@
 
                                 $i = 1;
                                 foreach ($topChampions['A'] as $row) {
-                                    $percentuale_presenze = ($row['presenze'] * 100) / 16;
+                                    $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
                                     //Impostare soglia percentuale presenze: 30 equivale al 30% delle partite giocate in Coppa
                                     if ($percentuale_presenze >= 30 && $i <= 3) {
                                         if ($i == 1) {
@@ -255,16 +308,16 @@
                                 
                                 <?php
                                 //Calcolo maggior mediagol - DA MODIFICARE se più di 10 utenti
-                                $media1 = ( $this->mdl_team->getMediaGolFattiChampions(1) / $this->mdl_team->getStatsPartiteGiocateChampions(1));
-                                $media2 = ( $this->mdl_team->getMediaGolFattiChampions(2) / $this->mdl_team->getStatsPartiteGiocateChampions(2));
-                                $media3 = ( $this->mdl_team->getMediaGolFattiChampions(3) / $this->mdl_team->getStatsPartiteGiocateChampions(3));
-                                $media4 = ( $this->mdl_team->getMediaGolFattiChampions(4) / $this->mdl_team->getStatsPartiteGiocateChampions(4));
-                                $media5 = ( $this->mdl_team->getMediaGolFattiChampions(5) / $this->mdl_team->getStatsPartiteGiocateChampions(5));
-                                $media6 = ( $this->mdl_team->getMediaGolFattiChampions(6) / $this->mdl_team->getStatsPartiteGiocateChampions(6));
-                                $media7 = ( $this->mdl_team->getMediaGolFattiChampions(7) / $this->mdl_team->getStatsPartiteGiocateChampions(7));
-                                $media8 = ( $this->mdl_team->getMediaGolFattiChampions(8) / $this->mdl_team->getStatsPartiteGiocateChampions(8));
-                                $media9 = ( $this->mdl_team->getMediaGolFattiChampions(9) / $this->mdl_team->getStatsPartiteGiocateChampions(9));
-                                $media10 = ( $this->mdl_team->getMediaGolFattiChampions(10) / $this->mdl_team->getStatsPartiteGiocateChampions(10));
+                                @$media1 = ( $this->mdl_team->getMediaGolFattiChampions(1) / $this->mdl_team->getStatsPartiteGiocateChampions(1));
+                                @$media2 = ( $this->mdl_team->getMediaGolFattiChampions(2) / $this->mdl_team->getStatsPartiteGiocateChampions(2));
+                                @$media3 = ( $this->mdl_team->getMediaGolFattiChampions(3) / $this->mdl_team->getStatsPartiteGiocateChampions(3));
+                                @$media4 = ( $this->mdl_team->getMediaGolFattiChampions(4) / $this->mdl_team->getStatsPartiteGiocateChampions(4));
+                                @$media5 = ( $this->mdl_team->getMediaGolFattiChampions(5) / $this->mdl_team->getStatsPartiteGiocateChampions(5));
+                                @$media6 = ( $this->mdl_team->getMediaGolFattiChampions(6) / $this->mdl_team->getStatsPartiteGiocateChampions(6));
+                                @$media7 = ( $this->mdl_team->getMediaGolFattiChampions(7) / $this->mdl_team->getStatsPartiteGiocateChampions(7));
+                                @$media8 = ( $this->mdl_team->getMediaGolFattiChampions(8) / $this->mdl_team->getStatsPartiteGiocateChampions(8));
+                                @$media9 = ( $this->mdl_team->getMediaGolFattiChampions(9) / $this->mdl_team->getStatsPartiteGiocateChampions(9));
+                                @$media10 = ( $this->mdl_team->getMediaGolFattiChampions(10) / $this->mdl_team->getStatsPartiteGiocateChampions(10));
 
                                 $medie_gol = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -291,16 +344,16 @@
 
                                     <?php
                                     //Calcolo maggior mediagolsubiti - DA MODIFICARE se più di 10 utenti
-                                    $media1 = ( $this->mdl_team->getMediaGolSubitiChampions(1) / $this->mdl_team->getStatsPartiteGiocateChampions(1));
-                                    $media2 = ( $this->mdl_team->getMediaGolSubitiChampions(2) / $this->mdl_team->getStatsPartiteGiocateChampions(2));
-                                    $media3 = ( $this->mdl_team->getMediaGolSubitiChampions(3) / $this->mdl_team->getStatsPartiteGiocateChampions(3));
-                                    $media4 = ( $this->mdl_team->getMediaGolSubitiChampions(4) / $this->mdl_team->getStatsPartiteGiocateChampions(4));
-                                    $media5 = ( $this->mdl_team->getMediaGolSubitiChampions(5) / $this->mdl_team->getStatsPartiteGiocateChampions(5));
-                                    $media6 = ( $this->mdl_team->getMediaGolSubitiChampions(6) / $this->mdl_team->getStatsPartiteGiocateChampions(6));
-                                    $media7 = ( $this->mdl_team->getMediaGolSubitiChampions(7) / $this->mdl_team->getStatsPartiteGiocateChampions(7));
-                                    $media8 = ( $this->mdl_team->getMediaGolSubitiChampions(8) / $this->mdl_team->getStatsPartiteGiocateChampions(8));
-                                    $media9 = ( $this->mdl_team->getMediaGolSubitiChampions(9) / $this->mdl_team->getStatsPartiteGiocateChampions(9));
-                                    $media10 = ( $this->mdl_team->getMediaGolSubitiChampions(10) / $this->mdl_team->getStatsPartiteGiocateChampions(10));
+                                    @$media1 = ( $this->mdl_team->getMediaGolSubitiChampions(1) / $this->mdl_team->getStatsPartiteGiocateChampions(1));
+                                    @$media2 = ( $this->mdl_team->getMediaGolSubitiChampions(2) / $this->mdl_team->getStatsPartiteGiocateChampions(2));
+                                    @$media3 = ( $this->mdl_team->getMediaGolSubitiChampions(3) / $this->mdl_team->getStatsPartiteGiocateChampions(3));
+                                    @$media4 = ( $this->mdl_team->getMediaGolSubitiChampions(4) / $this->mdl_team->getStatsPartiteGiocateChampions(4));
+                                    @$media5 = ( $this->mdl_team->getMediaGolSubitiChampions(5) / $this->mdl_team->getStatsPartiteGiocateChampions(5));
+                                    @$media6 = ( $this->mdl_team->getMediaGolSubitiChampions(6) / $this->mdl_team->getStatsPartiteGiocateChampions(6));
+                                    @$media7 = ( $this->mdl_team->getMediaGolSubitiChampions(7) / $this->mdl_team->getStatsPartiteGiocateChampions(7));
+                                    @$media8 = ( $this->mdl_team->getMediaGolSubitiChampions(8) / $this->mdl_team->getStatsPartiteGiocateChampions(8));
+                                    @$media9 = ( $this->mdl_team->getMediaGolSubitiChampions(9) / $this->mdl_team->getStatsPartiteGiocateChampions(9));
+                                    @$media10 = ( $this->mdl_team->getMediaGolSubitiChampions(10) / $this->mdl_team->getStatsPartiteGiocateChampions(10));
 
                                     $medie_golsubiti = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
 
@@ -328,16 +381,56 @@
                                     <?php
                                     //Calcolo maggior mediaassist - DA MODIFICARE se più di 10 utenti
                                     if ($giornata_media > 0) {
-                                        $media1 = ( $this->mdl_team->getMediaAssistFattiChampions(1) / $this->mdl_team->getStatsPartiteGiocateChampions(1));
-                                        $media2 = ( $this->mdl_team->getMediaAssistFattiChampions(2) / $this->mdl_team->getStatsPartiteGiocateChampions(2));
-                                        $media3 = ( $this->mdl_team->getMediaAssistFattiChampions(3) / $this->mdl_team->getStatsPartiteGiocateChampions(3));
-                                        $media4 = ( $this->mdl_team->getMediaAssistFattiChampions(4) / $this->mdl_team->getStatsPartiteGiocateChampions(4));
-                                        $media5 = ( $this->mdl_team->getMediaAssistFattiChampions(5) / $this->mdl_team->getStatsPartiteGiocateChampions(5));
-                                        $media6 = ( $this->mdl_team->getMediaAssistFattiChampions(6) / $this->mdl_team->getStatsPartiteGiocateChampions(6));
-                                        $media7 = ( $this->mdl_team->getMediaAssistFattiChampions(7) / $this->mdl_team->getStatsPartiteGiocateChampions(7));
-                                        $media8 = ( $this->mdl_team->getMediaAssistFattiChampions(8) / $this->mdl_team->getStatsPartiteGiocateChampions(8));
-                                        $media9 = ( $this->mdl_team->getMediaAssistFattiChampions(9) / $this->mdl_team->getStatsPartiteGiocateChampions(9));
-                                        $media10 = ( $this->mdl_team->getMediaAssistFattiChampions(10) / $this->mdl_team->getStatsPartiteGiocateChampions(10));
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(1)) != 0 ) {
+                                            @$media1 = ( $this->mdl_team->getMediaAssistFattiChampions(1) / $this->mdl_team->getStatsPartiteGiocateChampions(1));
+                                        } else {
+                                            $media1 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(2)) != 0 ) {
+                                            @$media2 = ( $this->mdl_team->getMediaAssistFattiChampions(2) / $this->mdl_team->getStatsPartiteGiocateChampions(2));
+                                        } else {
+                                            $media2 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(3)) != 0 ) {
+                                            @$media3 = ( $this->mdl_team->getMediaAssistFattiChampions(3) / $this->mdl_team->getStatsPartiteGiocateChampions(3));
+                                        } else {
+                                            $media3 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(4)) != 0 ) {
+                                            @$media4 = ( $this->mdl_team->getMediaAssistFattiChampions(4) / $this->mdl_team->getStatsPartiteGiocateChampions(4));
+                                        } else {
+                                            $media4 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(5)) != 0 ) {
+                                            @$media5 = ( $this->mdl_team->getMediaAssistFattiChampions(5) / $this->mdl_team->getStatsPartiteGiocateChampions(5));
+                                        } else {
+                                            $media5 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(6)) != 0 ) {
+                                            @$media6 = ( $this->mdl_team->getMediaAssistFattiChampions(6) / $this->mdl_team->getStatsPartiteGiocateChampions(6));
+                                        } else {
+                                            $media6 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(7)) != 0 ) {
+                                            @$media7 = ( $this->mdl_team->getMediaAssistFattiChampions(7) / $this->mdl_team->getStatsPartiteGiocateChampions(7));
+                                        } else {
+                                            $media7 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(8)) != 0 ) {
+                                            @$media8 = ( $this->mdl_team->getMediaAssistFattiChampions(8) / $this->mdl_team->getStatsPartiteGiocateChampions(8));
+                                        } else {
+                                            $media8 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(9)) != 0 ) {
+                                            @$media9 = ( $this->mdl_team->getMediaAssistFattiChampions(9) / $this->mdl_team->getStatsPartiteGiocateChampions(9));
+                                        } else {
+                                            $media9 = 0;
+                                        }
+                                        if ( count($this->mdl_team->getMediaAssistFattiChampions(10)) != 0 ) {
+                                            @$media10 = ( $this->mdl_team->getMediaAssistFattiChampions(10) / $this->mdl_team->getStatsPartiteGiocateChampions(10));
+                                        } else {
+                                            $media10 = 0;
+                                        }
                                     }
 
                                     $medie_assist = array("1" => $media1, "2" => $media2, "3" => $media3, "4" => $media4, "5" => $media5, "6" => $media6, "7" => $media7, "8" => $media8, "9" => $media9, "10" => $media10);
@@ -678,8 +771,10 @@
                                         <tbody>
                                             <?php
                                             $i = 1;
+                                            
                                             foreach ($topmediafantavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / 16;
+                                                
+                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
 
                                                 //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
@@ -751,7 +846,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($flopmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / 16;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
 
                                                 //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
@@ -822,7 +917,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($topmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / 16;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
 
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
                                                     ?>
