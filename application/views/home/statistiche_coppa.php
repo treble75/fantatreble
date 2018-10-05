@@ -748,7 +748,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($topmediafantavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
 
                                                 //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
@@ -820,7 +820,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($flopmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
 
                                                 //Impostare soglia percentuale presenze: 20 equivale al 20% delle partite giocate del FantaTreble
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
@@ -891,7 +891,7 @@
                                             <?php
                                             $i = 1;
                                             foreach ($topmediavoto as $row) {
-                                                $percentuale_presenze = ($row['presenze'] * 100) / 8;
+                                                $percentuale_presenze = ($row['presenze'] * 100) / $giornate_giocate;
 
                                                 if ($percentuale_presenze >= 30 && $i <= 5) {
                                                     ?>

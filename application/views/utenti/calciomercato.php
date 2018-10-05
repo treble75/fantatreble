@@ -121,7 +121,7 @@
                                                             <header class="product__header">
                                                                 <div class="product__header-inner">
                                                                     <span class="product__category" style="color: #1892ED;">Tipologia : <?= $row['tipo'] ?></span>
-                                                                    <h4 class="product__title"><a href="_soccer_shop-product.html"><?= $row['offerta'] ?></a></h4>
+                                                                    <h4 class="product__title"><?= $row['offerta'] ?></h4>
                                                                 </div>
                                                             </header>
 
@@ -138,7 +138,14 @@
                                                                 </h5>
                                                                 <span>&nbsp;</span>
                                                                 <?php
+                                                                //Data offerta standard
                                                                 $ora_offerta = substr($row['orario'], 19, 4) . "-" . substr($row['orario'], 16, 2) . "-" . (substr($row['orario'], 13, 2) + 02) . " " . substr($row['orario'], 0, 8);
+                                                                
+                                                                // Offerta inserita il 30 Settembre
+                                                                if (substr($row['orario'], 13, 2) == 30 && substr($row['orario'], 16, 2) == "09") {
+                                                                        $ora_offerta = substr($row['orario'], 19, 4) . "-" . (substr($row['orario'], 16, 2) + 1) . "-" . "02" . " " . substr($row['orario'], 0, 8);
+                                                                }
+                                                                
                                                                 ?> 
                                                                 <h5 class="team-leader__player-name" style="font-size: 12px">
                                                                     <div class="countdown-counter" data-date="<?= $ora_offerta ?>" ></div>

@@ -62,7 +62,13 @@
                                                 <td class="team-roster-table__name" style="color: #1892ED; font-size: 13px; vertical-align: middle; width: 15%; text-align: center;"><?= $this->mdl_utenti->getSquadra($row['id_utente']) ?></td>
                                                 <td class="team-roster-table__age" style="color: #1892ED; font-size: 13px; vertical-align: middle; width: 40%; text-align: center;"><?= $row['offerta'] ?></td>
                                                 <?php
+                                                //Offerta standard
                                                 $ora_offerta = substr($row['orario'], 19, 4) . "-" . substr($row['orario'], 16, 2) . "-" . (substr($row['orario'], 13, 2) + 02) . " " . substr($row['orario'], 0, 8);
+                                                
+                                                // Offerta inserita il 30 Settembre
+                                                if (substr($row['orario'], 13, 2) == 30 && substr($row['orario'], 16, 2) == "09") {
+                                                        $ora_offerta = substr($row['orario'], 19, 4) . "-" . (substr($row['orario'], 16, 2) + 1) . "-" . "02" . " " . substr($row['orario'], 0, 8);
+                                                }
                                                 ?>
                                                 <td class="team-roster-table__name" style="vertical-align: middle; width: 20%; text-align: center;"><div class="countdown-counter" style="width: 200px;" data-date="<?= $ora_offerta ?>" ></div></td>
                                             </tr>

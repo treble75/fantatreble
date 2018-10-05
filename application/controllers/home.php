@@ -36,6 +36,10 @@ class Home extends CI_Controller {
         $this->load->view($pagina, $dati);
         $this->load->view('include/footer');
     }
+    
+    public function test1() {
+        $this->load->view('home/test1');
+    }
 
     public function index() {
         $this->load->model('mdl_team');
